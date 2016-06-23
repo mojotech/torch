@@ -15,7 +15,7 @@
 
     <header id="main-header">
       <nav>
-        <h1>CrossConnect</h1>
+        <h1>Torch Admin</h1>
         <ul>
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Price Calculator</a></li>

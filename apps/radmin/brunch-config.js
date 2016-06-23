@@ -6,11 +6,11 @@ exports.config = {
     javascripts: {
       joinTo: 'radmin.js'
     },
-    stylesheets: {
-      joinTo: {
-        'radmin.css': /^(web|node_modules)/
-      }
-    }
+    /* stylesheets: {
+     *   joinTo: {
+     *     'radmin.css': /^(web|node_modules)/
+     *   }
+     * }*/
   },
 
   paths: {
@@ -39,9 +39,6 @@ exports.config = {
       pikaday: [
         'css/pikaday.css',
         'css/theme.css'
-      ],
-      'normalize.css': [
-        'normalize.css'
       ]
     }
   }

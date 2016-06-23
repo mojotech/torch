@@ -45,7 +45,8 @@ exports.config = {
     // Dependencies and current project directories to watch
     watched: [
       "web/static",
-      "node_modules/radminjs/priv/static"
+      "node_modules/radminjs/priv/static",
+      "node_modules/radminjs/web/static/css"
     ],
 
     // Where to compile files to
@@ -68,10 +69,10 @@ exports.config = {
 
   npm: {
     enabled: true,
-    styles: {
-      radminjs: [
-        'priv/static/radmin.css'
-      ]
-    }
+    /* styles: {
+     *   radminjs: [
+     *     'web/static/css/radmin.css'
+     *   ]
+     * }*/
   }
 };
