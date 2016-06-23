@@ -1,20 +1,38 @@
-<%= render "_filters.html", assigns %>
-<hr/>
-
-<h3>Results</h3>
-<hr/>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for post <- @posts do %>
+<section class="content">
+  <table>
+    <thead>
       <tr>
-        <td><%= post.title %></td>
+        <th>Name</th>
+        <th>Email</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Daniel Berkompas</td>
+        <td>test@email.com</td>
+      </tr>
+      <tr>
+        <td>Zachary Berkompas</td>
+        <td>test@email.com</td>
+      </tr>
+      <tr>
+        <td>Matthew Berkompas</td>
+        <td>test@email.com</td>
+      </tr>
+      <tr>
+        <td>Jeremy Berkompas</td>
+        <td>test@email.com</td>
+      </tr>
+      <tr>
+        <td>Joshua Berkompas</td>
+        <td>test@email.com</td>
+      </tr>
+      <%= for post <- @posts do %>
+        <tr>
+          <td><%= post.title %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+<%= render "_filters.html", assigns %>

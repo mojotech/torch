@@ -39,6 +39,9 @@ exports.config = {
       pikaday: [
         'css/pikaday.css',
         'css/theme.css'
+      ],
+      'normalize.css': [
+        'normalize.css'
       ]
     }
   }

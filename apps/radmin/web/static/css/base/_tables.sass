@@ -1,0 +1,28 @@
+table
+  width: 100%
+
+  thead
+    th
+      padding-left: 15px
+      text-align: left
+      color: $white
+      font-weight: $font-weight
+      background-color: $tertiary-color
+      height: 40px
+
+      &:nth-child(odd)
+        background-color: $tertiary-color
+
+      &:nth-child(even)
+        background-color: lighten($tertiary-color, 15%)
+
+  tbody
+    tr
+      height: 40px
+      border-bottom: 1px solid #ccc
+
+      &:nth-child(odd)
+        background-color: #F1F1F1
+
+    td
+      padding-left: 15px

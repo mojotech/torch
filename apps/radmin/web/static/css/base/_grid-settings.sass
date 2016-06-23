@@ -1,0 +1,29 @@
+$grid-columns     : 12
+$gutter           : 30px
+$container        : 1110px
+$container_gutter : 30px
+
+// Grid
+$max-width: $container + $container_gutter * 2
+$column: ($max-width - ($gutter * ($grid-columns - 1) + $container_gutter * 2))/$grid-columns
+
+// main
+$desktop: new-breakpoint(min-width 1025px)
+$tablet: new-breakpoint(min-width 768px max-width 1024px)
+$mobile: new-breakpoint(max-width 767px)
+
+// secondary
+$desktop-extra-large: new-breakpoint(min-width 1921px)
+$desktop-large: new-breakpoint(min-width 1171px max-width 1920px)
+$desktop-small: new-breakpoint(min-width 1025px max-width 1170px)
+
+$tablet-landscape: new-breakpoint(min-width 896px max-width 1024px)
+$tablet-portrait: new-breakpoint(min-width 768px max-width 895px)
+
+$mobile-landscape: new-breakpoint(min-width 480px max-width 767px)
+$mobile-portrait: new-breakpoint(max-width 479px)
+$mobile-small-portrait: new-breakpoint(max-width 380px)
+
+// combined
+$desktop-and-tablet: new-breakpoint(min-width 768px)
+$tablet-and-mobile: new-breakpoint(max-width 1024px)

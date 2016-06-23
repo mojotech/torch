@@ -4,7 +4,10 @@
   "repository": {},
   "license": "MIT",
   "main": "./priv/static/radmin.js",
-  "files": ["package.json", "priv/static/radmin.js"],
+  "files": [
+    "package.json",
+    "priv/static/radmin.js"
+  ],
   "devDependencies": {
     "pikaday": "~1.4.0",
     "brunch": "~2.8.2",
@@ -14,6 +17,7 @@
     "css-brunch": "~2.0.0",
     "sass-brunch": "~2.6.3",
     "bourbon": "~4.2.7",
-    "bourbon-neat": "~1.7.4"
+    "bourbon-neat": "~1.7.4",
+    "normalize.css": "^4.1.1"
   }
 }
