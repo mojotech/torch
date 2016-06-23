@@ -9,6 +9,11 @@
     "pikaday": "~1.4.0",
     "brunch": "~2.8.2",
     "babel-brunch": "~6.0.0",
-    "uglify-js-brunch": "~2.0.1"
+    "uglify-js-brunch": "~2.0.1",
+    "clean-css-brunch": "~2.0.0",
+    "css-brunch": "~2.0.0",
+    "sass-brunch": "~2.6.3",
+    "bourbon": "~4.2.7",
+    "bourbon-neat": "~1.7.4"
   }
 }

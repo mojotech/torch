@@ -21,7 +21,9 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css",
+      joinTo: {
+        'css/app.css': /^(web|node_modules)/
+      },
       order: {
         after: ["web/static/css/app.css"] // concat app.css last
       }
@@ -64,11 +66,12 @@ exports.config = {
     }
   },
 
-  watcher: {
-    paths: []
-  },
-
   npm: {
-    enabled: true
+    enabled: true,
+    styles: {
+      radminjs: [
+        'priv/static/radmin.css'
+      ]
+    }
   }
 };

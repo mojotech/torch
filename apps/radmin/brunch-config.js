@@ -5,15 +5,16 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: 'radmin.js'
+    },
+    stylesheets: {
+      joinTo: {
+        'radmin.css': /^(web|node_modules)/
+      }
     }
   },
 
-  // Radmin paths configuration
   paths: {
-    // Which directories to watch
     watched: ['web/static'],
-
-    // Where to compile files to
     public: 'priv/static'
   },
 
@@ -23,6 +24,22 @@ exports.config = {
     },
     autoRequire: {
       'radmin.js': ['web/static/js/radmin.js']
+    }
+  },
+
+  plugins: {
+    sass: {
+      mode: 'native'
+    }
+  },
+
+  npm: {
+    enabled: true,
+    styles: {
+      pikaday: [
+        'css/pikaday.css',
+        'css/theme.css'
+      ]
     }
   }
 }
