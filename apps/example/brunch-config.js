@@ -43,7 +43,7 @@ exports.config = {
     // Dependencies and current project directories to watch
     watched: [
       "web/static",
-      "test/static"
+      "node_modules/radminjs/priv/static"
     ],
 
     // Where to compile files to
@@ -62,6 +62,10 @@ exports.config = {
     autoRequire: {
       "js/app.js": ["web/static/js/app"]
     }
+  },
+
+  watcher: {
+    paths: []
   },
 
   npm: {
