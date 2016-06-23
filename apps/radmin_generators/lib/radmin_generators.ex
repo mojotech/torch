@@ -1,2 +1,0 @@
-defmodule RadminGenerators do
-end

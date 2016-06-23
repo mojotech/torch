@@ -1,8 +1,8 @@
-defmodule RadminGenerators.Mixfile do
+defmodule Radmin.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :radmin_generators,
+    [app: :radmin,
      version: "0.1.0",
      build_path: "../../_build",
      config_path: "../../config/config.exs",

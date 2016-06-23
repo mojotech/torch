@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :radmin_generators, key: :value
+#     config :radmin, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:radmin_generators, :key)
+#     Application.get_env(:radmin, :key)
 #
 # Or configure a 3rd-party app:
 #

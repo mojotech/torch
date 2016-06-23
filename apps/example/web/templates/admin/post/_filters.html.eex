@@ -1,0 +1,18 @@
+<%= form_tag @conn.request_path, method: :get, id: "filters" do %>
+  <h3>Filter Form</h3>
+
+  <label>Title</label>
+  <input type="text" name="post[title_contains]" value="<%= @conn.params["post"]["title_contains"] %>" />
+  <br/><br/>
+
+  <label>Body</label>
+  <input type="text" name="post[body_contains]" value="<%= @conn.params["post"]["body_contains"] %>" />
+  <br/><br/>
+
+  <label>Inserted At</label>
+  <input type="text" class="datepicker" name="post[inserted_at_between][start]" />
+  <input type="text" class="datepicker" name="post[inserted_at_between][end]" />
+  <br/><br/>
+
+  <button type="submit">Search</button>
+<% end %>

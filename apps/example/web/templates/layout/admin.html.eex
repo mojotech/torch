@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <title>Admin</title>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+
+  <body>
+    <%= render @view_module, @view_template, assigns %>
+  </body>
+</html>

@@ -19,6 +19,12 @@ defmodule Example.Router do
     get "/", PageController, :index
   end
 
+  scope "/admin", Example.Admin do
+    pipe_through :browser
+
+    resources "/posts", PostController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Example do
   #   pipe_through :api

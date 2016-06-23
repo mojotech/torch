@@ -1,6 +1,6 @@
-defmodule RadminGeneratorsTest do
+defmodule RadminTest do
   use ExUnit.Case
-  doctest RadminGenerators
+  doctest Radmin
 
   test "the truth" do
     assert 1 + 1 == 2

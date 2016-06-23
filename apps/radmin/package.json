@@ -1,0 +1,14 @@
+{
+  "name": "radminjs",
+  "version": "0.1.0",
+  "repository": {},
+  "license": "MIT",
+  "main": "./priv/static/radmin.js",
+  "files": ["package.json", "priv/static/radmin.js"],
+  "devDependencies": {
+    "pikaday": "~1.4.0",
+    "brunch": "~2.8.2",
+    "babel-brunch": "~6.0.0",
+    "uglify-js-brunch": "~2.0.1"
+  }
+}

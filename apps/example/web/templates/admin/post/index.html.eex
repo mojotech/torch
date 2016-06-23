@@ -1,0 +1,20 @@
+<%= render "_filters.html", assigns %>
+<hr/>
+
+<h3>Results</h3>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for post <- @posts do %>
+      <tr>
+        <td><%= post.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
