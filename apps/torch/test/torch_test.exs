@@ -1,6 +1,6 @@
-defmodule RadminTest do
+defmodule TorchTest do
   use ExUnit.Case
-  doctest Radmin
+  doctest Torch
 
   test "the truth" do
     assert 1 + 1 == 2

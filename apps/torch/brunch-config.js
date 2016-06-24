@@ -4,11 +4,11 @@ exports.config = {
 
   files: {
     javascripts: {
-      joinTo: 'radmin.js'
+      joinTo: 'torch.js'
     },
     /* stylesheets: {
      *   joinTo: {
-     *     'radmin.css': /^(web|node_modules)/
+     *     'torch.css': /^(web|node_modules)/
      *   }
      * }*/
   },
@@ -23,7 +23,7 @@ exports.config = {
       return `var require = window.require;`
     },
     autoRequire: {
-      'radmin.js': ['web/static/js/radmin.js']
+      'torch.js': ['web/static/js/torch.js']
     }
   },
 

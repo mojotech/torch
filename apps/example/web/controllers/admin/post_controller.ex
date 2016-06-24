@@ -1,7 +1,7 @@
 defmodule Example.Admin.PostController do
   use Example.Web, :controller
 
-  import Radmin.Query
+  import Torch.Query
 
   alias Example.Post
   alias Filtrex.Type.Config

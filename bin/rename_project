@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Replaces project name throughout the mix project
+#
+# $ bin/rename_project PhoenixBase phoenix_base CoolProject cool_project
+
+sed -i '' -e "s/$1/$3/" `find . ! -path "./deps/*" -name "*.ex*"`
+sed -i '' -e "s/%$1/$3/" `find . ! -path "./deps/*" -name "*.ex*"`
+sed -i '' -e "s/$2/$4/" `find . ! -path "./deps/*" -name "*.ex*"`
+mv lib/$2.ex lib/$4.ex
+mv lib/$2 lib/$4
+
+echo "If you cloned PhoenixBase from Github, you may want to reinitialize git:"
+echo "    rm -rf .git/"
+echo ""
+echo "You might also want to rename this directory to your app name:"
+echo "    cd .."
+echo "    mv phoenix_base $4"
+echo ""
+echo "Run the web server with mix phoenix.server, and view localhost:4000"
+echo ""

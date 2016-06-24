@@ -1,4 +1,4 @@
-defmodule Radmin.Query do
+defmodule Torch.Query do
   import Ecto.Query
 
   def query(model, opts) do

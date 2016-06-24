@@ -1,12 +1,12 @@
 {
-  "name": "radminjs",
+  "name": "torch",
   "version": "0.1.0",
   "repository": {},
   "license": "MIT",
   "main": "./priv/static/radmin.js",
   "files": [
     "package.json",
-    "priv/static/radmin.js"
+    "priv/static/torch.js"
   ],
   "devDependencies": {
     "pikaday": "~1.4.0",

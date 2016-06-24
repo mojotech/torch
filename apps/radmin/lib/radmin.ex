@@ -1,2 +1,0 @@
-defmodule Radmin do
-end

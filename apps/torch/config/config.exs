@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :radmin, key: :value
+#     config :torch, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:radmin, :key)
+#     Application.get_env(:torch, :key)
 #
 # Or configure a 3rd-party app:
 #

@@ -1,4 +1,4 @@
-defmodule Radmin.Mixfile do
+defmodule Torch.Mixfile do
   use Mix.Project
 
   def project do
