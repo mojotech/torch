@@ -1,18 +1,24 @@
 <section class="filters">
   <%= form_tag @conn.request_path, method: :get, id: "filters" do %>
-    <label>Title</label>
-    <input type="text" name="post[title_contains]" value="<%= @conn.params["post"]["title_contains"] %>" />
-    <br/><br/>
+    <div class="field">
+      <label>Title</label>
+      <%= filter_select(:post, :title, @conn.params) %>
+      <%= filter_text_input(:post, :title, @conn.params) %>
+    </div>
 
-    <label>Body</label>
-    <input type="text" name="post[body_contains]" value="<%= @conn.params["post"]["body_contains"] %>" />
-    <br/><br/>
+    <div class="field">
+      <label>Body</label>
+      <%= filter_select(:post, :body, @conn.params) %>
+      <%= filter_text_input(:post, :body, @conn.params) %>
+    </div>
 
-    <label>Inserted At</label>
-    <input type="text" class="datepicker" name="post[inserted_at_between][start]" value="<%= @conn.params["post"]["inserted_at_between"]["start"] %>"/>
-    <input type="text" class="datepicker" name="post[inserted_at_between][end]" value="<%= @conn.params["post"]["inserted_at_between"]["end"] %>"/>
-    <br/><br/>
+    <div class="field">
+      <label>Inserted At</label>
+      <%= filter_date_range(:post, :inserted_at, @conn.params) %>
+    </div>
 
     <button type="submit">Search</button>
   <% end %>
+
+  <%= link "Clear Filters", to: admin_post_path(@conn, :index) %>
 </section>

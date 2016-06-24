@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "repository": {},
   "license": "MIT",
-  "main": "./priv/static/radmin.js",
+  "main": "./priv/static/torch.js",
   "files": [
     "package.json",
     "priv/static/torch.js"

@@ -5178,6 +5178,12 @@ var _pikaday2 = _interopRequireDefault(_pikaday);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.onload = function () {
+  document.querySelectorAll('select.filter-type').forEach(function (field) {
+    field.addEventListener('change', function (e) {
+      e.target.nextElementSibling.name = e.target.value;
+    });
+  });
+
   document.querySelectorAll('.datepicker').forEach(function (field) {
     new _pikaday2.default({ field: field });
   });

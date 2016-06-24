@@ -68,7 +68,7 @@ exports.config = {
   },
 
   npm: {
-    enabled: true,
+    enabled: true
     /* styles: {
      *   torch: [
      *     'web/static/css/radmin.css'

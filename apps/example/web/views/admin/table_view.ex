@@ -28,8 +28,8 @@ defmodule Example.Admin.TableView do
   def querystring(conn, opts) do
     opts = [
       page: opts[:page] || conn.assigns[:page],
-      sort_field: opts[:sort_field] || conn.params["sort_field"],
-      sort_direction: opts[:sort_direction] || conn.params["sort_direction"]
+      sort_field: opts[:sort_field] || conn.params["sort_field"] || "id",
+      sort_direction: opts[:sort_direction] || conn.params["sort_direction"] || "asc"
     ]
 
     URI.encode_query(opts)
