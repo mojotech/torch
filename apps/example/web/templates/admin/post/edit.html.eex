@@ -1,0 +1,4 @@
+<h2>Edit Post</h2>
+<%= render "_form.html",
+    changeset: @changeset,
+    action: admin_post_path(@conn, :update, @post) %>

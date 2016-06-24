@@ -1,0 +1,15 @@
+<ul class="pagination">
+  <li>
+    <%= prev_link(@page, @num_pages) %>
+  </li>
+  <%= for num <- 1..@num_pages do %>
+    <li>
+      <a href="?<%= querystring(@conn, page: num) %>" class="<%= if @page == num, do: "active", else: "" %>">
+        <%= num %>
+      </a>
+    </li>
+  <% end %>
+  <li>
+    <%= next_link(@page, @num_pages) %>
+  </li>
+</ul>

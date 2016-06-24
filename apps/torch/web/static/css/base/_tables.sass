@@ -16,6 +16,32 @@ table.data
       &:nth-child(even)
         background-color: lighten($tertiary-color, 15%)
 
+    a
+      color: $white
+
+      .caret
+        display: inline-block
+
+      &.active.desc
+        .caret
+          width: 0
+          height: 0
+          border-left: 5px solid transparent
+          border-right: 5px solid transparent
+          border-top: 5px solid white
+          margin-top: 5px
+          margin-left: 5px
+
+      &.active.asc
+        .caret
+          width: 0
+          height: 0
+          border-left: 5px solid transparent
+          border-right: 5px solid transparent
+          border-bottom: 5px solid white
+          margin-top: 5px
+          margin-left: 5px
+
   tbody
     tr
       height: 40px
@@ -26,3 +52,8 @@ table.data
 
     td
       padding-left: 15px
+
+  .actions a
+    display: inline-block
+    float: left
+    padding: 0 10px 0 0

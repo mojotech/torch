@@ -34,12 +34,6 @@ exports.config = {
   },
 
   npm: {
-    enabled: true,
-    styles: {
-      pikaday: [
-        'css/pikaday.css',
-        'css/theme.css'
-      ]
-    }
+    enabled: true
   }
 }

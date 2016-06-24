@@ -19,7 +19,7 @@ defmodule Example.Router do
     get "/", PageController, :index
   end
 
-  scope "/admin", Example.Admin do
+  scope "/admin", Example.Admin, as: :admin do
     pipe_through :browser
 
     resources "/posts", PostController

@@ -1,41 +1,32 @@
 <section class="content">
-  <table class="data">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Daniel Berkompas</td>
-        <td>test@email.com</td>
-      </tr>
-      <tr>
-        <td>Zachary Berkompas</td>
-        <td>test@email.com</td>
-      </tr>
-      <tr>
-        <td>Matthew Berkompas</td>
-        <td>test@email.com</td>
-      </tr>
-      <tr>
-        <td>Jeremy Berkompas</td>
-        <td>test@email.com</td>
-      </tr>
-      <tr>
-        <td>Joshua Berkompas</td>
-        <td>test@email.com</td>
-      </tr>
-      <%= for post <- @posts do %>
+  <%= if length(@posts) > 0 do %>
+    <table class="data">
+      <thead>
         <tr>
-          <td><%= post.title %></td>
+          <th><%= table_link(@conn, "ID", :id) %></th>
+          <th><%= table_link(@conn, "Title", :title) %></th>
+          <th><%= table_link(@conn, "Body", :body) %></th>
+          <th>Actions</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <%= render "_pagination.html", assigns %>
+      </thead>
+      <tbody>
+        <%= for post <- @posts do %>
+          <tr>
+            <td><%= post.id %></td>
+            <td><%= post.title %></td>
+            <td><%= post.body %></td>
+            <td class="actions">
+              <%= link "Edit", to: admin_post_path(@conn, :edit, post) %>
+              <%= link "Delete", to: admin_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= render PaginationView, "_pagination.html", assigns %>
+  <% else %>
+    <p class="no-data">No posts match your search.</p>
+  <% end %>
 </section>
 <%= render "_filters.html", assigns %>
 
