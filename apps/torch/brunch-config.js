@@ -6,11 +6,11 @@ exports.config = {
     javascripts: {
       joinTo: 'torch.js'
     },
-    /* stylesheets: {
-     *   joinTo: {
-     *     'torch.css': /^(web|node_modules)/
-     *   }
-     * }*/
+    stylesheets: {
+      joinTo: {
+        'torch.css': /^(web|node_modules)/
+      }
+    }
   },
 
   paths: {

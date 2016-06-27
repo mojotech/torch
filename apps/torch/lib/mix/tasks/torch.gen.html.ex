@@ -1,4 +1,26 @@
 defmodule Mix.Tasks.Torch.Gen.Html do
+  @moduledoc """
+  Generates a Torch admin section for a given model.
+
+  ## Parameters
+
+  - **Namespace**: The Elixir namespace you want the code to be generated within.
+    For example, "Admin".
+
+  - **Model Name**: The name of the Ecto model you want to generate the admin area for.
+    For example, "Post".
+
+  - **Plural Model Name**: The lowercase and plural version of the model name.
+    For example, "posts".
+
+  - **Fields**. Space separated fields and types, describing which fields of the model
+    you want to appear in the generated tables and forms. For example: "title:string body:text".
+
+  ## Example
+
+      mix torch.gen.html Admin Post posts title:string body:text inserted_at:date
+  """
+
   use Mix.Task
 
   def run(args) do
@@ -27,6 +49,29 @@ defmodule Mix.Tasks.Torch.Gen.Html do
       {:eex, "controller.ex", "web/controllers/#{path}_controller.ex"},
       {:eex, "view.ex", "web/views/#{path}_view.ex"}
     ]
+
+    Mix.shell.info """
+    Success!
+
+    You should now add a route to the new controller to your `router.ex`, within the `:admin` scope:
+
+        scope "/admin", #{Mix.Torch.base}, as: :admin do
+          pipe_through :browser
+
+          resources "/#{binding[:plural]}", #{binding[:alias]}Controller
+        end
+
+    And update the `layout/admin.html.eex` navigation:
+
+        <header id="main-header">
+          <nav>
+            <h1>Torch Admin</h1>
+            <ul>
+              <li><%= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index) %></a>
+            </ul>
+          </nav>
+        </header>
+    """
   end
 
   defp inputs(attrs) do

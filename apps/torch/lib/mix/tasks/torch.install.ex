@@ -24,7 +24,7 @@ defmodule Mix.Tasks.Torch.Install do
                                    #{IO.ANSI.yellow}TORCH INSTALLED!#{IO.ANSI.reset}
     #{hr}
 
-    There are two final steps you must complete manually:
+    There are three final steps you must complete manually:
 
     1. Import the CSS styles. If you want to use the SASS styles, you should
        update your app.scss file to look like this:
@@ -35,7 +35,12 @@ defmodule Mix.Tasks.Torch.Install do
        Torch also provides a precompiled CSS file in `priv/static/css/torch.css`
        if you are not using SASS.
 
-    2. Add an admin scope to your router in `router.ex`:
+    2. Import the Javascript in your `app.js` file. Requires that your `package.json`
+       has been updated as described in the README.
+
+        import 'torch'
+
+    3. Add an admin scope to your router in `router.ex`:
 
         scope "/admin", #{Mix.Torch.base}, as: :admin do
           pipe_through :browser
