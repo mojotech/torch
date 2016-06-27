@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Admin</title>
+    <script src="<%%= static_path(@conn, "/js/app.js") %>"></script>
+    <link rel="stylesheet" href="<%%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <nav class="credentials">
+      <ul>
+        <li>Logout</li>
+        <li>user@infinite.red</li>
+      </ul>
+    </nav>
+
+    <header id="main-header">
+      <nav>
+        <h1>Torch Admin</h1>
+        <ul>
+          <!-- Your admin navigation links here -->
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%%= render @view_module, @view_template, assigns %>
+    </main>
+  </body>
+</html>

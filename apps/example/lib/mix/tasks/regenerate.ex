@@ -7,6 +7,8 @@ defmodule Mix.Tasks.Regenerate do
       mix regenerate
   """
 
+  use Mix.Task
+
   def run(_args) do
     File.rm_rf!("web/templates/admin/")
     File.rm_rf!("web/controllers/admin/")
