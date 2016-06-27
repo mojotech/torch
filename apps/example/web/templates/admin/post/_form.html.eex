@@ -7,7 +7,7 @@
   <%= text_input f, :title %>
 
   <%= label f, :body %>
-  <%= text_input f, :body %>
+  <%= textarea f, :body %>
 
   <%= submit "Submit" %>
 <% end %>

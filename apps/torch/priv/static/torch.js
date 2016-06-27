@@ -5178,6 +5178,21 @@ var _pikaday2 = _interopRequireDefault(_pikaday);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.onload = function () {
+  /*
+   * Prevent empty fields from being submitted, since this breaks Filtrex.
+   */
+  document.querySelector('form#filters').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    this.querySelectorAll('input').forEach(function (field) {
+      if (field.value === '') {
+        field.disabled = true;
+      }
+    });
+
+    e.target.submit();
+  });
+
   document.querySelectorAll('select.filter-type').forEach(function (field) {
     field.addEventListener('change', function (e) {
       e.target.nextElementSibling.name = e.target.value;

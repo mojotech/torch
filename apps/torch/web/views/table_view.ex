@@ -1,4 +1,4 @@
-defmodule Example.Admin.TableView do
+defmodule Torch.TableView do
   import Phoenix.HTML
   import Phoenix.HTML.Link
 

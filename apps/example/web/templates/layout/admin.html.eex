@@ -17,22 +17,7 @@
       <nav>
         <h1>Torch Admin</h1>
         <ul>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Price Calculator</a></li>
-          <li><a href="#" class="active">Admins</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Tags</a></li>
-          <li><a href="#">Groups</a></li>
-          <li><a href="#">Messages</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Businesses</a></li>
-          <li><a href="#">Designs</a></li>
-          <li><a href="#">Promotions</a></li>
-          <li><a href="#">Test</a></li>
-          <li><a href="#">Tagging</a></li>
-          <li><a href="#">Locations</a></li>
-          <li><a href="#">Leads</a></li>
-          <li><a href="#">Advertising</a></li>
+          <li><%= nav_link @conn, "Posts", admin_post_path(@conn, :index) %></a>
         </ul>
       </nav>
     </header>

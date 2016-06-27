@@ -1,7 +1,8 @@
-defmodule Example.Admin.PaginationView do
-  use Example.Web, :view
+defmodule Torch.PaginationView do
+  use Phoenix.View, root: "web/templates"
+  use Phoenix.HTML
 
-  import Example.Admin.TableView
+  import Torch.TableView
 
   def prev_link(current_page, num_pages) do
     if current_page != 1 do

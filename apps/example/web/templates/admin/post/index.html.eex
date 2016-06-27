@@ -23,7 +23,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= render PaginationView, "_pagination.html", assigns %>
+    <%= render Torch.PaginationView, "_pagination.html", assigns %>
   <% else %>
     <p class="no-data">No posts match your search.</p>
   <% end %>

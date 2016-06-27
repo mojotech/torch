@@ -1,4 +1,4 @@
-defmodule Torch.Mixfile do
+defmodule TorchWrapper.Mixfile do
   use Mix.Project
 
   def project do
