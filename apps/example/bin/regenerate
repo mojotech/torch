@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rm -rf web/templates/admin/author && rm -rf web/controllers/admin/author_controller.ex && rm -rf web/views/admin/author_view.ex
+rm -rf web/templates/admin/post && rm -rf web/controllers/admin/post_controller.ex && rm -rf web/views/admin/post_view.ex
+mix torch.gen.html Admin Post posts title:string body:text inserted_at:date updated_at:date
+mix torch.gen.html Admin Author authors name:string email:string inserted_at:date updated_at:date

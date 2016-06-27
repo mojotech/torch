@@ -13,13 +13,17 @@ defmodule Torch.FilterView do
     select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
   end
 
-  def filter_text_input(prefix, field, params) do
+  def filter_string_input(prefix, field, params) do
     prefix_str = to_string(prefix)
     {name, value} = find_param(params[prefix_str], field)
     text_input(prefix, String.to_atom(name), value: value)
   end
 
-  def filter_date_range(prefix, field, params) do
+  def filter_text_input(prefix, field, params) do
+    filter_string_input(prefix, field, params)
+  end
+
+  def filter_date_input(prefix, field, params) do
     prefix = to_string(prefix)
     field = to_string(field)
     {:safe, start} = date_input("#{prefix}[#{field}_between][start]", get_in(params, [prefix, "#{field}_between", "start"]))

@@ -18,6 +18,7 @@
         <h1>Torch Admin</h1>
         <ul>
           <li><%= nav_link @conn, "Posts", admin_post_path(@conn, :index) %></a>
+          <li><%= nav_link @conn, "Authors", admin_author_path(@conn, :index) %></li>
         </ul>
       </nav>
     </header>

@@ -1,9 +1,10 @@
 <section class="filters">
   <%= form_tag @conn.request_path, method: :get, id: "filters" do %>
+
     <div class="field">
       <label>Title</label>
       <%= filter_select(:post, :title, @conn.params) %>
-      <%= filter_text_input(:post, :title, @conn.params) %>
+      <%= filter_string_input(:post, :title, @conn.params) %>
     </div>
 
     <div class="field">
@@ -12,9 +13,15 @@
       <%= filter_text_input(:post, :body, @conn.params) %>
     </div>
 
+
     <div class="field">
-      <label>Inserted At</label>
-      <%= filter_date_range(:post, :inserted_at, @conn.params) %>
+      <label>Inserted at</label>
+      <%= filter_date_input(:post, :inserted_at, @conn.params) %>
+    </div>
+
+    <div class="field">
+      <label>Updated at</label>
+      <%= filter_date_input(:post, :updated_at, @conn.params) %>
     </div>
 
     <button type="submit">Search</button>

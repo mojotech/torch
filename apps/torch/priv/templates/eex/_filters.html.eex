@@ -1,0 +1,20 @@
+<section class="filters">
+  <%%= form_tag @conn.request_path, method: :get, id: "filters" do %>
+<%= for {key, type} <- attrs, type in [:string, :text] do %>
+    <div class="field">
+      <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
+      <%%= filter_select(:<%= singular %>, :<%= key %>, @conn.params) %>
+      <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>
+    </div>
+<% end %>
+<%= for {key, type} <- attrs, type in [:date] do %>
+    <div class="field">
+      <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
+      <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>
+    </div>
+<% end %>
+    <button type="submit">Search</button>
+  <%% end %>
+
+  <%%= link "Clear Filters", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :index) %>
+</section>

@@ -1,0 +1,4 @@
+<h2>Edit Author</h2>
+<%= render "_form.html",
+    changeset: @changeset,
+    action: admin_author_path(@conn, :update, @author) %>

@@ -23,6 +23,7 @@ defmodule Example.Router do
     pipe_through :browser
 
     resources "/posts", PostController
+    resources "/authors", AuthorController
   end
 
   # Other scopes may use custom stacks.
