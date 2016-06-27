@@ -13,6 +13,9 @@ defmodule Torch.Mixfile do
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     name: "Torch",
+     description: "Rapid admin generator for Phoenix",
+     package: package,
      deps: deps]
   end
 
@@ -40,6 +43,16 @@ defmodule Torch.Mixfile do
     [{:filtrex, github: "danielberkompas/filtrex",
       ref: "8d6dfe4f24c72c9cbebc15734de30d1722849be5"},
      {:phoenix, "~> 1.2.0"}]
+  end
+
+  defp package do
+    [
+      maintainers: ["Daniel Berkompas"],
+      licenses: ["MIT"],
+      links: %{
+        "Github" => "https://github.com/infinitered/torch"
+      }
+    ]
   end
 
   # Specifies which paths to compile per environment.
