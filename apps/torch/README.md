@@ -27,9 +27,9 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   
     ```json
     "dependencies": {
-      "phoenix": "file:../../deps/phoenix",
-      "phoenix_html": "file:../../deps/phoenix_html",
-      "torch": "file:../../deps/torch"
+      "phoenix": "file:deps/phoenix",
+      "phoenix_html": "file:deps/phoenix_html",
+      "torch": "file:deps/torch"
     },
     ```
   
