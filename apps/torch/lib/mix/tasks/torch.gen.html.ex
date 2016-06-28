@@ -55,7 +55,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
 
     You should now add a route to the new controller to your `router.ex`, within the `:admin` scope:
 
-        scope "/admin", #{Mix.Torch.base}, as: :admin do
+        scope "/admin", #{Mix.Torch.base}.Admin, as: :admin do
           pipe_through :browser
 
           resources "/#{binding[:plural]}", #{binding[:alias]}Controller
