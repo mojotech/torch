@@ -3,7 +3,7 @@ defmodule Torch.Mixfile do
 
   def project do
     [app: :torch,
-     version: "0.2.0-rc.2",
+     version: "0.2.0-rc.3",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
      deps_path: "../../deps",
@@ -43,7 +43,8 @@ defmodule Torch.Mixfile do
     [{:filtrex, github: "danielberkompas/filtrex",
       ref: "8d6dfe4f24c72c9cbebc15734de30d1722849be5"},
      {:phoenix, "~> 1.2"},
-     {:phoenix_html, "~> 2.6"}]
+     {:phoenix_html, "~> 2.6"},
+     {:ecto, ">= 1.0.0"}]
   end
 
   defp package do
