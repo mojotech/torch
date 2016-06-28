@@ -16,6 +16,8 @@ cd apps/example && {
   mix deps.get;
   npm link torch;
   npm install;
+  mix regenerate;
+  MIX_ENV=test mix ecto.create;
   cd -;
 }
 
