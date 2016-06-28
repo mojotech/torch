@@ -29,7 +29,8 @@ exports.config = {
 
   plugins: {
     sass: {
-      mode: 'native'
+      mode: 'native',
+      includePaths: ['node_modules']
     }
   },
 

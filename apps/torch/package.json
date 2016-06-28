@@ -1,6 +1,6 @@
 {
   "name": "torch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {},
   "license": "MIT",
   "main": "./priv/static/torch.js",
@@ -10,15 +10,17 @@
     "priv/static/torch.css",
     "web/static"
   ],
-  "devDependencies": {
+  "dependencies": {
     "pikaday": "~1.4.0",
+    "bourbon": "~4.2.7",
+    "bourbon-neat": "~1.7.4"
+  },
+  "devDependencies": {
     "brunch": "~2.8.2",
     "babel-brunch": "~6.0.0",
     "uglify-js-brunch": "~2.0.1",
     "clean-css-brunch": "~2.0.0",
     "css-brunch": "~2.0.0",
-    "sass-brunch": "~2.6.3",
-    "bourbon": "~4.2.7",
-    "bourbon-neat": "~1.7.4"
+    "sass-brunch": "~2.6.3"
   }
 }

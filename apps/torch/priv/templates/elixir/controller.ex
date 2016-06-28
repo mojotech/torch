@@ -7,7 +7,7 @@ defmodule <%= module %>Controller do
   alias <%= base %>.<%= alias %>
   alias Filtrex.Type.Config
 
-  plug :put_layout, {Example.LayoutView, "admin.html"}
+  plug :put_layout, {<%= base %>.LayoutView, "admin.html"}
   plug :scrub_params, "<%= singular %>" when action in [:create, :update]
 
   @page_size 10
