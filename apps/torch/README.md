@@ -11,7 +11,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:torch, "~> 0.2.0-rc.1"}]
+      [{:torch, "~> 0.2.0-rc.2"}]
     end
     ```
 

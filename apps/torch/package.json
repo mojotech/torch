@@ -6,7 +6,8 @@
   "main": "./priv/static/torch.js",
   "files": [
     "package.json",
-    "priv/static/torch.js"
+    "priv/static/torch.js",
+    "priv/static/torch.css"
   ],
   "devDependencies": {
     "pikaday": "~1.4.0",
