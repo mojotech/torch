@@ -3,7 +3,7 @@ defmodule Torch.Mixfile do
 
   def project do
     [app: :torch,
-     version: "0.2.0-rc.3",
+     version: "0.2.0-rc.4",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
      deps_path: "../../deps",
@@ -54,7 +54,7 @@ defmodule Torch.Mixfile do
       links: %{
         "Github" => "https://github.com/infinitered/torch"
       },
-      files: ~w(lib priv brunch-config.js mix.exs package.json README.md)
+      files: ~w(lib priv web brunch-config.js mix.exs package.json README.md)
     ]
   end
 
