@@ -32,6 +32,15 @@ defmodule Mix.Tasks.Torch.Install do
         @import "admin_variables";
         @import "../../../node_modules/torch/web/static/css/torch";
 
+       You should also update SASS plugin settings in `brunch-config.js`:
+
+        plugins: {
+          sass: {
+            mode: 'native',
+            include_paths: ['node_modules']
+          }
+        }
+
        Torch also provides a precompiled CSS file in `priv/static/css/torch.css`
        if you are not using SASS.
 
@@ -42,7 +51,7 @@ defmodule Mix.Tasks.Torch.Install do
 
     3. Add an admin scope to your router in `router.ex`:
 
-        scope "/admin", #{Mix.Torch.base}, as: :admin do
+        scope "/admin", #{Mix.Torch.base}.Admin, as: :admin do
           pipe_through :browser
         end
 

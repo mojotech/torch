@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+mix local.hex --force;
+mix local.rebar --force;
+mix deps.get;
+mix compile;
+
+cd apps/torch && {
+  mix deps.get;
+  npm install;
+  npm link;
+  cd -;
+}
+
+cd apps/example && {
+  mix deps.get;
+  npm link torch;
+  npm install;
+  cd -;
+}
+
+mix test
