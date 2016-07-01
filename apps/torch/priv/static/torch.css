@@ -1022,6 +1022,6 @@ section.torch.torch-toolbar-container .torch-toolbar {
         float: none; } }
   @media screen and (max-width: 767px) {
     /* line 15, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
-    section.torch.torch-toolbar-container .torch-toolbar a.torch-button {
-      dislay: block !important; } }
+    section.torch.torch-toolbar-container .torch-toolbar .torch-button {
+      dislay: block; } }
 
