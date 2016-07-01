@@ -27,22 +27,23 @@ $base-line-height: 1.2 !default
 $heading-line-height: 1.2 !default
 
 // Other Sizes
-$base-border-radius: 3px !default
+$base-border-radius: 0px !default
 $base-spacing: $base-line-height * 1em !default
 $small-spacing: $base-spacing / 2 !default
 $base-z-index: 0 !default
 
 // Colors
 $blue: #1565c0 !default
-$dark-gray: #333 !default
+$torch-dark-gray: #333 !default
 $medium-gray: #999 !default
 $light-gray: #ddd !default
 
 $torch-nav-primary: #ffffff !default
+$torch-toolbar-background: #f1f1f1 !default
 
 // Font Colors
-$base-font-color: $dark-gray !default
-$action-color: $blue !default
+$torch-base-font-color: $torch-dark-gray !default
+$torch-action-color: $blue !default
 
 // Border
 $base-border-color: $light-gray !default
@@ -54,7 +55,7 @@ $secondary-background-color: tint($base-border-color, 75%) !default
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06) !default
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3) !default
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($torch-action-color, $lightness: -5%, $alpha: -0.3) !default
 
 // Animations
 $torch-base-duration: 300ms !default

@@ -1,7 +1,13 @@
+<section class="torch torch-toolbar-container">
+  <div class="torch-toolbar">
+    <h2>posts</h2>
+    <%= link "New post", to: admin_post_path(@conn, :new), class: "torch-button" %>
+    <a href="/" class="torch-button">Import</a>
+    <a href="/" class="torch-button">Download Images</a>
+  </div>
+</section>
+
 <section class="torch torch-content">
-  <section class="torch-toolbar">
-    <%= link "New", to: admin_post_path(@conn, :new) %>
-  </section>
 
   <%= if length(@posts) > 0 do %>
     <table class="torch-data">
