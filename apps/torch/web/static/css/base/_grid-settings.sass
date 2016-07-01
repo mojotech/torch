@@ -1,10 +1,14 @@
+@import "../../../../node_modules/bourbon-neat/app/assets/stylesheets/neat-helpers"
+
 $grid-columns     : 12
 $gutter           : 30px
-$container        : 1110px
+$container        : 1140px
 $container_gutter : 30px
 
 // Grid
+// 1200px
 $max-width: $container + $container_gutter * 2
+// ((1200px) - (30 * (12 - 1) + 60)) / 12 = 67.5px
 $column: ($max-width - ($gutter * ($grid-columns - 1) + $container_gutter * 2))/$grid-columns
 
 // main

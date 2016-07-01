@@ -13,7 +13,7 @@
   "dependencies": {
     "pikaday": "~1.4.0",
     "bourbon": "~4.2.7",
-    "bourbon-neat": "~1.7.4"
+    "bourbon-neat": "~1.8.0"
   },
   "devDependencies": {
     "brunch": "~2.8.2",
