@@ -1,31 +1,73 @@
-form
+section.torch
+  fieldset
+    background-color: transparent
+    border: 0
+    margin: 0
+    padding: 0
+
+  legend
+    font-weight: 600
+    margin-bottom: $small-spacing / 2
+    padding: 0
 
   label
     display: block
-    margin-bottom: 10px
-    margin-top: 10px
+    font-weight: 600
+    margin-bottom: $small-spacing / 2
 
-  input
-    width: 96%
-    height: 35px
-    padding-left: 2%
-    padding-right: 2%
-    outline: none
+  input,
+  select,
+  textarea
+    display: block
+    font-family: $base-font-family
+    font-size: $torch-base-font-size
+
+  #{$all-text-inputs},
+  select[multiple]
+    background-color: $base-background-color
+    border: $base-border
+    border-radius: $base-border-radius
+    box-shadow: $form-box-shadow
+    box-sizing: border-box
+    margin-bottom: $small-spacing
+    padding: $base-spacing / 3
+    transition: border-color $torch-base-duration $torch-base-timing
+    width: 100%
+
+    &:hover
+      border-color: shade($base-border-color, 20%)
 
     &:focus
-      border-color: $secondary-color
-      border-style: solid
+      border-color: $action-color
+      box-shadow: $form-box-shadow-focus
+      outline: none
+
+    &:disabled
+      background-color: shade($base-background-color, 5%)
+      cursor: not-allowed
+
+      &:hover
+        border: $base-border
+
+    &::placeholder
+      color: $medium-gray
 
   textarea
-    width: 98%
-    padding: 1%
-    border: 1px solid #ccc
-    min-height: 150px
+    resize: vertical
 
-  .field
-    display: block
-    min-height: 60px
+  [type="search"]
+    appearance: none
 
-    select
-      +span-columns(4)
-      float: left
+  [type="checkbox"],
+  [type="radio"]
+    display: inline
+    margin-right: $small-spacing / 2
+
+  [type="file"]
+    margin-bottom: $small-spacing
+    width: 100%
+
+  select
+    margin-bottom: $small-spacing
+    max-width: 100%
+    width: auto

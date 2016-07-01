@@ -6,24 +6,28 @@
   </head>
 
   <body>
-    <nav class="credentials">
-      <ul>
-        <li>Logout</li>
-        <li>user@infinite.red</li>
-      </ul>
-    </nav>
+    <section class="torch torch-header">
+      <div class="torch-account">
+        <nav>
+          <ul>
+            <li><a href="/">user@infinite.red</a></li>
+            <li><a href="/">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
 
-    <header id="main-header">
-      <nav>
-        <h1>Torch Admin</h1>
-        <ul>
-          <li><%= Torch.NavigationView.nav_link @conn, "Posts", admin_post_path(@conn, :index) %></a>
-          <li><%= Torch.NavigationView.nav_link @conn, "Authors", admin_author_path(@conn, :index) %></li>
-        </ul>
-      </nav>
-    </header>
+      <header class="torch-main-header">
+        <nav>
+          <h1>Torch Admin</h1>
+          <ul>
+            <li><%= Torch.NavigationView.nav_link @conn, "Posts", admin_post_path(@conn, :index) %></a>
+            <li><%= Torch.NavigationView.nav_link @conn, "Authors", admin_author_path(@conn, :index) %></li>
+          </ul>
+        </nav>
+      </header>
+    </section>
 
-    <main>
+    <main class="torch">
       <%= render @view_module, @view_template, assigns %>
     </main>
   </body>

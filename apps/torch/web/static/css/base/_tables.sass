@@ -1,59 +1,21 @@
-table.data
-  width: 100%
+section.torch
+  table
+    border-collapse: collapse
+    margin: $small-spacing 0
+    table-layout: fixed
+    width: 100%
 
-  thead
-    th
-      padding-left: 15px
-      text-align: left
-      color: $white
-      font-weight: $font-weight
-      background-color: $tertiary-color
-      height: 40px
+  th
+    border-bottom: 1px solid shade($base-border-color, 25%)
+    font-weight: 600
+    padding: $small-spacing 0
+    text-align: left
 
-      &:nth-child(odd)
-        background-color: $tertiary-color
+  td
+    border-bottom: $base-border
+    padding: $small-spacing 0
 
-      &:nth-child(even)
-        background-color: lighten($tertiary-color, 15%)
-
-    a
-      color: $white
-
-      .caret
-        display: inline-block
-
-      &.active.desc
-        .caret
-          width: 0
-          height: 0
-          border-left: 5px solid transparent
-          border-right: 5px solid transparent
-          border-top: 5px solid white
-          margin-top: 5px
-          margin-left: 5px
-
-      &.active.asc
-        .caret
-          width: 0
-          height: 0
-          border-left: 5px solid transparent
-          border-right: 5px solid transparent
-          border-bottom: 5px solid white
-          margin-top: 5px
-          margin-left: 5px
-
-  tbody
-    tr
-      height: 40px
-      border-bottom: 1px solid #ccc
-
-      &:nth-child(odd)
-        background-color: #F1F1F1
-
-    td
-      padding-left: 15px
-
-  .actions a
-    display: inline-block
-    float: left
-    padding: 0 10px 0 0
+  tr,
+  td,
+  th
+    vertical-align: middle
