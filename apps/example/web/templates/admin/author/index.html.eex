@@ -1,10 +1,10 @@
-<section class="content">
-  <section class="toolbar">
+<section class="torch torch-content">
+  <section class="torch-toolbar">
     <%= link "New", to: admin_author_path(@conn, :new) %>
   </section>
 
   <%= if length(@authors) > 0 do %>
-    <table class="data">
+    <table class="torch-data">
       <thead>
         <tr>
           <th><%= table_link(@conn, "Name", :name) %></th>
@@ -19,7 +19,7 @@
             <td><%= author.name %></td>
             <td><%= author.email %></td>
 
-            <td class="actions">
+            <td class="torch-actions">
               <%= link "Edit", to: admin_author_path(@conn, :edit, author) %>
               <%= link "Delete", to: admin_author_path(@conn, :delete, author), method: :delete, data: [confirm: "Are you sure?"] %>
             </td>
@@ -29,8 +29,7 @@
     </table>
     <%= render Torch.PaginationView, "_pagination.html", assigns %>
   <% else %>
-    <p class="no-data">No authors match your search.</p>
+    <p class="torch-no-data">No authors match your search.</p>
   <% end %>
 </section>
 <%= render "_filters.html", assigns %>
-

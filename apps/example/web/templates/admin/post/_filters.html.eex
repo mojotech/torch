@@ -1,4 +1,4 @@
-<section class="filters">
+<section class="torch torch-filters">
   <%= form_tag @conn.request_path, method: :get, id: "filters" do %>
 
     <div class="field">

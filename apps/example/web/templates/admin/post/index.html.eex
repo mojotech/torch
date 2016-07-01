@@ -1,10 +1,10 @@
-<section class="content">
-  <section class="toolbar">
+<section class="torch torch-content">
+  <section class="torch-toolbar">
     <%= link "New", to: admin_post_path(@conn, :new) %>
   </section>
 
   <%= if length(@posts) > 0 do %>
-    <table class="data">
+    <table class="torch-data">
       <thead>
         <tr>
           <th><%= table_link(@conn, "Title", :title) %></th>
@@ -19,7 +19,7 @@
             <td><%= post.title %></td>
             <td><%= post.body %></td>
 
-            <td class="actions">
+            <td class="torch-actions">
               <%= link "Edit", to: admin_post_path(@conn, :edit, post) %>
               <%= link "Delete", to: admin_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %>
             </td>
@@ -29,8 +29,7 @@
     </table>
     <%= render Torch.PaginationView, "_pagination.html", assigns %>
   <% else %>
-    <p class="no-data">No posts match your search.</p>
+    <p class="torch-no-data">No posts match your search.</p>
   <% end %>
 </section>
 <%= render "_filters.html", assigns %>
-

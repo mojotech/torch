@@ -6,14 +6,14 @@
   </head>
 
   <body>
-    <nav class="credentials">
+    <nav class="torch-credentials">
       <ul>
         <li>Logout</li>
         <li>user@infinite.red</li>
       </ul>
     </nav>
 
-    <header id="main-header">
+    <header class="torch-main-header">
       <nav>
         <h1>Torch Admin</h1>
         <ul>
@@ -22,7 +22,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="torch">
       <%%= render @view_module, @view_template, assigns %>
     </main>
   </body>
