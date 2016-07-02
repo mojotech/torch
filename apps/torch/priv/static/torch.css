@@ -658,7 +658,7 @@ section.torch {
 /* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
 section.torch .torch-button {
   appearance: none;
-  background-color: #1565c0;
+  background-color: #3B8183;
   border: 0;
   border-radius: 0px;
   color: #fff;
@@ -677,7 +677,7 @@ section.torch .torch-button {
   white-space: nowrap; }
   /* line 22, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
   section.torch .torch-button:hover, section.torch .torch-button:focus {
-    background-color: #11519a;
+    background-color: #2f6769;
     color: #fff; }
   /* line 27, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
   section.torch .torch-button:disabled {
@@ -685,7 +685,7 @@ section.torch .torch-button {
     opacity: 0.5; }
     /* line 31, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
     section.torch .torch-button:disabled:hover {
-      background-color: #1565c0; }
+      background-color: #3B8183; }
 
 /* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch fieldset {
@@ -733,8 +733,8 @@ section.torch select[multiple] {
   /* line 39, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:focus, section.torch input[type="date"]:focus, section.torch input[type="datetime"]:focus, section.torch input[type="datetime-local"]:focus, section.torch input[type="email"]:focus, section.torch input[type="month"]:focus, section.torch input[type="number"]:focus, section.torch input[type="password"]:focus, section.torch input[type="search"]:focus, section.torch input[type="tel"]:focus, section.torch input[type="text"]:focus, section.torch input[type="time"]:focus, section.torch input[type="url"]:focus, section.torch input[type="week"]:focus, section.torch input:not([type]):focus, section.torch textarea:focus,
   section.torch select[multiple]:focus {
-    border-color: #1565c0;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(18, 89, 169, 0.7);
+    border-color: #3B8183;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(51, 112, 113, 0.7);
     outline: none; }
   /* line 44, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:disabled, section.torch input[type="date"]:disabled, section.torch input[type="datetime"]:disabled, section.torch input[type="datetime-local"]:disabled, section.torch input[type="email"]:disabled, section.torch input[type="month"]:disabled, section.torch input[type="number"]:disabled, section.torch input[type="password"]:disabled, section.torch input[type="search"]:disabled, section.torch input[type="tel"]:disabled, section.torch input[type="text"]:disabled, section.torch input[type="time"]:disabled, section.torch input[type="url"]:disabled, section.torch input[type="week"]:disabled, section.torch input:not([type]):disabled, section.torch textarea:disabled,
@@ -852,12 +852,12 @@ section.torch {
     margin: 0 0 0.6em; }
   /* line 21, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
   section.torch a {
-    color: #1565c0;
+    color: #3B8183;
     text-decoration: none;
     transition: color 300ms ease; }
     /* line 26, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
     section.torch a:active, section.torch a:focus, section.torch a:hover {
-      color: #104c90; }
+      color: #2c6162; }
   /* line 31, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
   section.torch hr {
     border-bottom: 1px solid #ddd;
