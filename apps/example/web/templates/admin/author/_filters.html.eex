@@ -24,7 +24,7 @@
       <%= filter_date_input(:author, :updated_at, @conn.params) %>
     </div>
 
-    <button type="submit">Search</button>
+    <button type="submit" class="torch-button">Search</button>
   <% end %>
 
   <%= link "Clear Filters", to: admin_author_path(@conn, :index) %>

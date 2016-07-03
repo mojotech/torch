@@ -1,7 +1,7 @@
 section.torch
-  #{$all-buttons}
+  .torch-button
     appearance: none
-    background-color: $action-color
+    background-color: $torch-action-color
     border: 0
     border-radius: $base-border-radius
     color: #fff
@@ -12,7 +12,7 @@ section.torch
     -webkit-font-smoothing: antialiased
     font-weight: 600
     line-height: 1
-    padding: $small-spacing $base-spacing
+    padding: 10px 26px 11px 26px
     text-decoration: none
     transition: background-color $torch-base-duration $torch-base-timing
     user-select: none
@@ -21,7 +21,7 @@ section.torch
 
     &:hover,
     &:focus
-      background-color: shade($action-color, 20%)
+      background-color: shade($torch-action-color, 20%)
       color: #fff
 
     &:disabled
@@ -29,4 +29,4 @@ section.torch
       opacity: 0.5
 
       &:hover
-        background-color: $action-color
+        background-color: $torch-action-color

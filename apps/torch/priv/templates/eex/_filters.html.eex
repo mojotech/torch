@@ -13,7 +13,7 @@
       <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>
     </div>
 <% end %>
-    <button type="submit">Search</button>
+    <button type="submit" class="torch-button">Search</button>
   <%% end %>
 
   <%%= link "Clear Filters", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :index) %>

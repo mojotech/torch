@@ -1,33 +1,33 @@
 @import "../../../../node_modules/bourbon-neat/app/assets/stylesheets/neat-helpers"
 
-$grid-columns     : 12 !default
-$gutter           : 30px !default
-$container        : 1140px !default
-$container_gutter : 30px !default
+$torch-grid-columns     : 12 !default
+$torch-gutter           : 30px !default
+$torch-container        : 1140px !default
+$torch-container_gutter : 30px !default
 
 // Grid
 // 1200px
-$max-width: $container + $container_gutter * 2 !default
+$torch-max-width: $torch-container + $torch-container_gutter * 2 !default
 // ((1200px) - (30 * (12 - 1) + 60)) / 12 = 67.5px
-$column: ($max-width - ($gutter * ($grid-columns - 1) + $container_gutter * 2))/$grid-columns !default
+$torch-column: ($torch-max-width - ($torch-gutter * ($torch-grid-columns - 1) + $torch-container_gutter * 2))/$torch-grid-columns !default
 
 // main
-$desktop: new-breakpoint(min-width 1025px) !default
-$tablet: new-breakpoint(min-width 768px max-width 1024px) !default
-$mobile: new-breakpoint(max-width 767px) !default
+$torch-desktop: new-breakpoint(min-width 1025px) !default
+$torch-tablet: new-breakpoint(min-width 768px max-width 1024px) !default
+$torch-mobile: new-breakpoint(max-width 767px) !default
 
 // secondary
-$desktop-extra-large: new-breakpoint(min-width 1921px) !default
-$desktop-large: new-breakpoint(min-width 1171px max-width 1920px) !default
-$desktop-small: new-breakpoint(min-width 1025px max-width 1170px) !default
+$torch-desktop-extra-large: new-breakpoint(min-width 1921px) !default
+$torch-desktop-large: new-breakpoint(min-width 1171px max-width 1920px) !default
+$torch-desktop-small: new-breakpoint(min-width 1025px max-width 1170px) !default
 
-$tablet-landscape: new-breakpoint(min-width 896px max-width 1024px) !default
-$tablet-portrait: new-breakpoint(min-width 768px max-width 895px) !default
+$torch-tablet-landscape: new-breakpoint(min-width 896px max-width 1024px) !default
+$torch-tablet-portrait: new-breakpoint(min-width 768px max-width 895px) !default
 
-$mobile-landscape: new-breakpoint(min-width 480px max-width 767px) !default
-$mobile-portrait: new-breakpoint(max-width 479px) !default
-$mobile-small-portrait: new-breakpoint(max-width 380px) !default
+$torch-mobile-landscape: new-breakpoint(min-width 480px max-width 767px) !default
+$torch-mobile-portrait: new-breakpoint(max-width 479px) !default
+$torch-mobile-small-portrait: new-breakpoint(max-width 380px) !default
 
 // combined
-$desktop-and-tablet: new-breakpoint(min-width 768px) !default
-$tablet-and-mobile: new-breakpoint(max-width 1024px) !default
+$torch-desktop-and-tablet: new-breakpoint(min-width 768px) !default
+$torch-tablet-and-mobile: new-breakpoint(max-width 1024px) !default
