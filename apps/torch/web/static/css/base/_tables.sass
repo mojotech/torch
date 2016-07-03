@@ -1,21 +1,97 @@
 section.torch
+  section.torch-table
+      +span-columns(8)
+
   table
     border-collapse: collapse
+    color: $torch-table-font-color
+    font-size: $torch-base-font-size
     margin: $small-spacing 0
     table-layout: fixed
     width: 100%
 
+
+  tr th,
+  tr td
+    border-bottom: $torch-border
+    border-right: $torch-border
+
+    &:first-child
+      border-left: $torch-border
+
   th
-    border-bottom: 1px solid shade($base-border-color, 25%)
-    font-weight: 600
-    padding: $small-spacing 0
+    background-color: $torch-tertiary-color
+    border-top: $torch-border
+    font-size: $torch-base-font-size
+    font-weight: $torch-semibold
+    padding: 0
     text-align: left
 
+    & > *
+      display: block
+      padding: 12px 10px
+      color: $torch-th-font-color
+
+    a, a:hover
+      color: $torch-th-font-color
+
+    a
+      min-height: 4px
+      position: relative
+      +transition(opacity $torch-base-duration $torch-base-timing)
+
+      &.active
+        background-color: lighten($torch-tertiary-color, 15%)
+
+      .caret
+        border-left: 5px solid transparent
+        border-right: 5px solid transparent
+        display: inline-block
+        height: 0
+        margin-left: 5px
+        margin-top: 5px
+        position: absolute
+        right: 10px
+        top: 15px
+        width: 0
+
+      &.active.desc
+        .caret
+          border-top: 5px solid $torch-th-font-color
+
+      &.active.asc
+        .caret
+          border-bottom: 5px solid $torch-th-font-color
+
+    a:hover
+      opacity: $torch-hover-opacity
+
   td
-    border-bottom: $base-border
-    padding: $small-spacing 0
+    border-right: $torch-border
 
   tr,
   td,
   th
     vertical-align: middle
+
+  tbody tr
+    &:nth-child(odd)
+      background-color: #F1F1F1
+
+    td
+      padding: 12px 10px
+
+    .torch-actions
+      font-size: 0
+
+      a, form
+        color: $torch-table-font-color
+        display: inline-block
+        font-size: $torch-base-font-size
+        margin-bottom: 0
+
+      & > *
+        margin-right: 10px
+
+        &:last-child
+          margin-right: 0
