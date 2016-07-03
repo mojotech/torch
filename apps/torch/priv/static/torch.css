@@ -844,9 +844,9 @@ section.torch th {
   text-align: left; }
   /* line 30, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch th > * {
+    color: #ffffff;
     display: block;
-    padding: 12px 10px;
-    color: #ffffff; }
+    padding: 12px 10px; }
   /* line 35, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch th a, section.torch th a:hover {
     color: #ffffff; }
