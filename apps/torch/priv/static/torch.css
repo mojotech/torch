@@ -702,11 +702,12 @@ section.torch legend {
 
 /* line 13, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch label {
+  color: #949494;
   display: block;
-  font-weight: 600;
-  margin-bottom: 0.3em; }
+  font-weight: 400;
+  margin-bottom: 4px; }
 
-/* line 18, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 19, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch input,
 section.torch select,
 section.torch textarea {
@@ -714,7 +715,7 @@ section.torch textarea {
   font-family: "Open Sans", sans-serif;
   font-size: 14px; }
 
-/* line 25, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 26, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch input[type="color"], section.torch input[type="date"], section.torch input[type="datetime"], section.torch input[type="datetime-local"], section.torch input[type="email"], section.torch input[type="month"], section.torch input[type="number"], section.torch input[type="password"], section.torch input[type="search"], section.torch input[type="tel"], section.torch input[type="text"], section.torch input[type="time"], section.torch input[type="url"], section.torch input[type="week"], section.torch input:not([type]), section.torch textarea,
 section.torch select[multiple] {
   background-color: #fff;
@@ -722,54 +723,55 @@ section.torch select[multiple] {
   border-radius: 0px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
+  font-size: 14px;
   margin-bottom: 0.6em;
-  padding: 0.4em;
+  padding: 10px 10px 11px 10px;
   transition: border-color 300ms ease;
   width: 100%; }
-  /* line 36, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 38, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:hover, section.torch input[type="date"]:hover, section.torch input[type="datetime"]:hover, section.torch input[type="datetime-local"]:hover, section.torch input[type="email"]:hover, section.torch input[type="month"]:hover, section.torch input[type="number"]:hover, section.torch input[type="password"]:hover, section.torch input[type="search"]:hover, section.torch input[type="tel"]:hover, section.torch input[type="text"]:hover, section.torch input[type="time"]:hover, section.torch input[type="url"]:hover, section.torch input[type="week"]:hover, section.torch input:not([type]):hover, section.torch textarea:hover,
   section.torch select[multiple]:hover {
     border-color: #a7a7a7; }
-  /* line 39, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 41, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:focus, section.torch input[type="date"]:focus, section.torch input[type="datetime"]:focus, section.torch input[type="datetime-local"]:focus, section.torch input[type="email"]:focus, section.torch input[type="month"]:focus, section.torch input[type="number"]:focus, section.torch input[type="password"]:focus, section.torch input[type="search"]:focus, section.torch input[type="tel"]:focus, section.torch input[type="text"]:focus, section.torch input[type="time"]:focus, section.torch input[type="url"]:focus, section.torch input[type="week"]:focus, section.torch input:not([type]):focus, section.torch textarea:focus,
   section.torch select[multiple]:focus {
     border-color: #3B8183;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(51, 112, 113, 0.7);
     outline: none; }
-  /* line 44, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 46, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:disabled, section.torch input[type="date"]:disabled, section.torch input[type="datetime"]:disabled, section.torch input[type="datetime-local"]:disabled, section.torch input[type="email"]:disabled, section.torch input[type="month"]:disabled, section.torch input[type="number"]:disabled, section.torch input[type="password"]:disabled, section.torch input[type="search"]:disabled, section.torch input[type="tel"]:disabled, section.torch input[type="text"]:disabled, section.torch input[type="time"]:disabled, section.torch input[type="url"]:disabled, section.torch input[type="week"]:disabled, section.torch input:not([type]):disabled, section.torch textarea:disabled,
   section.torch select[multiple]:disabled {
     background-color: #f2f2f2;
     cursor: not-allowed; }
-    /* line 48, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+    /* line 50, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
     section.torch input[type="color"]:disabled:hover, section.torch input[type="date"]:disabled:hover, section.torch input[type="datetime"]:disabled:hover, section.torch input[type="datetime-local"]:disabled:hover, section.torch input[type="email"]:disabled:hover, section.torch input[type="month"]:disabled:hover, section.torch input[type="number"]:disabled:hover, section.torch input[type="password"]:disabled:hover, section.torch input[type="search"]:disabled:hover, section.torch input[type="tel"]:disabled:hover, section.torch input[type="text"]:disabled:hover, section.torch input[type="time"]:disabled:hover, section.torch input[type="url"]:disabled:hover, section.torch input[type="week"]:disabled:hover, section.torch input:not([type]):disabled:hover, section.torch textarea:disabled:hover,
     section.torch select[multiple]:disabled:hover {
       border: 1px solid #D1D1D1; }
-  /* line 51, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 53, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]::placeholder, section.torch input[type="date"]::placeholder, section.torch input[type="datetime"]::placeholder, section.torch input[type="datetime-local"]::placeholder, section.torch input[type="email"]::placeholder, section.torch input[type="month"]::placeholder, section.torch input[type="number"]::placeholder, section.torch input[type="password"]::placeholder, section.torch input[type="search"]::placeholder, section.torch input[type="tel"]::placeholder, section.torch input[type="text"]::placeholder, section.torch input[type="time"]::placeholder, section.torch input[type="url"]::placeholder, section.torch input[type="week"]::placeholder, section.torch input:not([type])::placeholder, section.torch textarea::placeholder,
   section.torch select[multiple]::placeholder {
     color: #999; }
 
-/* line 54, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 56, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch textarea {
   resize: vertical; }
 
-/* line 57, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 59, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch [type="search"] {
   appearance: none; }
 
-/* line 60, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 62, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch [type="checkbox"],
 section.torch [type="radio"] {
   display: inline;
   margin-right: 0.3em; }
 
-/* line 65, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 67, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch [type="file"] {
   margin-bottom: 0.6em;
   width: 100%; }
 
-/* line 69, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 71, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch select {
   margin-bottom: 0.6em;
   max-width: 100%;
@@ -957,6 +959,18 @@ section.torch-content {
   padding-bottom: 40px;
   padding-top: 40px; }
 
+/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_filters.sass */
+section.torch-filters {
+  padding-left: 34px; }
+  /* line 4, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_filters.sass */
+  section.torch-filters h3 {
+    font-size: 18px;
+    margin: 0 0 17px 0;
+    padding: 0; }
+  /* line 9, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_filters.sass */
+  section.torch-filters .field {
+    margin-bottom: 20px; }
+
 /* line 3, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
 section.torch-header .torch-account {
   background-color: #F5634A; }
@@ -1066,7 +1080,6 @@ section.torch.torch-toolbar-container {
 
 /* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_filters.sass */
 section.torch-filters {
-  padding-left: 34px;
   float: left;
   display: block;
   margin-right: 2.35765%;
