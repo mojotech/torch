@@ -2,13 +2,14 @@
 $white: #fff !default
 $torch-primary-color: #ED303C !default
 $torch-secondary-color: #F5634A !default
-$tertiary-color: #3B8183 !default
-$font-family: "Helvetica Neue" !default
+$torch-tertiary-color: #3B8183 !default
 $font-weight: 200 !default
 
 // Typography
-$base-font-family: $helvetica !default
-$heading-font-family: $base-font-family !default
+$torch-font-family: 'Open Sans', sans-serif !default
+$torch-heading-font-family: $torch-font-family !default
+
+$torch-hover-opacity: 0.7
 
 // Font Sizes
 $torch-small-font-size: 13px !default
@@ -23,12 +24,12 @@ $torch-semibold: 600 !default
 $torch-bold: 700 !default
 
 // Line height
-$base-line-height: 1.2 !default
-$heading-line-height: 1.2 !default
+$torch-line-height: 1.2 !default
+$torch-heading-line-height: $torch-line-height !default
 
 // Other Sizes
-$base-border-radius: 0px !default
-$base-spacing: $base-line-height * 1em !default
+$torch-border-radius: 0px !default
+$base-spacing: $torch-line-height * 1em !default
 $small-spacing: $base-spacing / 2 !default
 $base-z-index: 0 !default
 
@@ -41,17 +42,22 @@ $light-gray: #ddd !default
 $torch-nav-primary: #ffffff !default
 $torch-toolbar-background: #f1f1f1 !default
 
+$torch-table-font-color: #949494
+$torch-label-font-color: $torch-table-font-color
+
+$torch-th-font-color: $torch-nav-primary !default
+
 // Font Colors
 $torch-base-font-color: $torch-dark-gray !default
 $torch-action-color: #3B8183 !default
 
 // Border
-$base-border-color: $light-gray !default
-$base-border: 1px solid $base-border-color !default
+$torch-border-color: #D1D1D1 !default
+$torch-border: 1px solid $torch-border-color !default
 
 // Background Colors
 $base-background-color: #fff !default
-$secondary-background-color: tint($base-border-color, 75%) !default
+$secondary-background-color: tint($torch-border-color, 75%) !default
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06) !default

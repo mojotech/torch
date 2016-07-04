@@ -11,31 +11,33 @@ section.torch
     padding: 0
 
   label
+    color: $torch-label-font-color
     display: block
-    font-weight: 600
-    margin-bottom: $small-spacing / 2
+    font-weight: $torch-regular
+    margin-bottom: 4px
 
   input,
   select,
   textarea
     display: block
-    font-family: $base-font-family
+    font-family: $torch-font-family
     font-size: $torch-base-font-size
 
   #{$all-text-inputs},
   select[multiple]
     background-color: $base-background-color
-    border: $base-border
-    border-radius: $base-border-radius
+    border: $torch-border
+    border-radius: $torch-border-radius
     box-shadow: $form-box-shadow
     box-sizing: border-box
+    font-size: $torch-base-font-size
     margin-bottom: $small-spacing
-    padding: $base-spacing / 3
+    padding: 10px 10px 11px 10px
     transition: border-color $torch-base-duration $torch-base-timing
     width: 100%
 
     &:hover
-      border-color: shade($base-border-color, 20%)
+      border-color: shade($torch-border-color, 20%)
 
     &:focus
       border-color: $torch-action-color
@@ -47,7 +49,7 @@ section.torch
       cursor: not-allowed
 
       &:hover
-        border: $base-border
+        border: $torch-border
 
     &::placeholder
       color: $medium-gray

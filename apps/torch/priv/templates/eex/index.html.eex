@@ -8,14 +8,14 @@
 </section>
 
 <section class="torch torch-content">
-
+  <section class="torch-table">
   <%%= if length(@<%= plural %>) > 0 do %>
     <table class="torch-data">
       <thead>
         <tr>
 <%= for {k, _} <- attrs, not k in [:inserted_at, :updated_at] do %>          <th><%%= table_link(@conn, "<%= Phoenix.Naming.humanize(Atom.to_string(k)) %>", <%= inspect(k) %>) %></th>
 <% end %>
-          <th>Actions</th>
+          <th><span>Actions<span></th>
         </tr>
       </thead>
       <tbody>
@@ -35,5 +35,7 @@
   <%% else %>
     <p class="torch-no-data">No <%= plural %> match your search.</p>
   <%% end %>
+
+  </section>
+  <%%= render "_filters.html", assigns %>
 </section>
-<%%= render "_filters.html", assigns %>

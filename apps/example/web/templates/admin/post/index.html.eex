@@ -8,7 +8,7 @@
 </section>
 
 <section class="torch torch-content">
-
+  <section class="torch-table">
   <%= if length(@posts) > 0 do %>
     <table class="torch-data">
       <thead>
@@ -16,7 +16,7 @@
           <th><%= table_link(@conn, "Title", :title) %></th>
           <th><%= table_link(@conn, "Body", :body) %></th>
 
-          <th>Actions</th>
+          <th><span>Actions<span></th>
         </tr>
       </thead>
       <tbody>
@@ -37,5 +37,7 @@
   <% else %>
     <p class="torch-no-data">No posts match your search.</p>
   <% end %>
+
+  </section>
+  <%= render "_filters.html", assigns %>
 </section>
-<%= render "_filters.html", assigns %>

@@ -1,4 +1,5 @@
-<section class="torch torch-filters">
+<section class="torch-filters">
+  <h3>Search by Filters</h3>
   <%%= form_tag @conn.request_path, method: :get, id: "filters" do %>
 <%= for {key, type} <- attrs, type in [:string, :text] do %>
     <div class="field">

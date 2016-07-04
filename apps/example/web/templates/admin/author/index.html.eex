@@ -8,7 +8,7 @@
 </section>
 
 <section class="torch torch-content">
-
+  <section class="torch-table">
   <%= if length(@authors) > 0 do %>
     <table class="torch-data">
       <thead>
@@ -16,7 +16,7 @@
           <th><%= table_link(@conn, "Name", :name) %></th>
           <th><%= table_link(@conn, "Email", :email) %></th>
 
-          <th>Actions</th>
+          <th><span>Actions<span></th>
         </tr>
       </thead>
       <tbody>
@@ -37,5 +37,7 @@
   <% else %>
     <p class="torch-no-data">No authors match your search.</p>
   <% end %>
+
+  </section>
+  <%= render "_filters.html", assigns %>
 </section>
-<%= render "_filters.html", assigns %>
