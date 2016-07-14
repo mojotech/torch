@@ -114,6 +114,9 @@ defmodule Mix.Tasks.Torch.Gen.Html do
   defp config({:date, fields}) do
     "%Config{type: :date, keys: ~w(#{Enum.join(fields, " ")}), options: %{format: \"{YYYY}-{0M}-{0D}\"}}"
   end
+  defp config({:boolean, fields}) do
+    "%Config{type: :boolean, keys: ~w(#{Enum.join(fields, " ")})}"
+  end
 
   defp group_key({_key, :string}), do: :text
   defp group_key({_key, type}), do: type

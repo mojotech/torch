@@ -13,6 +13,7 @@ defmodule Example.Admin.PostController do
   @page_size 10
 
   @config [
+    %Config{type: :boolean, keys: ~w(draft)},
     %Config{type: :date, keys: ~w(inserted_at updated_at), options: %{format: "{YYYY}-{0M}-{0D}"}},
     %Config{type: :text, keys: ~w(title body)}
   ]

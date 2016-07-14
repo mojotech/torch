@@ -8,6 +8,12 @@
       <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>
     </div>
 <% end %>
+<%= for {key, type} <- attrs, type in [:boolean] do %>
+    <div class="field">
+      <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
+      <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>
+    </div>
+<% end %>
 <%= for {key, type} <- attrs, type in [:date] do %>
     <div class="field">
       <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>

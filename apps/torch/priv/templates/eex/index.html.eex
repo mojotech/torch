@@ -2,8 +2,6 @@
   <div class="torch-toolbar">
     <h2><%= plural %></h2>
     <%%= link "New <%= singular %>", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :new), class: "torch-button" %>
-    <a href="/" class="torch-button">Import</a>
-    <a href="/" class="torch-button">Download Images</a>
   </div>
 </section>
 

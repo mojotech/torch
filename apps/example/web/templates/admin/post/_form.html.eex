@@ -9,5 +9,8 @@
   <%= label f, :body %>
   <%= textarea f, :body %>
 
+  <%= label f, :draft %>
+  <%= checkbox f, :draft %>
+
   <%= submit "Submit" %>
 <% end %>

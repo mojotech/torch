@@ -2,8 +2,6 @@
   <div class="torch-toolbar">
     <h2>authors</h2>
     <%= link "New author", to: admin_author_path(@conn, :new), class: "torch-button" %>
-    <a href="/" class="torch-button">Import</a>
-    <a href="/" class="torch-button">Download Images</a>
   </div>
 </section>
 

@@ -4,6 +4,7 @@ defmodule Example.Post do
   schema "posts" do
     field :title, :string
     field :body, :string
+    field :draft, :boolean
     belongs_to :author, Example.Author
 
     timestamps

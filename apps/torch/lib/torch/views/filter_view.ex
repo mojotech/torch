@@ -31,6 +31,11 @@ defmodule Torch.FilterView do
     raw(start <> ending)
   end
 
+  def filter_boolean_input(prefix, field, params) do
+    value = get_in(params, [to_string(prefix), "#{field}_equals"]) == "true"
+    select(prefix, "#{field}_equals", [{"True", true}, {"False", false}], value: value)
+  end
+
   defp date_input(name, value) do
     tag :input, type: "text", class: "datepicker", name: name, value: value
   end

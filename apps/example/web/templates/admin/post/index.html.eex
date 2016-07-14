@@ -2,8 +2,6 @@
   <div class="torch-toolbar">
     <h2>posts</h2>
     <%= link "New post", to: admin_post_path(@conn, :new), class: "torch-button" %>
-    <a href="/" class="torch-button">Import</a>
-    <a href="/" class="torch-button">Download Images</a>
   </div>
 </section>
 
@@ -15,6 +13,7 @@
         <tr>
           <th><%= table_link(@conn, "Title", :title) %></th>
           <th><%= table_link(@conn, "Body", :body) %></th>
+          <th><%= table_link(@conn, "Draft", :draft) %></th>
 
           <th><span>Actions<span></th>
         </tr>
@@ -24,6 +23,7 @@
           <tr>
             <td><%= post.title %></td>
             <td><%= post.body %></td>
+            <td><%= post.draft %></td>
 
             <td class="torch-actions">
               <%= link "Edit", to: admin_post_path(@conn, :edit, post) %>
