@@ -3,11 +3,17 @@
     <p>Oops, something went wrong! Please check the errors below.</p>
   <% end %>
 
-  <%= label f, :name %>
-  <%= text_input f, :name %>
+  <div class="field">
+    <%= label f, :name %>
+    <%= text_input f, :name %>
+  </div>
 
-  <%= label f, :email %>
-  <%= text_input f, :email %>
+  <div class="field">
+    <%= label f, :email %>
+    <%= text_input f, :email %>
+  </div>
 
-  <%= submit "Submit" %>
+  <div class="field">
+    <%= submit "Submit", class: "torch-button" %>
+  </div>
 <% end %>

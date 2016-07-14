@@ -15,7 +15,7 @@ defmodule Example.Post do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :body])
-    |> validate_required([:title, :body])
+    |> cast(params, [:title, :body, :draft])
+    |> validate_required([:title, :body, :draft])
   end
 end

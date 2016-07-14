@@ -88,7 +88,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
       {key, :decimal}    ->
         {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
       {key, :boolean}    ->
-        {label(key), ~s(<%= checkbox f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(<%= select f, #{inspect(key)}, [{"True", true}, {"False", false}] %>), error(key)}
       {key, :text}       ->
         {label(key), ~s(<%= textarea f, #{inspect(key)} %>), error(key)}
       {key, :date}       ->

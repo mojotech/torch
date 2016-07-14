@@ -26,8 +26,8 @@
       </header>
     </section>
 
-    <main class="torch">
+    <section class="torch">
       <%%= render @view_module, @view_template, assigns %>
-    </main>
+    </section>
   </body>
 </html>

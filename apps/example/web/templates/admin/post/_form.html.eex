@@ -3,14 +3,22 @@
     <p>Oops, something went wrong! Please check the errors below.</p>
   <% end %>
 
-  <%= label f, :title %>
-  <%= text_input f, :title %>
+  <div class="field">
+    <%= label f, :title %>
+    <%= text_input f, :title %>
+  </div>
 
-  <%= label f, :body %>
-  <%= textarea f, :body %>
+  <div class="field">
+    <%= label f, :body %>
+    <%= textarea f, :body %>
+  </div>
 
-  <%= label f, :draft %>
-  <%= checkbox f, :draft %>
+  <div class="field">
+    <%= label f, :draft %>
+    <%= select f, :draft, [{"True", true}, {"False", false}] %>
+  </div>
 
-  <%= submit "Submit" %>
+  <div class="field">
+    <%= submit "Submit", class: "torch-button" %>
+  </div>
 <% end %>
