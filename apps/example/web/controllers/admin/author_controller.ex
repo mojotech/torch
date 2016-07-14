@@ -9,7 +9,6 @@ defmodule Example.Admin.AuthorController do
 
   plug :put_layout, {Example.LayoutView, "admin.html"}
   plug :scrub_params, "author" when action in [:create, :update]
-
   @page_size 10
 
   @config [

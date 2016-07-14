@@ -6,7 +6,5 @@
 </section>
 
 <section class="torch torch-content">
-  <%= render "_form.html",
-      changeset: @changeset,
-      action: admin_post_path(@conn, :create) %>
+  <%= render "_form.html", Map.put(assigns, :action, admin_post_path(@conn, :create)) %>
 </section>

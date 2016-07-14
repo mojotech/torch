@@ -6,7 +6,5 @@
 </section>
 
 <section class="torch torch-content">
-  <%%= render "_form.html",
-      changeset: @changeset,
-      action: <%= namespace_underscore %>_<%= singular %>_path(@conn, :create) %>
+  <%%= render "_form.html", Map.put(assigns, :action, <%= namespace_underscore %>_<%= singular %>_path(@conn, :create)) %>
 </section>

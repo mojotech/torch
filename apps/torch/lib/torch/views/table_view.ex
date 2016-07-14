@@ -25,6 +25,13 @@ defmodule Torch.TableView do
     end
   end
 
+  def table_assoc_display_name(model, field, options) do
+    case Enum.find(options, fn({_name, id}) -> Map.get(model, field) == id end) do
+      {name, _id} -> name
+      _other -> "None"
+    end
+  end
+
   def querystring(conn, opts) do
     opts = [
       page: opts[:page] || conn.assigns[:page],

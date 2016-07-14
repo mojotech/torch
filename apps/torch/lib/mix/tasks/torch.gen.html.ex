@@ -24,6 +24,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
   use Mix.Task
 
   def run(args) do
+    Mix.Task.run("app.start", [])
     {_opts, [namespace, singular, plural | attrs], _} = OptionParser.parse(args, switches: [])
 
     namespace_underscore = Macro.underscore(namespace)
@@ -35,7 +36,9 @@ defmodule Mix.Tasks.Torch.Gen.Html do
                           configs: configs(attrs),
                           namespace: namespace,
                           namespace_underscore: namespace_underscore,
-                          inputs: inputs(attrs)]
+                          inputs: inputs(attrs),
+                          assoc_plugs: assoc_plugs(attrs),
+                          assoc_plug_definitions: assoc_plug_definitions(binding, attrs)]
 
     Mix.Torch.copy_from [:torch], "priv/templates/eex", "", binding, [
       {:eex, "index.html.eex", "web/templates/#{path}/index.html.eex"},
@@ -67,7 +70,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
           <nav>
             <h1>Torch Admin</h1>
             <ul>
-              <li><%= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index) %></a>
+              <li><%= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index) %></li>
             </ul>
           </nav>
         </header>
@@ -79,8 +82,8 @@ defmodule Mix.Tasks.Torch.Gen.Html do
     Enum.map attrs, fn
       {_, {:array, _}} ->
         {nil, nil, nil}
-      {_, {:references, _}} ->
-        {nil, nil, nil}
+      {key, {:references, data}} ->
+        {label(data[:assoc_singular]), ~s(<%= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one" %>), error(key)}
       {key, :integer}    ->
         {label(key), ~s(<%= number_input f, #{inspect(key)} %>), error(key)}
       {key, :float}      ->
@@ -88,7 +91,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
       {key, :decimal}    ->
         {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
       {key, :boolean}    ->
-        {label(key), ~s(<%= select f, #{inspect(key)}, [{"True", true}, {"False", false}] %>), error(key)}
+        {label(key), ~s(<%= select f, #{inspect(key)}, [{"True", true}, {"False", false}], prompt: "Choose one" %>), error(key)}
       {key, :text}       ->
         {label(key), ~s(<%= textarea f, #{inspect(key)} %>), error(key)}
       {key, :date}       ->
@@ -99,6 +102,29 @@ defmodule Mix.Tasks.Torch.Gen.Html do
         {label(key), ~s(<%= datetime_select f, #{inspect(key)} %>), error(key)}
       {key, _}           ->
         {label(key), ~s(<%= text_input f, #{inspect(key)} %>), error(key)}
+    end
+  end
+
+  defp assoc_plugs(attrs) do
+    for {_key, {:references, data}} <- attrs do
+      "plug :assign_#{data[:assoc_plural]}"
+    end
+  end
+
+  defp assoc_plug_definitions(binding, attrs) do
+    model = Module.concat([Elixir, binding[:base], binding[:scoped]])
+
+    for {_key, {:references, data}} <- attrs do
+      assoc = model.__schema__(:association, data[:assoc_singular]).queryable
+      """
+        defp assign_#{data[:assoc_plural]}(conn, _opts) do
+          #{data[:assoc_plural]} =
+            #{inspect(assoc)}
+            |> Repo.all
+            |> Enum.map(&({&1.#{data[:display_name]}, &1.#{data[:primary_key]}}))
+          assign(conn, :#{data[:assoc_plural]}, #{data[:assoc_plural]})
+        end
+      """
     end
   end
 
@@ -116,6 +142,9 @@ defmodule Mix.Tasks.Torch.Gen.Html do
   end
   defp config({:boolean, fields}) do
     "%Config{type: :boolean, keys: ~w(#{Enum.join(fields, " ")})}"
+  end
+  defp config({{:references, _}, fields}) do
+    "%Config{type: :number, keys: ~w(#{Enum.join(fields, " ")})}"
   end
 
   defp group_key({_key, :string}), do: :text

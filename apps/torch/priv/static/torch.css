@@ -777,6 +777,12 @@ section.torch select {
   max-width: 100%;
   width: auto; }
 
+/* line 76, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
+section.torch .help-block {
+  color: #ED303C;
+  display: block;
+  margin: 10px 0 10px 0; }
+
 /* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_lists.sass */
 section.torch ul,
 section.torch ol {

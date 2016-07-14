@@ -176,6 +176,19 @@ defmodule Mix.Torch do
 
   defp list_to_attr([key]), do: {String.to_atom(key), :string}
   defp list_to_attr([key, value]), do: {String.to_atom(key), String.to_atom(value)}
+  defp list_to_attr([key, "references", data]) do
+    [assoc, fields] = String.split(to_string(data), ":")
+    [assoc_singular, assoc_plural] = String.split(assoc, ",")
+    [primary_key, display_name] = String.split(fields, ",")
+
+    value = [
+      assoc_singular: String.to_atom(assoc_singular),
+      assoc_plural: String.to_atom(assoc_plural),
+      primary_key: String.to_atom(primary_key),
+      display_name: String.to_atom(display_name)
+    ]
+    {String.to_atom(key), {:references, value}}
+  end
   defp list_to_attr([key, comp, value]) do
     {String.to_atom(key), {String.to_atom(comp), String.to_atom(value)}}
   end

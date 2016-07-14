@@ -6,6 +6,7 @@
   <div class="field">
     <%= label %>
     <%= input %>
+    <%= error %>
   </div>
 <% end %>
   <div class="field">

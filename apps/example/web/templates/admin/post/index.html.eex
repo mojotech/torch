@@ -14,6 +14,7 @@
           <th><%= table_link(@conn, "Title", :title) %></th>
           <th><%= table_link(@conn, "Body", :body) %></th>
           <th><%= table_link(@conn, "Draft", :draft) %></th>
+          <th><%= table_link(@conn, "Category", :category_id) %></th>
 
           <th><span>Actions<span></th>
         </tr>
@@ -24,6 +25,7 @@
             <td><%= post.title %></td>
             <td><%= post.body %></td>
             <td><%= post.draft %></td>
+            <td><%= table_assoc_display_name(post, :category_id, @categories) %>
 
             <td class="torch-actions">
               <%= link "Edit", to: admin_post_path(@conn, :edit, post) %>

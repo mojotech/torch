@@ -1,0 +1,15 @@
+<section class="torch-filters">
+  <h3>Search by Filters</h3>
+  <%= form_tag @conn.request_path, method: :get, id: "filters" do %>
+
+    <div class="field">
+      <label>Name</label>
+      <%= filter_select(:category, :name, @conn.params) %>
+      <%= filter_string_input(:category, :name, @conn.params) %>
+    </div>
+
+    <button type="submit" class="torch-button">Search</button>
+  <% end %>
+
+  <%= link "Clear Filters", to: admin_category_path(@conn, :index) %>
+</section>

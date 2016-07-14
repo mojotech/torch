@@ -19,7 +19,8 @@
       <tbody>
         <%%= for <%= singular %> <- @<%= plural %> do %>
           <tr>
-<%= for {k, _} <- attrs, not k in [:inserted_at, :updated_at] do %>            <td><%%= <%= singular %>.<%= k %> %></td>
+<%= for {k, meta} <- attrs, is_atom(meta), not k in [:inserted_at, :updated_at] do %>            <td><%%= <%= singular %>.<%= k %> %></td>
+<% end %><%= for {k, {:references, data}} <- attrs do %>            <td><%%= table_assoc_display_name(<%= singular %>, :<%= k %>, @<%= data[:assoc_plural] %>) %>
 <% end %>
             <td class="torch-actions">
               <%%= link "Edit", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :edit, <%= singular %>) %>

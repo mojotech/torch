@@ -7,7 +7,7 @@ window.onload = () => {
   document.querySelector('form#filters').addEventListener('submit', function (e) {
     e.preventDefault()
 
-    this.querySelectorAll('input').forEach((field) => {
+    this.querySelectorAll('input, select').forEach((field) => {
       if (field.value === '') {
         field.disabled = true
       }
