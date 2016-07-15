@@ -16,6 +16,7 @@ defmodule Torch.Mixfile do
      name: "Torch",
      description: "Rapid admin generator for Phoenix",
      package: package,
+     docs: docs,
      deps: deps]
   end
 
@@ -45,7 +46,8 @@ defmodule Torch.Mixfile do
      {:phoenix, "~> 1.2"},
      {:phoenix_html, "~> 2.6"},
      {:ecto, ">= 1.0.0"},
-     {:scrivener_ecto, ">= 1.0.0"}]
+     {:scrivener_ecto, ">= 1.0.0"},
+     {:ex_doc, "~> 0.13", only: :dev}]
   end
 
   defp package do
@@ -56,6 +58,13 @@ defmodule Torch.Mixfile do
         "Github" => "https://github.com/infinitered/torch"
       },
       files: ~w(lib priv web brunch-config.js mix.exs package.json README.md)
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      extras: ["README.md"]
     ]
   end
 

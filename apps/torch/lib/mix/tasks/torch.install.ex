@@ -1,7 +1,12 @@
 defmodule Mix.Tasks.Torch.Install do
   @moduledoc """
-  Installs all the files Torch needs to run within the context of your
-  Phoenix application.
+  Installs all the files Torch needs to run within the context of your Phoenix
+  application. Specifically, it generates the following files:
+
+  ```
+  web/templates/layout/admin.html.{format}
+  web/static/css/_admin_variables.scss
+  ```
 
   ## Parameters
 
@@ -15,6 +20,7 @@ defmodule Mix.Tasks.Torch.Install do
 
   use Mix.Task
 
+  @doc false
   def run([format]) do
     Mix.Torch.copy_from [:torch], "priv/templates/#{format}", "", [], [
       {:eex, "layout.#{format}.eex", "web/templates/layout/admin.html.#{format}"}

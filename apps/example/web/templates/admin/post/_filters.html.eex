@@ -8,6 +8,11 @@
     </div>
 
     <div class="field">
+      <label>Author</label>
+      <%= filter_assoc_select(:post, :author_id, @authors, @conn.params) %>
+    </div>
+
+    <div class="field">
       <label>Title</label>
       <%= filter_select(:post, :title, @conn.params) %>
       <%= filter_string_input(:post, :title, @conn.params) %>
