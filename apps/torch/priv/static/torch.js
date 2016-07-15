@@ -5184,7 +5184,7 @@ window.onload = function () {
   document.querySelector('form#filters').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    this.querySelectorAll('input').forEach(function (field) {
+    this.querySelectorAll('input, select').forEach(function (field) {
       if (field.value === '') {
         field.disabled = true;
       }

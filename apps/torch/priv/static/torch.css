@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
-/* line 4, /Users/aj/Projects/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_box-sizing.scss */
+/* line 4, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_box-sizing.scss */
 html {
   box-sizing: border-box; }
 
-/* line 9, /Users/aj/Projects/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_box-sizing.scss */
+/* line 9, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_box-sizing.scss */
 *, *::after, *::before {
   box-sizing: inherit; }
 
@@ -12,7 +12,7 @@ html {
  * Pikaday
  * Copyright © 2014 David Bushell | BSD & MIT license | http://dbushell.com/
  */
-/* line 6, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 6, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-single {
   z-index: 9999;
   display: block;
@@ -22,36 +22,36 @@ html {
   border: 1px solid #ccc;
   border-bottom-color: #bbb;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-  /* line 16, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 16, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-single.is-hidden {
     display: none; }
-  /* line 20, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 20, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-single.is-bound {
     position: absolute;
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5); }
 
-/* line 28, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 28, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-single {
   *zoom: 1; }
-  /* line 31, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 31, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-single:before, .pika-single:after {
     content: " ";
     display: table; }
-  /* line 37, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 37, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-single:after {
     clear: both; }
 
-/* line 40, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 40, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-lendar {
   float: left;
   width: 240px;
   margin: 8px; }
 
-/* line 46, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 46, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-title {
   position: relative;
   text-align: center; }
-  /* line 50, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 50, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-title select {
     cursor: pointer;
     position: absolute;
@@ -62,7 +62,7 @@ html {
     filter: alpha(opacity=0);
     opacity: 0; }
 
-/* line 62, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 62, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-label {
   display: inline-block;
   *display: inline;
@@ -76,7 +76,7 @@ html {
   font-weight: bold;
   background-color: #fff; }
 
-/* line 76, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 76, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-prev,
 .pika-next {
   display: block;
@@ -97,59 +97,59 @@ html {
   opacity: .5;
   *position: absolute;
   *top: 0; }
-  /* line 97, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 97, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-prev:hover,
   .pika-next:hover {
     opacity: 1; }
-  /* line 101, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 101, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-prev.is-disabled,
   .pika-next.is-disabled {
     cursor: default;
     opacity: .2; }
 
-/* line 107, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 107, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-prev,
 .is-rtl .pika-next {
   float: left;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==");
   *left: 0; }
 
-/* line 114, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 114, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-next,
 .is-rtl .pika-prev {
   float: right;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=");
   *right: 0; }
 
-/* line 121, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 121, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-select {
   display: inline-block;
   *display: inline; }
 
-/* line 126, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 126, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   border: 0; }
-  /* line 132, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 132, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-table th,
   .pika-table td {
     width: 14.285714285714286%;
     padding: 0; }
-  /* line 138, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 138, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-table th {
     color: #999;
     font-size: 12px;
     line-height: 25px;
     font-weight: bold;
     text-align: center; }
-  /* line 146, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 146, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-table abbr {
     border-bottom: none;
     cursor: help; }
 
-/* line 152, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 152, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-button {
   cursor: pointer;
   display: block;
@@ -165,47 +165,47 @@ html {
   line-height: 15px;
   text-align: right;
   background: #f5f5f5; }
-  /* line 168, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 168, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .is-today .pika-button {
     color: #33aaff;
     font-weight: bold; }
-  /* line 173, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 173, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .is-selected .pika-button {
     color: #fff;
     font-weight: bold;
     background: #33aaff;
     box-shadow: inset 0 1px 3px #178fe5;
     border-radius: 3px; }
-  /* line 181, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 181, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .is-disabled .pika-button {
     pointer-events: none;
     cursor: default;
     color: #999;
     opacity: .3; }
-  /* line 188, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+  /* line 188, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
   .pika-button:hover {
     color: #fff;
     background: #ff8000;
     box-shadow: none;
     border-radius: 3px; }
 
-/* line 196, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 196, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .pika-week {
   font-size: 11px;
   color: #999; }
 
-/* line 201, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 201, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .is-inrange .pika-button {
   background: #D5E9F7; }
 
-/* line 205, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 205, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .is-startrange .pika-button {
   color: #fff;
   background: #6CB31D;
   box-shadow: none;
   border-radius: 3px; }
 
-/* line 212, /Users/aj/Projects/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
+/* line 212, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/pikaday/scss/pikaday.scss */
 .is-endrange .pika-button {
   color: #fff;
   background: #33aaff;
@@ -217,7 +217,7 @@ html {
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
-/* line 8, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 8, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 html {
   font-family: sans-serif;
   /* 1 */
@@ -229,7 +229,7 @@ html {
 /**
  * Remove the margin in all browsers (opinionated).
  */
-/* line 18, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 18, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 body {
   margin: 0; }
 
@@ -240,7 +240,7 @@ body {
  * 1. Add the correct display in Edge, IE, and Firefox.
  * 2. Add the correct display in IE.
  */
-/* line 31, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 31, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 article,
 aside,
 details,
@@ -259,7 +259,7 @@ summary {
 /**
  * Add the correct display in IE 9-.
  */
-/* line 50, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 50, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 audio,
 canvas,
 progress,
@@ -269,7 +269,7 @@ video {
 /**
  * Add the correct display in iOS 4-7.
  */
-/* line 61, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 61, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0; }
@@ -277,7 +277,7 @@ audio:not([controls]) {
 /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
-/* line 70, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 70, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 progress {
   vertical-align: baseline; }
 
@@ -285,7 +285,7 @@ progress {
  * Add the correct display in IE 10-.
  * 1. Add the correct display in IE.
  */
-/* line 79, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 79, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 template,
 [hidden] {
   display: none; }
@@ -296,7 +296,7 @@ template,
  * 1. Remove the gray background on active links in IE 10.
  * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
  */
-/* line 92, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 92, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 a {
   background-color: transparent;
   /* 1 */
@@ -307,7 +307,7 @@ a {
  * Remove the outline on focused links when they are also active or hovered
  * in all browsers (opinionated).
  */
-/* line 102, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 102, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 a:active,
 a:hover {
   outline-width: 0; }
@@ -318,7 +318,7 @@ a:hover {
  * 1. Remove the bottom border in Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
-/* line 115, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 115, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 abbr[title] {
   border-bottom: none;
   /* 1 */
@@ -330,7 +330,7 @@ abbr[title] {
 /**
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
-/* line 125, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 125, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 b,
 strong {
   font-weight: inherit; }
@@ -338,7 +338,7 @@ strong {
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
-/* line 134, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 134, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 b,
 strong {
   font-weight: bolder; }
@@ -346,7 +346,7 @@ strong {
 /**
  * Add the correct font style in Android 4.3-.
  */
-/* line 143, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 143, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 dfn {
   font-style: italic; }
 
@@ -354,7 +354,7 @@ dfn {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
-/* line 152, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 152, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
@@ -363,7 +363,7 @@ h1 {
  * Correct the line-height for all headings in Chrome mobile, Firefox,
  * iOS Safari, Microsoft Edge and IE.
  */
-/* line 162, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 162, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 h1,
 h2,
 h3,
@@ -375,7 +375,7 @@ h6 {
 /**
  * Add the correct background and color in IE 9-.
  */
-/* line 175, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 175, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 mark {
   background-color: #ff0;
   color: #000; }
@@ -383,7 +383,7 @@ mark {
 /**
  * Add the correct font size in all browsers.
  */
-/* line 184, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 184, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 small {
   font-size: 80%; }
 
@@ -391,7 +391,7 @@ small {
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-/* line 193, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 193, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -399,11 +399,11 @@ sup {
   position: relative;
   vertical-align: baseline; }
 
-/* line 201, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 201, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 sub {
   bottom: -0.25em; }
 
-/* line 205, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 205, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 sup {
   top: -0.5em; }
 
@@ -412,14 +412,14 @@ sup {
 /**
  * Remove the border on images inside links in IE 10-.
  */
-/* line 216, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 216, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 img {
   border-style: none; }
 
 /**
  * Hide the overflow in IE.
  */
-/* line 224, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 224, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 svg:not(:root) {
   overflow: hidden; }
 
@@ -429,7 +429,7 @@ svg:not(:root) {
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-/* line 236, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 236, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 code,
 kbd,
 pre,
@@ -442,7 +442,7 @@ samp {
 /**
  * Add the correct margin in IE 8.
  */
-/* line 248, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 248, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 figure {
   margin: 1em 40px; }
 
@@ -450,7 +450,7 @@ figure {
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
  */
-/* line 257, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 257, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 hr {
   box-sizing: content-box;
   /* 1 */
@@ -465,7 +465,7 @@ hr {
  * 1. Change font properties to `inherit` in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
-/* line 271, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 271, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 button,
 input,
 optgroup,
@@ -479,7 +479,7 @@ textarea {
 /**
  * Restore the font weight unset by the previous rule.
  */
-/* line 284, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 284, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 optgroup {
   font-weight: bold; }
 
@@ -487,7 +487,7 @@ optgroup {
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
-/* line 293, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 293, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 button,
 input {
   /* 1 */
@@ -497,7 +497,7 @@ input {
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
-/* line 303, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 303, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 button,
 select {
   /* 1 */
@@ -508,7 +508,7 @@ select {
  *    controls in Android 4.
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
-/* line 314, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 314, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 button,
 html [type="button"],
 [type="reset"],
@@ -519,7 +519,7 @@ html [type="button"],
 /**
  * Remove the inner border and padding in Firefox.
  */
-/* line 325, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 325, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
@@ -530,7 +530,7 @@ button::-moz-focus-inner,
 /**
  * Restore the focus styles unset by the previous rule.
  */
-/* line 337, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 337, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
@@ -540,7 +540,7 @@ button:-moz-focusring,
 /**
  * Change the border, margin, and padding in all browsers (opinionated).
  */
-/* line 348, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 348, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -552,7 +552,7 @@ fieldset {
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
-/* line 361, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 361, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 legend {
   box-sizing: border-box;
   /* 1 */
@@ -570,7 +570,7 @@ legend {
 /**
  * Remove the default vertical scrollbar in IE.
  */
-/* line 374, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 374, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 textarea {
   overflow: auto; }
 
@@ -578,7 +578,7 @@ textarea {
  * 1. Add the correct box sizing in IE 10-.
  * 2. Remove the padding in IE 10-.
  */
-/* line 383, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 383, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 [type="checkbox"],
 [type="radio"] {
   box-sizing: border-box;
@@ -589,7 +589,7 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-/* line 393, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 393, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto; }
@@ -598,7 +598,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-/* line 403, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 403, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 [type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -608,7 +608,7 @@ textarea {
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
  */
-/* line 412, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 412, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
@@ -616,7 +616,7 @@ textarea {
 /**
  * Correct the text style of placeholders in Chrome, Edge, and Safari.
  */
-/* line 421, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 421, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 ::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54; }
@@ -625,14 +625,14 @@ textarea {
  * 1. Correct the inability to style clickable types in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
-/* line 431, /Users/aj/Projects/torch/apps/torch/web/static/css/vendor/_normalize.scss */
+/* line 431, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/vendor/_normalize.scss */
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   /* 1 */
   font: inherit;
   /* 2 */ }
 
-/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/base/extends/_container.sass */
+/* line 1, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/extends/_container.sass */
 section.torch-content, section.torch-header .torch-account nav, section.torch-header header.torch-main-header nav, section.torch.torch-toolbar-container .torch-toolbar {
   max-width: 1200px;
   margin-left: auto;
@@ -640,22 +640,22 @@ section.torch-content, section.torch-header .torch-account nav, section.torch-he
   display: block;
   border-right: 30px solid transparent !important;
   border-left: 30px solid transparent !important; }
-  /* line 20, /Users/aj/Projects/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/mixins/_clearfix.scss */
+  /* line 20, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/mixins/_clearfix.scss */
   section.torch-content::after, section.torch-header .torch-account nav::after, section.torch-header header.torch-main-header nav::after, section.torch.torch-toolbar-container .torch-toolbar::after {
     clear: both;
     content: "";
     display: block; }
-  /* line 20, /Users/aj/Projects/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/mixins/_clearfix.scss */
+  /* line 20, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/mixins/_clearfix.scss */
   section.torch-content::after, section.torch-header .torch-account nav::after, section.torch-header header.torch-main-header nav::after, section.torch.torch-toolbar-container .torch-toolbar::after {
     clear: both;
     content: "";
     display: block; }
 
-/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_global.sass */
+/* line 1, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_global.sass */
 section.torch {
   overflow: hidden; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_buttons.sass */
 section.torch .torch-button {
   appearance: none;
   background-color: #3B8183;
@@ -675,39 +675,39 @@ section.torch .torch-button {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap; }
-  /* line 22, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
+  /* line 22, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_buttons.sass */
   section.torch .torch-button:hover, section.torch .torch-button:focus {
     background-color: #2f6769;
     color: #fff; }
-  /* line 27, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
+  /* line 27, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_buttons.sass */
   section.torch .torch-button:disabled {
     cursor: not-allowed;
     opacity: 0.5; }
-    /* line 31, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_buttons.sass */
+    /* line 31, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_buttons.sass */
     section.torch .torch-button:disabled:hover {
       background-color: #3B8183; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch fieldset {
   background-color: transparent;
   border: 0;
   margin: 0;
   padding: 0; }
 
-/* line 8, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 8, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch legend {
   font-weight: 600;
   margin-bottom: 0.3em;
   padding: 0; }
 
-/* line 13, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 13, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch label {
   color: #949494;
   display: block;
   font-weight: 400;
   margin-bottom: 4px; }
 
-/* line 19, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 19, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch input,
 section.torch select,
 section.torch textarea {
@@ -715,7 +715,7 @@ section.torch textarea {
   font-family: "Open Sans", sans-serif;
   font-size: 14px; }
 
-/* line 26, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 26, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch input[type="color"], section.torch input[type="date"], section.torch input[type="datetime"], section.torch input[type="datetime-local"], section.torch input[type="email"], section.torch input[type="month"], section.torch input[type="number"], section.torch input[type="password"], section.torch input[type="search"], section.torch input[type="tel"], section.torch input[type="text"], section.torch input[type="time"], section.torch input[type="url"], section.torch input[type="week"], section.torch input:not([type]), section.torch textarea,
 section.torch select[multiple] {
   background-color: #fff;
@@ -728,96 +728,102 @@ section.torch select[multiple] {
   padding: 10px 10px 11px 10px;
   transition: border-color 300ms ease;
   width: 100%; }
-  /* line 38, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 38, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:hover, section.torch input[type="date"]:hover, section.torch input[type="datetime"]:hover, section.torch input[type="datetime-local"]:hover, section.torch input[type="email"]:hover, section.torch input[type="month"]:hover, section.torch input[type="number"]:hover, section.torch input[type="password"]:hover, section.torch input[type="search"]:hover, section.torch input[type="tel"]:hover, section.torch input[type="text"]:hover, section.torch input[type="time"]:hover, section.torch input[type="url"]:hover, section.torch input[type="week"]:hover, section.torch input:not([type]):hover, section.torch textarea:hover,
   section.torch select[multiple]:hover {
     border-color: #a7a7a7; }
-  /* line 41, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 41, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:focus, section.torch input[type="date"]:focus, section.torch input[type="datetime"]:focus, section.torch input[type="datetime-local"]:focus, section.torch input[type="email"]:focus, section.torch input[type="month"]:focus, section.torch input[type="number"]:focus, section.torch input[type="password"]:focus, section.torch input[type="search"]:focus, section.torch input[type="tel"]:focus, section.torch input[type="text"]:focus, section.torch input[type="time"]:focus, section.torch input[type="url"]:focus, section.torch input[type="week"]:focus, section.torch input:not([type]):focus, section.torch textarea:focus,
   section.torch select[multiple]:focus {
     border-color: #3B8183;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(51, 112, 113, 0.7);
     outline: none; }
-  /* line 46, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 46, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]:disabled, section.torch input[type="date"]:disabled, section.torch input[type="datetime"]:disabled, section.torch input[type="datetime-local"]:disabled, section.torch input[type="email"]:disabled, section.torch input[type="month"]:disabled, section.torch input[type="number"]:disabled, section.torch input[type="password"]:disabled, section.torch input[type="search"]:disabled, section.torch input[type="tel"]:disabled, section.torch input[type="text"]:disabled, section.torch input[type="time"]:disabled, section.torch input[type="url"]:disabled, section.torch input[type="week"]:disabled, section.torch input:not([type]):disabled, section.torch textarea:disabled,
   section.torch select[multiple]:disabled {
     background-color: #f2f2f2;
     cursor: not-allowed; }
-    /* line 50, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+    /* line 50, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
     section.torch input[type="color"]:disabled:hover, section.torch input[type="date"]:disabled:hover, section.torch input[type="datetime"]:disabled:hover, section.torch input[type="datetime-local"]:disabled:hover, section.torch input[type="email"]:disabled:hover, section.torch input[type="month"]:disabled:hover, section.torch input[type="number"]:disabled:hover, section.torch input[type="password"]:disabled:hover, section.torch input[type="search"]:disabled:hover, section.torch input[type="tel"]:disabled:hover, section.torch input[type="text"]:disabled:hover, section.torch input[type="time"]:disabled:hover, section.torch input[type="url"]:disabled:hover, section.torch input[type="week"]:disabled:hover, section.torch input:not([type]):disabled:hover, section.torch textarea:disabled:hover,
     section.torch select[multiple]:disabled:hover {
       border: 1px solid #D1D1D1; }
-  /* line 53, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+  /* line 53, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
   section.torch input[type="color"]::placeholder, section.torch input[type="date"]::placeholder, section.torch input[type="datetime"]::placeholder, section.torch input[type="datetime-local"]::placeholder, section.torch input[type="email"]::placeholder, section.torch input[type="month"]::placeholder, section.torch input[type="number"]::placeholder, section.torch input[type="password"]::placeholder, section.torch input[type="search"]::placeholder, section.torch input[type="tel"]::placeholder, section.torch input[type="text"]::placeholder, section.torch input[type="time"]::placeholder, section.torch input[type="url"]::placeholder, section.torch input[type="week"]::placeholder, section.torch input:not([type])::placeholder, section.torch textarea::placeholder,
   section.torch select[multiple]::placeholder {
     color: #999; }
 
-/* line 56, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 56, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch textarea {
   resize: vertical; }
 
-/* line 59, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 59, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch [type="search"] {
   appearance: none; }
 
-/* line 62, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 62, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch [type="checkbox"],
 section.torch [type="radio"] {
   display: inline;
   margin-right: 0.3em; }
 
-/* line 67, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 67, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch [type="file"] {
   margin-bottom: 0.6em;
   width: 100%; }
 
-/* line 71, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_forms.sass */
+/* line 71, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
 section.torch select {
   margin-bottom: 0.6em;
   max-width: 100%;
   width: auto; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_lists.sass */
+/* line 76, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_forms.sass */
+section.torch .help-block {
+  color: #ED303C;
+  display: block;
+  margin: 10px 0 10px 0; }
+
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_lists.sass */
 section.torch ul,
 section.torch ol {
   list-style-type: none;
   margin: 0;
   padding: 0; }
 
-/* line 8, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_lists.sass */
+/* line 8, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_lists.sass */
 section.torch dl {
   margin: 0; }
 
-/* line 11, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_lists.sass */
+/* line 11, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_lists.sass */
 section.torch dt {
   font-weight: 600;
   margin: 0; }
 
-/* line 15, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_lists.sass */
+/* line 15, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_lists.sass */
 section.torch dd {
   margin: 0; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_media.sass */
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_media.sass */
 section.torch figure {
   margin: 0; }
 
-/* line 5, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_media.sass */
+/* line 5, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_media.sass */
 section.torch img,
 section.torch picture {
   margin: 0;
   max-width: 100%; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch section.torch-table {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 65.88078%; }
-  /* line 89, /Users/aj/Projects/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_span-columns.scss */
+  /* line 89, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_span-columns.scss */
   section.torch section.torch-table:last-child {
     margin-right: 0; }
 
-/* line 5, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 5, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch table {
   border-collapse: collapse;
   color: #949494;
@@ -826,17 +832,17 @@ section.torch table {
   table-layout: fixed;
   width: 100%; }
 
-/* line 14, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 14, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch tr th,
 section.torch tr td {
   border-bottom: 1px solid #D1D1D1;
   border-right: 1px solid #D1D1D1; }
-  /* line 19, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+  /* line 19, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch tr th:first-child,
   section.torch tr td:first-child {
     border-left: 1px solid #D1D1D1; }
 
-/* line 22, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 22, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch th {
   background-color: #3B8183;
   border-top: 1px solid #D1D1D1;
@@ -844,25 +850,25 @@ section.torch th {
   font-weight: 600;
   padding: 0;
   text-align: left; }
-  /* line 30, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+  /* line 30, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch th > * {
     color: #ffffff;
     display: block;
     padding: 12px 10px; }
-  /* line 35, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+  /* line 35, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch th a, section.torch th a:hover {
     color: #ffffff; }
-  /* line 38, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+  /* line 38, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch th a {
     min-height: 4px;
     position: relative;
     -webkit-transition: opacity 300ms ease;
     -moz-transition: opacity 300ms ease;
     transition: opacity 300ms ease; }
-    /* line 43, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+    /* line 43, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
     section.torch th a.active {
       background-color: #57b1b3; }
-    /* line 46, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+    /* line 46, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
     section.torch th a .caret {
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
@@ -874,57 +880,57 @@ section.torch th {
       right: 10px;
       top: 15px;
       width: 0; }
-    /* line 59, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+    /* line 59, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
     section.torch th a.active.desc .caret {
       border-top: 5px solid #ffffff; }
-    /* line 63, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+    /* line 63, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
     section.torch th a.active.asc .caret {
       border-bottom: 5px solid #ffffff; }
-  /* line 66, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+  /* line 66, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch th a:hover {
     opacity: 0.7; }
 
-/* line 69, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 69, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch td {
   border-right: 1px solid #D1D1D1; }
 
-/* line 72, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 72, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch tr,
 section.torch td,
 section.torch th {
   vertical-align: middle; }
 
-/* line 78, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 78, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch tbody tr:nth-child(odd) {
   background-color: #F1F1F1; }
 
-/* line 81, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 81, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch tbody tr td {
   padding: 12px 10px; }
 
-/* line 84, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+/* line 84, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
 section.torch tbody tr .torch-actions {
   font-size: 0; }
-  /* line 87, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+  /* line 87, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch tbody tr .torch-actions a, section.torch tbody tr .torch-actions form {
     color: #949494;
     display: inline-block;
     font-size: 14px;
     margin-bottom: 0; }
-  /* line 93, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+  /* line 93, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
   section.torch tbody tr .torch-actions > * {
     margin-right: 10px; }
-    /* line 96, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_tables.sass */
+    /* line 96, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_tables.sass */
     section.torch tbody tr .torch-actions > *:last-child {
       margin-right: 0; }
 
-/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
+/* line 1, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_typography.sass */
 section.torch {
   color: #333;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   line-height: 1.2; }
-  /* line 7, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
+  /* line 7, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_typography.sass */
   section.torch h1,
   section.torch h2,
   section.torch h3,
@@ -935,18 +941,18 @@ section.torch {
     font-size: 1.333em;
     line-height: 1.2;
     margin: 0 0 0.6em; }
-  /* line 18, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
+  /* line 18, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_typography.sass */
   section.torch p {
     margin: 0 0 0.6em; }
-  /* line 21, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
+  /* line 21, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_typography.sass */
   section.torch a {
     color: #3B8183;
     text-decoration: none;
     transition: color 300ms ease; }
-    /* line 26, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
+    /* line 26, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_typography.sass */
     section.torch a:active, section.torch a:focus, section.torch a:hover {
       color: #2c6162; }
-  /* line 31, /Users/aj/Projects/torch/apps/torch/web/static/css/base/_typography.sass */
+  /* line 31, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/base/_typography.sass */
   section.torch hr {
     border-bottom: 1px solid #D1D1D1;
     border-left: 0;
@@ -954,74 +960,74 @@ section.torch {
     border-top: 0;
     margin: 1.2em 0; }
 
-/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_content.sass */
+/* line 1, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_content.sass */
 section.torch-content {
   padding-bottom: 40px;
   padding-top: 40px; }
 
-/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_filters.sass */
+/* line 1, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_filters.sass */
 section.torch-filters {
   padding-left: 34px; }
-  /* line 4, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_filters.sass */
+  /* line 4, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_filters.sass */
   section.torch-filters h3 {
     font-size: 18px;
     margin: 0 0 17px 0;
     padding: 0; }
-  /* line 9, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_filters.sass */
+  /* line 9, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_filters.sass */
   section.torch-filters .field {
     margin-bottom: 20px; }
 
-/* line 3, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+/* line 3, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
 section.torch-header .torch-account {
   background-color: #F5634A; }
-  /* line 6, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 6, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header .torch-account ul {
     font-size: 0;
     list-style-type: none; }
-  /* line 10, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 10, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header .torch-account li, section.torch-header .torch-account a {
     font-size: 13px; }
-  /* line 13, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 13, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header .torch-account li {
     border-right: 1px solid rgba(255, 255, 255, 0.7);
     margin: 6px 0;
     padding: 0 10px; }
-    /* line 18, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+    /* line 18, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
     section.torch-header .torch-account li:last-child {
       border: none;
       font-weight: 600; }
-  /* line 22, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 22, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header .torch-account a {
     color: #ffffff;
     opacity: 0.7;
     -webkit-transition: opacity 300ms ease;
     -moz-transition: opacity 300ms ease;
     transition: opacity 300ms ease; }
-    /* line 27, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+    /* line 27, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
     section.torch-header .torch-account a:hover {
       opacity: 1; }
 
-/* line 30, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+/* line 30, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
 section.torch-header header.torch-main-header {
   background-color: #ED303C; }
-  /* line 33, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 33, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header header.torch-main-header h1 {
     color: #ffffff;
     font-size: 48px;
     font-weight: 700;
     margin: 34px 0 10px 0; }
-  /* line 42, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 42, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header header.torch-main-header ul {
     padding: 0;
     list-style-type: none; }
-  /* line 46, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 46, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header header.torch-main-header li {
     margin: 0;
     padding: 0;
     display: inline-block;
     font-size: 18px;
     padding: 0 20px 20px 0; }
-  /* line 53, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+  /* line 53, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
   section.torch-header header.torch-main-header a {
     color: #ffffff;
     font-size: 18px;
@@ -1031,101 +1037,101 @@ section.torch-header header.torch-main-header {
     -webkit-transition: opacity 300ms ease;
     -moz-transition: opacity 300ms ease;
     transition: opacity 300ms ease; }
-    /* line 61, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_header.sass */
+    /* line 61, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_header.sass */
     section.torch-header header.torch-main-header a.active, section.torch-header header.torch-main-header a:hover {
       color: #ffffff;
       opacity: 1;
       text-shadow: 0.3px 0.3px 0px #ffffff; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_pagination.sass */
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_pagination.sass */
 section.torch ul.pagination {
   font-size: 0;
   list-style-type: none;
   margin: 20px 0 0 0;
   padding: 0; }
-  /* line 8, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_pagination.sass */
+  /* line 8, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_pagination.sass */
   section.torch ul.pagination li {
     font-size: 14px;
     height: 35px;
     width: 50px; }
-  /* line 13, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_pagination.sass */
+  /* line 13, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_pagination.sass */
   section.torch ul.pagination a {
     text-align: center;
     padding: 10px 0 10px 0; }
-    /* line 17, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_pagination.sass */
+    /* line 17, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_pagination.sass */
     section.torch ul.pagination a.active {
       border: 1px solid #D1D1D1; }
 
-/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_toolbar.sass */
+/* line 1, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_toolbar.sass */
 section.torch.torch-toolbar-container {
   background-color: #f1f1f1; }
-  /* line 4, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_toolbar.sass */
+  /* line 4, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_toolbar.sass */
   section.torch.torch-toolbar-container .torch-toolbar {
     font-size: 0; }
-    /* line 7, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_toolbar.sass */
+    /* line 7, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_toolbar.sass */
     section.torch.torch-toolbar-container .torch-toolbar h2 {
       font-size: 31px;
       font-weight: 700;
       margin: 18px 0 0 0;
       text-transform: capitalize; }
-    /* line 13, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_toolbar.sass */
+    /* line 13, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_toolbar.sass */
     section.torch.torch-toolbar-container .torch-toolbar .torch-button {
       font-size: 14px;
       font-weight: 600;
       margin: 20px 10px 20px 0;
       text-transform: capitalize; }
-      /* line 19, /Users/aj/Projects/torch/apps/torch/web/static/css/components/_toolbar.sass */
+      /* line 19, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/components/_toolbar.sass */
       section.torch.torch-toolbar-container .torch-toolbar .torch-button:last-child {
         margin-right: 0; }
 
-/* line 1, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_filters.sass */
+/* line 1, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_filters.sass */
 section.torch-filters {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%; }
-  /* line 89, /Users/aj/Projects/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_span-columns.scss */
+  /* line 89, /Users/dberkom/dev/infinitered/torch/apps/torch/node_modules/bourbon-neat/app/assets/stylesheets/grid/_span-columns.scss */
   section.torch-filters:last-child {
     margin-right: 0; }
 
-/* line 7, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_header.sass */
+/* line 7, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_header.sass */
 section.torch-header .torch-account ul {
   text-align: right; }
 
-/* line 10, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_header.sass */
+/* line 10, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_header.sass */
 section.torch-header .torch-account li, section.torch-header .torch-account a {
   display: inline-block; }
 
-/* line 13, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_header.sass */
+/* line 13, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_header.sass */
 section.torch-header header.torch-main-header {
   overflow: hidden; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_pagination.sass */
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_pagination.sass */
 section.torch ul.pagination {
   text-align: center; }
-  /* line 5, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_pagination.sass */
+  /* line 5, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_pagination.sass */
   section.torch ul.pagination li {
     display: inline-block; }
-  /* line 8, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_pagination.sass */
+  /* line 8, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_pagination.sass */
   section.torch ul.pagination a {
     display: block; }
 
-/* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
+/* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
 section.torch.torch-toolbar-container .torch-toolbar {
   text-align: right; }
   @media screen and (max-width: 767px) {
-    /* line 2, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
+    /* line 2, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
     section.torch.torch-toolbar-container .torch-toolbar {
       text-align: center; } }
-  /* line 9, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
+  /* line 9, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
   section.torch.torch-toolbar-container .torch-toolbar h2 {
     float: left; }
     @media screen and (max-width: 767px) {
-      /* line 9, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
+      /* line 9, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
       section.torch.torch-toolbar-container .torch-toolbar h2 {
         float: none; } }
   @media screen and (max-width: 767px) {
-    /* line 15, /Users/aj/Projects/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
+    /* line 15, /Users/dberkom/dev/infinitered/torch/apps/torch/web/static/css/layouts/_toolbar.sass */
     section.torch.torch-toolbar-container .torch-toolbar .torch-button {
       dislay: block; } }
 

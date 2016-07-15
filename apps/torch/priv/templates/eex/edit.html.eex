@@ -1,4 +1,10 @@
-<h2>Edit <%= String.capitalize(singular) %></h2>
-<%%= render "_form.html",
-    changeset: @changeset,
-    action: <%= namespace_underscore %>_<%= singular %>_path(@conn, :update, @<%= singular %>) %>
+<section class="torch torch-toolbar-container">
+  <div class="torch-toolbar">
+    <h2>Edit <%= String.capitalize(singular) %></h2>
+    <%%= link "Cancel", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :index), class: "torch-button" %>
+  </div>
+</section>
+
+<section class="torch torch-content">
+  <%%= render "_form.html", Map.put(assigns, :action, <%= namespace_underscore %>_<%= singular %>_path(@conn, :update, @<%= singular %>)) %>
+</section>

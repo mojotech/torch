@@ -1,14 +1,23 @@
 <section class="torch-filters">
   <h3>Search by Filters</h3>
   <%%= form_tag @conn.request_path, method: :get, id: "filters" do %>
-<%= for {key, type} <- attrs, type in [:string, :text] do %>
+<%= for {key, {:references, data}} <- attrs do %>
+    <div class="field">
+      <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
+      <%%= filter_assoc_select(:<%= singular %>, :<%= key %>, @<%= data[:assoc_plural] %>, @conn.params) %>
+    </div>
+<% end %><%= for {key, type} <- attrs, type in [:string, :text] do %>
     <div class="field">
       <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
       <%%= filter_select(:<%= singular %>, :<%= key %>, @conn.params) %>
       <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>
     </div>
-<% end %>
-<%= for {key, type} <- attrs, type in [:date] do %>
+<% end %><%= for {key, type} <- attrs, type in [:boolean] do %>
+    <div class="field">
+      <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
+      <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>
+    </div>
+<% end %><%= for {key, type} <- attrs, type in [:date] do %>
     <div class="field">
       <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
       <%%= filter_<%= type %>_input(:<%= singular %>, :<%= key %>, @conn.params) %>

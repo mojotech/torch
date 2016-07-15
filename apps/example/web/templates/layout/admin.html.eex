@@ -22,13 +22,14 @@
           <ul>
             <li><%= Torch.NavigationView.nav_link @conn, "Posts", admin_post_path(@conn, :index) %></a>
             <li><%= Torch.NavigationView.nav_link @conn, "Authors", admin_author_path(@conn, :index) %></li>
+            <li><%= Torch.NavigationView.nav_link @conn, "Categories", admin_category_path(@conn, :index) %></li>
           </ul>
         </nav>
       </header>
     </section>
 
-    <main class="torch">
+    <section class="torch">
       <%= render @view_module, @view_template, assigns %>
-    </main>
+    </section>
   </body>
 </html>

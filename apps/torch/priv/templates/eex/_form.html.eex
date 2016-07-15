@@ -3,8 +3,13 @@
     <p>Oops, something went wrong! Please check the errors below.</p>
   <%% end %>
 <%= for {label, input, error} <- inputs, input do %>
-  <%= label %>
-  <%= input %>
+  <div class="field">
+    <%= label %>
+    <%= input %>
+    <%= error %>
+  </div>
 <% end %>
-  <%%= submit "Submit" %>
+  <div class="field">
+    <%%= submit "Submit", class: "torch-button" %>
+  </div>
 <%% end %>

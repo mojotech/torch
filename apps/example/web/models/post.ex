@@ -2,9 +2,12 @@ defmodule Example.Post do
   use Example.Web, :model
 
   schema "posts" do
+    belongs_to :author, Example.Author
+    belongs_to :category, Example.Category
+
     field :title, :string
     field :body, :string
-    belongs_to :author, Example.Author
+    field :draft, :boolean
 
     timestamps
   end
@@ -14,7 +17,7 @@ defmodule Example.Post do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :body])
-    |> validate_required([:title, :body])
+    |> cast(params, [:title, :body, :draft, :category_id])
+    |> validate_required([:title, :body, :draft])
   end
 end

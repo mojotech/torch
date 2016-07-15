@@ -24,6 +24,7 @@ defmodule Example.Router do
 
     resources "/posts", PostController
     resources "/authors", AuthorController
+    resources "/categories", CategoryController
   end
 
   # Other scopes may use custom stacks.

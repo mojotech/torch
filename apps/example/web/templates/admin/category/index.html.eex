@@ -1,31 +1,29 @@
 <section class="torch torch-toolbar-container">
   <div class="torch-toolbar">
-    <h2>authors</h2>
-    <%= link "New author", to: admin_author_path(@conn, :new), class: "torch-button" %>
+    <h2>categories</h2>
+    <%= link "New category", to: admin_category_path(@conn, :new), class: "torch-button" %>
   </div>
 </section>
 
 <section class="torch torch-content">
   <section class="torch-table">
-  <%= if length(@authors) > 0 do %>
+  <%= if length(@categories) > 0 do %>
     <table class="torch-data">
       <thead>
         <tr>
           <th><%= table_link(@conn, "Name", :name) %></th>
-          <th><%= table_link(@conn, "Email", :email) %></th>
 
           <th><span>Actions<span></th>
         </tr>
       </thead>
       <tbody>
-        <%= for author <- @authors do %>
+        <%= for category <- @categories do %>
           <tr>
-            <td><%= author.name %></td>
-            <td><%= author.email %></td>
+            <td><%= category.name %></td>
 
             <td class="torch-actions">
-              <%= link "Edit", to: admin_author_path(@conn, :edit, author) %>
-              <%= link "Delete", to: admin_author_path(@conn, :delete, author), method: :delete, data: [confirm: "Are you sure?"] %>
+              <%= link "Edit", to: admin_category_path(@conn, :edit, category) %>
+              <%= link "Delete", to: admin_category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"] %>
             </td>
           </tr>
         <% end %>
@@ -33,7 +31,7 @@
     </table>
     <%= render Torch.PaginationView, "_pagination.html", assigns %>
   <% else %>
-    <p class="torch-no-data">No authors match your search.</p>
+    <p class="torch-no-data">No categories match your search.</p>
   <% end %>
 
   </section>

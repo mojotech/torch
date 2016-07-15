@@ -1,6 +1,12 @@
 defmodule Torch.FilterView do
   use Phoenix.HTML
 
+  def filter_assoc_select(prefix, field, options, params) do
+    select(prefix, "#{field}_equals", options,
+      value: params[to_string(prefix)]["#{field}_equals"],
+      prompt: "Choose one")
+  end
+
   def filter_select(prefix, field, params) do
     prefix_str = to_string(prefix)
     {selected, _value} = find_param(params[prefix_str], field)
@@ -29,6 +35,16 @@ defmodule Torch.FilterView do
     {:safe, start} = date_input("#{prefix}[#{field}_between][start]", get_in(params, [prefix, "#{field}_between", "start"]))
     {:safe, ending} = date_input("#{prefix}[#{field}_between][end]", get_in(params, [prefix, "#{field}_between", "end"]))
     raw(start <> ending)
+  end
+
+  def filter_boolean_input(prefix, field, params) do
+    value =
+      case get_in(params, [to_string(prefix), "#{field}_equals"]) do
+        nil -> nil
+        string when is_binary(string) -> string == "true"
+      end
+
+    select(prefix, "#{field}_equals", [{"True", true}, {"False", false}], value: value, prompt: "Choose one")
   end
 
   defp date_input(name, value) do

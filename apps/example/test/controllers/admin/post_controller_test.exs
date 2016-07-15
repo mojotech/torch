@@ -43,6 +43,7 @@ defmodule Example.Admin.PostControllerTest do
     test "creates a post when params are valid", %{conn: conn} do
       params = %{
         title: "My Best Day",
+        draft: true,
         body: "Some body text"
       }
 

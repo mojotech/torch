@@ -10,12 +10,6 @@
   </div>
 
   <div class="field">
-    <%= label f, :email %>
-    <%= text_input f, :email %>
-    <%= error_tag f, :email %>
-  </div>
-
-  <div class="field">
     <%= submit "Submit", class: "torch-button" %>
   </div>
 <% end %>
