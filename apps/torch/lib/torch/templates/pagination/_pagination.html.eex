@@ -1,17 +1,17 @@
 <ul class="pagination">
   <li>
-    <%= prev_link(@page, @num_pages) %>
+    <%= prev_link(@page_number, @total_pages) %>
   </li>
-  <%= if @num_pages > 1 do %>
-    <%= for num <- 1..@num_pages do %>
+  <%= if @total_pages > 1 do %>
+    <%= for num <- 1..@total_pages do %>
       <li>
-        <a href="?<%= querystring(@conn, page: num) %>" class="<%= if @page == num, do: "active", else: "" %>">
+        <a href="?<%= querystring(@conn, page: num) %>" class="<%= if @page_number == num, do: "active", else: "" %>">
           <%= num %>
         </a>
       </li>
     <% end %>
   <% end %>
   <li>
-    <%= next_link(@page, @num_pages) %>
+    <%= next_link(@page_number, @total_pages) %>
   </li>
 </ul>

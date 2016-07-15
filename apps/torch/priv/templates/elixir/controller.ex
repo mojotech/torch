@@ -1,8 +1,8 @@
 defmodule <%= module %>Controller do
   use <%= base %>.Web, :controller
-  use Torch.Controller
 
   import Ecto.Query
+  import Torch.Controller, only: [sort: 1, paginate: 4]
 
   alias <%= base %>.<%= alias %>
   alias Filtrex.Type.Config
@@ -10,28 +10,30 @@ defmodule <%= module %>Controller do
   plug :put_layout, {<%= base %>.LayoutView, "admin.html"}
   plug :scrub_params, "<%= singular %>" when action in [:create, :update]<%= for plug <- assoc_plugs do %>
   <%= plug %>
-<% end %>
-  @page_size 10
-<%= if length(configs) > 0 do %>
-  @config [
+<% end %><%= if length(configs) > 0 do %>
+  @filtrex [
     <%= Enum.join(configs, ",\n\s\s\s\s") %>
   ]
 <% else %>
-  @config []
+  @filtrex []
 <% end %>
-  def index(conn, params) do
-    query = query(<%= alias %>, @config, params["<%= singular %>"])
-    count = count(Repo, query)
-    <%= plural %> =
-      query
-      |> paginate(conn.assigns[:page], @page_size)
-      |> order_by(^sort(params))
-      |> Repo.all
+  @pagination [page_size: 10]
 
-    conn
-    |> assign(:<%= plural %>, <%= plural %>)
-    |> assign(:num_pages, ceil(count / @page_size))
-    |> render("index.html")
+  def index(conn, params) do
+    {:ok, filter} = Filtrex.parse_params(@filtrex, params["<%= singular %>"] || %{})
+
+    page =
+      <%= alias %>
+      |> Filtrex.query(filter)
+      |> order_by(^sort(params))
+      |> paginate(Repo, params, @pagination)
+
+    render conn, "index.html",
+      <%= plural %>: page.entries,
+      page_number: page.page_number,
+      page_size: page.page_size,
+      total_pages: page.total_pages,
+      total_entries: page.total_entries
   end
 
   def new(conn, _params) do

@@ -1,34 +1,36 @@
 defmodule Example.Admin.AuthorController do
   use Example.Web, :controller
-  use Torch.Controller
 
   import Ecto.Query
+  import Torch.Controller, only: [sort: 1, paginate: 4]
 
   alias Example.Author
   alias Filtrex.Type.Config
 
   plug :put_layout, {Example.LayoutView, "admin.html"}
   plug :scrub_params, "author" when action in [:create, :update]
-  @page_size 10
-
-  @config [
+  @filtrex [
     %Config{type: :date, keys: ~w(inserted_at updated_at), options: %{format: "{YYYY}-{0M}-{0D}"}},
     %Config{type: :text, keys: ~w(name email)}
   ]
 
-  def index(conn, params) do
-    query = query(Author, @config, params["author"])
-    count = count(Repo, query)
-    authors =
-      query
-      |> paginate(conn.assigns[:page], @page_size)
-      |> order_by(^sort(params))
-      |> Repo.all
+  @pagination [page_size: 10]
 
-    conn
-    |> assign(:authors, authors)
-    |> assign(:num_pages, ceil(count / @page_size))
-    |> render("index.html")
+  def index(conn, params) do
+    {:ok, filter} = Filtrex.parse_params(@filtrex, params["author"] || %{})
+
+    page =
+      Author
+      |> Filtrex.query(filter)
+      |> order_by(^sort(params))
+      |> paginate(Repo, params, @pagination)
+
+    render conn, "index.html",
+      authors: page.entries,
+      page_number: page.page_number,
+      page_size: page.page_size,
+      total_pages: page.total_pages,
+      total_entries: page.total_entries
   end
 
   def new(conn, _params) do

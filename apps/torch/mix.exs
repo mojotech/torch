@@ -23,7 +23,7 @@ defmodule Torch.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :phoenix]]
+    [applications: [:logger, :phoenix, :ecto, :scrivener_ecto, :filtrex]]
   end
 
   # Dependencies can be Hex packages:
@@ -44,7 +44,8 @@ defmodule Torch.Mixfile do
       ref: "8d6dfe4f24c72c9cbebc15734de30d1722849be5"},
      {:phoenix, "~> 1.2"},
      {:phoenix_html, "~> 2.6"},
-     {:ecto, ">= 1.0.0"}]
+     {:ecto, ">= 1.0.0"},
+     {:scrivener_ecto, ">= 1.0.0"}]
   end
 
   defp package do

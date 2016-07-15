@@ -1,8 +1,8 @@
 defmodule Example.Admin.PostController do
   use Example.Web, :controller
-  use Torch.Controller
 
   import Ecto.Query
+  import Torch.Controller, only: [sort: 1, paginate: 4]
 
   alias Example.Post
   alias Filtrex.Type.Config
@@ -11,28 +11,30 @@ defmodule Example.Admin.PostController do
   plug :scrub_params, "post" when action in [:create, :update]
   plug :assign_categories
 
-  @page_size 10
-
-  @config [
+  @filtrex [
     %Config{type: :boolean, keys: ~w(draft)},
     %Config{type: :date, keys: ~w(inserted_at updated_at), options: %{format: "{YYYY}-{0M}-{0D}"}},
     %Config{type: :text, keys: ~w(title body)},
     %Config{type: :number, keys: ~w(category_id)}
   ]
 
-  def index(conn, params) do
-    query = query(Post, @config, params["post"])
-    count = count(Repo, query)
-    posts =
-      query
-      |> paginate(conn.assigns[:page], @page_size)
-      |> order_by(^sort(params))
-      |> Repo.all
+  @pagination [page_size: 10]
 
-    conn
-    |> assign(:posts, posts)
-    |> assign(:num_pages, ceil(count / @page_size))
-    |> render("index.html")
+  def index(conn, params) do
+    {:ok, filter} = Filtrex.parse_params(@filtrex, params["post"] || %{})
+
+    page =
+      Post
+      |> Filtrex.query(filter)
+      |> order_by(^sort(params))
+      |> paginate(Repo, params, @pagination)
+
+    render conn, "index.html",
+      posts: page.entries,
+      page_number: page.page_number,
+      page_size: page.page_size,
+      total_pages: page.total_pages,
+      total_entries: page.total_entries
   end
 
   def new(conn, _params) do

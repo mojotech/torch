@@ -1,33 +1,35 @@
 defmodule Example.Admin.CategoryController do
   use Example.Web, :controller
-  use Torch.Controller
 
   import Ecto.Query
+  import Torch.Controller, only: [sort: 1, paginate: 4]
 
   alias Example.Category
   alias Filtrex.Type.Config
 
   plug :put_layout, {Example.LayoutView, "admin.html"}
   plug :scrub_params, "category" when action in [:create, :update]
-  @page_size 10
-
-  @config [
+  @filtrex [
     %Config{type: :text, keys: ~w(name)}
   ]
 
-  def index(conn, params) do
-    query = query(Category, @config, params["category"])
-    count = count(Repo, query)
-    categories =
-      query
-      |> paginate(conn.assigns[:page], @page_size)
-      |> order_by(^sort(params))
-      |> Repo.all
+  @pagination [page_size: 10]
 
-    conn
-    |> assign(:categories, categories)
-    |> assign(:num_pages, ceil(count / @page_size))
-    |> render("index.html")
+  def index(conn, params) do
+    {:ok, filter} = Filtrex.parse_params(@filtrex, params["category"] || %{})
+
+    page =
+      Category
+      |> Filtrex.query(filter)
+      |> order_by(^sort(params))
+      |> paginate(Repo, params, @pagination)
+
+    render conn, "index.html",
+      categories: page.entries,
+      page_number: page.page_number,
+      page_size: page.page_size,
+      total_pages: page.total_pages,
+      total_entries: page.total_entries
   end
 
   def new(conn, _params) do
