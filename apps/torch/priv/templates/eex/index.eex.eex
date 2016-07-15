@@ -1,6 +1,6 @@
 <section class="torch torch-toolbar-container">
   <div class="torch-toolbar">
-    <h2><%= plural %></h2>
+    <h2><%= String.capitalize(plural) %></h2>
     <%%= link "New <%= singular %>", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :new), class: "torch-button" %>
   </div>
 </section>

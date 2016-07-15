@@ -1,6 +1,6 @@
 <section class="torch torch-toolbar-container">
   <div class="torch-toolbar">
-    <h2>categories</h2>
+    <h2>Categories</h2>
     <%= link "New category", to: admin_category_path(@conn, :new), class: "torch-button" %>
   </div>
 </section>

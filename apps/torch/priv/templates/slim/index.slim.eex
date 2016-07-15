@@ -1,0 +1,29 @@
+section.torch.torch-toolbar-container
+  .torch-toolbar
+    h2 <%= String.capitalize(plural) %>
+    = link "New <%= singular %>", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :new), class: "torch-button"
+
+section.torch.torch-content
+  section.torch-table
+    = if length(@<%= plural %>) > 0 do
+      table.torch-data
+        thead
+          tr
+<%= for {k, _} <- attrs, not k in [:inserted_at, :updated_at] do %>            th= table_link(@conn, "<%= Phoenix.Naming.humanize(Atom.to_string(k)) %>", <%= inspect(k) %>)
+<% end %>
+            th: span Actions
+        tbody
+          = for <%= singular %> <- @<%= plural %> do
+            tr
+<%= for {k, meta} <- attrs, is_atom(meta), not k in [:inserted_at, :updated_at] do %>              td= <%= singular %>.<%= k %>
+<% end %><%= for {k, {:references, data}} <- attrs do %>              td= table_assoc_display_name(<%= singular %>, :<%= k %>, @<%= data[:assoc_plural] %>)
+<% end %>
+              td.torch-actions
+                = link "Edit", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :edit, <%= singular %>)
+                = link "Delete", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :delete, <%= singular %>), method: :delete, data: [confirm: "Are you sure?"]
+
+      = render Torch.PaginationView, "_pagination.html", assigns
+    - else
+      p.torch-no-data No <%= plural %> match your search.
+
+  = render "_filters.html", assigns

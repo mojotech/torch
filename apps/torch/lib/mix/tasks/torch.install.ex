@@ -3,16 +3,21 @@ defmodule Mix.Tasks.Torch.Install do
   Installs all the files Torch needs to run within the context of your
   Phoenix application.
 
+  ## Parameters
+
+  - **Format**: Either 'eex' or 'slim'.
+
   ## Example
 
-      mix torch.install
+      mix torch.install eex
+      mix torch.install slim
   """
 
   use Mix.Task
 
-  def run(_args) do
-    Mix.Torch.copy_from [:torch], "priv/templates/eex", "", [], [
-      {:eex, "layout.html.eex", "web/templates/layout/admin.html.eex"}
+  def run([format]) do
+    Mix.Torch.copy_from [:torch], "priv/templates/#{format}", "", [], [
+      {:eex, "layout.#{format}.eex", "web/templates/layout/admin.html.#{format}"}
     ]
 
     Mix.Torch.copy_from [:torch], "priv/templates/sass", "", [], [
