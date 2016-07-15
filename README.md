@@ -4,7 +4,7 @@
 
 A rapid admin generator for Phoenix apps. See more details in the [README](/apps/torch/README.md).
 
-## Development 
+## Development
 
 Because Torch relies on generators, the development environment needs to let you see the generated code in action. Accordingly, this repo is a Mix [umbrella app](http://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-apps.html).
 
@@ -14,7 +14,7 @@ Because Torch relies on generators, the development environment needs to let you
 Follow these steps to set up your environment:
 
 1. Run `bin/setup`.
-2. In one terminal tab, `cd apps/torch` and run `./node_modules/brunch/bin/brunch watch`.
+2. In one terminal tab, `cd apps/torch` and run `./node_modules/brunch/bin/brunch watch --production`.
 3. In another terminal tab, `cd apps/example` and run `mix phoenix.server`.
 
 You can then visit `localhost:4000/admin/posts` and see a Torch-generated admin.

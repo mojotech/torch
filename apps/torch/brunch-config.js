@@ -31,6 +31,10 @@ exports.config = {
     sass: {
       mode: 'native',
       includePaths: ['node_modules']
+    },
+    cleancss: {
+      keepSpecialComments: 0,
+      removeEmpty: true
     }
   },
 
