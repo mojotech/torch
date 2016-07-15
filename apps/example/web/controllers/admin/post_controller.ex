@@ -10,6 +10,7 @@ defmodule Example.Admin.PostController do
   plug :put_layout, {Example.LayoutView, "admin.html"}
   plug :scrub_params, "post" when action in [:create, :update]
   plug :assign_categories
+  plug :assign_authors
 
   @filtrex [
     %Config{type: :boolean, keys: ~w(draft)},
@@ -94,5 +95,13 @@ defmodule Example.Admin.PostController do
       |> Repo.all
       |> Enum.map(&({&1.name, &1.id}))
     assign(conn, :categories, categories)
+  end
+
+  defp assign_authors(conn, _opts) do
+    authors =
+      Example.Author
+      |> Repo.all
+      |> Enum.map(&({&1.name, &1.id}))
+    assign(conn, :authors, authors)
   end
 end

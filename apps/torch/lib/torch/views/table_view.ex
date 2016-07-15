@@ -1,7 +1,21 @@
 defmodule Torch.TableView do
+  @moduledoc """
+  Helpers for rendering Torch-generated tables.
+  """
+
   import Phoenix.HTML
   import Phoenix.HTML.Link
 
+  @doc """
+  Generates a sortable link for a table heading.
+
+  Clicking on the link will trigger a sort on that field. Clicking again will
+  reverse the sort.
+
+  ## Example
+
+      table_link(conn, "Name", :name)
+  """
   def table_link(conn, text, field) do
     direction = conn.params["sort_direction"]
 
@@ -25,6 +39,21 @@ defmodule Torch.TableView do
     end
   end
 
+  @doc """
+  Prettifies and associated model for display.
+
+  Displays the model's name or "None", rather than the model's ID.
+
+  ## Example
+
+      # If post.category_id was 1
+      table_assoc_display_name(post, :category_id, [{"Articles", 1}])
+      # => "Articles"
+
+      # If post.category_id was nil
+      table_assoc_display_name(post, :category_id, [{"Articles", 1}])
+      # => "None"
+  """
   def table_assoc_display_name(model, field, options) do
     case Enum.find(options, fn({_name, id}) -> Map.get(model, field) == id end) do
       {name, _id} -> name
@@ -32,6 +61,9 @@ defmodule Torch.TableView do
     end
   end
 
+  # Keep this function undocumented as it is not intended for public consumption,
+  # even though we use it elsewhere
+  @doc false
   def querystring(conn, opts) do
     opts = [
       page: opts[:page] || conn.assigns[:page],

@@ -2,6 +2,8 @@
 
 [![Build Status](https://semaphoreci.com/api/v1/projects/b2c7b27b-ce6c-4b1c-b2a4-df3390f80380/870178/badge.svg)](https://semaphoreci.com/ir/torch)
 
+![Screenshot](screenshot.png)
+
 A rapid admin generator for Phoenix apps. See more details in the [README](/apps/torch/README.md).
 
 ## Development
