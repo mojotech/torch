@@ -3,7 +3,7 @@ defmodule Mix.Torch do
 
   @valid_attributes [:integer, :float, :decimal, :boolean, :map, :string,
                      :array, :references, :text, :date, :time, :datetime,
-                     :uuid, :binary]
+                     :uuid, :binary, :file]
 
   @doc """
   Copies files from source dir to target dir

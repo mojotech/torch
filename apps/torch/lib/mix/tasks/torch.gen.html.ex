@@ -84,6 +84,8 @@ defmodule Mix.Tasks.Torch.Gen.Html do
         {nil, nil, nil}
       {key, {:references, data}} ->
         {label(data[:assoc_singular]), ~s(<%= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one" %>), error(key)}
+      {key, :file} ->
+        {label(key), ~s(<%= file_input f, #{inspect(key)} %>), error(key)}
       {key, :integer}    ->
         {label(key), ~s(<%= number_input f, #{inspect(key)} %>), error(key)}
       {key, :float}      ->
@@ -132,6 +134,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
     attrs
     |> Enum.group_by(&group_key/1, &elem(&1, 0))
     |> Enum.map(&config/1)
+    |> Enum.reject(&is_nil/1)
   end
 
   defp config({:text, fields}) do
@@ -146,6 +149,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
   defp config({{:references, _}, fields}) do
     "%Config{type: :number, keys: ~w(#{Enum.join(fields, " ")})}"
   end
+  defp config(_), do: nil
 
   defp group_key({_key, :string}), do: :text
   defp group_key({_key, type}), do: type
