@@ -1,8 +1,10 @@
-defmodule Mix.Tasks.Torch.Gen.Html do
+defmodule Mix.Tasks.Torch.Gen do
   @moduledoc """
   Generates a Torch admin section for a given model.
 
   ## Parameters
+
+  - **Format**: Either 'eex' or 'slim'.
 
   - **Namespace**: The Elixir namespace you want the code to be generated within.
     For example, "Admin".
@@ -18,14 +20,14 @@ defmodule Mix.Tasks.Torch.Gen.Html do
 
   ## Example
 
-      mix torch.gen.html Admin Post posts title:string body:text inserted_at:date
+      mix torch.gen eex Admin Post posts title:string body:text inserted_at:date
   """
 
   use Mix.Task
 
   def run(args) do
     Mix.Task.run("app.start", [])
-    {_opts, [namespace, singular, plural | attrs], _} = OptionParser.parse(args, switches: [])
+    {_opts, [format, namespace, singular, plural | attrs], _} = OptionParser.parse(args, switches: [])
 
     namespace_underscore = Macro.underscore(namespace)
     binding = Mix.Torch.inflect(namespace, singular)
@@ -36,16 +38,17 @@ defmodule Mix.Tasks.Torch.Gen.Html do
                           configs: configs(attrs),
                           namespace: namespace,
                           namespace_underscore: namespace_underscore,
-                          inputs: inputs(attrs),
+                          inputs: inputs(format, attrs),
                           assoc_plugs: assoc_plugs(attrs),
                           assoc_plug_definitions: assoc_plug_definitions(binding, attrs)]
 
-    Mix.Torch.copy_from [:torch], "priv/templates/eex", "", binding, [
-      {:eex, "index.html.eex", "web/templates/#{path}/index.html.eex"},
-      {:eex, "edit.html.eex", "web/templates/#{path}/edit.html.eex"},
-      {:eex, "new.html.eex", "web/templates/#{path}/new.html.eex"},
-      {:eex, "_form.html.eex", "web/templates/#{path}/_form.html.eex"},
-      {:eex, "_filters.html.eex", "web/templates/#{path}/_filters.html.eex"}
+
+    Mix.Torch.copy_from [:torch], "priv/templates/#{format}", "", binding, [
+      {:eex, "index.#{format}.eex", "web/templates/#{path}/index.html.#{format}"},
+      {:eex, "edit.#{format}.eex", "web/templates/#{path}/edit.html.#{format}"},
+      {:eex, "new.#{format}.eex", "web/templates/#{path}/new.html.#{format}"},
+      {:eex, "_form.#{format}.eex", "web/templates/#{path}/_form.html.#{format}"},
+      {:eex, "_filters.#{format}.eex", "web/templates/#{path}/_filters.html.#{format}"}
     ]
 
     Mix.Torch.copy_from [:torch], "priv/templates/elixir", "", binding, [
@@ -61,49 +64,72 @@ defmodule Mix.Tasks.Torch.Gen.Html do
         scope "/admin", #{Mix.Torch.base}.Admin, as: :admin do
           pipe_through :browser
 
-          resources "/#{binding[:plural]}", #{binding[:alias]}Controller
+          #{IO.ANSI.green}resources "/#{binding[:plural]}", #{binding[:alias]}Controller#{IO.ANSI.reset}
         end
 
-    And update the `layout/admin.html.eex` navigation:
+    And add the following link in your `layout/admin.html.#{format}` navigation:
 
+    #{help(format, binding)}
+    """
+  end
+
+  defp help("eex", binding) do
+    """
         <header id="main-header">
           <nav>
             <h1>Torch Admin</h1>
             <ul>
-              <li><%= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index) %></li>
+              #{IO.ANSI.green}<li><%= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index) %></li>#{IO.ANSI.reset}
             </ul>
           </nav>
         </header>
     """
   end
 
-  defp inputs(attrs) do
+  defp help("slim", binding) do
+    """
+        header#main-header
+          nav
+            h1 Torch Admin
+            ul
+              #{IO.ANSI.green}li= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index)#{IO.ANSI.reset}
+    """
+  end
+
+  defp inputs("eex", attrs) do
+    inputs = inputs("slim", attrs)
+    for {label, input, error} <- inputs do
+      {~s(<%#{label} %>), ~s(<%#{input} %>), ~s(<%#{error} %>)}
+    end
+  end
+
+  defp inputs("slim", attrs) do
     attrs = Enum.reject(attrs, fn({key, _type}) -> key in [:inserted_at, :updated_at] end)
     Enum.map attrs, fn
       {_, {:array, _}} ->
         {nil, nil, nil}
       {key, {:references, data}} ->
-        {label(data[:assoc_singular]), ~s(<%= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one" %>), error(key)}
+        {label(data[:assoc_singular]), ~s(= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one"), error(key)}
       {key, :file} ->
-        {label(key), ~s(<%= file_input f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(= file_input f, #{inspect(key)}), error(key)}
       {key, :integer}    ->
-        {label(key), ~s(<%= number_input f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(= number_input f, #{inspect(key)}), error(key)}
       {key, :float}      ->
-        {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
+        {label(key), ~s(= number_input f, #{inspect(key)}, step: "any"), error(key)}
       {key, :decimal}    ->
-        {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
+        {label(key), ~s(= number_input f, #{inspect(key)}, step: "any"), error(key)}
       {key, :boolean}    ->
-        {label(key), ~s(<%= select f, #{inspect(key)}, [{"True", true}, {"False", false}], prompt: "Choose one" %>), error(key)}
+        {label(key), ~s(= select f, #{inspect(key)}, [{"True", true}, {"False", false}], prompt: "Choose one"), error(key)}
       {key, :text}       ->
-        {label(key), ~s(<%= textarea f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(= textarea f, #{inspect(key)}), error(key)}
       {key, :date}       ->
-        {label(key), ~s(<%= date_select f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(= date_select f, #{inspect(key)}), error(key)}
       {key, :time}       ->
-        {label(key), ~s(<%= time_select f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(= time_select f, #{inspect(key)}), error(key)}
       {key, :datetime}   ->
-        {label(key), ~s(<%= datetime_select f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(= datetime_select f, #{inspect(key)}), error(key)}
       {key, _}           ->
-        {label(key), ~s(<%= text_input f, #{inspect(key)} %>), error(key)}
+        {label(key), ~s(= text_input f, #{inspect(key)}), error(key)}
     end
   end
 
@@ -155,10 +181,10 @@ defmodule Mix.Tasks.Torch.Gen.Html do
   defp group_key({_key, type}), do: type
 
   defp label(key) do
-    ~s(<%= label f, #{inspect(key)} %>)
+    ~s(= label f, #{inspect(key)})
   end
 
   defp error(field) do
-    ~s(<%= error_tag f, #{inspect(field)} %>)
+    ~s(= error_tag f, #{inspect(field)})
   end
 end

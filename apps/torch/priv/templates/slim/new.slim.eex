@@ -1,0 +1,7 @@
+section.torch.torch-toolbar-container
+  .torch-toolbar
+    h2 New <%= String.capitalize(singular) %>
+    = link "Cancel", to: <%= namespace_underscore %>_<%= singular %>_path(@conn, :index), class: "torch-button"
+
+section.torch.torch-content
+  = render "_form.html", Map.put(assigns, :action, <%= namespace_underscore %>_<%= singular %>_path(@conn, :create))

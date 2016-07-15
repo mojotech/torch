@@ -1,6 +1,6 @@
 <section class="torch torch-toolbar-container">
   <div class="torch-toolbar">
-    <h2>authors</h2>
+    <h2>Authors</h2>
     <%= link "New author", to: admin_author_path(@conn, :new), class: "torch-button" %>
   </div>
 </section>

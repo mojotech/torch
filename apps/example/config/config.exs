@@ -9,6 +9,10 @@ use Mix.Config
 config :example,
   ecto_repos: [Example.Repo]
 
+config :phoenix, :template_engines,
+  slim: PhoenixSlime.Engine,
+  slime: PhoenixSlime.Engine
+
 # Configures the endpoint
 config :example, Example.Endpoint,
   url: [host: "localhost"],
