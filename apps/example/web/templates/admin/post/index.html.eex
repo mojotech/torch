@@ -12,6 +12,7 @@
       <thead>
         <tr>
           <th><%= table_link(@conn, "Title", :title) %></th>
+          <th><%= table_link(@conn, "Body", :body) %></th>
           <th><%= table_link(@conn, "Draft", :draft) %></th>
           <th><%= table_link(@conn, "Category", :category_id) %></th>
           <th><%= table_link(@conn, "Author", :author_id) %></th>
@@ -23,6 +24,7 @@
         <%= for post <- @posts do %>
           <tr>
             <td><%= post.title %></td>
+            <td><%= post.body %></td>
             <td><%= post.draft %></td>
             <td><%= table_assoc_display_name(post, :category_id, @categories) %>
             <td><%= table_assoc_display_name(post, :author_id, @authors) %>

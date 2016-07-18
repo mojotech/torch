@@ -10,12 +10,14 @@ defmodule Example.Admin.PostController do
   plug :put_layout, {Example.LayoutView, "admin.html"}
   plug :scrub_params, "post" when action in [:create, :update]
   plug :assign_categories
+
   plug :assign_authors
 
   @filtrex [
     %Config{type: :boolean, keys: ~w(draft)},
     %Config{type: :date, keys: ~w(inserted_at updated_at), options: %{format: "{YYYY}-{0M}-{0D}"}},
     %Config{type: :text, keys: ~w(title body)},
+    %Config{type: :number, keys: ~w(author_id)},
     %Config{type: :number, keys: ~w(category_id)}
   ]
 

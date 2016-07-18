@@ -73,8 +73,12 @@ defmodule Torch.FilterView do
   def filter_date_input(prefix, field, params) do
     prefix = to_string(prefix)
     field = to_string(field)
-    {:safe, start} = date_input("#{prefix}[#{field}_between][start]", get_in(params, [prefix, "#{field}_between", "start"]))
-    {:safe, ending} = date_input("#{prefix}[#{field}_between][end]", get_in(params, [prefix, "#{field}_between", "end"]))
+    {:safe, start} =
+      date_input("#{prefix}[#{field}_between][start]",
+        get_in(params, [prefix, "#{field}_between", "start"]))
+    {:safe, ending} =
+      date_input("#{prefix}[#{field}_between][end]",
+        get_in(params, [prefix, "#{field}_between", "end"]))
     raw(start <> ending)
   end
 

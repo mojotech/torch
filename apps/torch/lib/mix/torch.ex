@@ -70,13 +70,22 @@ defmodule Mix.Torch do
        path: "admin/super_user"]
   """
   def inflect(namespace, singular) do
-    base     = Mix.Torch.base
-    scoped   = Phoenix.Naming.camelize(singular)
-    path     = Phoenix.Naming.underscore(scoped)
-    singular = String.split(path, "/") |> List.last
-    module   = base |> Module.concat(namespace) |> Module.concat(scoped) |> inspect
-    alias    = String.split(module, ".") |> List.last
-    human    = Phoenix.Naming.humanize(singular)
+    scoped = Phoenix.Naming.camelize(singular)
+    path = Phoenix.Naming.underscore(scoped)
+    singular =
+      path
+      |> String.split("/")
+      |> List.last
+    module =
+      base
+      |> Module.concat(namespace)
+      |> Module.concat(scoped)
+      |> inspect
+    alias =
+      module
+      |> String.split(".")
+      |> List.last
+    human = Phoenix.Naming.humanize(singular)
 
     [alias: alias,
      human: human,
@@ -106,7 +115,14 @@ defmodule Mix.Torch do
   def uniques(attrs) do
     attrs
     |> Enum.filter(&String.ends_with?(&1, ":unique"))
-    |> Enum.map(& &1 |> String.split(":", parts: 2) |> hd |> String.to_atom)
+    |> Enum.map(&do_unique/1)
+  end
+
+  defp do_unique(attr) do
+    attr
+    |> String.split(":", parts: 2)
+    |> hd
+    |> String.to_atom
   end
 
   @doc """
@@ -193,6 +209,7 @@ defmodule Mix.Torch do
     {String.to_atom(key), {String.to_atom(comp), String.to_atom(value)}}
   end
 
+  @lint false
   defp type_to_default(t) do
     case t do
         {:array, _} -> []

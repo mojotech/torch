@@ -77,7 +77,7 @@ defmodule Mix.Tasks.Torch.Gen do
 
   ## Example
 
-      mix torch.gen eex Admin Post posts category_id:references:category,categories:id,name title:string body:text inserted_at:date
+      mix torch.gen eex Admin Post posts category_id:references:category,categories:id,name title:string body:text
   """
 
   use Mix.Task
@@ -100,7 +100,13 @@ defmodule Mix.Tasks.Torch.Gen do
                           assoc_plugs: assoc_plugs(attrs),
                           assoc_plug_definitions: assoc_plug_definitions(binding, attrs)]
 
+    binding
+    |> copy_templates(format, path)
+    |> copy_elixir(path)
+    |> print_message(format)
+  end
 
+  defp copy_templates(binding, format, path) do
     Mix.Torch.copy_from [:torch], "priv/templates/#{format}", "", binding, [
       {:eex, "index.#{format}.eex", "web/templates/#{path}/index.html.#{format}"},
       {:eex, "edit.#{format}.eex", "web/templates/#{path}/edit.html.#{format}"},
@@ -108,12 +114,18 @@ defmodule Mix.Tasks.Torch.Gen do
       {:eex, "_form.#{format}.eex", "web/templates/#{path}/_form.html.#{format}"},
       {:eex, "_filters.#{format}.eex", "web/templates/#{path}/_filters.html.#{format}"}
     ]
+    binding
+  end
 
+  defp copy_elixir(binding, path) do
     Mix.Torch.copy_from [:torch], "priv/templates/elixir", "", binding, [
       {:eex, "controller.ex", "web/controllers/#{path}_controller.ex"},
       {:eex, "view.ex", "web/views/#{path}_view.ex"}
     ]
+    binding
+  end
 
+  defp print_message(binding, format) do
     Mix.shell.info """
     Success!
 
@@ -137,7 +149,7 @@ defmodule Mix.Tasks.Torch.Gen do
           <nav>
             <h1>Torch Admin</h1>
             <ul>
-              #{IO.ANSI.green}<li><%= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index) %></li>#{IO.ANSI.reset}
+              #{IO.ANSI.green}<li><%= #{nav_link(binding)} %></li>#{IO.ANSI.reset}
             </ul>
           </nav>
         </header>
@@ -150,8 +162,13 @@ defmodule Mix.Tasks.Torch.Gen do
           nav
             h1 Torch Admin
             ul
-              #{IO.ANSI.green}li= Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{ binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index)#{IO.ANSI.reset}
+              #{IO.ANSI.green}li= #{nav_link(binding)}#{IO.ANSI.reset}
     """
+  end
+
+  @lint false
+  defp nav_link(binding) do
+    ~s{Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index)}
   end
 
   defp inputs("eex", attrs) do
@@ -162,33 +179,47 @@ defmodule Mix.Tasks.Torch.Gen do
   end
 
   defp inputs("slim", attrs) do
-    attrs = Enum.reject(attrs, fn({key, _type}) -> key in [:inserted_at, :updated_at] end)
-    Enum.map attrs, fn
-      {_, {:array, _}} ->
-        {nil, nil, nil}
-      {key, {:references, data}} ->
-        {label(data[:assoc_singular]), ~s(= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one"), error(key)}
-      {key, :file} ->
-        {label(key), ~s(= file_input f, #{inspect(key)}), error(key)}
-      {key, :integer}    ->
-        {label(key), ~s(= number_input f, #{inspect(key)}), error(key)}
-      {key, :float}      ->
-        {label(key), ~s(= number_input f, #{inspect(key)}, step: "any"), error(key)}
-      {key, :decimal}    ->
-        {label(key), ~s(= number_input f, #{inspect(key)}, step: "any"), error(key)}
-      {key, :boolean}    ->
-        {label(key), ~s(= select f, #{inspect(key)}, [{"True", true}, {"False", false}], prompt: "Choose one"), error(key)}
-      {key, :text}       ->
-        {label(key), ~s(= textarea f, #{inspect(key)}), error(key)}
-      {key, :date}       ->
-        {label(key), ~s(= date_select f, #{inspect(key)}), error(key)}
-      {key, :time}       ->
-        {label(key), ~s(= time_select f, #{inspect(key)}), error(key)}
-      {key, :datetime}   ->
-        {label(key), ~s(= datetime_select f, #{inspect(key)}), error(key)}
-      {key, _}           ->
-        {label(key), ~s(= text_input f, #{inspect(key)}), error(key)}
+    for {key, _} = attr <- attrs, not key in [:inserted_at, :updated_at] do
+      do_input(attr)
     end
+  end
+
+  @lint false
+  defp do_input({_, {:array, _}}) do
+    {nil, nil, nil}
+  end
+  defp do_input({key, {:references, data}}) do
+    {label(data[:assoc_singular]), ~s(= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one"), error(key)}
+  end
+  defp do_input({key, :file}) do
+    {label(key), ~s(= file_input f, #{inspect(key)}), error(key)}
+  end
+  defp do_input({key, :integer}) do
+    {label(key), ~s(= number_input f, #{inspect(key)}), error(key)}
+  end
+  defp do_input({key, :float}) do
+    {label(key), ~s(= number_input f, #{inspect(key)}, step: "any"), error(key)}
+  end
+  defp do_input({key, :decimal}) do
+    {label(key), ~s(= number_input f, #{inspect(key)}, step: "any"), error(key)}
+  end
+  defp do_input({key, :boolean}) do
+    {label(key), ~s(= select f, #{inspect(key)}, [{"True", true}, {"False", false}], prompt: "Choose one"), error(key)}
+  end
+  defp do_input({key, :text}) do
+    {label(key), ~s(= textarea f, #{inspect(key)}), error(key)}
+  end
+  defp do_input({key, :date}) do
+    {label(key), ~s(= date_select f, #{inspect(key)}), error(key)}
+  end
+  defp do_input({key, :time}) do
+    {label(key), ~s(= time_select f, #{inspect(key)}), error(key)}
+  end
+  defp do_input({key, :datetime}) do
+    {label(key), ~s(= datetime_select f, #{inspect(key)}), error(key)}
+  end
+  defp do_input({key, _}) do
+    {label(key), ~s(= text_input f, #{inspect(key)}), error(key)}
   end
 
   defp assoc_plugs(attrs) do
