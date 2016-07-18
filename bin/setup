@@ -22,3 +22,4 @@ cd apps/example && {
 }
 
 mix test
+mix credo --strict
