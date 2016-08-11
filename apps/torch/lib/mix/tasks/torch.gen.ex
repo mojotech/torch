@@ -204,7 +204,7 @@ defmodule Mix.Tasks.Torch.Gen do
     {label(key), ~s(= number_input f, #{inspect(key)}, step: "any"), error(key)}
   end
   defp do_input({key, :boolean}) do
-    {label(key), ~s(= select f, #{inspect(key)}, [{"True", true}, {"False", false}], prompt: "Choose one"), error(key)}
+    {label(key), ~s(= select f, #{inspect(key)}, [{"True", true}, {"False", false}]), error(key)}
   end
   defp do_input({key, :text}) do
     {label(key), ~s(= textarea f, #{inspect(key)}), error(key)}
