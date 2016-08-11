@@ -21,5 +21,10 @@ cd apps/example && {
   cd -;
 }
 
+# workaround for https://github.com/npm/npm/issues/10343
+cd apps/torch && {
+  npm install;
+}
+
 mix test
 mix credo --strict

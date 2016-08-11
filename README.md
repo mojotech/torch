@@ -21,4 +21,4 @@ Follow these steps to set up your environment:
 
 You can then visit `localhost:4000/admin/posts` and see a Torch-generated admin.
 
-If you make a change to one of the generators, you can run `mix regenerate` inside `apps/example` to regenerate the Torch code.
+If you make a change to one of the generators, you can run `mix regenerate (eex|slim)` inside `apps/example` to regenerate the Torch code.
