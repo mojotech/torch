@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= label f, :draft %>
-    <%= select f, :draft, [{"True", true}, {"False", false}], prompt: "Choose one" %>
+    <%= select f, :draft, [{"True", true}, {"False", false}] %>
     <%= error_tag f, :draft %>
   </div>
 
