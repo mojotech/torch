@@ -1,7 +1,6 @@
 <html>
   <head>
     <title>Admin</title>
-    <script src="<%%= static_path(@conn, "/js/app.js") %>"></script>
     <link rel="stylesheet" href="<%%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -29,5 +28,6 @@
     <section class="torch">
       <%%= render @view_module, @view_template, assigns %>
     </section>
+    <script src="<%%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
