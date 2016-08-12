@@ -6,7 +6,7 @@ Torch is a rapid admin generator for Phoenix apps. It uses generators rather tha
 
 To install Torch, perform the following steps:
 
-1. Add `torch` to your list of dependencies in `mix.exs`:
+1. Add `torch` to your list of dependencies in `mix.exs`. Then, run `mix deps.get`:
 
     ```elixir
 def deps do
@@ -102,10 +102,10 @@ npm: {
 
 Run `mix torch.gen (eex|slim)` to generate admin controllers and views for a given Ecto schema module. Torch expects you to have already defined the schema in your project.
 
-For example, if we wanted to generate an admin area for a `Post` model we already have, we could run this command:
+For example, if we wanted to generate an admin area for a `Post` model we already have using `eex` templates, we could run this command:
 
 ```bash
-$ mix torch.gen.html Admin Post posts title:string body:text inserted_at:date
+$ mix torch.gen eex Admin Post posts title:string body:text inserted_at:date
 ```
 
 And the output would be:
