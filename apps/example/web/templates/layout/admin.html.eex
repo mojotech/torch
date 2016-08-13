@@ -1,7 +1,6 @@
 <html>
   <head>
     <title>Admin</title>
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -17,8 +16,8 @@
       </div>
 
       <header class="torch-main-header">
+        <h1>Torch Admin</h1>
         <nav>
-          <h1>Torch Admin</h1>
           <ul>
             <li><%= Torch.NavigationView.nav_link @conn, "Posts", admin_post_path(@conn, :index) %></a>
             <li><%= Torch.NavigationView.nav_link @conn, "Authors", admin_author_path(@conn, :index) %></li>
@@ -31,5 +30,6 @@
     <section class="torch">
       <%= render @view_module, @view_template, assigns %>
     </section>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

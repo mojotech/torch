@@ -1,7 +1,6 @@
 html
   head
     title Admin
-    script src="#{static_path(@conn, "/js/app.js")}"
     link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
 
   body
@@ -20,3 +19,5 @@ html
 
     section.torch
       = render @view_module, @view_template, assigns
+
+    script src="#{static_path(@conn, "/js/app.js")}"
