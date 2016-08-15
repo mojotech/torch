@@ -1,5 +1,25 @@
 # Change Log
 
+## [Unreleased](https://github.com/infinitered/torch/tree/HEAD)
+
+[Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.1...HEAD)
+
+**Closed issues:**
+
+- App.js included at top of layout fires fires too early [\#12](https://github.com/infinitered/torch/issues/12)
+- Boolean field type produces 3 options \(true, false, blank\) [\#11](https://github.com/infinitered/torch/issues/11)
+- Readme contains incorrect command [\#9](https://github.com/infinitered/torch/issues/9)
+- Filtrex is missing from install dependencies [\#8](https://github.com/infinitered/torch/issues/8)
+
+**Merged pull requests:**
+
+- Move app.js include to bottom of layout file [\#18](https://github.com/infinitered/torch/pull/18) ([darinwilson](https://github.com/darinwilson))
+- Remove prompt from boolean select field [\#17](https://github.com/infinitered/torch/pull/17) ([darinwilson](https://github.com/darinwilson))
+- Fixes for initial setup [\#16](https://github.com/infinitered/torch/pull/16) ([darinwilson](https://github.com/darinwilson))
+- Fix README errors [\#15](https://github.com/infinitered/torch/pull/15) ([darinwilson](https://github.com/darinwilson))
+- Fix out-of-date filtrex dependency [\#14](https://github.com/infinitered/torch/pull/14) ([darinwilson](https://github.com/darinwilson))
+- Add Credo for linting [\#7](https://github.com/infinitered/torch/pull/7) ([danielberkompas](https://github.com/danielberkompas))
+
 ## [v1.0.0-rc.1](https://github.com/infinitered/torch/tree/v1.0.0-rc.1) (2016-07-15)
 [Full Changelog](https://github.com/infinitered/torch/compare/v0.2.0-rc.5...v1.0.0-rc.1)
 
@@ -7,10 +27,10 @@
 
 - Slim support [\#6](https://github.com/infinitered/torch/pull/6) ([danielberkompas](https://github.com/danielberkompas))
 - Boolean Filters, Association Support [\#5](https://github.com/infinitered/torch/pull/5) ([danielberkompas](https://github.com/danielberkompas))
-- Add filter UI [\#4](https://github.com/infinitered/torch/pull/4) ([ajrob27](https://github.com/ajrob27))
-- Add table styles [\#3](https://github.com/infinitered/torch/pull/3) ([ajrob27](https://github.com/ajrob27))
-- Add toolbar styles [\#2](https://github.com/infinitered/torch/pull/2) ([ajrob27](https://github.com/ajrob27))
-- Add CSS structure and header styles [\#1](https://github.com/infinitered/torch/pull/1) ([ajrob27](https://github.com/ajrob27))
+- Add filter UI [\#4](https://github.com/infinitered/torch/pull/4) ([codeithuman](https://github.com/codeithuman))
+- Add table styles [\#3](https://github.com/infinitered/torch/pull/3) ([codeithuman](https://github.com/codeithuman))
+- Add toolbar styles [\#2](https://github.com/infinitered/torch/pull/2) ([codeithuman](https://github.com/codeithuman))
+- Add CSS structure and header styles [\#1](https://github.com/infinitered/torch/pull/1) ([codeithuman](https://github.com/codeithuman))
 
 ## [v0.2.0-rc.5](https://github.com/infinitered/torch/tree/v0.2.0-rc.5) (2016-06-28)
 [Full Changelog](https://github.com/infinitered/torch/compare/v0.2.0-rc.4...v0.2.0-rc.5)
