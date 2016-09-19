@@ -1,5 +1,17 @@
 # Change Log
 
+## [Unreleased](https://github.com/infinitered/torch/tree/HEAD)
+
+[Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.2...HEAD)
+
+**Closed issues:**
+
+- Add support to ellipsize pagination links [\#19](https://github.com/infinitered/torch/issues/19)
+
+**Merged pull requests:**
+
+- Restrict pagination links to groups of 10 [\#23](https://github.com/infinitered/torch/pull/23) ([darinwilson](https://github.com/darinwilson))
+
 ## [v1.0.0-rc.2](https://github.com/infinitered/torch/tree/v1.0.0-rc.2) (2016-08-15)
 [Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.1...v1.0.0-rc.2)
 
