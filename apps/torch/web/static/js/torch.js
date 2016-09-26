@@ -1,13 +1,14 @@
 import Pikaday from 'pikaday'
 
 window.onload = () => {
+  const slice = Array.prototype.slice
   /*
    * Prevent empty fields from being submitted, since this breaks Filtrex.
    */
   document.querySelector('form#filters').addEventListener('submit', function (e) {
     e.preventDefault()
 
-    this.querySelectorAll('input, select').forEach((field) => {
+    slice.call(this.querySelectorAll('input, select'), 0).forEach((field) => {
       if (field.value === '') {
         field.disabled = true
       }
@@ -16,13 +17,13 @@ window.onload = () => {
     e.target.submit()
   })
 
-  document.querySelectorAll('select.filter-type').forEach((field) => {
+  slice.call(document.querySelectorAll('select.filter-type'), 0).forEach((field) => {
     field.addEventListener('change', (e) => {
       e.target.nextElementSibling.name = e.target.value
     })
   })
 
-  document.querySelectorAll('.datepicker').forEach((field) => {
+  slice.call(document.querySelectorAll('.datepicker'), 0).forEach((field) => {
     new Pikaday({field: field})
   })
 }
