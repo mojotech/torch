@@ -1,5 +1,19 @@
 # Change Log
 
+## [Unreleased](https://github.com/infinitered/torch/tree/HEAD)
+
+[Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.3...HEAD)
+
+**Fixed bugs:**
+
+- Javascript Errors in Safari [\#28](https://github.com/infinitered/torch/issues/28)
+- Pagination `end\_page/3` is broken [\#26](https://github.com/infinitered/torch/issues/26)
+
+**Merged pull requests:**
+
+- Convert NodeList objects into an Array before using forEach [\#29](https://github.com/infinitered/torch/pull/29) ([silasjmatson](https://github.com/silasjmatson))
+- Fix `end\_page/3` math issue [\#27](https://github.com/infinitered/torch/pull/27) ([codeithuman](https://github.com/codeithuman))
+
 ## [v1.0.0-rc.3](https://github.com/infinitered/torch/tree/v1.0.0-rc.3) (2016-09-19)
 [Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.2...v1.0.0-rc.3)
 
