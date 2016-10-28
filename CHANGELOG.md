@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/infinitered/torch/tree/HEAD)
-
-[Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.4...HEAD)
+## [v1.0.0-rc.5](https://github.com/infinitered/torch/tree/v1.0.0-rc.5) (2016-10-28)
+[Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.4...v1.0.0-rc.5)
 
 **Merged pull requests:**
 
