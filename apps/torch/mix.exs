@@ -3,7 +3,7 @@ defmodule Torch.Mixfile do
 
   def project do
     [app: :torch,
-     version: "1.0.0-rc.4",
+     version: "1.0.0-rc.5",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
      deps_path: "../../deps",
