@@ -46,7 +46,7 @@ defmodule Torch.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:ecto, ">= 1.0.0"},
      {:scrivener_ecto, ">= 1.0.0"},
-     {:credo, "~> 0.4", only: [:dev, :test]},
+     {:credo, "~> 0.5", only: [:dev, :test]},
      {:ex_doc, "~> 0.13", only: :dev}]
   end
 
