@@ -4,11 +4,7 @@ defmodule Example.Mixfile do
   def project do
     [app: :example,
      version: "0.0.1",
-     build_path: "../../_build",
-     config_path: "../../config/config.exs",
-     deps_path: "../../deps",
-     lockfile: "../../mix.lock",
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -42,7 +38,7 @@ defmodule Example.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:torch, in_umbrella: true},
+     {:torch, path: "../.."},
      {:phoenix_slime, "~> 0.6.0"}]
   end
 
