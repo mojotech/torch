@@ -19,7 +19,7 @@
         #
         # you can give explicit globs or simply directories
         # in the latter case `**/*.{ex,exs}` will be used
-        included: ["apps/torch/lib", "apps/torch/web"],
+        included: ["lib", "web"],
         excluded: [~r"/_build/", ~r"/deps/"]
       },
       #
