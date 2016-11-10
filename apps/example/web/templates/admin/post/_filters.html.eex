@@ -3,6 +3,16 @@
   <%= form_tag @conn.request_path, method: :get, id: "filters" do %>
 
     <div class="field">
+      <label>Author</label>
+      <%= filter_assoc_select(:post, :author_id, @authors, @conn.params) %>
+    </div>
+
+    <div class="field">
+      <label>Category</label>
+      <%= filter_assoc_select(:post, :category_id, @categories, @conn.params) %>
+    </div>
+
+    <div class="field">
       <label>Title</label>
       <%= filter_select(:post, :title, @conn.params) %>
       <%= filter_string_input(:post, :title, @conn.params) %>
@@ -12,6 +22,11 @@
       <label>Body</label>
       <%= filter_select(:post, :body, @conn.params) %>
       <%= filter_text_input(:post, :body, @conn.params) %>
+    </div>
+
+    <div class="field">
+      <label>Draft</label>
+      <%= filter_boolean_input(:post, :draft, @conn.params) %>
     </div>
 
     <div class="field">

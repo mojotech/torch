@@ -9,9 +9,16 @@ defmodule Example.Admin.PostController do
 
   plug :put_layout, {Example.LayoutView, "admin.html"}
   plug :scrub_params, "post" when action in [:create, :update]
+  plug :assign_authors
+
+  plug :assign_categories
+
   @filtrex [
+    %Config{type: :boolean, keys: ~w(draft)},
     %Config{type: :date, keys: ~w(inserted_at), options: %{format: "{YYYY}-{0M}-{0D}"}},
-    %Config{type: :text, keys: ~w(title body)}
+    %Config{type: :text, keys: ~w(title body)},
+    %Config{type: :number, keys: ~w(author_id)},
+    %Config{type: :number, keys: ~w(category_id)}
   ]
 
   @pagination [page_size: 10]
@@ -84,5 +91,21 @@ defmodule Example.Admin.PostController do
     conn
     |> put_flash(:info, "Post deleted successfully.")
     |> redirect(to: admin_post_path(conn, :index))
+  end
+
+  defp assign_authors(conn, _opts) do
+    authors =
+      Example.Author
+      |> Repo.all
+      |> Enum.map(&({&1.author, &1.id}))
+    assign(conn, :authors, authors)
+  end
+
+  defp assign_categories(conn, _opts) do
+    categories =
+      Example.Category
+      |> Repo.all
+      |> Enum.map(&({&1.category, &1.id}))
+    assign(conn, :categories, categories)
   end
 end
