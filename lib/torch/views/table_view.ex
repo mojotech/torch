@@ -66,15 +66,25 @@ defmodule Torch.TableView do
   @doc false
   def querystring(conn, opts) do
     opts = [
-      page: opts[:page] || conn.assigns[:page],
+      page: opts[:page] || conn.assigns["page"],
       sort_field: opts[:sort_field] || conn.params["sort_field"] || "id",
       sort_direction: opts[:sort_direction] || conn.params["sort_direction"] || "asc"
     ]
 
-    URI.encode_query(opts)
+    conn.query_string
+    |> URI.query_decoder
+    |> Enum.into([])
+    |> Enum.filter(&remove_non_query_tuples(&1))
+    |> Enum.concat(opts)
+    |> URI.encode_query
   end
 
   defp reverse("desc"), do: "asc"
   defp reverse("asc"), do: "desc"
   defp reverse(_), do: "desc"
+
+  defp remove_non_query_tuples({"page", _}), do: false
+  defp remove_non_query_tuples({"sort_field", _}), do: false
+  defp remove_non_query_tuples({"sort_direction", _}), do: false
+  defp remove_non_query_tuples(_), do: true
 end
