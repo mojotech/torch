@@ -9,7 +9,7 @@ npm install;
 
 cd apps/example && {
   mix deps.get;
-  MIX_ENV=test mix ecto.create;
+  mix ecto.create;
   mix test
   cd -;
 }
