@@ -1,7 +1,7 @@
 <% distance = Map.get(@conn.assigns, :distance, 5) %>
 <ul class="pagination">
   <li>
-    <%= prev_link(@page_number, @total_pages) %>
+    <%= prev_link(@conn, @page_number, @total_pages) %>
   </li>
   <%= if @total_pages > 1 do %>
     <%= for num <- start_page(@page_number, distance)..end_page(@page_number, @total_pages, distance) do %>
@@ -13,6 +13,6 @@
     <% end %>
   <% end %>
   <li>
-    <%= next_link(@page_number, @total_pages) %>
+    <%= next_link(@conn, @page_number, @total_pages) %>
   </li>
 </ul>
