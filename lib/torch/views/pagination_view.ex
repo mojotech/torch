@@ -21,9 +21,9 @@ defmodule Torch.PaginationView do
       prev_link(1, 1)
       # => returns nil
   """
-  def prev_link(current_page, _num_pages) do
+  def prev_link(conn, current_page, _num_pages) do
     if current_page != 1 do
-      link "< Prev", to: "?page=#{current_page - 1}"
+      link "< Prev", to: "?#{querystring(conn, page: current_page - 1)}"
     end
   end
 
@@ -40,9 +40,9 @@ defmodule Torch.PaginationView do
       next_link(2, 2)
       # => returns nil
   """
-  def next_link(current_page, num_pages) do
+  def next_link(conn, current_page, num_pages) do
     if current_page != num_pages do
-      link "Next >", to: "?page=#{current_page + 1}"
+      link "Next >", to: "?#{querystring(conn, page: current_page + 1)}"
     end
   end
 
