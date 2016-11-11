@@ -5,6 +5,7 @@ window.onload = () => {
   /*
    * Prevent empty fields from being submitted, since this breaks Filtrex.
    */
+
   document.querySelector('form#filters').addEventListener('submit', function (e) {
     e.preventDefault()
 
@@ -14,7 +15,23 @@ window.onload = () => {
       }
     })
 
-    e.target.submit()
+    slice.call(this.querySelectorAll('field'), 0).forEach((field) => {
+      let text = field.textContent
+      let start = field.getElements('.start')[0]
+      let end = field.getElements('.end')[0]
+
+      console.log(text)
+      console.log(start)
+      console.log(end)
+
+      if (start.value === '' && end.value !== '') {
+        alert(`Please select a start date for the ${text} field`)
+      } else if (end.value === '' && start.value !== '') {
+        alert(`Please select a end at date for the ${text} field`)
+      }
+    })
+
+    // e.target.submit()
   })
 
   slice.call(document.querySelectorAll('select.filter-type'), 0).forEach((field) => {

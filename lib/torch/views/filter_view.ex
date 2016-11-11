@@ -75,10 +75,10 @@ defmodule Torch.FilterView do
     field = to_string(field)
     {:safe, start} =
       date_input("#{prefix}[#{field}_between][start]",
-        get_in(params, [prefix, "#{field}_between", "start"]))
+        get_in(params, [prefix, "#{field}_between", "start"]), "start")
     {:safe, ending} =
       date_input("#{prefix}[#{field}_between][end]",
-        get_in(params, [prefix, "#{field}_between", "end"]))
+        get_in(params, [prefix, "#{field}_between", "end"]), "end")
     raw(start <> ending)
   end
 
@@ -99,8 +99,8 @@ defmodule Torch.FilterView do
     select(prefix, "#{field}_equals", [{"True", true}, {"False", false}], value: value, prompt: "Choose one")
   end
 
-  defp date_input(name, value) do
-    tag :input, type: "text", class: "datepicker", name: name, value: value
+  defp date_input(name, value, class) do
+    tag :input, type: "text", class: "datepicker #{class}", name: name, value: value
   end
 
   defp find_param(params, pattern) do
