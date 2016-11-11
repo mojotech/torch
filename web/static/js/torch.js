@@ -9,29 +9,33 @@ window.onload = () => {
   document.querySelector('form#filters').addEventListener('submit', function (e) {
     e.preventDefault()
 
+    let disableFields = true
+
+    slice.call(this.querySelectorAll('.field'), 0).forEach((field) => {
+      let text = field.getElementsByTagName('label')[0].textContent
+      let start = field.getElementsByClassName('start')[0]
+      let end = field.getElementsByClassName('end')[0]
+
+      if (start && end) {
+        if (start.value === '' && end.value !== '') {
+          window.alert(`Please select a start date for the ${text} field`)
+          disableFields = false
+        } else if (end.value === '' && start.value !== '') {
+          window.alert(`Please select a end at date for the ${text} field`)
+          disableFields = false
+        }
+      }
+    })
+
     slice.call(this.querySelectorAll('input, select'), 0).forEach((field) => {
-      if (field.value === '') {
+      if (field.value === '' && disableFields) {
         field.disabled = true
       }
     })
 
-    slice.call(this.querySelectorAll('field'), 0).forEach((field) => {
-      let text = field.textContent
-      let start = field.getElements('.start')[0]
-      let end = field.getElements('.end')[0]
-
-      console.log(text)
-      console.log(start)
-      console.log(end)
-
-      if (start.value === '' && end.value !== '') {
-        alert(`Please select a start date for the ${text} field`)
-      } else if (end.value === '' && start.value !== '') {
-        alert(`Please select a end at date for the ${text} field`)
-      }
-    })
-
-    // e.target.submit()
+    if (disableFields) {
+      e.target.submit()
+    }
   })
 
   slice.call(document.querySelectorAll('select.filter-type'), 0).forEach((field) => {

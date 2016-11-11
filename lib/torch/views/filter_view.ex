@@ -99,6 +99,12 @@ defmodule Torch.FilterView do
     select(prefix, "#{field}_equals", [{"True", true}, {"False", false}], value: value, prompt: "Choose one")
   end
 
+  defp date_input(name, value, "start") do
+    tag :input, type: "text", class: "datepicker start", name: name, value: value, placeholder: "Start At"
+  end
+  defp date_input(name, value, "end") do
+    tag :input, type: "text", class: "datepicker end", name: name, value: value, placeholder: "End At"
+  end
   defp date_input(name, value, class) do
     tag :input, type: "text", class: "datepicker #{class}", name: name, value: value
   end
