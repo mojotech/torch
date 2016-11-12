@@ -100,10 +100,10 @@ defmodule Torch.FilterView do
   end
 
   defp date_input(name, value, "start") do
-    tag :input, type: "text", class: "datepicker start", name: name, value: value, placeholder: "Start At"
+    tag :input, type: "text", class: "datepicker start", name: name, value: value, placeholder: "Select Start Date"
   end
   defp date_input(name, value, "end") do
-    tag :input, type: "text", class: "datepicker end", name: name, value: value, placeholder: "End At"
+    tag :input, type: "text", class: "datepicker end", name: name, value: value, placeholder: "Select End Date"
   end
   defp date_input(name, value, class) do
     tag :input, type: "text", class: "datepicker #{class}", name: name, value: value
