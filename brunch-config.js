@@ -29,8 +29,7 @@ exports.config = {
 
   plugins: {
     sass: {
-      mode: 'native',
-      includePaths: ['node_modules']
+      mode: 'native'
     },
     cleancss: {
       keepSpecialComments: 0,
