@@ -3,13 +3,13 @@
   <%= form_tag @conn.request_path, method: :get, id: "filters" do %>
 
     <div class="field">
-      <label>Author</label>
-      <%= filter_assoc_select(:post, :author_id, @authors, @conn.params) %>
+      <label>Category</label>
+      <%= filter_assoc_select(:post, :category_id, @categories, @conn.params) %>
     </div>
 
     <div class="field">
-      <label>Category</label>
-      <%= filter_assoc_select(:post, :category_id, @categories, @conn.params) %>
+      <label>Author</label>
+      <%= filter_assoc_select(:post, :author_id, @authors, @conn.params) %>
     </div>
 
     <div class="field">
@@ -32,6 +32,11 @@
     <div class="field">
       <label>Inserted at</label>
       <%= filter_date_input(:post, :inserted_at, @conn.params) %>
+    </div>
+
+    <div class="field">
+      <label>Updated at</label>
+      <%= filter_date_input(:post, :updated_at, @conn.params) %>
     </div>
 
     <button type="submit" class="torch-button">Search</button>
