@@ -6,12 +6,13 @@ mix deps.get;
 mix compile;
 
 npm install;
+
 # Setup local link to torch
 npm link;
 
 cd apps/example && {
   mix deps.get;
-  mix ecto.create;
+  mix ecto.setup;
   npm install;
   rm -rf ./node_modules/torch;
   npm link torch;
