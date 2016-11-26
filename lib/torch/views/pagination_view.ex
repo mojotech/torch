@@ -10,7 +10,6 @@ defmodule Torch.PaginationView do
 
   @doc """
   Generates a "< Prev" link to the previous page of results.
-
   The link is only returned if there is a previous page.
 
   ## Example
@@ -23,17 +22,15 @@ defmodule Torch.PaginationView do
   """
   def prev_link(conn, current_page, _num_pages) do
     if current_page != 1 do
-      link "< Prev", to: "?#{querystring(conn, page: current_page - 1)}"
+      link "< Prev", to: "?" <> querystring(conn, page: current_page - 1)
     end
   end
 
   @doc """
   Generates a "Next >" link to the next page of results.
-
   The link is only returned if there is another page.
 
   ## Example
-
       next_link(1, 2)
       # => returns link
 
@@ -42,10 +39,11 @@ defmodule Torch.PaginationView do
   """
   def next_link(conn, current_page, num_pages) do
     if current_page != num_pages do
-      link "Next >", to: "?#{querystring(conn, page: current_page + 1)}"
+      link "Next >", to: "?" <> querystring(conn, page: current_page + 1)
     end
   end
 
+  # TODO: Comment the logic here, it's very difficult to parse
   defp start_page(current_page, distance) when current_page - distance < 1 do
     current_page - (distance + (current_page - distance - 1))
   end
@@ -53,6 +51,7 @@ defmodule Torch.PaginationView do
     current_page - distance
   end
 
+  # TODO: comment the logic here as well
   defp end_page(current_page, 0, _distance) do
     current_page
   end
