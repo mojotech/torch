@@ -93,6 +93,8 @@ defmodule Mix.Tasks.Torch.Gen do
     attrs = Mix.Torch.attrs(attrs)
     binding = binding ++ [plural: plural,
                           attrs: attrs,
+                          params: params(attrs),
+                          sample_id: 42,
                           configs: configs(attrs),
                           namespace: namespace,
                           namespace_underscore: namespace_underscore,
@@ -120,7 +122,8 @@ defmodule Mix.Tasks.Torch.Gen do
   defp copy_elixir(binding, path) do
     Mix.Torch.copy_from [:torch], "priv/templates/elixir", "", binding, [
       {:eex, "controller.ex", "web/controllers/#{path}_controller.ex"},
-      {:eex, "view.ex", "web/views/#{path}_view.ex"}
+      {:eex, "view.ex", "web/views/#{path}_view.ex"},
+      {:eex, "test.ex", "test/controllers/#{path}_controller_test.exs"}
     ]
     binding
   end
@@ -275,5 +278,9 @@ defmodule Mix.Tasks.Torch.Gen do
 
   defp error(field) do
     ~s(= error_tag f, #{inspect(field)})
+  end
+
+  defp params(attrs) do
+    %{}
   end
 end
