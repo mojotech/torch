@@ -1,5 +1,5 @@
 defmodule <%= module %>ControllerTest do
-  alias <%= module %>
+  alias <%= base %>.<%= String.capitalize(singular) %>
 
   use <%= base %>.ConnCase
 
