@@ -13,7 +13,7 @@ defmodule <%= module %>ControllerTest do
 
   test "renders form for new resources", %{conn: conn} do
     conn = get conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :new)
-    assert html_response(conn, 200) =~ "New <%= singular %>"
+    assert html_response(conn, 200) =~ "New <%= String.capitalize(singular) %>"
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
@@ -27,12 +27,6 @@ defmodule <%= module %>ControllerTest do
     assert html_response(conn, 400) =~ "New <%= String.capitalize(singular) %>"
   end
 
-  test "shows chosen resource", %{conn: conn} do
-    <%= singular %> = Repo.insert! %<%= alias %>{}
-    conn = get conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :show, <%= singular %>)
-    assert html_response(conn, 200) =~ "Show <%= singular %>"
-  end
-
   test "renders page not found when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
       get conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :show, <%= sample_id %>)
@@ -42,7 +36,7 @@ defmodule <%= module %>ControllerTest do
   test "renders form for editing chosen resource", %{conn: conn} do
     <%= singular %> = Repo.insert! %<%= alias %>{}
     conn = get conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :edit, <%= singular %>)
-    assert html_response(conn, 200) =~ "Edit <%= singular %>"
+    assert html_response(conn, 200) =~ "Edit <%= String.capitalize(singular) %>"
   end
 
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
