@@ -24,7 +24,7 @@ defmodule <%= module %>ControllerTest do
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :create), <%= singular %>: @invalid_attrs
-    assert html_response(conn, 200) =~ "New <%= singular %>"
+    assert html_response(conn, 400) =~ "New <%= String.capitalize(singular) %>"
   end
 
   test "shows chosen resource", %{conn: conn} do
@@ -48,14 +48,14 @@ defmodule <%= module %>ControllerTest do
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
     <%= singular %> = Repo.insert! %<%= alias %>{}
     conn = put conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :update, <%= singular %>), <%= singular %>: @valid_attrs
-    assert redirected_to(conn) == <%= namespace_underscore %>_<%= singular %>_path(conn, :show, <%= singular %>)
+    assert redirected_to(conn) == <%= namespace_underscore %>_<%= singular %>_path(conn, :index)
     assert Repo.get_by(<%= alias %>, @valid_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     <%= singular %> = Repo.insert! %<%= alias %>{}
     conn = put conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :update, <%= singular %>), <%= singular %>: @invalid_attrs
-    assert html_response(conn, 200) =~ "Edit <%= singular %>"
+    assert html_response(conn, 400) =~ "Edit <%= String.capitalize(singular) %>"
   end
 
   test "deletes chosen resource", %{conn: conn} do
