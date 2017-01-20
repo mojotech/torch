@@ -27,12 +27,6 @@ defmodule <%= module %>ControllerTest do
     assert html_response(conn, 400) =~ "New <%= String.capitalize(singular) %>"
   end
 
-  test "renders page not found when id is nonexistent", %{conn: conn} do
-    assert_error_sent 404, fn ->
-      get conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :show, <%= sample_id %>)
-    end
-  end
-
   test "renders form for editing chosen resource", %{conn: conn} do
     <%= singular %> = Repo.insert! %<%= alias %>{}
     conn = get conn, <%= namespace_underscore %>_<%= singular %>_path(conn, :edit, <%= singular %>)
