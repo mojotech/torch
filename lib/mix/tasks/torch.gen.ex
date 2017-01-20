@@ -94,7 +94,6 @@ defmodule Mix.Tasks.Torch.Gen do
     binding = binding ++ [plural: plural,
                           attrs: attrs,
                           params: params(attrs),
-                          sample_id: 42,
                           configs: configs(attrs),
                           namespace: namespace,
                           namespace_underscore: namespace_underscore,
@@ -281,6 +280,16 @@ defmodule Mix.Tasks.Torch.Gen do
   end
 
   defp params(attrs) do
-    %{}
+    attrs
+    |> Enum.map(fn {field, type} -> {field, value(type)} end)
+    |> Enum.reject(fn {_field, value} -> value == nil end)
+    |> Enum.reduce(%{}, fn ({field, value}, params) -> Map.merge(params, %{field => value}) end)
   end
+
+  defp value(:boolean), do: true
+  defp value(:float), do: 42.0
+  defp value(:integer), do: 42
+  defp value(:string), do: "some content"
+  defp value(:text), do: "some content"
+  defp value(_), do: nil
 end
