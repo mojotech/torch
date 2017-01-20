@@ -287,6 +287,8 @@ defmodule Mix.Tasks.Torch.Gen do
   end
 
   defp value(:boolean), do: true
+  defp value(:date), do: %{day: 17, month: 4, year: 2010}
+  defp value(:decimal), do: "42.0"
   defp value(:float), do: 42.0
   defp value(:integer), do: 42
   defp value(:string), do: "some content"
