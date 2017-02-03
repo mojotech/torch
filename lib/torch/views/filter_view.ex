@@ -79,7 +79,7 @@ defmodule Torch.FilterView do
     {:safe, ending} =
       date_input("#{prefix}[#{field}_between][end]",
         get_in(params, [prefix, "#{field}_between", "end"]), "end")
-    raw(start <> ending)
+    raw(start ++ ending)
   end
 
   @doc """
