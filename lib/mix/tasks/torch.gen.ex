@@ -93,6 +93,7 @@ defmodule Mix.Tasks.Torch.Gen do
     attrs = Mix.Torch.attrs(attrs)
     binding = binding ++ [plural: plural,
                           attrs: attrs,
+                          params: params(attrs),
                           configs: configs(attrs),
                           namespace: namespace,
                           namespace_underscore: namespace_underscore,
@@ -120,7 +121,8 @@ defmodule Mix.Tasks.Torch.Gen do
   defp copy_elixir(binding, path) do
     Mix.Torch.copy_from [:torch], "priv/templates/elixir", "", binding, [
       {:eex, "controller.ex", "web/controllers/#{path}_controller.ex"},
-      {:eex, "view.ex", "web/views/#{path}_view.ex"}
+      {:eex, "view.ex", "web/views/#{path}_view.ex"},
+      {:eex, "test.ex", "test/controllers/#{path}_controller_test.exs"}
     ]
     binding
   end
@@ -276,4 +278,20 @@ defmodule Mix.Tasks.Torch.Gen do
   defp error(field) do
     ~s(= error_tag f, #{inspect(field)})
   end
+
+  defp params(attrs) do
+    attrs
+    |> Enum.map(fn {field, type} -> {field, value(type)} end)
+    |> Enum.reject(fn {_field, value} -> value == nil end)
+    |> Enum.reduce(%{}, fn ({field, value}, params) -> Map.merge(params, %{field => value}) end)
+  end
+
+  defp value(:boolean), do: true
+  defp value(:date), do: %{day: 17, month: 4, year: 2010}
+  defp value(:decimal), do: "42.0"
+  defp value(:float), do: 42.0
+  defp value(:integer), do: 42
+  defp value(:string), do: "some content"
+  defp value(:text), do: "some content"
+  defp value(_), do: nil
 end
