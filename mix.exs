@@ -11,9 +11,9 @@ defmodule Torch.Mixfile do
      start_permanent: Mix.env == :prod,
      name: "Torch",
      description: "Rapid admin generator for Phoenix",
-     package: package,
-     docs: docs,
-     deps: deps]
+     package: package(),
+     docs: docs(),
+     deps: deps()]
   end
 
   # Configuration for the OTP application

@@ -31,9 +31,9 @@ defmodule Mix.Tasks.Torch.Install do
     ]
 
     Mix.shell.info """
-    #{hr}
+    #{hr()}
                                    #{IO.ANSI.yellow}TORCH INSTALLED!#{IO.ANSI.reset}
-    #{hr}
+    #{hr()}
 
     There are three final steps you must complete manually:
 

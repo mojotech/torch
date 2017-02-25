@@ -77,7 +77,7 @@ defmodule Mix.Torch do
       |> String.split("/")
       |> List.last
     module =
-      base
+      base()
       |> Module.concat(namespace)
       |> Module.concat(scoped)
       |> inspect
@@ -89,7 +89,7 @@ defmodule Mix.Torch do
 
     [alias: alias,
      human: human,
-     base: base,
+     base: base(),
      module: module,
      scoped: scoped,
      singular: singular,
@@ -209,7 +209,6 @@ defmodule Mix.Torch do
     {String.to_atom(key), {String.to_atom(comp), String.to_atom(value)}}
   end
 
-  @lint false
   defp type_to_default(t) do
     case t do
         {:array, _} -> []

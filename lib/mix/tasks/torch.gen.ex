@@ -168,9 +168,11 @@ defmodule Mix.Tasks.Torch.Gen do
     """
   end
 
-  @lint false
   defp nav_link(binding) do
-    ~s{Torch.NavigationView.nav_link @conn, "#{String.capitalize(binding[:plural])}", #{binding[:namespace_underscore]}_#{binding[:singular]}_path(@conn, :index)}
+    plural = String.capitalize(binding[:plural])
+    namespace = binding[:namespace_underscore]
+    singular = binding[:singular]
+    ~s{Torch.NavigationView.nav_link @conn, "#{plural}", #{namespace}_#{singular}_path(@conn, :index)}
   end
 
   defp inputs("eex", attrs) do
@@ -186,12 +188,12 @@ defmodule Mix.Tasks.Torch.Gen do
     end
   end
 
-  @lint false
   defp do_input({_, {:array, _}}) do
     {nil, nil, nil}
   end
   defp do_input({key, {:references, data}}) do
-    {label(data[:assoc_singular]), ~s(= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one"), error(key)}
+    s = ~s(= select f, #{inspect(key)}, @#{data[:assoc_plural]}, prompt: "Choose one")
+    {label(data[:assoc_singular]), s, error(key)}
   end
   defp do_input({key, :file}) do
     {label(key), ~s(= file_input f, #{inspect(key)}), error(key)}
