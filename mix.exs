@@ -39,7 +39,7 @@ defmodule Torch.Mixfile do
   defp deps do
     [{:filtrex, "~> 0.3.0"},
      {:phoenix, "~> 1.2"},
-     {:phoenix_html, "~> 2.6"},
+     {:phoenix_html, "~> 2.9"},
      {:ecto, ">= 1.0.0"},
      {:scrivener_ecto, ">= 1.0.0"},
      {:credo, "~> 0.5", only: [:dev, :test]},

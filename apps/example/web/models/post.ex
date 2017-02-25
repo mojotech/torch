@@ -9,7 +9,7 @@ defmodule Example.Post do
     field :body, :string
     field :draft, :boolean
 
-    timestamps
+    timestamps()
   end
 
   @doc """

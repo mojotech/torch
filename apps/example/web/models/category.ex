@@ -6,7 +6,7 @@ defmodule Example.Category do
 
     field :name, :string
 
-    timestamps
+    timestamps()
   end
 
   @doc """

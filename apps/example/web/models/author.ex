@@ -5,7 +5,7 @@ defmodule Example.Author do
     field :name, :string
     field :email, :string
 
-    timestamps
+    timestamps()
   end
 
   @doc """

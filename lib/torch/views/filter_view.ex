@@ -14,7 +14,7 @@ defmodule Torch.FilterView do
       filter_assoc_select(:post, :category_id, [{"Articles", 1}], %{"post" => %{"category_id_equals" => 1}})
   """
   def filter_assoc_select(prefix, field, options, params) do
-    select(prefix, "#{field}_equals", options,
+    select(prefix, :"#{field}_equals", options,
       value: params[to_string(prefix)]["#{field}_equals"],
       prompt: "Choose one")
   end
@@ -96,7 +96,7 @@ defmodule Torch.FilterView do
         string when is_binary(string) -> string == "true"
       end
 
-    select(prefix, "#{field}_equals", [{"True", true}, {"False", false}], value: value, prompt: "Choose one")
+    select(prefix, :"#{field}_equals", [{"True", true}, {"False", false}], value: value, prompt: "Choose one")
   end
 
   defp date_input(name, value, "start") do
