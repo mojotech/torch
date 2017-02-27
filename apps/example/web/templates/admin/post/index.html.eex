@@ -25,9 +25,9 @@
           <tr>
             <td><%= post.title %></td>
             <td><%= post.body %></td>
-            <td><%= post.draft %></td>
             <td><%= table_assoc_display_name(post, :author_id, @authors) %>
             <td><%= table_assoc_display_name(post, :category_id, @categories) %>
+            <td><%= post.draft %></td>
 
             <td class="torch-actions">
               <%= link "Edit", to: admin_post_path(@conn, :edit, post) %>
