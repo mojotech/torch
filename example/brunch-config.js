@@ -46,7 +46,7 @@ exports.config = {
     watched: [
       "web/static",
       "node_modules/torch/priv/static",
-      "node_modules/torch/web/static/css"
+      "node_modules/torch/assets/css"
     ],
 
     // Where to compile files to
@@ -73,10 +73,5 @@ exports.config = {
 
   npm: {
     enabled: true
-    /* styles: {
-     *   torch: [
-     *     'web/static/css/radmin.css'
-     *   ]
-     * }*/
   }
 };

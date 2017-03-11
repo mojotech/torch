@@ -8,7 +8,7 @@
     "package.json",
     "priv/static/torch.js",
     "priv/static/torch.css",
-    "web/static"
+    "assets"
   ],
   "dependencies": {
     "pikaday": "~1.4.0",
@@ -16,11 +16,12 @@
     "bourbon-neat": "~1.8.0"
   },
   "devDependencies": {
-    "brunch": "~2.8.2",
-    "babel-brunch": "~6.0.0",
-    "uglify-js-brunch": "~2.0.1",
-    "clean-css-brunch": "~2.0.0",
-    "css-brunch": "~2.0.0",
-    "sass-brunch": "~2.6.3"
+    "brunch": "2.10.7",
+    "javascript-brunch": "2.10.0",
+    "babel-brunch": "6.0.6",
+    "uglify-js-brunch": "2.1.1",
+    "clean-css-brunch": "2.10.0",
+    "css-brunch": "2.10.0",
+    "sass-brunch": "2.10.4"
   }
 }
