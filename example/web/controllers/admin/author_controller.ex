@@ -15,6 +15,7 @@ defmodule Example.Admin.AuthorController do
   ]
 
   @pagination [page_size: 10]
+  @pagination_distance 5
 
   def index(conn, params) do
     {:ok, filter} = Filtrex.parse_params(@filtrex, params["author"] || %{})
@@ -30,7 +31,8 @@ defmodule Example.Admin.AuthorController do
       page_number: page.page_number,
       page_size: page.page_size,
       total_pages: page.total_pages,
-      total_entries: page.total_entries
+      total_entries: page.total_entries,
+      distance: @pagination_distance
   end
 
   def new(conn, _params) do

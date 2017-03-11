@@ -14,6 +14,7 @@ defmodule Example.Admin.CategoryController do
   ]
 
   @pagination [page_size: 10]
+  @pagination_distance 5
 
   def index(conn, params) do
     {:ok, filter} = Filtrex.parse_params(@filtrex, params["category"] || %{})
@@ -29,7 +30,8 @@ defmodule Example.Admin.CategoryController do
       page_number: page.page_number,
       page_size: page.page_size,
       total_pages: page.total_pages,
-      total_entries: page.total_entries
+      total_entries: page.total_entries,
+      distance: @pagination_distance
   end
 
   def new(conn, _params) do

@@ -16,9 +16,9 @@
   </div>
 
   <div class="field">
-    <%= label f, :author %>
-    <%= select f, :author_id, @authors, prompt: "Choose one" %>
-    <%= error_tag f, :author_id %>
+    <%= label f, :draft %>
+    <%= select f, :draft, [{"True", true}, {"False", false}] %>
+    <%= error_tag f, :draft %>
   </div>
 
   <div class="field">
@@ -28,9 +28,9 @@
   </div>
 
   <div class="field">
-    <%= label f, :draft %>
-    <%= select f, :draft, [{"True", true}, {"False", false}] %>
-    <%= error_tag f, :draft %>
+    <%= label f, :author %>
+    <%= select f, :author_id, @authors, prompt: "Choose one" %>
+    <%= error_tag f, :author_id %>
   </div>
 
   <div class="field">
