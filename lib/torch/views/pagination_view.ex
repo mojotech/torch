@@ -43,7 +43,6 @@ defmodule Torch.PaginationView do
     end
   end
 
-  # TODO: Comment the logic here, it's very difficult to parse
   defp start_page(current_page, distance) when current_page - distance < 1 do
     current_page - (distance + (current_page - distance - 1))
   end
@@ -51,7 +50,6 @@ defmodule Torch.PaginationView do
     current_page - distance
   end
 
-  # TODO: comment the logic here as well
   defp end_page(current_page, 0, _distance) do
     current_page
   end
