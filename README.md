@@ -51,7 +51,7 @@ import "torch"
 Torch provides its CSS in two ways:
 
 1. A precompiled css file in `priv/static/css/torch.css`.
-2. SASS styles in `web/static/css/torch.sass`
+2. SASS styles in `assets/css/torch.sass`
 
 ### Customization Using Sass Variables
 
@@ -59,7 +59,7 @@ If you want to customize the look and feel of your admin, you should use the SAS
 
 ```css
 @import "admin_variables";
-@import "../../../node_modules/torch/web/static/css/torch";
+@import "../../../node_modules/torch/assets/css/torch";
 ```
 
 Then, update your `brunch-config.js` sass settings to make Brunch watch your node_modules directory:

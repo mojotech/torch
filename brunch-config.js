@@ -8,13 +8,17 @@ exports.config = {
     },
     stylesheets: {
       joinTo: {
-        'torch.css': /^(web|node_modules)/
+        'torch.css': /^(assets|node_modules)/
       }
     }
   },
 
+  conventions: {
+    assets: /^(static)/
+  },
+
   paths: {
-    watched: ['web/static'],
+    watched: ['assets'],
     public: 'priv/static'
   },
 
@@ -23,11 +27,14 @@ exports.config = {
       return `var require = window.require;`
     },
     autoRequire: {
-      'torch.js': ['web/static/js/torch.js']
+      'torch.js': ['assets/js/torch.js']
     }
   },
 
   plugins: {
+    babel: {
+      ignore: [/^(assets\/vendor)/]
+    },
     sass: {
       mode: 'native'
     },
