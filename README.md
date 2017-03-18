@@ -12,7 +12,7 @@ To install Torch, perform the following steps:
 
 1. Add `torch` to your list of dependencies in `mix.exs`. Then, run `mix deps.get`:
 
-    ```elixir
+```elixir
 def deps do
   [{:torch, "~> 1.0.0-rc.5"}]
 end
@@ -20,7 +20,7 @@ end
 
 2. Ensure `:torch` is started in your applications list in `mix.exs`:
 
-    ```elixir
+```elixir
 def application do
   [applications: [:torch]]
 end
@@ -28,7 +28,7 @@ end
 
 3. Add `torch` to your `package.json` dependencies. Then, run `npm install`.
 
-    ```diff
+```diff
 "dependencies": {
   "phoenix": "file:deps/phoenix",
   "phoenix_html": "file:deps/phoenix_html",
@@ -38,7 +38,7 @@ end
 
 4. Import `torch.js` in your `app.js`:
 
-    ```js
+```js
 import "torch"
 ```
 
@@ -81,7 +81,7 @@ If you're not using SASS, then you will need to configure your asset pipeline to
 
 1. Add `node_modules` to the watched directories for `stylesheets`.
 
-    ```js
+```js
 stylesheets: {
   joinTo: {
     'css/app.css': /^(web|node_modules)/
@@ -91,7 +91,7 @@ stylesheets: {
 
 2. Add `torch` to the npm configuration:
 
-    ```js
+```js
 npm: {
   enabled: true
   styles: {
