@@ -156,3 +156,7 @@ To learn more about the `torch.gen` task, run:
 ```
 mix help torch.gen
 ```
+
+## Premium Support
+
+[Torch](https://github.com/infinitered/torch), as open source projects, is free to use and always will be. [Infinite Red](https://infinite.red/) offers premium Torch support and general web app design/development services. Email us at [hello@infinite.red](mailto:hello@infinite.red) to get in touch with us for more details.
