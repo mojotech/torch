@@ -48,7 +48,7 @@ defmodule Torch.Mixfile do
 
   defp package do
     [
-      maintainers: ["Daniel Berkompas"],
+      maintainers: ["Infinite Red"],
       licenses: ["MIT"],
       links: %{
         "Github" => "https://github.com/infinitered/torch"
