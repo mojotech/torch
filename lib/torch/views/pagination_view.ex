@@ -20,9 +20,9 @@ defmodule Torch.PaginationView do
       prev_link(1, 1)
       # => returns nil
   """
-  def prev_link(conn, current_page, _num_pages) do
+  def prev_link(conn, current_page, _num_pages, sort_opts \\ nil ) do
     if current_page != 1 do
-      link "< Prev", to: "?" <> querystring(conn, page: current_page - 1)
+      link "< Prev", to: "?" <> querystring(conn, page: current_page - 1, sort_opts: sort_opts)
     end
   end
 
@@ -37,9 +37,9 @@ defmodule Torch.PaginationView do
       next_link(2, 2)
       # => returns nil
   """
-  def next_link(conn, current_page, num_pages) do
+  def next_link(conn, current_page, num_pages, sort_opts \\ nil) do
     if current_page != num_pages do
-      link "Next >", to: "?" <> querystring(conn, page: current_page + 1)
+      link "Next >", to: "?" <> querystring(conn, page: current_page + 1, sort_opts: sort_opts)
     end
   end
 
@@ -62,5 +62,12 @@ defmodule Torch.PaginationView do
   end
   defp end_page(current_page, _total, distance) do
     current_page + distance - 1
+  end
+  
+  defp sort_opts(%{ sort_field: sort_field, sort_direction: sort_direction }) do
+    %{
+      sort_field: sort_field,
+      sort_direction: sort_direction
+    }
   end
 end

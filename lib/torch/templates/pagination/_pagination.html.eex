@@ -6,7 +6,7 @@
   <%= if @total_pages > 1 do %>
     <%= for num <- start_page(@page_number, distance)..end_page(@page_number, @total_pages, distance) do %>
       <li>
-        <a href="?<%= querystring(@conn, page: num) %>" class="<%= if @page_number == num, do: "active", else: "" %>">
+        <a href="?<%= querystring( @conn, page: num, sort_opts: sort_opts(@conn.assigns) ) %>" class="<%= if @page_number == num, do: "active", else: "" %>">
           <%= num %>
         </a>
       </li>
