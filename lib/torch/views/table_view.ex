@@ -72,7 +72,7 @@ defmodule Torch.TableView do
 
     original
     |> Map.merge(opts)
-    |> Enum.filter( fn{_, v} -> v != nil end )
+    |> Enum.filter(fn{_, v} -> v != nil end)
     |> Enum.into(%{})
     |> URI.encode_query
   end
