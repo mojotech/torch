@@ -85,13 +85,17 @@ defmodule Mix.Tasks.Torch.Gen do
   @doc false
   def run(args) do
     Mix.Task.run("app.start", [])
-    {_opts, [format, namespace, singular, plural | attrs], _} = OptionParser.parse(args, switches: [])
+    {_opts, [format, namespace, singular, plural, sort_field, sort_direction | attrs], _} = OptionParser.parse(args, switches: [])
 
     namespace_underscore = Macro.underscore(namespace)
     binding = Mix.Torch.inflect(namespace, singular)
+    sort_field = sort_field || "id"
+    sort_direction = sort_direction || "desc"
     path = namespace_underscore <> "/" <> binding[:path]
     attrs = Mix.Torch.attrs(attrs)
     binding = binding ++ [plural: plural,
+                          sort_field: sort_field,
+                          sort_direction: sort_direction,
                           attrs: attrs,
                           params: params(attrs),
                           configs: configs(attrs),
