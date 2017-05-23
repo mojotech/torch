@@ -85,9 +85,8 @@ defmodule Mix.Tasks.Torch.Gen do
   @doc false
   def run(args) do
     Mix.Task.run("app.start", [])
-    { _opts,
-      [
-        format,
+    {_opts,
+      [format,
         namespace,
         singular,
         plural,

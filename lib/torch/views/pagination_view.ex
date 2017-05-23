@@ -64,10 +64,8 @@ defmodule Torch.PaginationView do
     current_page + distance - 1
   end
 
-  defp sort_opts(%{ sort_field: sort_field, sort_direction: sort_direction}) do
-    %{
-      sort_field: sort_field,
-      sort_direction: sort_direction
-    }
+  defp sort_opts(%{sort_field: sort_field, sort_direction: sort_direction}) do
+    %{sort_field: sort_field,
+      sort_direction: sort_direction}
   end
 end
