@@ -21,8 +21,10 @@ defmodule <%= module %>Controller do
   @pagination_distance 5
 
   def index(conn, params) do
-    params = Map.put_new(params, "sort_direction", "<%= sort_direction %>")
-    params = Map.put_new(params, "sort_field", "<%= sort_field %>")
+    params =
+      params
+      |> Map.put_new("sort_direction", "<%= sort_direction %>")
+      |> Map.put_new("sort_field", "<%= sort_field %>")
     
     {:ok, sort_direction} = Map.fetch(params, "sort_direction")
     {:ok, sort_field} = Map.fetch(params, "sort_field")
