@@ -97,12 +97,27 @@ defmodule Mix.Torch do
   end
 
   @doc """
+  Returns a list of the attrs marked "readonly"
+  """
+  def readonly_attrs(attrs) do
+    attrs
+    |> Enum.filter(&String.ends_with?(&1, ":readonly"))
+    |> Enum.map(fn attr ->
+      attr
+      |> String.split(":", parts: 3)
+      |> hd
+      |> String.to_atom
+    end)
+  end
+
+  @doc """
   Parses the attrs as received by generators.
   """
   def attrs(attrs) do
     Enum.map(attrs, fn attr ->
       attr
       |> drop_unique()
+      |> drop_readonly()
       |> String.split(":", parts: 3)
       |> list_to_attr()
       |> validate_attr!()
@@ -183,9 +198,17 @@ defmodule Mix.Torch do
   end
 
   defp drop_unique(info) do
-    prefix = byte_size(info) - 7
+    drop_postfix(info, ":unique")
+  end
+
+  defp drop_readonly(info) do
+    drop_postfix(info, ":readonly")
+  end
+
+  defp drop_postfix(info, postfix) do
+    prefix = byte_size(info) - byte_size(postfix)
     case info do
-      <<attr::size(prefix)-binary, ":unique">> -> attr
+      <<attr::size(prefix)-binary>> <> ^postfix -> attr
       _ -> info
     end
   end

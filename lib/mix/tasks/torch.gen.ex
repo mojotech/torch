@@ -75,6 +75,12 @@ defmodule Mix.Tasks.Torch.Gen do
         - The `<select>` box it generates should use the category `id` field as the
           value and the category `name` field as the value.
 
+  Any field can be set to be read-only by appending `:readonly` to the field
+  definition, e.g. `field_name:type:readonly`. These fields will be displayed, but
+  their inputs will be disabled. Note that this the only enforcement Torch provides.
+  To make absolutely certain that these values are not altered you should have
+  protections in place at the schema/changeset level.
+
   ## Example
 
       mix torch.gen eex Admin Post posts category_id:references:category,categories:id,name title:string body:text
@@ -90,6 +96,7 @@ defmodule Mix.Tasks.Torch.Gen do
     namespace_underscore = Macro.underscore(namespace)
     binding = Mix.Torch.inflect(namespace, singular)
     path = namespace_underscore <> "/" <> binding[:path]
+    readonly_attrs = Mix.Torch.readonly_attrs(attrs)
     attrs = Mix.Torch.attrs(attrs)
     binding = binding ++ [plural: plural,
                           attrs: attrs,
@@ -97,7 +104,7 @@ defmodule Mix.Tasks.Torch.Gen do
                           configs: configs(attrs),
                           namespace: namespace,
                           namespace_underscore: namespace_underscore,
-                          inputs: inputs(format, attrs),
+                          inputs: inputs(format, attrs, readonly_attrs),
                           assoc_plugs: assoc_plugs(attrs),
                           assoc_plug_definitions: assoc_plug_definitions(binding, attrs)]
 
@@ -175,16 +182,21 @@ defmodule Mix.Tasks.Torch.Gen do
     ~s{Torch.NavigationView.nav_link @conn, "#{plural}", #{namespace}_#{singular}_path(@conn, :index)}
   end
 
-  defp inputs("eex", attrs) do
-    inputs = inputs("slim", attrs)
+  defp inputs("eex", attrs, readonly_attrs) do
+    inputs = inputs("slim", attrs, readonly_attrs)
     for {label, input, error} <- inputs do
       {~s(<%#{label} %>), ~s(<%#{input} %>), ~s(<%#{error} %>)}
     end
   end
 
-  defp inputs("slim", attrs) do
+  defp inputs("slim", attrs, readonly_attrs) do
     for {key, _} = attr <- attrs, not key in [:inserted_at, :updated_at] do
-      do_input(attr)
+      {label, input, error} = do_input(attr)
+      if key in readonly_attrs do
+        {label, "#{input}, disabled: true", error}
+      else
+        {label, input, error}
+      end
     end
   end
 
