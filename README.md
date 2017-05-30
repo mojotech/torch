@@ -107,10 +107,16 @@ npm: {
 Run `mix torch.gen (eex|slim)` to generate admin controllers and views for a given Ecto schema module. Torch expects you to have already defined the schema in your project.
 Also, Torch expects you to have `phoenix_slime` installed and configured if you generate `slim` templates.
 
+The full format is as follows:
+
+`mix torch.gen (eex|slim) [Admin | term for admin] [Singular
+model term] [plural model term] (sort field) (sort_direction)
+(attribute:attribute type)`
+
 For example, if we wanted to generate an admin area for a `Post` model we already have using `eex` templates, we could run this command:
 
 ```bash
-$ mix torch.gen eex Admin Post posts title:string body:text inserted_at:date
+$ mix torch.gen eex Admin Post posts inserted_at desc title:string body:text inserted_at:date
 ```
 
 And the output would be:

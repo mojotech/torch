@@ -21,6 +21,13 @@ defmodule <%= module %>Controller do
   @pagination_distance 5
 
   def index(conn, params) do
+    params =
+      params
+      |> Map.put_new("sort_direction", "<%= sort_direction %>")
+      |> Map.put_new("sort_field", "<%= sort_field %>")
+    
+    {:ok, sort_direction} = Map.fetch(params, "sort_direction")
+    {:ok, sort_field} = Map.fetch(params, "sort_field")
     {:ok, filter} = Filtrex.parse_params(@filtrex, params["<%= singular %>"] || %{})
 
     page =
@@ -35,7 +42,9 @@ defmodule <%= module %>Controller do
       page_size: page.page_size,
       total_pages: page.total_pages,
       total_entries: page.total_entries,
-      distance: @pagination_distance
+      distance: @pagination_distance,
+      sort_field: sort_field,
+      sort_direction: sort_direction
   end
 
   def new(conn, _params) do

@@ -66,12 +66,14 @@ defmodule Torch.TableView do
     original = URI.decode_query(conn.query_string)
     opts = %{
       "page" => opts[:page],
-      "sort_field" => opts[:sort_field] || conn.params["sort_field"] || "id",
-      "sort_direction" => opts[:sort_direction] || conn.params["sort_direction"] || "asc"
+      "sort_field" => opts[:sort_field] || conn.params["sort_field"] || nil,
+      "sort_direction" => opts[:sort_direction] || conn.params["sort_direction"] || nil
     }
 
     original
     |> Map.merge(opts)
+    |> Enum.filter(fn{_, v} -> v != nil end)
+    |> Enum.into(%{})
     |> URI.encode_query
   end
 
