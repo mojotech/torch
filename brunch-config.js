@@ -36,7 +36,9 @@ exports.config = {
   },
 
   plugins: {
-    babel: {presets: ['latest']},
+    babel: {
+      presets: ['latest']
+    },
     sass: {
       mode: 'native',
       options: {
@@ -52,6 +54,7 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    compilers: ['babel-brunch']
   }
 }
