@@ -5,7 +5,7 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: {
-        'torch.js': /^(assets|node_module)/
+        'torch.js': /^(assets)/
       }
     },
     stylesheets: {
@@ -36,9 +36,7 @@ exports.config = {
   },
 
   plugins: {
-    babel: {
-      ignore: [/^(assets\/vendor)/]
-    },
+    babel: {presets: ['latest']},
     sass: {
       mode: 'native',
       options: {
