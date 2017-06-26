@@ -4,9 +4,9 @@ exports.config = {
 
   files: {
     javascripts: {
-      joinTo: {
-        'torch.js': /^(assets|node_modules)/
-      }
+      joinTo: 
+        'torch.js'
+      
     },
     stylesheets: {
       joinTo: {
