@@ -24,6 +24,17 @@ exports.config = {
     public: 'priv/static'
   },
 
+  modules: {
+    definition: () => {
+      return `var require = window.require;`
+    },
+    autoRequire: {
+      'torch.js': [
+        'assets/js/torch.js'
+      ]
+    }
+  },
+
   plugins: {
     babel: {
       ignore: [/^(assets\/vendor)/]
