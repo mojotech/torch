@@ -4,9 +4,9 @@ exports.config = {
 
   files: {
     javascripts: {
-      joinTo: 
-        'torch.js'
-      
+      joinTo: {
+        'torch.js': /^(assets|node_module)/
+      }
     },
     stylesheets: {
       joinTo: {
@@ -22,15 +22,6 @@ exports.config = {
   paths: {
     watched: ['assets'],
     public: 'priv/static'
-  },
-
-  modules: {
-    definition: () => {
-      return `var require = window.require;`
-    },
-    autoRequire: {
-      'torch.js': ['assets/js/torch.js']
-    }
   },
 
   plugins: {

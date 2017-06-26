@@ -1,4 +1,119 @@
-var require = window.require;
+(function() {
+  'use strict';
+
+  var globals = typeof global === 'undefined' ? self : global;
+  if (typeof globals.require === 'function') return;
+
+  var modules = {};
+  var cache = {};
+  var aliases = {};
+  var has = {}.hasOwnProperty;
+
+  var expRe = /^\.\.?(\/|$)/;
+  var expand = function(root, name) {
+    var results = [], part;
+    var parts = (expRe.test(name) ? root + '/' + name : name).split('/');
+    for (var i = 0, length = parts.length; i < length; i++) {
+      part = parts[i];
+      if (part === '..') {
+        results.pop();
+      } else if (part !== '.' && part !== '') {
+        results.push(part);
+      }
+    }
+    return results.join('/');
+  };
+
+  var dirname = function(path) {
+    return path.split('/').slice(0, -1).join('/');
+  };
+
+  var localRequire = function(path) {
+    return function expanded(name) {
+      var absolute = expand(dirname(path), name);
+      return globals.require(absolute, path);
+    };
+  };
+
+  var initModule = function(name, definition) {
+    var hot = hmr && hmr.createHot(name);
+    var module = {id: name, exports: {}, hot: hot};
+    cache[name] = module;
+    definition(module.exports, localRequire(name), module);
+    return module.exports;
+  };
+
+  var expandAlias = function(name) {
+    return aliases[name] ? expandAlias(aliases[name]) : name;
+  };
+
+  var _resolve = function(name, dep) {
+    return expandAlias(expand(dirname(name), dep));
+  };
+
+  var require = function(name, loaderPath) {
+    if (loaderPath == null) loaderPath = '/';
+    var path = expandAlias(name);
+
+    if (has.call(cache, path)) return cache[path].exports;
+    if (has.call(modules, path)) return initModule(path, modules[path]);
+
+    throw new Error("Cannot find module '" + name + "' from '" + loaderPath + "'");
+  };
+
+  require.alias = function(from, to) {
+    aliases[to] = from;
+  };
+
+  var extRe = /\.[^.\/]+$/;
+  var indexRe = /\/index(\.[^\/]+)?$/;
+  var addExtensions = function(bundle) {
+    if (extRe.test(bundle)) {
+      var alias = bundle.replace(extRe, '');
+      if (!has.call(aliases, alias) || aliases[alias].replace(extRe, '') === alias + '/index') {
+        aliases[alias] = bundle;
+      }
+    }
+
+    if (indexRe.test(bundle)) {
+      var iAlias = bundle.replace(indexRe, '');
+      if (!has.call(aliases, iAlias)) {
+        aliases[iAlias] = bundle;
+      }
+    }
+  };
+
+  require.register = require.define = function(bundle, fn) {
+    if (bundle && typeof bundle === 'object') {
+      for (var key in bundle) {
+        if (has.call(bundle, key)) {
+          require.register(key, bundle[key]);
+        }
+      }
+    } else {
+      modules[bundle] = fn;
+      delete cache[bundle];
+      addExtensions(bundle);
+    }
+  };
+
+  require.list = function() {
+    var list = [];
+    for (var item in modules) {
+      if (has.call(modules, item)) {
+        list.push(item);
+      }
+    }
+    return list;
+  };
+
+  var hmr = globals._hmr && new globals._hmr(_resolve, require, modules, cache);
+  require._cache = cache;
+  require.hmr = hmr && hmr.wrap;
+  require.brunch = true;
+  globals.require = require;
+})();
+
 (function() {
 var global = typeof window === 'undefined' ? this : window;
 var __makeRelativeRequire = function(require, mappings, pref) {
@@ -97,22 +212,6 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         }
     },
 
-    fireEvent = function(el, eventName, data)
-    {
-        var ev;
-
-        if (document.createEvent) {
-            ev = document.createEvent('HTMLEvents');
-            ev.initEvent(eventName, true, false);
-            ev = extend(ev, data);
-            el.dispatchEvent(ev);
-        } else if (document.createEventObject) {
-            ev = document.createEventObject();
-            ev = extend(ev, data);
-            el.fireEvent('on' + eventName, ev);
-        }
-    },
-
     trim = function(str)
     {
         return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g,'');
@@ -198,6 +297,22 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         return to;
     },
 
+    fireEvent = function(el, eventName, data)
+    {
+        var ev;
+
+        if (document.createEvent) {
+            ev = document.createEvent('HTMLEvents');
+            ev.initEvent(eventName, true, false);
+            ev = extend(ev, data);
+            el.dispatchEvent(ev);
+        } else if (document.createEventObject) {
+            ev = document.createEventObject();
+            ev = extend(ev, data);
+            el.fireEvent('on' + eventName, ev);
+        }
+    },
+
     adjustCalendar = function(calendar) {
         if (calendar.month < 0) {
             calendar.year -= Math.ceil(Math.abs(calendar.month)/12);
@@ -231,6 +346,13 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         // the default output format for `.toString()` and `field` value
         format: 'YYYY-MM-DD',
 
+        // the toString function which gets passed a current date object and format
+        // and returns a string
+        toString: null,
+
+        // used to create date object from current input string
+        parse: null,
+
         // the initial date to view when first opened
         defaultDate: null,
 
@@ -239,6 +361,9 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
         // first day of week (0: Sunday, 1: Monday etc)
         firstDay: 0,
+
+        // the default flag for moment's strict date parsing
+        formatStrict: false,
 
         // the minimum/earliest date that can be selected
         minDate: null,
@@ -250,6 +375,9 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
         // show week numbers at head of row
         showWeekNumber: false,
+
+        // Week picker mode
+        pickWholeWeek: false,
 
         // used internally (don't config outside)
         minYear: 0,
@@ -268,6 +396,12 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         // Render the month after year in the calendar title
         showMonthAfterYear: false,
 
+        // Render days of the calendar grid that fall in the next or previous month
+        showDaysInNextAndPreviousMonths: false,
+
+        // Allows user to select days that fall in the next or previous month
+        enableSelectionDaysInNextAndPreviousMonths: false,
+
         // how many months are visible
         numberOfMonths: 1,
 
@@ -277,6 +411,9 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
         // Specify a DOM element to render the calendar in
         container: undefined,
+
+        // Blur field when date is selected
+        blurFieldOnSelect : true,
 
         // internationalization
         i18n: {
@@ -289,6 +426,9 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
         // Theme Classname
         theme: null,
+
+        // events array
+        events: [],
 
         // callback function
         onSelect: null,
@@ -312,10 +452,20 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
     renderDay = function(opts)
     {
-        if (opts.isEmpty) {
-            return '<td class="is-empty"></td>';
-        }
         var arr = [];
+        var ariaSelected = 'false';
+        if (opts.isEmpty) {
+            if (opts.showDaysInNextAndPreviousMonths) {
+                arr.push('is-outside-current-month');
+
+                if(!opts.enableSelectionDaysInNextAndPreviousMonths) {
+                    arr.push('is-selection-disabled');
+                }
+
+            } else {
+                return '<td class="is-empty"></td>';
+            }
+        }
         if (opts.isDisabled) {
             arr.push('is-disabled');
         }
@@ -324,6 +474,10 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         }
         if (opts.isSelected) {
             arr.push('is-selected');
+            ariaSelected = 'true';
+        }
+        if (opts.hasEvent) {
+            arr.push('has-event');
         }
         if (opts.isInRange) {
             arr.push('is-inrange');
@@ -334,7 +488,7 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         if (opts.isEndRange) {
             arr.push('is-endrange');
         }
-        return '<td data-day="' + opts.day + '" class="' + arr.join(' ') + '">' +
+        return '<td data-day="' + opts.day + '" class="' + arr.join(' ') + '" aria-selected="' + ariaSelected + '">' +
                  '<button class="pika-button pika-day" type="button" ' +
                     'data-pika-year="' + opts.year + '" data-pika-month="' + opts.month + '" data-pika-day="' + opts.day + '">' +
                         opts.day +
@@ -349,9 +503,9 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         return '<td class="pika-week">' + weekNum + '</td>';
     },
 
-    renderRow = function(days, isRTL)
+    renderRow = function(days, isRTL, pickWholeWeek, isRowSelected)
     {
-        return '<tr>' + (isRTL ? days.reverse() : days).join('') + '</tr>';
+        return '<tr class="pika-row' + (pickWholeWeek ? ' pick-whole-week' : '') + (isRowSelected ? ' is-selected' : '') + '">' + (isRTL ? days.reverse() : days).join('') + '</tr>';
     },
 
     renderBody = function(rows)
@@ -368,16 +522,16 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         for (i = 0; i < 7; i++) {
             arr.push('<th scope="col"><abbr title="' + renderDayName(opts, i) + '">' + renderDayName(opts, i, true) + '</abbr></th>');
         }
-        return '<thead>' + (opts.isRTL ? arr.reverse() : arr).join('') + '</thead>';
+        return '<thead><tr>' + (opts.isRTL ? arr.reverse() : arr).join('') + '</tr></thead>';
     },
 
-    renderTitle = function(instance, c, year, month, refYear)
+    renderTitle = function(instance, c, year, month, refYear, randId)
     {
         var i, j, arr,
             opts = instance._o,
             isMinYear = year === opts.minYear,
             isMaxYear = year === opts.maxYear,
-            html = '<div class="pika-title">',
+            html = '<div id="' + randId + '" class="pika-title" role="heading" aria-live="assertive">',
             monthHtml,
             yearHtml,
             prev = true,
@@ -385,10 +539,11 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
         for (arr = [], i = 0; i < 12; i++) {
             arr.push('<option value="' + (year === refYear ? i - c : 12 + i - c) + '"' +
-                (i === month ? ' selected': '') +
-                ((isMinYear && i < opts.minMonth) || (isMaxYear && i > opts.maxMonth) ? 'disabled' : '') + '>' +
+                (i === month ? ' selected="selected"': '') +
+                ((isMinYear && i < opts.minMonth) || (isMaxYear && i > opts.maxMonth) ? 'disabled="disabled"' : '') + '>' +
                 opts.i18n.months[i] + '</option>');
         }
+
         monthHtml = '<div class="pika-label">' + opts.i18n.months[month] + '<select class="pika-select pika-select-month" tabindex="-1">' + arr.join('') + '</select></div>';
 
         if (isArray(opts.yearRange)) {
@@ -401,7 +556,7 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
         for (arr = []; i < j && i <= opts.maxYear; i++) {
             if (i >= opts.minYear) {
-                arr.push('<option value="' + i + '"' + (i === year ? ' selected': '') + '>' + (i) + '</option>');
+                arr.push('<option value="' + i + '"' + (i === year ? ' selected="selected"': '') + '>' + (i) + '</option>');
             }
         }
         yearHtml = '<div class="pika-label">' + year + opts.yearSuffix + '<select class="pika-select pika-select-year" tabindex="-1">' + arr.join('') + '</select></div>';
@@ -430,9 +585,9 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         return html += '</div>';
     },
 
-    renderTable = function(opts, data)
+    renderTable = function(opts, data, randId)
     {
-        return '<table cellpadding="0" cellspacing="0" class="pika-table">' + renderHead(opts) + renderBody(data) + '</table>';
+        return '<table cellpadding="0" cellspacing="0" class="pika-table" role="grid" aria-labelledby="' + randId + '">' + renderHead(opts) + renderBody(data) + '</table>';
     },
 
 
@@ -456,12 +611,12 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
             }
 
             if (!hasClass(target, 'is-disabled')) {
-                if (hasClass(target, 'pika-button') && !hasClass(target, 'is-empty')) {
+                if (hasClass(target, 'pika-button') && !hasClass(target, 'is-empty') && !hasClass(target.parentNode, 'is-disabled')) {
                     self.setDate(new Date(target.getAttribute('data-pika-year'), target.getAttribute('data-pika-month'), target.getAttribute('data-pika-day')));
                     if (opts.bound) {
                         sto(function() {
                             self.hide();
-                            if (opts.field) {
+                            if (opts.blurFieldOnSelect && opts.field) {
                                 opts.field.blur();
                             }
                         }, 100);
@@ -502,6 +657,36 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
             }
         };
 
+        self._onKeyChange = function(e)
+        {
+            e = e || window.event;
+
+            if (self.isVisible()) {
+
+                switch(e.keyCode){
+                    case 13:
+                    case 27:
+                        if (opts.field) {
+                            opts.field.blur();
+                        }
+                        break;
+                    case 37:
+                        e.preventDefault();
+                        self.adjustDate('subtract', 1);
+                        break;
+                    case 38:
+                        self.adjustDate('subtract', 7);
+                        break;
+                    case 39:
+                        self.adjustDate('add', 1);
+                        break;
+                    case 40:
+                        self.adjustDate('add', 7);
+                        break;
+                }
+            }
+        };
+
         self._onInputChange = function(e)
         {
             var date;
@@ -509,8 +694,10 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
             if (e.firedBy === self) {
                 return;
             }
-            if (hasMoment) {
-                date = moment(opts.field.value, opts.format);
+            if (opts.parse) {
+                date = opts.parse(opts.field.value, opts.format);
+            } else if (hasMoment) {
+                date = moment(opts.field.value, opts.format, opts.formatStrict);
                 date = (date && date.isValid()) ? date.toDate() : null;
             }
             else {
@@ -584,6 +771,7 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         addEvent(self.el, 'mousedown', self._onMouseDown, true);
         addEvent(self.el, 'touchend', self._onMouseDown, true);
         addEvent(self.el, 'change', self._onChange);
+        addEvent(document, 'keydown', self._onKeyChange);
 
         if (opts.field) {
             if (opts.container) {
@@ -698,7 +886,17 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
          */
         toString: function(format)
         {
-            return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toDateString();
+            format = format || this._o.format;
+            if (!isDate(this._d)) {
+                return '';
+            }
+            if (this._o.toString) {
+              return this._o.toString(this._d, format);
+            }
+            if (hasMoment) {
+              return moment(this._d).format(format);
+            }
+            return this._d.toDateString();
         },
 
         /**
@@ -805,6 +1003,22 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
             this.adjustCalendars();
         },
 
+        adjustDate: function(sign, days) {
+
+            var day = this.getDate() || new Date();
+            var difference = parseInt(days)*24*60*60*1000;
+
+            var newDay;
+
+            if (sign === 'add') {
+                newDay = new Date(day.valueOf() + difference);
+            } else if (sign === 'subtract') {
+                newDay = new Date(day.valueOf() - difference);
+            }
+
+            this.setDate(newDay);
+        },
+
         adjustCalendars: function() {
             this.calendars[0] = adjustCalendar(this.calendars[0]);
             for (var c = 1; c < this._o.numberOfMonths; c++) {
@@ -860,10 +1074,18 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
          */
         setMinDate: function(value)
         {
-            setToStartOfDay(value);
-            this._o.minDate = value;
-            this._o.minYear  = value.getFullYear();
-            this._o.minMonth = value.getMonth();
+            if(value instanceof Date) {
+                setToStartOfDay(value);
+                this._o.minDate = value;
+                this._o.minYear  = value.getFullYear();
+                this._o.minMonth = value.getMonth();
+            } else {
+                this._o.minDate = defaults.minDate;
+                this._o.minYear  = defaults.minYear;
+                this._o.minMonth = defaults.minMonth;
+                this._o.startRange = defaults.startRange;
+            }
+
             this.draw();
         },
 
@@ -872,10 +1094,18 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
          */
         setMaxDate: function(value)
         {
-            setToStartOfDay(value);
-            this._o.maxDate = value;
-            this._o.maxYear = value.getFullYear();
-            this._o.maxMonth = value.getMonth();
+            if(value instanceof Date) {
+                setToStartOfDay(value);
+                this._o.maxDate = value;
+                this._o.maxYear = value.getFullYear();
+                this._o.maxMonth = value.getMonth();
+            } else {
+                this._o.maxDate = defaults.maxDate;
+                this._o.maxYear = defaults.maxYear;
+                this._o.maxMonth = defaults.maxMonth;
+                this._o.endRange = defaults.endRange;
+            }
+
             this.draw();
         },
 
@@ -902,7 +1132,8 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
                 maxYear = opts.maxYear,
                 minMonth = opts.minMonth,
                 maxMonth = opts.maxMonth,
-                html = '';
+                html = '',
+                randId;
 
             if (this._y <= minYear) {
                 this._y = minYear;
@@ -917,8 +1148,10 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
                 }
             }
 
+            randId = 'pika-title-' + Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 2);
+
             for (var c = 0; c < opts.numberOfMonths; c++) {
-                html += '<div class="pika-lendar">' + renderTitle(this, c, this.calendars[c].year, this.calendars[c].month, this.calendars[0].year) + this.render(this.calendars[c].year, this.calendars[c].month) + '</div>';
+                html += '<div class="pika-lendar">' + renderTitle(this, c, this.calendars[c].year, this.calendars[c].month, this.calendars[0].year, randId) + this.render(this.calendars[c].year, this.calendars[c].month, randId) + '</div>';
             }
 
             this.el.innerHTML = html;
@@ -932,10 +1165,12 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
             }
 
             if (typeof this._o.onDraw === 'function') {
-                var self = this;
-                sto(function() {
-                    self._o.onDraw.call(self);
-                }, 0);
+                this._o.onDraw(this);
+            }
+
+            if (opts.bound) {
+                // let the screen reader user know to use arrow keys
+                opts.field.setAttribute('aria-label', 'Use the arrow keys to pick a date');
             }
         },
 
@@ -993,7 +1228,7 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
         /**
          * render HTML for a particular month
          */
-        render: function(year, month)
+        render: function(year, month, randId)
         {
             var opts   = this._o,
                 now    = new Date(),
@@ -1008,37 +1243,67 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
                     before += 7;
                 }
             }
+            var previousMonth = month === 0 ? 11 : month - 1,
+                nextMonth = month === 11 ? 0 : month + 1,
+                yearOfPreviousMonth = month === 0 ? year - 1 : year,
+                yearOfNextMonth = month === 11 ? year + 1 : year,
+                daysInPreviousMonth = getDaysInMonth(yearOfPreviousMonth, previousMonth);
             var cells = days + before,
                 after = cells;
             while(after > 7) {
                 after -= 7;
             }
             cells += 7 - after;
+            var isWeekSelected = false;
             for (var i = 0, r = 0; i < cells; i++)
             {
                 var day = new Date(year, month, 1 + (i - before)),
                     isSelected = isDate(this._d) ? compareDates(day, this._d) : false,
                     isToday = compareDates(day, now),
+                    hasEvent = opts.events.indexOf(day.toDateString()) !== -1 ? true : false,
                     isEmpty = i < before || i >= (days + before),
+                    dayNumber = 1 + (i - before),
+                    monthNumber = month,
+                    yearNumber = year,
                     isStartRange = opts.startRange && compareDates(opts.startRange, day),
                     isEndRange = opts.endRange && compareDates(opts.endRange, day),
                     isInRange = opts.startRange && opts.endRange && opts.startRange < day && day < opts.endRange,
                     isDisabled = (opts.minDate && day < opts.minDate) ||
                                  (opts.maxDate && day > opts.maxDate) ||
                                  (opts.disableWeekends && isWeekend(day)) ||
-                                 (opts.disableDayFn && opts.disableDayFn(day)),
-                    dayConfig = {
-                        day: 1 + (i - before),
-                        month: month,
-                        year: year,
+                                 (opts.disableDayFn && opts.disableDayFn(day));
+
+                if (isEmpty) {
+                    if (i < before) {
+                        dayNumber = daysInPreviousMonth + dayNumber;
+                        monthNumber = previousMonth;
+                        yearNumber = yearOfPreviousMonth;
+                    } else {
+                        dayNumber = dayNumber - days;
+                        monthNumber = nextMonth;
+                        yearNumber = yearOfNextMonth;
+                    }
+                }
+
+                var dayConfig = {
+                        day: dayNumber,
+                        month: monthNumber,
+                        year: yearNumber,
+                        hasEvent: hasEvent,
                         isSelected: isSelected,
                         isToday: isToday,
                         isDisabled: isDisabled,
                         isEmpty: isEmpty,
                         isStartRange: isStartRange,
                         isEndRange: isEndRange,
-                        isInRange: isInRange
+                        isInRange: isInRange,
+                        showDaysInNextAndPreviousMonths: opts.showDaysInNextAndPreviousMonths,
+                        enableSelectionDaysInNextAndPreviousMonths: opts.enableSelectionDaysInNextAndPreviousMonths
                     };
+
+                if (opts.pickWholeWeek && isSelected) {
+                    isWeekSelected = true;
+                }
 
                 row.push(renderDay(dayConfig));
 
@@ -1046,12 +1311,13 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
                     if (opts.showWeekNumber) {
                         row.unshift(renderWeek(i - before, month, year));
                     }
-                    data.push(renderRow(row, opts.isRTL));
+                    data.push(renderRow(row, opts.isRTL, opts.pickWholeWeek, isWeekSelected));
                     row = [];
                     r = 0;
+                    isWeekSelected = false;
                 }
             }
-            return renderTable(opts, data);
+            return renderTable(opts, data, randId);
         },
 
         isVisible: function()
@@ -1061,10 +1327,10 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
 
         show: function()
         {
-            if (!this._v) {
-                removeClass(this.el, 'is-hidden');
+            if (!this.isVisible()) {
                 this._v = true;
                 this.draw();
+                removeClass(this.el, 'is-hidden');
                 if (this._o.bound) {
                     addEvent(document, 'click', this._onClick);
                     this.adjustPosition();
@@ -1102,6 +1368,7 @@ require.register("pikaday/pikaday.js", function(exports, require, module) {
             removeEvent(this.el, 'mousedown', this._onMouseDown, true);
             removeEvent(this.el, 'touchend', this._onMouseDown, true);
             removeEvent(this.el, 'change', this._onChange);
+            removeEvent(document, 'keydown', this._onKeyChange);
             if (this._o.field) {
                 removeEvent(this._o.field, 'change', this._onInputChange);
                 if (this._o.bound) {
@@ -1186,4 +1453,3 @@ require.alias("pikaday/pikaday.js", "pikaday");require.register("___globals___",
   
 });})();require('___globals___');
 
-require('assets/js/torch.js');
