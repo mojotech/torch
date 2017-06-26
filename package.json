@@ -12,8 +12,7 @@
   ],
   "dependencies": {
     "bourbon": "^4.3.4",
-    "bourbon-neat": "~1.8.0",
-    "pikaday": "^1.6.1"
+    "bourbon-neat": "~1.8.0"
   },
   "devDependencies": {
     "babel-brunch": "^6.1.1",

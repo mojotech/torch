@@ -1,4 +1,4 @@
-import Pikaday from 'pikaday'
+import Pikaday from './vendor/pikaday'
 
 window.onload = () => {
   const slice = Array.prototype.slice
