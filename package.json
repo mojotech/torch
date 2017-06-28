@@ -3,16 +3,12 @@
   "version": "0.2.0",
   "repository": {},
   "license": "MIT",
-  "main": "../priv/static/torch.js",
+  "main": "./priv/static/torch.js",
   "files": [
-    "../priv/static/torch.js",
-    "../priv/static/torch.css",
-    "../assets/css",
-    "../assets/js",
-    "../assets/static",
-    "../assets/package.json",
-    "../assets/webpack.config.js",
-    "../assets/yarn.lock"
+    "./priv/static",
+    "./package.json",
+    "./webpack.config.js",
+    "./yarn.lock"
   ],
   "dependencies": {
     "bourbon": "^4.3.4",
