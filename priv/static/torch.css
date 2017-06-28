@@ -3215,6 +3215,14 @@ section.torch ul.pagination {
     section.torch ul.pagination a.active {
       border: 1px solid #D1D1D1; }
 
+.torch-test-component {
+  min-height: 100px; }
+  .torch-test-component .infinite-red-logo {
+    display: block;
+    height: 45px;
+    margin-left: 4em;
+    width: 105px; }
+
 section.torch.torch-toolbar-container {
   background-color: #f1f1f1; }
   section.torch.torch-toolbar-container .torch-toolbar {
