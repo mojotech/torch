@@ -57,7 +57,7 @@ import torch from "torch/priv/static/torch"
 Torch provides its CSS in two ways:
 
 1. A precompiled css file in `priv/static/css/torch.css`.
-2. SASS styles in `assets/css/torch.sass`
+2. SASS styles in `assets/css/app.sass`
 
 ### Customization Using Sass Variables
 
@@ -65,7 +65,7 @@ If you want to customize the look and feel of your admin, you should use the SAS
 
 ```css
 @import "admin_variables";
-@import "~torch/assets/css/index";
+@import "~torch/assets/css/app";
 ```
 
 Then, update your `brunch-config.js` sass settings to make Brunch watch your node_modules directory:
@@ -107,6 +107,19 @@ npm: {
   }
 }
 ```
+
+### Test CSS Instalation
+
+To test that you have torch styles and static assets installed and bundled properly, you can add a torch test componet to your markup. In HTML, the test components looks like this:
+
+```html
+<div class="torch-test-component">
+  <div class="fa fa-heart fa-pull-left fa-3x"></div>
+  <div class="infinite-red-logo"></div>
+</div>
+```
+
+When adding the test component to your markup, you should see a FontAwesome heart icon and the Infinte Red logo. This will ensure that Brunch, or your asset builder of choice, correctly built torch's static assets.
 
 ## Usage
 
