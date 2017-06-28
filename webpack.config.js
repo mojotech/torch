@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = {
   entry: {
-    app: ['./assets/js/index.js', './assets/css/index.sass']
+    app: ['./assets/js/app.js', './assets/css/app.sass']
   },
 
   output: {
@@ -37,7 +37,6 @@ module.exports = {
     },
     {
       // Image Loader
-      // TODO: Get this working
       test: /\.(png|svg|jpg|gif)$/,
       use: [{
         loader: 'file-loader',
@@ -49,7 +48,6 @@ module.exports = {
     },
     {
       // Font Loader
-      // TODO: Get this working
       test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
       use: [{
         loader: 'file-loader',
@@ -63,7 +61,6 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('torch.css'),
-    // TODO: Get SASS @imports working correctly. Currently broken when using Torch inside a phx project.
     new CopyWebpackPlugin([{from: 'assets/images/', to: 'images/'}]),
     new CopyWebpackPlugin([{from: 'assets/fonts/', to: 'fonts/'}]),
   ]
