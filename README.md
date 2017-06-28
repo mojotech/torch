@@ -68,7 +68,7 @@ If you want to customize the look and feel of your admin, you should use the SAS
 @import "~torch/assets/css/app";
 ```
 
-Then, update your `brunch-config.js` sass settings to make Brunch watch your node_modules directory:
+Then, update your `brunch-config.js` (or asset manager of choice) SASS settings to make it watch your node_modules directory:
 
 ```js
 plugins: {
@@ -119,7 +119,7 @@ To test that you have torch styles and static assets installed and bundled prope
 </div>
 ```
 
-When adding the test component to your markup, you should see a FontAwesome heart icon and the Infinte Red logo. This will ensure that Brunch, or your asset builder of choice, correctly built torch's static assets.
+When adding the test component to your markup, you should see a FontAwesome heart icon and the Infinte Red logo. This will ensure that Brunch, or your asset builder of choice, correctly built Torch's static assets.
 
 ## Usage
 

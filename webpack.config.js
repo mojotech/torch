@@ -16,7 +16,6 @@ module.exports = {
   module: {
     rules: [{
       // SASS Loader
-      // TODO: Minimize
       test: /\.(sass|scss)$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
@@ -34,7 +33,6 @@ module.exports = {
     },
     {
       // JavaScript Loader
-      // TODO: Minimize
       test: /\.js$/,
       exclude: /(node_modules)/,
       use: {
