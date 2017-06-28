@@ -39,12 +39,18 @@ end
 4. Import `torch.js` in your `app.js`:
 
 ```js
-import "torch"
+import torch from "torch/priv/static/torch"
 ```
 
-5. Run `mix torch.install (eex|slim)` to install the relevant Torch files. You can choose between `eex` templates and `slim` templates. If you choose to use `slim` templates, you will need to [install Phoenix Slim](https://github.com/slime-lang/phoenix_slime).
+5. Import `torch.css` in your `app.scss`:
 
-6. Set up CSS as described below.
+```css
+@import "~torch/priv/static/torch";
+```
+
+6. Run `mix torch.install (eex|slim)` to install the relevant Torch files. You can choose between `eex` templates and `slim` templates. If you choose to use `slim` templates, you will need to [install Phoenix Slim](https://github.com/slime-lang/phoenix_slime).
+
+7. Set up CSS as described below.
 
 ## Setting up CSS
 
@@ -59,7 +65,7 @@ If you want to customize the look and feel of your admin, you should use the SAS
 
 ```css
 @import "admin_variables";
-@import "../../../node_modules/torch/assets/css/torch";
+@import "~torch/assets/css/index";
 ```
 
 Then, update your `brunch-config.js` sass settings to make Brunch watch your node_modules directory:
