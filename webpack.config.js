@@ -4,12 +4,12 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = {
   entry: {
-    app: ['./js/index.js', './css/index.sass']
+    app: ['./assets/js/index.js', './assets/css/index.sass']
   },
 
   output: {
     filename: 'torch.js',
-    path: path.resolve(__dirname, '../priv/static/')
+    path: path.resolve(__dirname, 'priv/static/')
   },
 
   module: {
@@ -59,7 +59,7 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('torch.css'),
-    new CopyWebpackPlugin([{from: 'images/', to: 'images/'}]),
-    new CopyWebpackPlugin([{from: 'fonts/', to: 'fonts/'}]),
+    new CopyWebpackPlugin([{from: 'assets/images/', to: 'images/'}]),
+    new CopyWebpackPlugin([{from: 'assets/fonts/', to: 'fonts/'}]),
   ]
 }
