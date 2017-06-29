@@ -5,23 +5,29 @@
   "license": "MIT",
   "main": "./priv/static/torch.js",
   "files": [
-    "package.json",
-    "priv/static/torch.js",
-    "priv/static/torch.css",
-    "assets"
+    "./priv/static",
+    "./package.json",
+    "./webpack.config.js",
+    "./yarn.lock"
   ],
   "dependencies": {
-    "pikaday": "~1.4.0",
-    "bourbon": "~4.2.7",
-    "bourbon-neat": "~1.8.0"
+    "bourbon": "^4.3.4",
+    "bourbon-neat": "^1.9.0",
+    "pikaday": "^1.6.1"
   },
   "devDependencies": {
-    "brunch": "2.10.7",
-    "javascript-brunch": "2.10.0",
-    "babel-brunch": "6.0.6",
-    "uglify-js-brunch": "2.1.1",
-    "clean-css-brunch": "2.10.0",
-    "css-brunch": "2.10.0",
-    "sass-brunch": "2.10.4"
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-env": "^1.5.2",
+    "babili-webpack-plugin": "^0.1.2",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "node-sass": "^4.5.3",
+    "resolve-url-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0"
   }
 }
