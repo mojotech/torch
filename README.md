@@ -68,45 +68,16 @@ If you want to customize the look and feel of your admin, you should use the SAS
 @import "~torch/assets/css/app";
 ```
 
-Then, update your `brunch-config.js` (or asset manager of choice) SASS settings to make it watch your node_modules directory:
+The `admin_variables` file was generated when you ran `mix torch.install`.
 
-```js
-plugins: {
-  sass: {
-    mode: 'native',
-    includePaths: ['node_modules']
-  }
-}
-```
-
-Then, simply uncomment and customize the variables in `web/static/css/_admin_variables.scss` to change how Torch is styled.
+Then, simply uncomment and customize the variables in `admin_variables.scss` to change how Torch is styled.
 
 ### Using Precompiled CSS
 
-If you're not using SASS, then you will need to configure your asset pipeline to compile the precompiled `torch.css`. Brunch can be configured to do this like so:
+If you're not using SASS, then you will need to configure your asset pipeline to compile the precompiled `torch.css`.
 
-1. Add `node_modules` to the watched directories for `stylesheets`.
-
-```js
-stylesheets: {
-  joinTo: {
-    'css/app.css': /^(web|node_modules)/
-  }
-}
-```
-
-2. Add `torch` to the npm configuration:
-
-```js
-npm: {
-  enabled: true
-  styles: {
-    torch: [
-      'priv/static/torch.css'
-    ]
-  }
-}
-```
+Using Webpack? [Checkout the Webpack guide](/guides/webpack.md)
+Using Brunch? [Checkout the Brunch guide](/guides/brunch.md)
 
 ### Test CSS Instalation
 

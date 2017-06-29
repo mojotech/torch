@@ -41,26 +41,19 @@ defmodule Mix.Tasks.Torch.Install do
        update your app.scss file to look like this:
 
         @import "admin_variables";
-        @import "../../../node_modules/torch/web/static/css/torch";
+        @import "~torch/assets/css/app";
 
-       You should also update SASS plugin settings in `brunch-config.js`:
+    2. Configure your asset builder to include node_modules
 
-        plugins: {
-          sass: {
-            mode: 'native',
-            include_paths: ['node_modules']
-          }
-        }
+      Using Brunch? Checkout the Brunch guide: http://github.com/infinitered/torch/guides/brunch.md
+      Using webpack? Checkout the webpack guide: http://github.com/infinitered/torch/guides/webpack.md
 
-       Torch also provides a precompiled CSS file in `priv/static/css/torch.css`
-       if you are not using SASS.
-
-    2. Import the Javascript in your `app.js` file. Requires that your `package.json`
+    3. Import the Javascript in your `app.js` file. Requires that your `package.json`
        has been updated as described in the README.
 
         import 'torch'
 
-    3. Add an admin scope to your router in `router.ex`:
+    4. Add an admin scope to your router in `router.ex`:
 
         scope "/admin", #{Mix.Torch.base}.Admin, as: :admin do
           pipe_through :browser
