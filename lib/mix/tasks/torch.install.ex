@@ -45,8 +45,8 @@ defmodule Mix.Tasks.Torch.Install do
 
     2. Configure your asset builder to include node_modules
 
-      Using Brunch? Checkout the Brunch guide: http://github.com/infinitered/torch/guides/brunch.md
-      Using webpack? Checkout the webpack guide: http://github.com/infinitered/torch/guides/webpack.md
+      Using Brunch? Checkout the Brunch guide: http://github.com/infinitered/torch/docs/guides/brunch.md
+      Using webpack? Checkout the webpack guide: http://github.com/infinitered/torch/docs/guides/webpack.md
 
     3. Import the Javascript in your `app.js` file. Requires that your `package.json`
        has been updated as described in the README.

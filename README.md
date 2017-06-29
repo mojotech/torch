@@ -76,8 +76,8 @@ Then, simply uncomment and customize the variables in `admin_variables.scss` to 
 
 If you're not using SASS, then you will need to configure your asset pipeline to compile the precompiled `torch.css`.
 
-Using Webpack? [Checkout the Webpack guide](/guides/webpack.md)
-Using Brunch? [Checkout the Brunch guide](/guides/brunch.md)
+Using Webpack? [Checkout the Webpack guide](/docs/guides/webpack.md)
+Using Brunch? [Checkout the Brunch guide](/docs/guides/brunch.md)
 
 ### Test CSS Instalation
 
