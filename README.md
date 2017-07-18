@@ -76,10 +76,10 @@ Then, simply uncomment and customize the variables in `admin_variables.scss` to 
 
 If you're not using SASS, then you will need to configure your asset pipeline to compile the precompiled `torch.css`.
 
-Using Webpack? [Checkout the Webpack guide](/docs/guides/webpack.md)
-Using Brunch? [Checkout the Brunch guide](/docs/guides/brunch.md)
+Using Webpack? [Check out the Webpack guide](/docs/guides/webpack.md)
+Using Brunch? [Check out the Brunch guide](/docs/guides/brunch.md)
 
-### Test CSS Instalation
+### Test CSS Installation
 
 To test that you have torch styles and static assets installed and bundled properly, you can add a torch test componet to your markup. In HTML, the test components looks like this:
 

@@ -3,6 +3,8 @@
 Below is an example `webpack.config.js` (version 3.0.0) that imports Torch javascript, css,
 fonts, & images correctly.
 
+NOTE: We recommend you use yarn for best results rather than npm. NPM >5.0 is currently less stable than yarn.
+
 ```javascript
 var path = require('path')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')

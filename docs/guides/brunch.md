@@ -4,6 +4,8 @@
 
 Update your `brunch-config.js` SASS settings to make it watch your node_modules directory:
 
+NOTE: We recommend you use yarn for best results rather than npm. NPM >5.0 is currently less stable than yarn.
+
 ```js
 plugins: {
   sass: {
