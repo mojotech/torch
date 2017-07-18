@@ -1,7 +1,7 @@
 # Torch
 [![Slackin](https://infiniteredcommunity.herokuapp.com/badge.svg)](https://infiniteredcommunity.herokuapp.com/)
 [![Hex.pm](https://img.shields.io/hexpm/v/torch.svg)](https://hex.pm/packages/torch)
-[![Build Status](https://semaphoreci.com/api/v1/projects/b2c7b27b-ce6c-4b1c-b2a4-df3390f80380/1248783/shields_badge.svg)](https://semaphoreci.com/ir/torch)
+[![Build Status](https://semaphoreci.com/api/v1/projects/b2c7b27b-ce6c-4b1c-b2a4-df3390f80380/1368593/shields_badge.svg)](https://semaphoreci.com/ir/torch)
 [![Deps Status](https://beta.hexfaktor.org/badge/all/github/infinitered/torch.svg)](https://beta.hexfaktor.org/github/infinitered/torch)
 
 Torch is a rapid admin generator for Phoenix apps. It uses generators rather than DSLs to ensure that the code remains maintainable.
@@ -68,47 +68,18 @@ If you want to customize the look and feel of your admin, you should use the SAS
 @import "~torch/assets/css/app";
 ```
 
-Then, update your `brunch-config.js` (or asset manager of choice) SASS settings to make it watch your node_modules directory:
+The `admin_variables` file was generated when you ran `mix torch.install`.
 
-```js
-plugins: {
-  sass: {
-    mode: 'native',
-    includePaths: ['node_modules']
-  }
-}
-```
-
-Then, simply uncomment and customize the variables in `web/static/css/_admin_variables.scss` to change how Torch is styled.
+Then, simply uncomment and customize the variables in `admin_variables.scss` to change how Torch is styled.
 
 ### Using Precompiled CSS
 
-If you're not using SASS, then you will need to configure your asset pipeline to compile the precompiled `torch.css`. Brunch can be configured to do this like so:
+If you're not using SASS, then you will need to configure your asset pipeline to compile the precompiled `torch.css`.
 
-1. Add `node_modules` to the watched directories for `stylesheets`.
+Using Webpack? [Check out the Webpack guide](/docs/guides/webpack.md)
+Using Brunch? [Check out the Brunch guide](/docs/guides/brunch.md)
 
-```js
-stylesheets: {
-  joinTo: {
-    'css/app.css': /^(web|node_modules)/
-  }
-}
-```
-
-2. Add `torch` to the npm configuration:
-
-```js
-npm: {
-  enabled: true
-  styles: {
-    torch: [
-      'priv/static/torch.css'
-    ]
-  }
-}
-```
-
-### Test CSS Instalation
+### Test CSS Installation
 
 To test that you have torch styles and static assets installed and bundled properly, you can add a torch test componet to your markup. In HTML, the test components looks like this:
 
