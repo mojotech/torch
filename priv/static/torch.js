@@ -15639,11 +15639,13 @@ window.onload = function () {
   /*
    * Prevent empty fields from being submitted, since this breaks Filtrex.
    */
+  var formFilters = document.querySelector('form#filters');
+  if (!formFilters) return;
 
-  document.querySelector('form#filters').addEventListener('submit', function (e) {
+  formFilters.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    var disableFields = true;
+    var disableFields = false;
 
     slice.call(this.querySelectorAll('.field'), 0).forEach(function (field) {
       var text = field.getElementsByTagName('label')[0].textContent;
@@ -15653,10 +15655,10 @@ window.onload = function () {
       if (start && end) {
         if (start.value === '' && end.value !== '') {
           window.alert('Please select a start date for the ' + text + ' field');
-          disableFields = false;
+          disableFields = true;
         } else if (end.value === '' && start.value !== '') {
           window.alert('Please select a end at date for the ' + text + ' field');
-          disableFields = false;
+          disableFields = true;
         }
       }
     });
@@ -15667,7 +15669,7 @@ window.onload = function () {
       }
     });
 
-    if (disableFields) {
+    if (!disableFields) {
       e.target.submit();
     }
   });
