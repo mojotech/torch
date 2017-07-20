@@ -3,8 +3,10 @@
   "version": "0.2.0",
   "repository": {},
   "license": "MIT",
-  "main": "./priv/static/torch.js",
+  "main": "./assets/js/app.js",
+  "style": "./assets/css/app.sass",
   "files": [
+    "./assets",
     "./priv/static",
     "./package.json",
     "./webpack.config.js",
