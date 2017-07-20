@@ -6,7 +6,7 @@
   "main": "./assets/js/app.js",
   "style": "./assets/css/app.sass",
   "files": [
-    "./assets/",
+    "./assets",
     "./priv/static",
     "./package.json",
     "./webpack.config.js",
