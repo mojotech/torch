@@ -53,7 +53,7 @@ defmodule Torch.Mixfile do
       links: %{
         "Github" => "https://github.com/infinitered/torch"
       },
-      files: ~w(lib priv web brunch-config.js mix.exs package.json README.md)
+      files: ~w(assets lib priv webpack.config.js mix.exs package.json README.md)
     ]
   end
 
