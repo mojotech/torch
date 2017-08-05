@@ -3,7 +3,7 @@ defmodule Torch.Mixfile do
 
   def project do
     [app: :torch,
-     version: "1.0.0-rc.5",
+     version: "1.0.0-rc.6",
      elixir: "~> 1.3",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,

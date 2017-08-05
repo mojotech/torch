@@ -14,7 +14,7 @@ To install Torch, perform the following steps:
 
 ```elixir
 def deps do
-  [{:torch, "~> 1.0.0-rc.5"}]
+  [{:torch, "~> 1.0.0-rc.6"}]
 end
 ```
 
