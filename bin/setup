@@ -43,7 +43,7 @@ echo "----------------------------------------------------------"
 
 cd example && {
   mix deps.get || { exit 1; };
-  mix ecto.setup || { exit 1; };
+  MIX_ENV=test mix ecto.setup || { exit 1; };
   cd assets && npm install || { echo "Node dependencies could not be installed!"; exit 1; };
   cd ..;
   mix test || { echo 'Elixir tests failed!'; exit 1; };

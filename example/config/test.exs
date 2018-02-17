@@ -10,6 +10,10 @@ config :example, ExampleWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
+{whoami, _} = System.cmd("whoami", [])
+whoami = String.replace(whoami, "\n", "")
+
+# Configure your database
 config :example, Example.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: System.get_env("DATABASE_POSTGRESQL_USERNAME") || whoami,
