@@ -5,7 +5,7 @@ defmodule Torch.MixProject do
     [
       app: :torch,
       version: "2.0.0-alpha",
-      elixir: "~> 1.6",
+      elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix] ++ Mix.compilers(),
       name: "Torch",
