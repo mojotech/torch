@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+// scss-lint:disable SpaceAroundOperator
+
+/// Builds directional properties by parsing CSS shorthand values. For example,
+/// a value of `10px null` will output top and bottom directional properties,
+/// but the `null` skips left and right from being output.
+///
+/// @argument {string} $property
+///   Base property.
+///
+/// @argument {string} $suffix
+///   Suffix to append. Use `null` to omit.
+///
+/// @argument {list} $values
+///   List of values to set for the property.
+///
+/// @example scss
+///   .element {
+///     @include _directional-property(border, width, null 5px);
+///   }
+///
+///   // CSS Output
+///   .element {
+///     border-right-width: 5px;
+///     border-left-width: 5px;
+///   }
+///
+/// @require {function} _compact-shorthand
+///
+/// @require {function} _contains-falsy
+///
+/// @access private
+
+@mixin _directional-property(
+  $property,
+  $suffix,
+  $values
+) {
+  $top:    $property + "-top"    + if($suffix, "-#{$suffix}", "");
+  $bottom: $property + "-bottom" + if($suffix, "-#{$suffix}", "");
+  $left:   $property + "-left"   + if($suffix, "-#{$suffix}", "");
+  $right:  $property + "-right"  + if($suffix, "-#{$suffix}", "");
+  $all:    $property +             if($suffix, "-#{$suffix}", "");
+
+  $values: _compact-shorthand($values);
+
+  @if _contains-falsy($values) {
+    @if nth($values, 1) { #{$top}: nth($values, 1); }
+
+    @if length($values) == 1 {
+      @if nth($values, 1) { #{$right}: nth($values, 1); }
+    } @else {
+      @if nth($values, 2) { #{$right}: nth($values, 2); }
+    }
+
+    @if length($values) == 2 {
+      @if nth($values, 1) { #{$bottom}: nth($values, 1); }
+      @if nth($values, 2) { #{$left}: nth($values, 2); }
+    } @else if length($values) == 3 {
+      @if nth($values, 3) { #{$bottom}: nth($values, 3); }
+      @if nth($values, 2) { #{$left}: nth($values, 2); }
+    } @else if length($values) == 4 {
+      @if nth($values, 3) { #{$bottom}: nth($values, 3); }
+      @if nth($values, 4) { #{$left}: nth($values, 4); }
+    }
+  } @else {
+    #{$all}: $values;
+  }
+}

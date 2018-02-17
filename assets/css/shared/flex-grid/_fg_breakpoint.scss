@@ -1,0 +1,20 @@
+//Override as required.
+$_fg_small: 768 !default; // up to "tablet" size
+$_fg_medium: 1024 !default; // up to "desktop" size
+$_fg_large: 1280 !default; // up to bigger desktop size
+
+@mixin _fg_breakpoint($_fg_media) {
+  @if $_fg_media == small {
+    @media only screen and (min-width: $_fg_small*1px) { @content; }
+  }
+  @else if $_fg_media == medium {
+    @media only screen and (min-width: $_fg_medium*1px) { @content; }
+  }
+  @else if $_fg_media == large {
+    @media only screen and (min-width: $_fg_large*1px) { @content; }
+  }
+
+  @else if type-of($_fg_media) == number {
+    @media only screen and (min-width: $_fg_media*1px) { @content; }
+  }
+}

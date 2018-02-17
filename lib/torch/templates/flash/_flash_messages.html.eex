@@ -1,0 +1,7 @@
+<section id="torch-flash-messages">
+  <div class="torch-container">
+    <%= flash_message @conn, :error %>
+    <%= flash_message @conn, :info %>
+    <%= flash_message @conn, :success %>
+  </div>
+</section>

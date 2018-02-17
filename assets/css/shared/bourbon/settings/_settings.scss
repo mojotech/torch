@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/// Default global Bourbon settings. Values in this map are overwritten by any
+/// values set in the `$bourbon` map.
+///
+/// @type map
+///
+/// @property {color} contrast-switch-dark-color [#000]
+///   Global dark color for the `contrast-switch` function.
+///
+/// @property {color} contrast-switch-light-color [#fff]
+///   Global light color for the `contrast-switch` function.
+///
+/// @property {list} global-font-file-formats [("ttf", "woff2", "woff")]
+///   Global font file formats for the `font-face` mixin.
+///
+/// @property {number (with unit)} modular-scale-base [1em]
+///   Global base value for the `modular-scale` function.
+///
+/// @property {number (unitless)} modular-scale-ratio [$major-third (1.25)]
+///   Global base ratio for the `modular-scale` function.
+///
+/// @property {boolean} rails-asset-pipeline [false]
+///   Set this to `true` when using the Rails Asset Pipeline and Bourbon will
+///   write asset paths using
+///   [sass-rails’ asset helpers](https://github.com/rails/sass-rails#asset-helpers).
+///
+/// @access private
+
+$_bourbon-defaults: (
+  "contrast-switch-dark-color": #000,
+  "contrast-switch-light-color": #fff,
+  "global-font-file-formats": ("ttf", "woff2", "woff"),
+  "modular-scale-base": 1em,
+  "modular-scale-ratio": $major-third,
+  "rails-asset-pipeline": false,
+);
+
+/// Global Bourbon settings.
+///
+/// @name Settings
+///
+/// @type map
+///
+/// @property {color} contrast-switch-dark-color [#000]
+///   Global dark color for the `contrast-switch` function.
+///
+/// @property {color} contrast-switch-light-color [#fff]
+///   Global light color for the `contrast-switch` function.
+///
+/// @property {list} global-font-file-formats [("ttf", "woff2", "woff")]
+///   Global font file formats for the `font-face` mixin.
+///
+/// @property {number (with unit)} modular-scale-base [1em]
+///   Global base value for the `modular-scale` function.
+///
+/// @property {number (unitless)} modular-scale-ratio [$major-third (1.25)]
+///   Global base ratio for the `modular-scale` function.
+///
+/// @property {boolean} rails-asset-pipeline [false]
+///   Set this to `true` when using the Rails Asset Pipeline and Bourbon will
+///   write asset paths using
+///   [sass-rails’ asset helpers](https://github.com/rails/sass-rails#asset-helpers).
+///
+/// @example scss
+///   $bourbon: (
+///     "contrast-switch-dark-color": #000,
+///     "contrast-switch-light-color": #fff,
+///     "global-font-file-formats": ("ttf", "woff2", "woff"),
+///     "modular-scale-base": 1em,
+///     "modular-scale-ratio": $major-third,
+///     "rails-asset-pipeline": false,
+///   );
+
+$bourbon: () !default;

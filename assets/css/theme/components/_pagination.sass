@@ -1,0 +1,27 @@
+section#torch-pagination
+  ul
+    display: flex
+
+  li
+    a
+      display: block
+      padding: 10px 15px
+      color: $ir-red
+      text-decoration: none
+      background-color: $white
+      border: 1px solid $gallery-gray
+      margin-left: -1px
+
+      &:hover
+        background-color: $alabaster-gray
+
+      &.active
+        background-color: $ir-red
+        color: $white
+
+    &:first-child
+      a
+        margin-left: 0px
+
+
+
