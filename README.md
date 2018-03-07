@@ -3,7 +3,9 @@
 [![Build Status](https://semaphoreci.com/api/v1/projects/b2c7b27b-ce6c-4b1c-b2a4-df3390f80380/1368593/shields_badge.svg)](https://semaphoreci.com/ir/torch)
 [![Deps Status](https://beta.hexfaktor.org/badge/all/github/infinitered/torch.svg)](https://beta.hexfaktor.org/github/infinitered/torch)
 
-![Torch Logo](https://user-images.githubusercontent.com/7085617/37124563-abc960ba-221d-11e8-8119-d462699bbefa.png)
+<p align="center">
+  <img width="489" alt="phoenix_torch_logo" src="https://user-images.githubusercontent.com/7085617/37124853-ef17cec8-221e-11e8-97b9-bb6d13188500.png">
+</p>
 
 # Torch
 
