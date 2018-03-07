@@ -9,7 +9,7 @@ defmodule Mix.Tasks.Torch.Uninstall do
 
   import Torch.Config, only: [otp_app: 0, template_format: 0]
 
-  def run() do
+  def run(_) do
     format = template_format()
 
     File.rm("priv/templates/phx.gen.html/controller_test.exs")
