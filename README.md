@@ -3,6 +3,8 @@
 [![Build Status](https://semaphoreci.com/api/v1/projects/b2c7b27b-ce6c-4b1c-b2a4-df3390f80380/1368593/shields_badge.svg)](https://semaphoreci.com/ir/torch)
 [![Deps Status](https://beta.hexfaktor.org/badge/all/github/infinitered/torch.svg)](https://beta.hexfaktor.org/github/infinitered/torch)
 
+![Torch Logo](https://user-images.githubusercontent.com/7085617/37124563-abc960ba-221d-11e8-8119-d462699bbefa.png)
+
 # Torch
 
 🔥 Torch is a rapid admin generator for Phoenix apps. It creates custom templates and relies
@@ -43,6 +45,8 @@ config :torch,
   otp_app: :my_app_name,
   template_format: "eex" || "slim"
 ```
+
+4. Run `mix torch.install`
 
 NOTE: If you choose to use `slim` templates, you will need to [install Phoenix Slim](https://github.com/slime-lang/phoenix_slime).
 

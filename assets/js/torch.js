@@ -64,6 +64,16 @@ window.onload = () => {
   })
 
   /*
+   * Flash Messages
+   */
+  slice.call(document.querySelectorAll('button.torch-flash-close'), 0).forEach((button) => {
+    button.addEventListener('click', function () {
+      let flashMessage = button.closest('.torch-flash')
+      flashMessage.parentNode.removeChild(flashMessage)
+    })
+  })
+
+  /*
    * Prevent empty fields from being submitted, since this breaks Filtrex.
    */
   const formFilters = document.querySelector('form#torch-filters-form')

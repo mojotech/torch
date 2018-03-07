@@ -1,18 +1,17 @@
 defmodule Mix.Tasks.Torch.Uninstall do
   @moduledoc """
-  Uninstalls torch templates from your project.
-
-  ## Parameters
-
-  - **Format**: Either 'eex' or 'slim'
+  Uninstalls torch layout & templates.
 
   ## Example
 
-      mix torch.uninstall my_app eex
-      mix torch.uninstall my_app slim
+      mix torch.uninstall
   """
 
-  def run([_opt_app, format]) do
+  import Torch.Config, only: [otp_app: 0, template_format: 0]
+
+  def run() do
+    format = template_format()
+
     File.rm("priv/templates/phx.gen.html/controller_test.exs")
     File.rm("priv/templates/phx.gen.html/controller.ex")
     File.rm("priv/templates/phx.gen.html/edit.html.#{format}")
@@ -26,5 +25,6 @@ defmodule Mix.Tasks.Torch.Uninstall do
     File.rm("priv/templates/phx.gen.context/schema_access.ex")
     File.rm("priv/templates/phx.gen.context/test_cases.exs")
     File.rm("priv/templates/phx.gen.context/context_test.exs")
+    File.rm("lib/#{otp_app()}_web/templates/layout/torch.html.#{format}")
   end
 end
