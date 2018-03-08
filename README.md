@@ -112,7 +112,7 @@ own stylesheet with the specific overrides.
 
 ## Premium Support
 
-Elavon, as an open source project, is free to use and always will be. [Infinite Red](https://infinite.red) offers premium Torch support and general web &
+Torch, as an open source project, is free to use and always will be. [Infinite Red](https://infinite.red) offers premium Torch support and general web &
 mobile app design/development services. Get in touch [here](https://infinite.red/contact) or email us at [hello@infinite.red](mailto:hello@infinite.red).
 
 ![Infinite Red Logo](https://infinite.red/images/infinite_red_logo_colored.png)
