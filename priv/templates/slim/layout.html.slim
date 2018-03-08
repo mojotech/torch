@@ -1,0 +1,23 @@
+html
+  head
+    title Admin
+    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
+
+  body
+    section.torch.torch-header
+      .torch-account
+        nav
+          ul
+            li: a href="/" user@infinite.red
+            li: a href="/" Logout
+
+      header.torch-main-header
+        h1 Torch Admin
+        nav
+          ul
+            / Your admin navigation links here
+
+    section.torch
+      = render @view_module, @view_template, assigns
+
+    script src="#{static_path(@conn, "/js/app.js")}"

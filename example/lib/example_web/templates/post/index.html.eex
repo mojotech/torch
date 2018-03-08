@@ -1,0 +1,107 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "New Post", to: Routes.post_path(@conn, :new) %>
+  </div>
+</section>
+<section id="torch-index-content">
+  <div class="torch-container">
+    <section id="torch-filters">
+      <h3>Find Posts</h3>
+      <%= form_tag @conn.request_path, method: :get, id: "torch-filters-form" do %>
+        
+          <div class="field">
+            <label>Title</label>
+            <%= filter_select(:post, :title, @conn.params) %>
+            <%= filter_string_input(:post, :title, @conn.params) %>
+          </div>
+        
+          <div class="field">
+            <label>Subtitle</label>
+            <%= filter_select(:post, :subtitle, @conn.params) %>
+            <%= filter_string_input(:post, :subtitle, @conn.params) %>
+          </div>
+        
+          <div class="field">
+            <label>Description</label>
+            <%= filter_select(:post, :description, @conn.params) %>
+            <%= filter_text_input(:post, :description, @conn.params) %>
+          </div>
+        
+        
+          <div class="field">
+            <label>Published</label>
+            <%= filter_boolean_input(:post, :published, @conn.params) %>
+          </div>
+        
+        
+          <div class="field">
+            <label>Published at</label>
+            <%= filter_date_input(:post, :published_at, @conn.params) %>
+          </div>
+        
+        
+          <div class="field">
+            <label>Views</label>
+            <%= number_filter_select(:post, :views, @conn.params) %>
+            <%= filter_number_input(:post, :views, @conn.params) %>
+          </div>
+        
+        <button type="submit" class="torch-button">Search</button>
+        <%= link "Clear Filters", to: Routes.post_path(@conn, :index) %>
+      <% end %>
+
+    </section>
+
+    <section id="torch-table">
+    <%= if length(@posts) > 0 do %>
+      <table>
+        <thead>
+          <tr>
+            
+              <th><%= table_link(@conn, "Title", :title) %></th>
+            
+              <th><%= table_link(@conn, "Subtitle", :subtitle) %></th>
+            
+              <th><%= table_link(@conn, "Description", :description) %></th>
+            
+              <th><%= table_link(@conn, "Published at", :published_at) %></th>
+            
+              <th><%= table_link(@conn, "Published", :published) %></th>
+            
+              <th><%= table_link(@conn, "Views", :views) %></th>
+            
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for post <- @posts do %>
+            <tr>
+              
+                <td><%= post.title %></td>
+              
+                <td><%= post.subtitle %></td>
+              
+                <td><%= post.description %></td>
+              
+                <td><%= post.published_at %></td>
+              
+                <td><%= post.published %></td>
+              
+                <td><%= post.views %></td>
+              
+              <td class="torch-actions">
+                <span><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span>
+                <span><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span>
+                <span><%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render Torch.PaginationView, "_pagination.html", assigns %>
+    <% else %>
+      <p class="torch-no-data">No Posts match your search.</p>
+    <% end %>
+    </section>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+%base-button-styles
+  transition: all 250ms ease-in-out
+  font-family: $helvetica-neue
+  font-size: 14px
+  padding: 9px 12px
+  cursor: pointer
+  background-color: $gallery-gray
+  color: $dark-gray
+  border: 1px solid transparent
+  text-transform: capitalize
+
+%default-button
+  @extend %base-button-styles
+  border-color: rgba(0, 0, 0, 0.1)
+
+  &:hover
+    background-color: darken($gallery-gray, 15%)
+
+%red-button
+  @extend %base-button-styles
+  background-color: $ir-red
+  color: $white
+
+  &:hover
+    background-color: darken($ir-red, 15%)
+
+%add-button
+  &:before
+    content: "+"
+    display: inline-block
+    font-size: 20px
+    line-height: 10px
+    font-weight: bold
+    margin-right: 3px
+
+
+
+

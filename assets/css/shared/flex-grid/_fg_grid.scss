@@ -1,0 +1,59 @@
+// Global variables:
+// Unitless, interpreted as pixels
+$_fg_gutter: 24 !default; // gutter between columns. Set as desired.
+$_fg_padding: 12 !default; // padding for column boxes. Set as desired, can override for individual columns.
+
+
+// *** Main mixin to create a per-row layout *** //
+@mixin _fg($colList, $gutter: $_fg_gutter, $padding: $_fg_padding) {
+  @if type-of($colList) == number { // call _fg_grid() directly
+    @include _fg_grid($colList, $gutter, $padding);
+
+  } @else if type-of($colList) == list and length($colList) > 1 {
+
+    // Count how many columns there are altogether
+    $columnCount: 0;
+    @each $i in $colList {
+      $columnCount: $columnCount + $i;
+    }
+
+    @include _fg_grid($columnCount, $gutter, $padding);
+
+    @for $i from 1 through length($colList) { // set child items widths using nth:child()
+      $c: nth($colList, $i);
+      & > :nth-child(#{length($colList)}n+#{$i}) {
+        @include _fg_width($c/$columnCount, $gutter);
+      }
+    }
+  }
+}
+
+
+// *** Set up grid with equal width columns *** //
+@mixin _fg_grid($cols: 0, $gutter: $_fg_gutter, $padding: $_fg_padding) {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: (-1 * $gutter) * 1px;
+
+  > * {
+    @if $padding != 0 {
+      padding: $padding * 1px;
+    }
+    margin-left: $gutter * 1px;
+    box-sizing: border-box;
+  }
+
+  $calc_percent: (1/$cols) * 100%;
+  $calc_gutter_allowance: $gutter * 1px;
+
+  > * { width: calc(#{$calc_percent} - #{$calc_gutter_allowance}); }
+}
+
+
+// *** width override for a column *** //
+@mixin _fg_width($ratio, $gutter: $_fg_gutter) {
+  $calc_percent: $ratio * 100%;
+  $calc_gutter: $gutter * 1px;
+  width: calc(#{$calc_percent} - #{$calc_gutter});
+};

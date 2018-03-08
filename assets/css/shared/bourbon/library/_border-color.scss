@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/// Provides a concise, one-line method for setting `border-color` on specific
+/// edges of a box. Use a `null` value to “skip” edges of the box with standard
+/// CSS shorthand.
+///
+/// @argument {list} $values
+///   List of colors; accepts CSS shorthand.
+///
+/// @example scss
+///   .element {
+///     @include border-color(#a60b55 #76cd9c null #e8ae1a);
+///   }
+///
+///   // CSS Output
+///   .element {
+///     border-left-color: #e8ae1a;
+///     border-right-color: #76cd9c;
+///     border-top-color: #a60b55;
+///   }
+///
+/// @require {mixin} _directional-property
+
+@mixin border-color($values) {
+  @include _directional-property(border, color, $values);
+}

@@ -1,0 +1,50 @@
+<%= form_for @changeset, @action, [multipart: true, id: "torch-form"], fn f -> %>
+  <fieldset class="torch-panel">
+    <legend>
+      <span>Details</span>
+    </legend>
+    <%= if @changeset.action do %>
+      <p class="torch-form-error">Oops, something went wrong! Please check the errors below.</p>
+    <% end %>
+  
+    <div class="torch-form-group">
+      <%= label f, :title, class: "control-label" %>
+      <%= text_input f, :title, class: "form-control" %>
+      <%= error_tag f, :title %>
+    </div>
+  
+    <div class="torch-form-group">
+      <%= label f, :subtitle, class: "control-label" %>
+      <%= text_input f, :subtitle, class: "form-control" %>
+      <%= error_tag f, :subtitle %>
+    </div>
+  
+    <div class="torch-form-group">
+      <%= label f, :description, class: "control-label" %>
+      <%= textarea f, :description, class: "form-control" %>
+      <%= error_tag f, :description %>
+    </div>
+  
+    <div class="torch-form-group">
+      <%= label f, :published_at, class: "control-label" %>
+      <%= datetime_select f, :published_at, class: "form-control" %>
+      <%= error_tag f, :published_at %>
+    </div>
+  
+    <div class="torch-form-group">
+      <%= label f, :published, class: "control-label" %>
+      <%= checkbox f, :published, class: "checkbox" %>
+      <%= error_tag f, :published %>
+    </div>
+  
+    <div class="torch-form-group">
+      <%= label f, :views, class: "control-label" %>
+      <%= number_input f, :views, class: "form-control" %>
+      <%= error_tag f, :views %>
+    </div>
+  
+    <div class="torch-submit-form">
+      <%= submit "Submit", class: "torch-submit-button" %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,49 +1,40 @@
-defmodule Torch.Mixfile do
+defmodule Torch.MixProject do
   use Mix.Project
 
   def project do
-    [app: :torch,
-     version: "1.0.0-rc.6",
-     elixir: "~> 1.3",
-     elixirc_paths: elixirc_paths(Mix.env),
-     compilers: [:phoenix] ++ Mix.compilers,
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     name: "Torch",
-     description: "Rapid admin generator for Phoenix",
-     package: package(),
-     docs: docs(),
-     deps: deps()]
+    [
+      app: :torch,
+      version: "2.0.0-alpha",
+      elixir: "~> 1.5",
+      start_permanent: Mix.env() == :prod,
+      compilers: [:phoenix] ++ Mix.compilers(),
+      name: "Torch",
+      description: "Rapid admin generator for Phoenix",
+      source_url: "https://github.com/infinitered/torch",
+      homepage_url: "https://github.com/infinitered/torch",
+      package: package(),
+      docs: docs(),
+      deps: deps()
+    ]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
+  # Run "mix help compile.app" to learn about applications.
   def application do
-    [applications: [:logger, :phoenix, :ecto, :scrivener_ecto, :filtrex]]
+    [
+      extra_applications: [:logger]
+    ]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # To depend on another app inside the umbrella:
-  #
-  #   {:myapp, in_umbrella: true}
-  #
-  # Type "mix help deps" for more examples and options
+  # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:filtrex, "~> 0.3.0"},
-     {:phoenix, "~> 1.2"},
-     {:phoenix_html, "~> 2.9"},
-     {:ecto, "~> 2.1.2"},
-     {:scrivener_ecto, ">= 1.2.1"},
-     {:credo, "~> 0.5", only: [:dev, :test]},
-     {:ex_doc, "~> 0.13", only: :dev}]
+    [
+      {:phoenix, "~> 1.3"},
+      {:phoenix_html, "~> 2.10"},
+      {:scrivener_ecto, ">= 1.2.1"},
+      {:filtrex, "~> 0.4.1"},
+      {:credo, "~> 0.5", only: [:dev, :test]},
+      {:ex_doc, "~> 0.13", only: :dev}
+    ]
   end
 
   defp package do
@@ -63,7 +54,4 @@ defmodule Torch.Mixfile do
       extras: ["README.md"]
     ]
   end
-
-  # Specifies which paths to compile per environment.
-  defp elixirc_paths(_),     do: ["lib", "web"]
 end

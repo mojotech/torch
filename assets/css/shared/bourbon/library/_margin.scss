@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/// Provides a concise, one-line method for setting `margin` on specific edges
+/// of a box. Use a `null` value to “skip” edges of the box with standard
+/// CSS shorthand.
+///
+/// @argument {list} $values
+///   List of margin values; accepts CSS shorthand.
+///
+/// @example scss
+///   .element {
+///     @include margin(null auto);
+///   }
+///
+///   // CSS Output
+///   .element {
+///     margin-left: auto;
+///     margin-right: auto;
+///   }
+///
+/// @example scss
+///   .element {
+///     @include margin(10px 3em 20vh null);
+///   }
+///
+///   // CSS Output
+///   .element {
+///     margin-bottom: 20vh;
+///     margin-right: 3em;
+///     margin-top: 10px;
+///   }
+///
+/// @require {mixin} _directional-property
+
+@mixin margin($values) {
+  @include _directional-property(margin, null, $values);
+}

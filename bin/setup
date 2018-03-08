@@ -1,23 +1,51 @@
 #!/usr/bin/env bash
 
-mix local.hex --force;
-mix local.rebar --force;
-mix deps.get;
-mix compile;
-
-npm install;
-
-# Setup local link to torch
-npm link;
-
-cd example && {
-  mix deps.get;
-  mix ecto.setup;
-  npm install;
-  rm -rf ./node_modules/torch;
-  npm link torch;
-  mix test;
-  cd -;
+# Ensure Elixir is installed
+command -v elixir >/dev/null 2>&1 || {
+  echo "This app requires Elixir, but it was not found on your system."
+  echo "Install it using the instructions at http://elixir-lang.org"
+  exit 1
 }
 
-mix credo --strict
+# Ensure Node.js is installed
+command -v npm >/dev/null 2>&1 || {
+  echo "This app requires Node.js to build assets, but it was not found on your system."
+  echo "Install it using the instructions at http://nodejs.org"
+  exit 1
+}
+
+# Ensure Npm is installed
+command -v npm >/dev/null 2>&1 || {
+  echo "This app requires NPM package manager, but it was not found on your system."
+  exit 1
+}
+
+echo "----------------------------------------------------------"
+echo "Ensuring Hex is installed..."
+echo "----------------------------------------------------------"
+mix local.hex --force
+mix local.rebar --force
+echo "Done!"
+
+echo "----------------------------------------------------------"
+echo "Installing Mix dependencies..."
+echo "----------------------------------------------------------"
+mix deps.get || { echo "Mix dependencies could not be installed!"; exit 1; }
+mix compile || { exit 1; }
+
+MIX_ENV=test mix compile --warnings-as-errors --force || { echo 'Please fix all compiler warnings.'; exit 1; }
+MIX_ENV=test mix credo --strict --ignore design,consistency || { echo 'Elixir code failed Credo linting. See warnings above.'; exit 1; }
+mix docs || { echo 'Elixir HTML docs were not generated!'; exit 1; }
+
+echo "----------------------------------------------------------"
+echo "Setting up example app and running tests"
+echo "----------------------------------------------------------"
+
+cd example && {
+  mix deps.get || { exit 1; };
+  MIX_ENV=test mix ecto.setup || { exit 1; };
+  cd assets && npm install || { echo "Node dependencies could not be installed!"; exit 1; };
+  cd ..;
+  mix test || { echo 'Elixir tests failed!'; exit 1; };
+  cd -;
+}

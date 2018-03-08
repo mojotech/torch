@@ -1,0 +1,29 @@
+section#torch-flash-messages
+  margin-bottom: 20px
+
+  .torch-flash
+    padding: 8px
+    text-align: center
+    color: $white
+
+    &.error
+      background-color: $orange
+
+    &.info
+      background-color: $blue
+
+    &.success
+      background-color: $green
+
+    .torch-flash-close
+      appearance: none
+      background-color: inherit
+      border: 1px solid $white
+      color: $white
+      border-radius: 50%
+      width: 22px
+      height: 22px
+      cursor: pointer
+
+      &:focus
+        outline: none

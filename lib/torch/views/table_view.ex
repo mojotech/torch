@@ -33,6 +33,7 @@ defmodule Torch.TableView do
         sort_field: field,
         sort_direction: "desc"
       ]
+
       link to: "?" <> querystring(conn, opts) do
         raw(~s{#{text}<span class="caret"></span>})
       end
@@ -55,7 +56,7 @@ defmodule Torch.TableView do
       # => "None"
   """
   def table_assoc_display_name(model, field, options) do
-    case Enum.find(options, fn({_name, id}) -> Map.get(model, field) == id end) do
+    case Enum.find(options, fn {_name, id} -> Map.get(model, field) == id end) do
       {name, _id} -> name
       _other -> "None"
     end
@@ -64,6 +65,7 @@ defmodule Torch.TableView do
   @doc false
   def querystring(conn, opts) do
     original = URI.decode_query(conn.query_string)
+
     opts = %{
       "page" => opts[:page],
       "sort_field" => opts[:sort_field] || conn.params["sort_field"] || nil,
@@ -72,9 +74,9 @@ defmodule Torch.TableView do
 
     original
     |> Map.merge(opts)
-    |> Enum.filter(fn{_, v} -> v != nil end)
+    |> Enum.filter(fn {_, v} -> v != nil end)
     |> Enum.into(%{})
-    |> URI.encode_query
+    |> URI.encode_query()
   end
 
   defp reverse("desc"), do: "asc"

@@ -1,18 +1,20 @@
 <% distance = Map.get(@conn.assigns, :distance, 5) %>
-<ul class="pagination">
-  <li>
-    <%= prev_link(@conn, @page_number, @total_pages) %>
-  </li>
-  <%= if @total_pages > 1 do %>
-    <%= for num <- start_page(@page_number, distance)..end_page(@page_number, @total_pages, distance) do %>
-      <li>
-        <a href="?<%= querystring( @conn, page: num, sort_opts: sort_opts(@conn.assigns) ) %>" class="<%= if @page_number == num, do: "active", else: "" %>">
-          <%= num %>
-        </a>
-      </li>
+<section id="torch-pagination">
+  <ul>
+    <li>
+      <%= prev_link(@conn, @page_number, @total_pages) %>
+    </li>
+    <%= if @total_pages > 1 do %>
+      <%= for num <- start_page(@page_number, distance)..end_page(@page_number, @total_pages, distance) do %>
+        <li>
+          <a href="?<%= querystring( @conn, page: num, sort_opts: sort_opts(@conn.assigns) ) %>" class="<%= if @page_number == num, do: "active", else: "" %>">
+            <%= num %>
+          </a>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-  <li>
-    <%= next_link(@conn, @page_number, @total_pages) %>
-  </li>
-</ul>
+    <li>
+      <%= next_link(@conn, @page_number, @total_pages) %>
+    </li>
+  </ul>
+</section>

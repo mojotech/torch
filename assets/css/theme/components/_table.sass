@@ -1,0 +1,84 @@
+section#torch-table
+  overflow-x: auto
+
+  .torch-no-data
+    text-transform: capitalize
+    color: $dark-gray
+
+  table
+    color: $dark-gray
+    font-size: 14px
+    font-family: $helvetica-neue
+    width: 100%
+    background-color: $white
+
+    th
+      border-top: 1px solid $gallery-gray
+      border-bottom: 1px solid $gallery-gray
+      background-color: $alabaster-gray
+      padding: 0
+      color: $dark-gray
+      vertical-align: middle
+
+      &:hover
+        background-color: darken($alabaster-gray, 15%)
+
+      &:first-child
+        border-left: 1px solid $gallery-gray
+
+      &:last-child
+        border-right: 1px solid $gallery-gray
+
+      .caret
+        border-left: 5px solid transparent
+        border-right: 5px solid transparent
+        display: inline-block
+        height: 0
+        margin-left: 5px
+        margin-top: 5px
+        position: absolute
+        right: 10px
+        top: 12px
+        width: 0
+
+      a,
+      span:not(.caret)
+        position: relative
+        text-decoration: none
+        color: $dark-gray
+        padding: 12px 10px
+        display: block
+
+      a.active.desc
+        .caret
+          border-top: 5px solid $dark-gray
+
+      a.active.asc
+        .caret
+          border-bottom: 5px solid $dark-gray
+
+    td
+      overflow: hidden
+      text-overflow: ellipsis
+      border-top: 1px solid $gallery-gray
+      border-bottom: 1px solid $gallery-gray
+      vertical-align: middle
+      padding: 15px 10px
+      max-width: 300px
+
+      &:first-child
+        border-left: 1px solid $gallery-gray
+
+      &:last-child
+        border-right: 1px solid $gallery-gray
+
+      a
+        color: $ir-red
+        text-decoration: none
+
+      img
+        max-height: 30px
+        max-width: 30px
+
+      button
+        @extend %red-button

@@ -1,0 +1,44 @@
+section#torch-filters
+  background-color: $alabaster-gray
+  padding: 20px
+
+  h3
+    @extend %h3-gray-text
+    text-transform: capitalize
+
+  hr
+    appearance: none
+    border: none
+    border-bottom: 1px solid darken($gallery-gray, 10%)
+    margin: 20px 0 10px
+
+  .field
+    display: flex
+    flex-wrap: wrap
+
+    label
+      width: 100%
+      @extend %base-label
+
+    select
+      @extend %select-input
+      margin-right: 20px
+      width: calc(35% - 20px)
+
+    input
+      @extend %text-input
+      width: 65%
+
+      &.datepicker
+        width: calc(50% - 10px)
+
+        &.start
+          margin-right: 20px
+
+  button
+    @extend %default-button
+    margin-top: 10px
+
+  a
+    margin-left: 20px
+    color: $ir-red
