@@ -4,7 +4,7 @@ defmodule Torch.MixProject do
   def project do
     [
       app: :torch,
-      version: "2.0.0-alpha",
+      version: "2.0.0-rc.2",
       elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix] ++ Mix.compilers(),
@@ -44,7 +44,7 @@ defmodule Torch.MixProject do
       links: %{
         "Github" => "https://github.com/infinitered/torch"
       },
-      files: ~w(assets lib priv webpack.config.js mix.exs package.json README.md)
+      files: ~w(assets lib priv mix.exs README.md)
     ]
   end
 
