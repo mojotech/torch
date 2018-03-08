@@ -4,12 +4,13 @@ defmodule ExampleWeb.PostController do
   alias Example.Blog
   alias Example.Blog.Post
 
-  plug(:put_layout, {ExampleWeb.LayoutView, "admin.html"})
+  plug(:put_layout, {ExampleWeb.LayoutView, "torch.html"})
 
   def index(conn, params) do
     case Blog.paginate_posts(params) do
       {:ok, assigns} ->
         render(conn, "index.html", assigns)
+
       error ->
         conn
         |> put_flash(:error, "There was an error rendering Posts. #{inspect(error)}")
@@ -28,6 +29,7 @@ defmodule ExampleWeb.PostController do
         conn
         |> put_flash(:info, "Post created successfully.")
         |> redirect(to: Routes.post_path(conn, :show, post))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -52,6 +54,7 @@ defmodule ExampleWeb.PostController do
         conn
         |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: Routes.post_path(conn, :show, post))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset)
     end

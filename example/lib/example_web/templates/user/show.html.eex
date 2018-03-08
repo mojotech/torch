@@ -1,0 +1,37 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "Edit", to: Routes.user_path(@conn, :edit, @user), class: "torch-button" %>
+    <%= link "Back", to: Routes.user_path(@conn, :index), class: "torch-button" %>
+  </div>
+</section>
+
+<section id="torch-header-and-content">
+  <div class="torch-container">
+    <div class="header">
+      <h3>User Details</h3>
+    </div>
+    <ul>
+      
+        <li>
+          <div class="torch-show-label">Name:</div>
+          <div class="torch-show-data"><%= @user.name %></div>
+        </li>
+      
+        <li>
+          <div class="torch-show-label">Email:</div>
+          <div class="torch-show-data"><%= @user.email %></div>
+        </li>
+      
+        <li>
+          <div class="torch-show-label">Sign up complete:</div>
+          <div class="torch-show-data"><%= @user.sign_up_complete %></div>
+        </li>
+      
+        <li>
+          <div class="torch-show-label">Signed up at:</div>
+          <div class="torch-show-data"><%= @user.signed_up_at %></div>
+        </li>
+      
+    </ul>
+  </div>
+</section>

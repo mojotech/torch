@@ -77,16 +77,6 @@ defmodule Mix.Tasks.Torch.Gen.Html do
         </nav>
     """)
 
-    Mix.shell().info("""
-    #{hr()}
-                            #{IO.ANSI.yellow()}Torch generated html for #{context}! #{
-      IO.ANSI.reset()
-    }
-    #{hr()}
-    """)
-  end
-
-  defp hr do
-    for _ <- 1..80, into: "", do: "\u{1F525}"
+    Mix.shell().info("\u{1F525} #{IO.ANSI.yellow()}Torch generated html for #{context}!\u{1F525}")
   end
 end

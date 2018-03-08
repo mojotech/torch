@@ -10,7 +10,7 @@
 # Torch
 
 🔥 Torch is a rapid admin generator for Phoenix apps. It creates custom templates and relies
-on Phoenix html & context generators under the hood. 🔥
+on the Phoenix html generator under the hood. 🔥
 
 ![image](https://user-images.githubusercontent.com/7085617/36333572-70e3907e-132c-11e8-9ad2-bd5e98aadc7c.png)
 
@@ -89,12 +89,10 @@ Ensure the following is added to your endpoint.ex:
       headers: [{"access-control-allow-origin", "*"}]
     )
 
-🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-                        Torch generated html for Posts!
-🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  :fire: Torch generated html for Posts! :fire:
 ```
 
-Torch also installed an admin layout into your `my_app_web/templates/layout/admin.html.eex`.
+Torch also installed an admin layout into your `my_app_web/templates/layout/torch.html.eex`.
 You will want to update it to include your new navigation link:
 
 ```
@@ -107,7 +105,7 @@ You will want to update it to include your new navigation link:
 
 Torch generates two CSS themes you can use: `base.css` & `theme.css`.
 The base styles are basically bare bones, and the theme styles look like the screenshot
-above. Just change the stylesheet link in the `admin.html.eex` layout.
+above. Just change the stylesheet link in the `torch.html.eex` layout.
 
 If you want to use the theme, but override the colors, you'll need to include your
 own stylesheet with the specific overrides.

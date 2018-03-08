@@ -1,0 +1,14 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%= link "Cancel", to: Routes.user_path(@conn, :index), class: "torch-button" %>
+  </div>
+</section>
+
+<section id="torch-header-and-content">
+  <div class="torch-container">
+    <div class="header">
+      <h3>Edit User</h3>
+    </div>
+    <%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :update, @user)) %>
+  </div>
+</section>
