@@ -112,14 +112,14 @@ defmodule Torch.FilterView do
     field = to_string(field)
 
     {:safe, start} =
-      date_input(
+      torch_date_input(
         "#{prefix}[#{field}_between][start]",
         get_in(params, [prefix, "#{field}_between", "start"]),
         "start"
       )
 
     {:safe, ending} =
-      date_input(
+      torch_date_input(
         "#{prefix}[#{field}_between][end]",
         get_in(params, [prefix, "#{field}_between", "end"]),
         "end"
@@ -151,7 +151,7 @@ defmodule Torch.FilterView do
     )
   end
 
-  defp date_input(name, value, "start") do
+  defp torch_date_input(name, value, "start") do
     tag(
       :input,
       type: "text",
@@ -162,7 +162,7 @@ defmodule Torch.FilterView do
     )
   end
 
-  defp date_input(name, value, "end") do
+  defp torch_date_input(name, value, "end") do
     tag(
       :input,
       type: "text",
@@ -173,7 +173,7 @@ defmodule Torch.FilterView do
     )
   end
 
-  defp date_input(name, value, class) do
+  defp torch_date_input(name, value, class) do
     tag(:input, type: "text", class: "datepicker #{class}", name: name, value: value)
   end
 
