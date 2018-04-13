@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/infinitered/torch/tree/HEAD)
-
-[Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.6...HEAD)
+## [v2.0.0-rc.1](https://github.com/infinitered/torch/tree/v2.0.0-rc.1) (2018-04-13)
+[Full Changelog](https://github.com/infinitered/torch/compare/v1.0.0-rc.6...v2.0.0-rc.1)
 
 **Implemented enhancements:**
 
@@ -16,10 +15,16 @@
 
 **Closed issues:**
 
+- mix torch.install - Phoenix.HTML.Form.date\_input/3 conflicts with local function [\#81](https://github.com/infinitered/torch/issues/81)
+- Support Phoenix 1.3 [\#78](https://github.com/infinitered/torch/issues/78)
+- Docs incorrect regarding css setup.  [\#72](https://github.com/infinitered/torch/issues/72)
+- last release Phoenix 1.3... throws error [\#70](https://github.com/infinitered/torch/issues/70)
 - Brunch not building correct JS imports [\#59](https://github.com/infinitered/torch/issues/59)
 
 **Merged pull requests:**
 
+- Fix date input conflicts [\#82](https://github.com/infinitered/torch/pull/82) ([dalpo](https://github.com/dalpo))
+- Upgrade torch to v2.0 [\#79](https://github.com/infinitered/torch/pull/79) ([zberkom](https://github.com/zberkom))
 - Enusre form\#filters exists before attempting to add an event listener [\#66](https://github.com/infinitered/torch/pull/66) ([silasjmatson](https://github.com/silasjmatson))
 - \[\#62\] Add the initial version of Brunch & Webpack guides [\#63](https://github.com/infinitered/torch/pull/63) ([zberkom](https://github.com/zberkom))
 - Update Webpack config [\#61](https://github.com/infinitered/torch/pull/61) ([codeithuman](https://github.com/codeithuman))

@@ -44,7 +44,7 @@ defmodule Torch.MixProject do
       links: %{
         "Github" => "https://github.com/infinitered/torch"
       },
-      files: ~w(assets lib priv mix.exs README.md)
+      files: ~w(lib priv mix.exs README.md)
     ]
   end
 
