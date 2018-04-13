@@ -23,7 +23,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 2.0.0-alpha"}
+    {:torch, "~> 2.0.0-rc.1"}
   ]
 end
 ```
