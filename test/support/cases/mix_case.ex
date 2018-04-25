@@ -12,16 +12,13 @@ defmodule Torch.MixCase do
     end
   end
 
-  import ExUnit.CaptureIO
-
   @project_dir "test/support/apps/example"
   @formats [:eex, :slim]
 
   @doc false
   def prepare_example_apps(_) do
-    capture_io(fn ->
-      System.cmd("mix", ["deps.get"], cd: @project_dir)
-    end)
+    System.cmd("mix", ["deps.get"], cd: @project_dir)
+    System.cmd("mix", ["ecto.drop"], cd: @project_dir, env: [{"MIX_ENV", "test"}])
 
     :ok
   end
@@ -29,7 +26,26 @@ defmodule Torch.MixCase do
   @doc false
   def clean_generated_files(_) do
     for format <- @formats do
-      File.rm("#{@project_dir}/lib/example_web/templates/layout/torch.html.#{format}")
+      files = [
+        "#{@project_dir}/priv/templates/",
+        "#{@project_dir}/priv/repo/migrations/",
+        "#{@project_dir}/lib/example/blog/",
+        "#{@project_dir}/test/example/blog/",
+        "#{@project_dir}/lib/example_web/controllers/post_controller.ex",
+        "#{@project_dir}/lib/example_web/templates/layout/torch.html.#{format}",
+        "#{@project_dir}/lib/example_web/templates/post/",
+        "#{@project_dir}/lib/example_web/views/post_view.ex",
+        "#{@project_dir}/test/example_web/controllers/post_controller_test.exs"
+      ]
+
+      Enum.each(files, &File.rm_rf/1)
+
+      File.write!(
+        "#{@project_dir}/lib/example_web/router.ex",
+        File.read!("test/support/routers/original.ex")
+      )
+
+      File.mkdir("#{@project_dir}/priv/repo/migrations/")
     end
 
     :ok
@@ -38,7 +54,7 @@ defmodule Torch.MixCase do
   @doc false
   # Generates tests on the given mix task to ensure it handles errors properly
   defmacro test_mix_config_errors(task) do
-    quote do
+    quote location: :keep do
       test "raises error if :format not specified" do
         assert_raise Mix.Error,
                      """

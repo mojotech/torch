@@ -3,7 +3,6 @@ defmodule Mix.Torch do
 
   alias Torch.Config
 
-  @doc false
   def parse_config!(task, args) do
     {opts, _, _} = OptionParser.parse(args, switches: [format: :string, app: :string])
 
@@ -41,35 +40,41 @@ defmodule Mix.Torch do
     %{otp_app: otp_app, format: format}
   end
 
-  @doc """
-  Copies files from source dir to target dir
-  according to the given map.
+  def copy_from(source_dir, mapping) when is_list(mapping) do
+    for {source_file_path, target_file_path} <- mapping do
+      contents =
+        [Application.app_dir(:torch), source_dir, source_file_path]
+        |> Path.join()
+        |> File.read!()
 
-  Files are evaluated against EEx according to
-  the given binding.
-  """
-  def copy_from(apps, source_dir, target_dir, _binding, mapping) when is_list(mapping) do
-    roots = Enum.map(apps, &to_app_source(&1, source_dir))
-
-    for {_format, source_file_path, target_file_path} <- mapping do
-      source =
-        Enum.find_value(roots, fn root ->
-          source = Path.join(root, source_file_path)
-          if File.exists?(source), do: source
-        end) || raise "could not find #{source_file_path} in any of the sources"
-
-      target = Path.join(target_dir, target_file_path)
-
-      contents = File.read!(source)
-      # case format do
-      #   :eex  -> EEx.eval_file(source, binding)
-      #   _ -> File.read!(source)
-      # end
-
-      Mix.Generator.create_file(target, contents)
+      Mix.Generator.create_file(target_file_path, contents)
     end
   end
 
-  defp to_app_source(path, source_dir) when is_binary(path), do: Path.join(path, source_dir)
-  defp to_app_source(app, source_dir) when is_atom(app), do: Application.app_dir(app, source_dir)
+  def inject_templates("phx.gen.html", format) do
+    copy_from("priv/templates/#{format}/phx.gen.html", [
+      {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
+      {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
+      {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.#{format}"},
+      {"form.html.#{format}", "priv/templates/phx.gen.html/form.html.#{format}"},
+      {"index.html.#{format}", "priv/templates/phx.gen.html/index.html.#{format}"},
+      {"new.html.#{format}", "priv/templates/phx.gen.html/new.html.#{format}"},
+      {"show.html.#{format}", "priv/templates/phx.gen.html/show.html.#{format}"},
+      {"view.ex", "priv/templates/phx.gen.html/view.ex"}
+    ])
+  end
+
+  def inject_templates("phx.gen.context", _format) do
+    copy_from("priv/templates/phx.gen.context", [
+      {"access_no_schema.ex", "priv/templates/phx.gen.context/access_no_schema.ex"},
+      {"context.ex", "priv/templates/phx.gen.context/context.ex"},
+      {"schema_access.ex", "priv/templates/phx.gen.context/schema_access.ex"},
+      {"test_cases.exs", "priv/templates/phx.gen.context/test_cases.exs"},
+      {"context_test.exs", "priv/templates/phx.gen.context/context_test.exs"}
+    ])
+  end
+
+  def remove_templates(template_dir) do
+    File.rm("priv/templates/#{template_dir}/")
+  end
 end

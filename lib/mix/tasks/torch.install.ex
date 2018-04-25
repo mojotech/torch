@@ -23,8 +23,8 @@ defmodule Mix.Tasks.Torch.Install do
   def run(args) do
     %{format: format, otp_app: otp_app} = Mix.Torch.parse_config!("torch.install", args)
 
-    Mix.Torch.copy_from([:torch], "priv/templates/#{format}", "", [], [
-      {:eex, "layout.html.#{format}", "lib/#{otp_app}_web/templates/layout/torch.html.#{format}"}
+    Mix.Torch.copy_from("priv/templates/#{format}", [
+      {"layout.html.#{format}", "lib/#{otp_app}_web/templates/layout/torch.html.#{format}"}
     ])
   end
 end
