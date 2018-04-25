@@ -33,19 +33,8 @@ echo "----------------------------------------------------------"
 mix deps.get || { echo "Mix dependencies could not be installed!"; exit 1; }
 mix compile || { exit 1; }
 
-MIX_ENV=test mix compile --warnings-as-errors --force || { echo 'Please fix all compiler warnings.'; exit 1; }
-MIX_ENV=test mix credo --strict --ignore design,consistency || { echo 'Elixir code failed Credo linting. See warnings above.'; exit 1; }
-mix docs || { echo 'Elixir HTML docs were not generated!'; exit 1; }
-
 echo "----------------------------------------------------------"
-echo "Setting up example app and running tests"
+echo "Running Tests..."
 echo "----------------------------------------------------------"
 
-cd example && {
-  mix deps.get || { exit 1; };
-  MIX_ENV=test mix ecto.setup || { exit 1; };
-  cd assets && npm install || { echo "Node dependencies could not be installed!"; exit 1; };
-  cd ..;
-  mix test || { echo 'Elixir tests failed!'; exit 1; };
-  cd -;
-}
+bin/test
