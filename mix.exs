@@ -12,6 +12,7 @@ defmodule Torch.MixProject do
       description: "Rapid admin generator for Phoenix",
       source_url: "https://github.com/infinitered/torch",
       homepage_url: "https://github.com/infinitered/torch",
+      test_paths: ["test/mix", "test/torch"],
       package: package(),
       docs: docs(),
       deps: deps()

@@ -4,11 +4,10 @@ defmodule Torch.Config do
   """
 
   def otp_app do
-    Application.get_env(:torch, :otp_app) || raise "Torch :otp_app config not set!"
+    Application.get_env(:torch, :otp_app)
   end
 
   def template_format do
-    Application.get_env(:torch, :template_format) ||
-      raise "Torch :template_format config not set!"
+    Application.get_env(:torch, :template_format)
   end
 end
