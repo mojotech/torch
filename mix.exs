@@ -13,11 +13,15 @@ defmodule Torch.MixProject do
       source_url: "https://github.com/infinitered/torch",
       homepage_url: "https://github.com/infinitered/torch",
       test_paths: ["test/mix", "test/torch"],
+      elixirc_paths: elixirc_paths(Mix.env()),
       package: package(),
       docs: docs(),
       deps: deps()
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support/cases"]
+  defp elixirc_paths(_env), do: ["lib"]
 
   # Run "mix help compile.app" to learn about applications.
   def application do

@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.Torch.InstallTest do
+defmodule Mix.Tasks.Torch.UninstallTest do
   use Torch.MixCase
 
   setup_all :prepare_example_apps
@@ -6,14 +6,17 @@ defmodule Mix.Tasks.Torch.InstallTest do
   describe ".run/1" do
     setup :clean_generated_files
 
-    test_mix_config_errors("torch.install")
+    test_mix_config_errors("torch.uninstall")
 
     @tag :integration
-    test "injects layout template into regular project" do
+    test "removes all torch files from regular project if they exist" do
       for format <- @formats do
         System.cmd("mix", ["torch.install", "--format", "#{format}"], cd: @project_dir)
+        System.cmd("mix", ["torch.uninstall", "--format", "#{format}"], cd: @project_dir)
 
-        assert File.exists?(
+        refute File.exists?("#{@project_dir}/priv/templates/phx.gen.html/")
+
+        refute File.exists?(
                  "#{@project_dir}/lib/example_web/templates/layout/torch.html.#{format}"
                )
       end
