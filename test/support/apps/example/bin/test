@@ -3,7 +3,7 @@
 mix deps.get || { echo 'Dependencies could not be fetched!'; exit 1; }
 MIX_ENV=test mix ecto.drop || { echo 'Database could not be dropped'; exit 1; }
 MIX_ENV=test mix torch.install || { echo 'Torch could not be installed!'; exit 1; }
-MIX_ENV=test mix torch.gen.html Blog Post posts title:string || { echo 'Torch files not generated!'; exit 1; }
+MIX_ENV=test mix torch.gen.html Blog Post posts title:string published:boolean published_at:datetime views:integer || { echo 'Torch files not generated!'; exit 1; }
 cp ../../routers/modified.ex lib/example_web/router.ex
 mix test || { echo 'Tests failed!'; exit 1; }
 
