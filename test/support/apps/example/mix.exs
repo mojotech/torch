@@ -9,6 +9,8 @@ defmodule Example.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      build_path: "../../../../_build",
+      deps_path: "../../../../deps",
       aliases: aliases(),
       deps: deps()
     ]

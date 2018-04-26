@@ -31,7 +31,6 @@ echo "----------------------------------------------------------"
 echo "Installing Mix dependencies..."
 echo "----------------------------------------------------------"
 mix deps.get || { echo "Mix dependencies could not be installed!"; exit 1; }
-mix compile || { exit 1; }
 
 echo "----------------------------------------------------------"
 echo "Running Tests..."
