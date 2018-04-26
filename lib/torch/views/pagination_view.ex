@@ -12,15 +12,18 @@ defmodule Torch.PaginationView do
   Generates a "< Prev" link to the previous page of results.
   The link is only returned if there is a previous page.
 
-  ## Example
+  ## Examples
 
-      prev_link(2, 2)
-      # => returns link
+      iex> prev_link(%Plug.Conn{params: %{}}, 2) |> safe_to_string()
+      "<a href=\\"?page=1\\">&lt; Prev</a>"
 
-      prev_link(1, 1)
-      # => returns nil
+  If the current page is 1, returns `nil`:
+
+      iex> prev_link(%Plug.Conn{params: %{}}, 1)
+      nil
+
   """
-  def prev_link(conn, current_page, _num_pages, sort_opts \\ nil) do
+  def prev_link(conn, current_page, sort_opts \\ nil) do
     if current_page != 1 do
       link("< Prev", to: "?" <> querystring(conn, page: current_page - 1, sort_opts: sort_opts))
     end
@@ -30,21 +33,18 @@ defmodule Torch.PaginationView do
   Generates a "Next >" link to the next page of results.
   The link is only returned if there is another page.
 
-  ## Example
-      next_link(1, 2)
-      # => returns link
+  ## Examples
 
-      next_link(2, 2)
-      # => returns nil
+      iex> next_link(%Plug.Conn{params: %{}}, 1, 2) |> safe_to_string()
+      "<a href=\\"?page=2\\">Next &gt;</a>"
+
+      iex> next_link(%Plug.Conn{}, 2, 2)
+      nil
   """
   def next_link(conn, current_page, num_pages, sort_opts \\ nil) do
     if current_page != num_pages do
       link("Next >", to: "?" <> querystring(conn, page: current_page + 1, sort_opts: sort_opts))
     end
-  end
-
-  defp start_page(current_page, distance) when current_page - distance < 1 do
-    current_page - (distance + (current_page - distance - 1))
   end
 
   defp start_page(current_page, distance) do

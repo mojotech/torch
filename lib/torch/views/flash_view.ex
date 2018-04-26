@@ -19,8 +19,7 @@ defmodule Torch.FlashView do
   ## Example
 
       iex> conn = %Plug.Conn{private: %{phoenix_flash: %{"error" => "Error Message"}}}
-      ...> {:safe, html} = flash_message(conn, "error")
-      ...> to_string(html)
+      ...> flash_message(conn, "error") |> safe_to_string()
       "<p class=\\"torch-flash error\\">Error Message <button class='torch-flash-close'>x</button></p>"
   """
   @spec flash_message(Plug.Conn.t(), type :: atom | String.t()) :: Phoenix.HTML.safe()

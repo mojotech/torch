@@ -1,7 +1,7 @@
-defmodule Torch.FlashViewTest do
+defmodule Torch.TableViewTest do
   use ExUnit.Case
 
   import Phoenix.HTML, only: [safe_to_string: 1]
 
-  doctest Torch.FlashView, import: true
+  doctest Torch.TableView, import: true
 end
