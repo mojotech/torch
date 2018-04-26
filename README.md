@@ -1,6 +1,6 @@
 [![Slackin](https://infiniteredcommunity.herokuapp.com/badge.svg)](https://infiniteredcommunity.herokuapp.com/)
 [![Hex.pm](https://img.shields.io/hexpm/v/torch.svg)](https://hex.pm/packages/torch)
-[![Build Status](https://semaphoreci.com/api/v1/projects/b2c7b27b-ce6c-4b1c-b2a4-df3390f80380/1368593/shields_badge.svg)](https://semaphoreci.com/ir/torch)
+[![Build Status](https://travis-ci.org/infinitered/torch.svg?branch=master)](https://travis-ci.org/infinitered/torch)
 [![Deps Status](https://beta.hexfaktor.org/badge/all/github/infinitered/torch.svg)](https://beta.hexfaktor.org/github/infinitered/torch)
 
 <p align="center">
