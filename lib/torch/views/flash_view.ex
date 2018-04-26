@@ -15,7 +15,15 @@ defmodule Torch.FlashView do
 
   - `conn`: The current `Plug.Conn`.
   - `type`: The flash type, such as `:error`.
+
+  ## Example
+
+      iex> conn = %Plug.Conn{private: %{phoenix_flash: %{"error" => "Error Message"}}}
+      ...> {:safe, html} = flash_message(conn, "error")
+      ...> to_string(html)
+      "<p class=\\"torch-flash error\\">Error Message <button class='torch-flash-close'>x</button></p>"
   """
+  @spec flash_message(Plug.Conn.t(), type :: atom | String.t()) :: Phoenix.HTML.safe()
   def flash_message(conn, type) do
     message = get_flash(conn, type)
 
