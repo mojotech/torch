@@ -12,11 +12,16 @@ defmodule Torch.MixProject do
       description: "Rapid admin generator for Phoenix",
       source_url: "https://github.com/infinitered/torch",
       homepage_url: "https://github.com/infinitered/torch",
+      test_paths: ["test/mix", "test/torch"],
+      elixirc_paths: elixirc_paths(Mix.env()),
       package: package(),
       docs: docs(),
       deps: deps()
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support/cases"]
+  defp elixirc_paths(_env), do: ["lib"]
 
   # Run "mix help compile.app" to learn about applications.
   def application do
@@ -33,7 +38,7 @@ defmodule Torch.MixProject do
       {:scrivener_ecto, ">= 1.2.1"},
       {:filtrex, "~> 0.4.1"},
       {:credo, "~> 0.5", only: [:dev, :test]},
-      {:ex_doc, "~> 0.13", only: :dev}
+      {:ex_doc, ">= 0.0.0", only: [:dev, :test]}
     ]
   end
 

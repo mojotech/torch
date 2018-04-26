@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+MIX_ENV=test mix compile --warnings-as-errors --force || { echo 'Please fix all compiler warnings.'; exit 1; }
+MIX_ENV=test mix credo --strict --ignore design,consistency || { echo 'Elixir code failed Credo linting. See warnings above.'; exit 1; }
+MIX_ENV=test mix docs || { echo 'Elixir HTML docs were not generated!'; exit 1; }
+mix test || { echo 'Elixir tests on Torch failed!'; exit 1; }
+
+# Run integration tests
+cd test/support/apps/example && {
+  bin/test || { echo 'Integration tests on regular Phoenix project failed!'; exit 1; }
+}

@@ -5,13 +5,19 @@ defmodule Torch.FilterView do
 
   use Phoenix.HTML
 
+  @type prefix :: atom | String.t()
+  @type field :: atom | String.t()
+
   @doc """
   Generates a select box for a `belongs_to` association.
 
   ## Example
 
-      filter_assoc_select(:post, :category_id, [{"Articles", 1}], %{"post" => %{"category_id_equals" => 1}})
+      iex> params = %{"post" => %{"category_id_equals" => 1}}
+      ...> filter_assoc_select(:post, :category_id, [{"Articles", 1}], params) |> safe_to_string()
+      "<select id=\\"post_category_id_equals\\" name=\\"post[category_id_equals]\\"><option value=\\"\\">Choose one</option><option value=\\"1\\" selected>Articles</option></select>"
   """
+  @spec filter_assoc_select(prefix, field, list, map) :: Phoenix.HTML.safe()
   def filter_assoc_select(prefix, field, options, params) do
     select(
       prefix,
@@ -28,8 +34,11 @@ defmodule Torch.FilterView do
 
   ## Example
 
-      filter_select(:post, :title, params)
+      iex> params = %{"post" => %{"title_contains" => "test"}}
+      ...> filter_select(:post, :title, params) |> safe_to_string()
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[title_contains]\\" selected>Contains</option><option value=\\"post[title_equals]\\">Equals</option></select>"
   """
+  @spec filter_select(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_select(prefix, field, params) do
     prefix_str = to_string(prefix)
     {selected, _value} = find_param(params[prefix_str], field)
@@ -47,8 +56,11 @@ defmodule Torch.FilterView do
 
   ## Example
 
-      number_filter_select(:post, :rating, params)
+      iex> params = %{"post" => %{"rating_greater_than" => 0}}
+      ...> number_filter_select(:post, :rating, params) |> safe_to_string()
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[rating_equals]\\">Equals</option><option value=\\"post[rating_greater_than]\\" selected>Greater Than</option><option value=\\"post[rating_greater_than_or]\\">Greater Than Or Equal</option><option value=\\"post[rating_less_than]\\">Less Than</option></select>"
   """
+  @spec number_filter_select(prefix, field, map) :: Phoenix.HTML.safe()
   def number_filter_select(prefix, field, params) do
     prefix_str = to_string(prefix)
     {selected, _value} = find_param(params[prefix_str], field)
@@ -68,8 +80,11 @@ defmodule Torch.FilterView do
 
   ## Example
 
-      filter_number_input(:post, :rating, params)
+      iex> params = %{"post" => %{"rating_equals" => 5}}
+      ...> filter_number_input(:post, :rating, params) |> safe_to_string()
+      "<input id=\\"post_rating_equals\\" name=\\"post[rating_equals]\\" type=\\"number\\" value=\\"5\\">"
   """
+  @spec filter_number_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_number_input(prefix, field, params) do
     prefix_str = to_string(prefix)
     {name, value} = find_param(params[prefix_str], field, :number)
@@ -81,8 +96,11 @@ defmodule Torch.FilterView do
 
   ## Example
 
-      filter_string_input(:post, :title, params)
+      iex> params = %{"post" => %{"title_contains" => "test"}}
+      iex> filter_string_input(:post, :title, params) |> safe_to_string()
+      "<input id=\\"post_title_contains\\" name=\\"post[title_contains]\\" type=\\"text\\" value=\\"test\\">"
   """
+  @spec filter_string_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_string_input(prefix, field, params) do
     prefix_str = to_string(prefix)
     {name, value} = find_param(params[prefix_str], field)
@@ -90,12 +108,10 @@ defmodule Torch.FilterView do
   end
 
   @doc """
-  Generates a filter input for a text field.
-
-  ## Example
-
-      filter_text_input(:post, :body, params)
+  DEPRECATED: Generates a filter input for a text field.
+  Use the `filter_string_input/3` function instead.
   """
+  @deprecated "Use filter_string_input/3 instead"
   def filter_text_input(prefix, field, params) do
     filter_string_input(prefix, field, params)
   end
@@ -105,8 +121,11 @@ defmodule Torch.FilterView do
 
   ## Example
 
-      filter_date_input(:post, :inserted_at, params)
+      iex> params = %{"post" => %{"inserted_at_between" => %{"start" => "01/01/2018", "end" => "01/31/2018"}}}
+      ...> filter_date_input(:post, :inserted_at, params) |> safe_to_string()
+      "<input class=\\"datepicker start\\" name=\\"post[inserted_at_between][start]\\" placeholder=\\"Select Start Date\\" type=\\"text\\" value=\\"01/01/2018\\"><input class=\\"datepicker end\\" name=\\"post[inserted_at_between][end]\\" placeholder=\\"Select End Date\\" type=\\"text\\" value=\\"01/31/2018\\">"
   """
+  @spec filter_date_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_date_input(prefix, field, params) do
     prefix = to_string(prefix)
     field = to_string(field)
@@ -133,8 +152,11 @@ defmodule Torch.FilterView do
 
   ## Example
 
-      filter_boolean_input(:post, :draft, params)
+      iex> params = %{"post" => %{"draft_equals" => "false"}}
+      iex> filter_boolean_input(:post, :draft, params) |> safe_to_string()
+      "<select id=\\"post_draft_equals\\" name=\\"post[draft_equals]\\"><option value=\\"\\">Choose one</option><option value=\\"true\\">True</option><option value=\\"false\\" selected>False</option></select>"
   """
+  @spec filter_boolean_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_boolean_input(prefix, field, params) do
     value =
       case get_in(params, [to_string(prefix), "#{field}_equals"]) do

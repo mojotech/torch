@@ -2,7 +2,7 @@
 <section id="torch-pagination">
   <ul>
     <li>
-      <%= prev_link(@conn, @page_number, @total_pages) %>
+      <%= prev_link(@conn, @page_number) %>
     </li>
     <%= if @total_pages > 1 do %>
       <%= for num <- start_page(@page_number, distance)..end_page(@page_number, @total_pages, distance) do %>

@@ -14,8 +14,11 @@ defmodule Torch.TableView do
 
   ## Example
 
-      table_link(conn, "Name", :name)
+      iex> conn = %Plug.Conn{params: %{"sort_field" => "name", "sort_direction" => "asc"}}
+      ...> table_link(conn, "Name", :name) |> safe_to_string()
+      "<a class=\\"active asc\\" href=\\"?sort_direction=desc&amp;sort_field=name\\">Name<span class=\\"caret\\"></span></a>"
   """
+  @spec table_link(Plug.Conn.t(), String.t(), atom) :: Phoenix.HTML.safe()
   def table_link(conn, text, field) do
     direction = conn.params["sort_direction"]
 
@@ -41,22 +44,21 @@ defmodule Torch.TableView do
   end
 
   @doc """
-  Prettifies and associated model for display.
+  Prettifies and associated struct for display.
 
-  Displays the model's name or "None", rather than the model's ID.
+  Displays the model's name or "None", rather than the struct's ID.
 
-  ## Example
+  ## Examples
 
-      # If post.category_id was 1
-      table_assoc_display_name(post, :category_id, [{"Articles", 1}])
-      # => "Articles"
+      iex> table_assoc_display_name(%{category_id: 1}, :category_id, [{"Articles", 1}])
+      "Articles"
 
-      # If post.category_id was nil
-      table_assoc_display_name(post, :category_id, [{"Articles", 1}])
-      # => "None"
+      iex> table_assoc_display_name(%{category_id: nil}, :category_id, [{"Articles", 1}])
+      "None"
   """
-  def table_assoc_display_name(model, field, options) do
-    case Enum.find(options, fn {_name, id} -> Map.get(model, field) == id end) do
+  @spec table_assoc_display_name(struct, atom, Keyword.t()) :: String.t()
+  def table_assoc_display_name(struct, field, options) do
+    case Enum.find(options, fn {_name, id} -> Map.get(struct, field) == id end) do
       {name, _id} -> name
       _other -> "None"
     end

@@ -1,8 +1,13 @@
 defmodule Torch.PageView do
   @doc """
-  Takes the controller action name and
-  appends it to the torch- prefix.
+  Takes the controller action name and appends it to the torch- prefix.
+
+  ## Example
+
+      iex> body_classes(%Plug.Conn{private: %{phoenix_action: :create}})
+      "torch-create"
   """
+  @spec body_classes(Plug.Conn.t()) :: String.t()
   def body_classes(conn) do
     "torch-#{action_name(conn)}"
     |> String.trim()
