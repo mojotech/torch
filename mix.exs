@@ -13,6 +13,13 @@ defmodule Torch.MixProject do
       source_url: "https://github.com/infinitered/torch",
       homepage_url: "https://github.com/infinitered/torch",
       test_paths: ["test/mix", "test/torch"],
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       elixirc_paths: elixirc_paths(Mix.env()),
       package: package(),
       docs: docs(),
@@ -37,6 +44,7 @@ defmodule Torch.MixProject do
       {:phoenix_html, "~> 2.10"},
       {:scrivener_ecto, ">= 1.2.1"},
       {:filtrex, "~> 0.4.1"},
+      {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       {:credo, "~> 0.5", only: [:dev, :test]},
       {:ex_doc, ">= 0.0.0", only: [:dev, :test]}
     ]
