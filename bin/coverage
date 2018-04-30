@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Generates code coverage statistics and opens it in your browser
+
+mix coveralls || { echo 'Tests failed!'; exit 1; }
+open cover/excoveralls.html
