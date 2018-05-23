@@ -21,6 +21,10 @@ defmodule Mix.Tasks.Torch.Install do
   """
 
   def run(args) do
+    if Mix.Project.umbrella?() do
+      Mix.raise("mix torch.install can only be run inside the apps/my_app_web directory")
+    end
+
     %{format: format, otp_app: otp_app} = Mix.Torch.parse_config!("torch.install", args)
 
     Mix.Torch.copy_from("priv/templates/#{format}", [

@@ -22,7 +22,7 @@ defmodule Mix.Torch do
       """)
     end
 
-    unless format in ["eex", "slim"] do
+    unless format in ["eex", "slim", :slim, :eex] do
       Mix.raise("""
       Template format is invalid: #{inspect(format)}. Either configure it as
       shown below or pass it via the `--format` option.
