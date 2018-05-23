@@ -1,0 +1,22 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <%%= link "Edit", to: Routes.<%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>), class: "torch-button" %>
+    <%%= link "Back", to: Routes.<%= schema.route_helper %>_path(@conn, :index), class: "torch-button" %>
+  </div>
+</section>
+
+<section id="torch-header-and-content">
+  <div class="torch-container">
+    <div class="header">
+      <h3><%= String.capitalize(schema.human_singular) %> Details</h3>
+    </div>
+    <ul>
+      <%= for {k, _} <- schema.attrs do %>
+        <li>
+          <div class="torch-show-label"><%= Phoenix.Naming.humanize(Atom.to_string(k)) %>:</div>
+          <div class="torch-show-data"><%%= @<%= schema.singular %>.<%= k %> %></div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
