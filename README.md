@@ -16,6 +16,8 @@ on the Phoenix html generator under the hood. 🔥
 
 ## :arrow_down: Installation
 
+### Regular Phoenix Project
+
 To install Torch, perform the following steps:
 
 1. Add `torch` to your list of dependencies in `mix.exs`. Then, run `mix deps.get`:
@@ -49,6 +51,44 @@ config :torch,
 ```
 
 4. Run `mix torch.install`
+
+### Umbrella Phoenix Project
+
+To install Torch in an umbrella project, perform the following steps:
+
+1. Add `torch` to your list of dependencies in `umbrella/apps/my_app_web/mix.exs`. Then, run `mix deps.get`:
+
+```elixir
+def deps do
+  [
+    {:torch, "~> 2.0.0-rc.1"}
+  ]
+end
+```
+
+2. Add a `Plug.Static` plug to your `umbrella/apps/my_app_web/lib/my_app_web/endpoint.ex`:
+
+```elixir
+plug(
+  Plug.Static,
+  at: "/torch",
+  from: {:torch, "priv/static"},
+  gzip: true,
+  cache_control_for_etags: "public, max-age=86400"
+)
+```
+
+3. Configure Torch by adding the following to your `umbrella/apps/my_app_web/config/config.exs`.
+
+```
+config :torch,
+  otp_app: :my_app_name,
+  template_format: "eex" || "slim"
+```
+
+4. Run `mix torch.install` from `umbrella/apps/my_app_web` directory
+
+### Final Comments
 
 NOTE: If you choose to use `slim` templates, you will need to [install Phoenix Slim](https://github.com/slime-lang/phoenix_slime).
 
