@@ -1,4 +1,3 @@
-var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var path = require('path')
@@ -6,20 +5,8 @@ var path = require('path')
 var env = process.env.MIX_ENV || 'dev'
 var isProduction = (env === 'prod')
 
-var uglifyJSPlugin
-if (isProduction) {
-  uglifyJSPlugin = new webpack.optimize.UglifyJsPlugin({minimize: true})
-} else {
-  uglifyJSPlugin = new webpack.optimize.UglifyJsPlugin({sourceMap: true, compress: {warnings: false}})
-}
-
-var plugins = [
-  new ExtractTextPlugin('[name]', { allChunks: true }),
-  new CopyWebpackPlugin([{ from: './static/images' }]),
-  uglifyJSPlugin
-]
-
 module.exports = {
+  mode: isProduction ? 'production' : 'development',
   entry: {
     'torch.js': './js/torch.js',
     'base.css': './css/base.sass',
@@ -40,7 +27,6 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['es2015'],
               plugins: ['transform-object-rest-spread'],
               cacheDirectory: true
             }
@@ -69,5 +55,8 @@ module.exports = {
       }
     ]
   },
-  plugins: plugins
+  plugins: [
+    new ExtractTextPlugin('[name]', { allChunks: true }),
+    new CopyWebpackPlugin([{ from: './static/images' }])
+  ]
 }
