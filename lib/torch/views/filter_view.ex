@@ -165,13 +165,6 @@ defmodule Torch.FilterView do
       end
 
     checkbox(prefix, :"#{field}_equals", value: value)
-    # select(
-    #   prefix,
-    #   :"#{field}_equals",
-    #   [{"True", true}, {"False", false}],
-    #   value: value,
-    #   prompt: "Choose one"
-    # )
   end
 
   defp torch_date_input(name, value, "start") do
