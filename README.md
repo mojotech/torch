@@ -103,8 +103,7 @@ You will want to update it to include your new navigation link:
 
 ### Association filters
 
-Torch does not support association filters at this time. The reason for this
-is the filtering library [Filtrex](https://github.com/rcdilorenzo/filtrex) we're using does not yet support them.
+Torch does not support association filters at this time. [Filtrex](https://github.com/rcdilorenzo/filtrex) does not yet support them.
 
 You can checkout these two issues to see the latest updates:
 
@@ -130,14 +129,14 @@ defp do_paginate_users(filter, params) do
 
   User
   |> Filtrex.query(filter)
-  |> custom_filters(credential_params)
+  |> credential_filters(credential_params)
   |> order_by(^sort(params))
   |> paginate(Repo, params, @pagination)
 end
 
-defp custom_filters(query, nil), do: query
+defp credential_filters(query, nil), do: query
 
-defp custom_filters(query, params) do
+defp credential_filters(query, params) do
   search_string = "%#{params["email"]}%"
 
   from(u in query,
@@ -152,7 +151,7 @@ end
 2. Update form filters.
 
 ```eex
-# users/index.html
+# users/index.html.eex
 <div class="field">
   <label>Credential email</label>
   <%= text_input(:credentials, :email, value: maybe(@conn.params, ["credentials", "email"])) %>
