@@ -14,7 +14,7 @@ on the Phoenix html generator under the hood. 🔥
 
 ![image](https://user-images.githubusercontent.com/7085617/36333572-70e3907e-132c-11e8-9ad2-bd5e98aadc7c.png)
 
-## :arrow_down: Installation
+## Installation
 
 To install Torch, perform the following steps:
 
@@ -54,7 +54,7 @@ NOTE: If you choose to use `slim` templates, you will need to [install Phoenix S
 
 Now you're ready to start generating your admin! :tada:
 
-## :wrench: Usage
+## Usage
 
 Torch uses Phoenix generators under the hood. Torch injects it's own custom templates
 into your `priv/static` directory, then runs the `mix phx.gen.html` task with the options
@@ -100,6 +100,67 @@ You will want to update it to include your new navigation link:
   <a href="/posts">Posts</a>
 </nav>
 ```
+
+### Association filters
+
+Torch does not support association filters at this time. The reason for this
+is the filtering library [Filtrex](https://github.com/rcdilorenzo/filtrex) we're using does not yet support them.
+
+You can checkout these two issues to see the latest updates:
+
+https://github.com/rcdilorenzo/filtrex/issues/55
+
+https://github.com/rcdilorenzo/filtrex/issues/38
+
+However, that does not mean you can't roll your own.
+
+**Example**
+
+We have a `Accounts.User` model that `has_many :credentials, Accounts.Credential` and we want to support filtering users
+by `credentials.email`.
+
+1. Update the `Accounts` domain.
+
+```elixir
+# accounts.ex
+...
+defp do_paginate_users(filter, params) do
+  credential_params = Map.get(params, "credentials")
+  params = Map.drop(params, ["credentials"])
+
+  User
+  |> Filtrex.query(filter)
+  |> custom_filters(credential_params)
+  |> order_by(^sort(params))
+  |> paginate(Repo, params, @pagination)
+end
+
+defp custom_filters(query, nil), do: query
+
+defp custom_filters(query, params) do
+  search_string = "%#{params["email"]}%"
+
+  from(u in query,
+    join: c in assoc(u, :credentials),
+    where: like(c.email, ^search_string),
+    group_by: u.id
+  )
+end
+...
+```
+
+2. Update form filters.
+
+```eex
+# users/index.html
+<div class="field">
+  <label>Credential email</label>
+  <%= text_input(:credentials, :email, value: maybe(@conn.params, ["credentials", "email"])) %>
+</div>
+```
+
+Note: You'll need to install & import `Maybe` into your views `{:maybe, "~> 1.0.0"}` for
+the above `eex` to work.
 
 ## Styling
 
