@@ -164,13 +164,14 @@ defmodule Torch.FilterView do
         string when is_binary(string) -> string == "true"
       end
 
-    select(
-      prefix,
-      :"#{field}_equals",
-      [{"True", true}, {"False", false}],
-      value: value,
-      prompt: "Choose one"
-    )
+    checkbox(prefix, :"#{field}_equals", value: value)
+    # select(
+    #   prefix,
+    #   :"#{field}_equals",
+    #   [{"True", true}, {"False", false}],
+    #   value: value,
+    #   prompt: "Choose one"
+    # )
   end
 
   defp torch_date_input(name, value, "start") do
