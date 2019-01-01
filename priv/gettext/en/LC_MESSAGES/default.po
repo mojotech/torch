@@ -1,0 +1,59 @@
+#, elixir-format
+#: lib/torch/views/pagination_view.ex:29
+msgid "< Prev"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/pagination_view.ex:47
+msgid "Next >"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:29 lib/torch/views/filter_view.ex:174
+msgid "Choose one"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:50 lib/torch/views/filter_view.ex:71
+msgid "Equals"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:49
+msgid "Contains"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:72
+msgid "Greater Than"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:73
+msgid "Greater Than Or Equal"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:74
+msgid "Less Than"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:139
+msgid "start"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:146
+msgid "end"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:185
+msgid "Select Start Date"
+msgstr ""
+
+#, elixir-format
+#: lib/torch/views/filter_view.ex:196
+msgid "Select End Date"
+msgstr ""

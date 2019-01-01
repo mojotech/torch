@@ -7,7 +7,7 @@ defmodule Torch.MixProject do
       version: "2.0.0-rc.1",
       elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
-      compilers: [:phoenix] ++ Mix.compilers(),
+      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       name: "Torch",
       description: "Rapid admin generator for Phoenix",
       source_url: "https://github.com/infinitered/torch",
@@ -42,6 +42,7 @@ defmodule Torch.MixProject do
     [
       {:phoenix, "~> 1.3"},
       {:phoenix_html, "~> 2.10"},
+      {:gettext, "~> 0.16"},
       {:scrivener_ecto, ">= 1.2.1"},
       {:filtrex, "~> 0.4.1"},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},

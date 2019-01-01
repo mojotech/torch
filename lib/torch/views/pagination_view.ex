@@ -6,6 +6,7 @@ defmodule Torch.PaginationView do
   use Phoenix.View, root: "lib/torch/templates"
   use Phoenix.HTML
 
+  import Torch.Gettext, only: [dgettext: 2]
   import Torch.TableView
 
   @doc """
@@ -25,7 +26,9 @@ defmodule Torch.PaginationView do
   """
   def prev_link(conn, current_page, sort_opts \\ nil) do
     if current_page != 1 do
-      link("< Prev", to: "?" <> querystring(conn, page: current_page - 1, sort_opts: sort_opts))
+      link(dgettext("default", "< Prev"),
+        to: "?" <> querystring(conn, page: current_page - 1, sort_opts: sort_opts)
+      )
     end
   end
 
@@ -43,12 +46,14 @@ defmodule Torch.PaginationView do
   """
   def next_link(conn, current_page, num_pages, sort_opts \\ nil) do
     if current_page != num_pages do
-      link("Next >", to: "?" <> querystring(conn, page: current_page + 1, sort_opts: sort_opts))
+      link(dgettext("default", "Next >"),
+        to: "?" <> querystring(conn, page: current_page + 1, sort_opts: sort_opts)
+      )
     end
   end
 
   defp start_page(current_page, distance)
-      when current_page - distance <= 0 do
+       when current_page - distance <= 0 do
     1
   end
 

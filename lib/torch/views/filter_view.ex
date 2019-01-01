@@ -5,6 +5,8 @@ defmodule Torch.FilterView do
 
   use Phoenix.HTML
 
+  import Torch.Gettext, only: [dgettext: 2]
+
   @type prefix :: atom | String.t()
   @type field :: atom | String.t()
 
@@ -24,7 +26,7 @@ defmodule Torch.FilterView do
       :"#{field}_equals",
       options,
       value: params[to_string(prefix)]["#{field}_equals"],
-      prompt: "Choose one"
+      prompt: dgettext("default", "Choose one")
     )
   end
 
@@ -44,8 +46,8 @@ defmodule Torch.FilterView do
     {selected, _value} = find_param(params[prefix_str], field)
 
     opts = [
-      {"Contains", "#{prefix}[#{field}_contains]"},
-      {"Equals", "#{prefix}[#{field}_equals]"}
+      {dgettext("default", "Contains"), "#{prefix}[#{field}_contains]"},
+      {dgettext("default", "Equals"), "#{prefix}[#{field}_equals]"}
     ]
 
     select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
@@ -66,10 +68,10 @@ defmodule Torch.FilterView do
     {selected, _value} = find_param(params[prefix_str], field)
 
     opts = [
-      {"Equals", "#{prefix}[#{field}_equals]"},
-      {"Greater Than", "#{prefix}[#{field}_greater_than]"},
-      {"Greater Than Or Equal", "#{prefix}[#{field}_greater_than_or]"},
-      {"Less Than", "#{prefix}[#{field}_less_than]"}
+      {dgettext("default", "Equals"), "#{prefix}[#{field}_equals]"},
+      {dgettext("default", "Greater Than"), "#{prefix}[#{field}_greater_than]"},
+      {dgettext("default", "Greater Than Or Equal"), "#{prefix}[#{field}_greater_than_or]"},
+      {dgettext("default", "Less Than"), "#{prefix}[#{field}_less_than]"}
     ]
 
     select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
@@ -134,14 +136,14 @@ defmodule Torch.FilterView do
       torch_date_input(
         "#{prefix}[#{field}_between][start]",
         get_in(params, [prefix, "#{field}_between", "start"]),
-        "start"
+        dgettext("default", "start")
       )
 
     {:safe, ending} =
       torch_date_input(
         "#{prefix}[#{field}_between][end]",
         get_in(params, [prefix, "#{field}_between", "end"]),
-        "end"
+        dgettext("default", "end")
       )
 
     raw(start ++ ending)
@@ -169,7 +171,7 @@ defmodule Torch.FilterView do
       :"#{field}_equals",
       [{"True", true}, {"False", false}],
       value: value,
-      prompt: "Choose one"
+      prompt: dgettext("default", "Choose one")
     )
   end
 
@@ -180,7 +182,7 @@ defmodule Torch.FilterView do
       class: "datepicker start",
       name: name,
       value: value,
-      placeholder: "Select Start Date"
+      placeholder: dgettext("default", "Select Start Date")
     )
   end
 
@@ -191,7 +193,7 @@ defmodule Torch.FilterView do
       class: "datepicker end",
       name: name,
       value: value,
-      placeholder: "Select End Date"
+      placeholder: dgettext("default", "Select End Date")
     )
   end
 
