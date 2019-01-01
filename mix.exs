@@ -42,7 +42,7 @@ defmodule Torch.MixProject do
     [
       {:phoenix, "~> 1.3"},
       {:phoenix_html, "~> 2.10"},
-      {:gettext, "~> 0.16"},
+      {:gettext, "~> 0.16", override: true},
       {:scrivener_ecto, ">= 1.2.1"},
       {:filtrex, "~> 0.4.1"},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
