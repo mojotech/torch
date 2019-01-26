@@ -10,8 +10,8 @@ defmodule Torch.MixProject do
       compilers: [:phoenix] ++ Mix.compilers(),
       name: "Torch",
       description: "Rapid admin generator for Phoenix",
-      source_url: "https://github.com/infinitered/torch",
-      homepage_url: "https://github.com/infinitered/torch",
+      source_url: "https://github.com/danielberkompas/torch",
+      homepage_url: "https://github.com/danielberkompas/torch",
       test_paths: ["test/mix", "test/torch"],
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
@@ -55,7 +55,7 @@ defmodule Torch.MixProject do
       maintainers: ["Infinite Red"],
       licenses: ["MIT"],
       links: %{
-        "Github" => "https://github.com/infinitered/torch"
+        "Github" => "https://github.com/danielberkompas/torch"
       },
       files: ~w(lib priv mix.exs README.md)
     ]
