@@ -1,7 +1,6 @@
-[![Slackin](https://infiniteredcommunity.herokuapp.com/badge.svg)](https://infiniteredcommunity.herokuapp.com/)
 [![Hex.pm](https://img.shields.io/hexpm/v/torch.svg)](https://hex.pm/packages/torch)
-[![Build Status](https://travis-ci.org/infinitered/torch.svg?branch=master)](https://travis-ci.org/infinitered/torch)
-[![Deps Status](https://beta.hexfaktor.org/badge/all/github/infinitered/torch.svg)](https://beta.hexfaktor.org/github/infinitered/torch)
+[![Build Status](https://travis-ci.org/danielberkompas/torch.svg?branch=master)](https://travis-ci.org/danielberkompas/torch)
+[![Deps Status](https://beta.hexfaktor.org/badge/all/github/danielberkompas/torch.svg)](https://beta.hexfaktor.org/github/danielberkompas/torch)
 
 <p align="center">
   <img width="489" alt="phoenix_torch_logo" src="https://user-images.githubusercontent.com/7085617/37124853-ef17cec8-221e-11e8-97b9-bb6d13188500.png">
@@ -9,8 +8,8 @@
 
 # Torch
 
-🔥 Torch is a rapid admin generator for Phoenix apps. It creates custom templates and relies
-on the Phoenix html generator under the hood. 🔥
+Torch is a rapid admin generator for Phoenix apps. It creates custom templates and relies
+on the Phoenix html generator under the hood.
 
 ![image](https://user-images.githubusercontent.com/7085617/36333572-70e3907e-132c-11e8-9ad2-bd5e98aadc7c.png)
 
@@ -169,10 +168,3 @@ above. Just change the stylesheet link in the `torch.html.eex` layout.
 
 If you want to use the theme, but override the colors, you'll need to include your
 own stylesheet with the specific overrides.
-
-## Premium Support
-
-Torch, as an open source project, is free to use and always will be. [Infinite Red](https://infinite.red) offers premium Torch support and general web &
-mobile app design/development services. Get in touch [here](https://infinite.red/contact) or email us at [hello@infinite.red](mailto:hello@infinite.red).
-
-![Infinite Red Logo](https://infinite.red/images/infinite_red_logo_colored.png)
