@@ -9,8 +9,8 @@ defmodule Example.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      build_path: "../../../../_build",
-      deps_path: "../../../../deps",
+      # build_path: "../../../../_build",
+      # deps_path: "../../../../deps",
       aliases: aliases(),
       deps: deps()
     ]
@@ -37,11 +37,11 @@ defmodule Example.Mixfile do
     [
       {:phoenix, "~> 1.3"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.2"},
+      {:phoenix_ecto, "~> 3.3.0"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:gettext, "~> 0.11"},
+      {:gettext, "~> 0.16"},
       {:cowboy, "~> 1.0"},
       {:torch, path: "../../../../"}
     ]
