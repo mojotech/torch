@@ -17,6 +17,13 @@ defmodule Torch.PaginationViewTest do
       link = prev_link(%Plug.Conn{params: %{}}, current_page) |> safe_to_string()
       assert link =~ "?page=#{current_page - 1}"
     end
+
+    test "internationalization" do
+      assert prev_link(%Plug.Conn{params: %{}}, 2) |> safe_to_string() =~ "Prev"
+
+      set_locale("ru")
+      assert prev_link(%Plug.Conn{params: %{}}, 2) |> safe_to_string() =~ "Предыдущая"
+    end
   end
 
   describe "next_link/4" do
@@ -29,5 +36,16 @@ defmodule Torch.PaginationViewTest do
       link = next_link(%Plug.Conn{params: %{}}, current_page, 2) |> safe_to_string()
       assert link =~ "?page=#{current_page + 1}"
     end
+
+    test "internationalization" do
+      assert next_link(%Plug.Conn{params: %{}}, 1, 2) |> safe_to_string() =~ "Next"
+
+      set_locale("ru")
+      assert next_link(%Plug.Conn{params: %{}}, 1, 2) |> safe_to_string() =~ "Следующая"
+    end
+  end
+
+  defp set_locale(locale) when is_bitstring(locale) do
+    Gettext.put_locale(Torch.Gettext, locale)
   end
 end
