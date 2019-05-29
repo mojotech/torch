@@ -55,8 +55,8 @@ window.onload = () => {
    */
   slice.call(document.querySelectorAll('.torch-nav a'), 0).forEach((field) => {
     let url = window.location.href
-    let text = field.innerHTML.toLowerCase()
-    let regex = RegExp(`\/${text}`)
+    let linkTarget = field.getAttribute("href")
+    let regex = RegExp(linkTarget)
 
     if (regex.test(url)) {
       field.classList.add('active')
