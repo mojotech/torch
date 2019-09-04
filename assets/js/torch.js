@@ -94,7 +94,7 @@ window.onload = () => {
           window.alert(`Please select a start date for the ${text} field`)
           disableFields = true
         } else if (end.value === '' && start.value !== '') {
-          window.alert(`Please select a end at date for the ${text} field`)
+          window.alert(`Please select an end at date for the ${text} field`)
           disableFields = true
         }
       }
