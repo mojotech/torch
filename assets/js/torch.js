@@ -82,7 +82,7 @@ window.onload = () => {
   formFilters.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    let disableFields = false
+    let canSubmit = true
 
     slice.call(this.querySelectorAll('.field'), 0).forEach((field) => {
       let text = field.getElementsByTagName('label')[0].textContent
@@ -92,21 +92,21 @@ window.onload = () => {
       if (start && end) {
         if (start.value === '' && end.value !== '') {
           window.alert(`Please select a start date for the ${text} field`)
-          disableFields = true
+          canSubmit = false
         } else if (end.value === '' && start.value !== '') {
           window.alert(`Please select an end at date for the ${text} field`)
-          disableFields = true
+          canSubmit = false
         }
       }
     })
 
-    slice.call(this.querySelectorAll('input, select'), 0).forEach((field) => {
-      if (field.value === '') {
-        field.disabled = true
-      }
-    })
+    if (canSubmit) {
+      slice.call(this.querySelectorAll('input, select'), 0).forEach((field) => {
+        if (field.value === '') {
+          field.disabled = true
+        }
+      })
 
-    if (!disableFields) {
       e.target.submit()
     }
   })
