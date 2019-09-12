@@ -25,3 +25,5 @@ torch-*.tar
 .elixir_ls/*
 node_modules/
 .DS_Store
+
+.dir-locals.el

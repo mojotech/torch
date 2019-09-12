@@ -1,5 +1,36 @@
 # Change Log
 
+## [v2.0.0-rc.2](https://github.com/danielberkompas/torch/tree/v2.0.0-rc.2) (2019-09-12)
+[Full Changelog](https://github.com/danielberkompas/torch/compare/v2.0.0-rc.1...v2.0.0-rc.2)
+
+**Enahancements:**
+
+- Updated how the active navigation link is calculated [\#106](https://github.com/danielberkompas/torch/pull/106)
+- Added test cases for the mix install task and views
+- Added TravisCI integration
+
+**Fixed bugs:**
+
+- Fix issue where date inputs were disabled after a validation failure
+- Fixed a typo in an alert dialog
+
+**Closed issues:**
+
+- Improve test coverage [\#85](https://github.com/danielberkompas/torch/issues/85)
+- Improve documentation [\#86](https://github.com/danielberkompas/torch/issues/86)
+- Install coveralls [\#88](https://github.com/danielberkompas/torch/issues/88)
+- Filter by has_one association field [\#96](https://github.com/danielberkompas/torch/pull/96)
+- Add I18N support [\#101](https://github.com/danielberkompas/torch/pull/101)
+
+**Merged Pull Requests**
+
+- Improve tests [\#87](https://github.com/danielberkompas/torch/pull/87)
+- Install coveralls [\#88](https://github.com/danielberkompas/torch/pull/88)
+- Modernize webpack [\#95](https://github.com/danielberkompas/torch/pull/95)
+- Add custom has_many filter association example to README [\#97](https://github.com/danielberkompas/torch/pull/97)
+- Add I18N support [\#102](https://github.com/danielberkompas/torch/pull/102)
+- Set active nav link based on link target, not text [\#106](https://github.com/danielberkompas/torch/pull/106)
+
 ## [v2.0.0-rc.1](https://github.com/danielberkompas/torch/tree/v2.0.0-rc.1) (2018-04-13)
 [Full Changelog](https://github.com/danielberkompas/torch/compare/v1.0.0-rc.6...v2.0.0-rc.1)
 
