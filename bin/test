@@ -3,11 +3,20 @@
 MIX_ENV=test mix compile --warnings-as-errors --force || { echo 'Please fix all compiler warnings.'; exit 1; }
 MIX_ENV=test mix credo --strict --ignore design,consistency || { echo 'Elixir code failed Credo linting. See warnings above.'; exit 1; }
 MIX_ENV=test mix docs || { echo 'Elixir HTML docs were not generated!'; exit 1; }
+MIX_ENV=test mix test || { echo 'Elixir tests on Torch failed!'; exit 1; }
 
 if [ $CI ]; then
-  mix coveralls || { echo 'Elixir tests on Torch failed!'; exit 1; }
-else
-  mix test || { echo 'Elixir tests on Torch failed!'; exit 1; }
+  if [ $TRAVIS ]; then
+    echo "----------------------------------------------------------"
+    echo "Running coveralls.travis..."
+    echo "----------------------------------------------------------"
+    mix coveralls.travis || { echo 'Elixir coverage on Torch failed!'; exit 1; }
+  else
+    echo "----------------------------------------------------------"
+    echo "Running coveralls..."
+    echo "----------------------------------------------------------"
+    mix coveralls || { echo 'Elixir coverage on Torch failed!'; exit 1; }
+  fi
 fi
 
 # Run integration tests

@@ -13,4 +13,4 @@ script:
 before_script:
   - psql -c 'create database example_test;' -U postgres
 env:
-  - DATABASE_POSTGRESQL_USERNAME=postgres
+  - MIX_ENV=test DATABASE_POSTGRESQL_USERNAME=postgres
