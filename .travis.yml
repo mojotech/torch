@@ -1,4 +1,6 @@
 language: elixir
+services:
+  - postgresql
 cache:
   directories:
     - $HOME/.mix
@@ -8,3 +10,7 @@ otp_release:
   - 20.1
 script:
   - bin/setup
+before_script:
+  - psql -c 'create database example_test;' -U postgres
+env:
+  - DATABASE_POSTGRESQL_USERNAME=postgres
