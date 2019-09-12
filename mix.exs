@@ -55,7 +55,7 @@ defmodule Torch.MixProject do
 
   defp package do
     [
-      maintainers: ["Mojotech"],
+      maintainers: ["MojoTech"],
       licenses: ["MIT"],
       links: %{
         "Github" => "https://github.com/danielberkompas/torch"
