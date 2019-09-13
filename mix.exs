@@ -4,7 +4,7 @@ defmodule Torch.MixProject do
   def project do
     [
       app: :torch,
-      version: "2.0.0-rc.2",
+      version: "2.0.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
