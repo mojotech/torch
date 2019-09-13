@@ -156,7 +156,7 @@ defmodule Torch.FilterView do
 
       iex> params = %{"post" => %{"draft_equals" => "false"}}
       iex> filter_boolean_input(:post, :draft, params) |> safe_to_string()
-      "<select id=\\"post_draft_equals\\" name=\\"post[draft_equals]\\"><option value=\\"\\">Choose one</option><option value=\\"true\\">True</option><option value=\\"false\\" selected>False</option></select>"
+      "<input name=\\"post[draft_equals]\\" type=\\"hidden\\" value=\\"false\\"><input id=\\"post_draft_equals\\" name=\\"post[draft_equals]\\" type=\\"checkbox\\" value=\\"true\\">"
   """
   @spec filter_boolean_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_boolean_input(prefix, field, params) do
@@ -166,13 +166,7 @@ defmodule Torch.FilterView do
         string when is_binary(string) -> string == "true"
       end
 
-    select(
-      prefix,
-      :"#{field}_equals",
-      [{"True", true}, {"False", false}],
-      value: value,
-      prompt: dgettext("default", "Choose one")
-    )
+    checkbox(prefix, :"#{field}_equals", value: value)
   end
 
   defp torch_date_input(name, value, "start") do
