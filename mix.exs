@@ -10,8 +10,8 @@ defmodule Torch.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       name: "Torch",
       description: "Rapid admin generator for Phoenix",
-      source_url: "https://github.com/danielberkompas/torch",
-      homepage_url: "https://github.com/danielberkompas/torch",
+      source_url: "https://github.com/mojotech/torch",
+      homepage_url: "https://github.com/mojotech/torch",
       test_paths: ["test/mix", "test/torch"],
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
@@ -58,7 +58,7 @@ defmodule Torch.MixProject do
       maintainers: ["MojoTech"],
       licenses: ["MIT"],
       links: %{
-        "Github" => "https://github.com/danielberkompas/torch"
+        "Github" => "https://github.com/mojotech/torch"
       },
       files: ~w(lib priv mix.exs README.md)
     ]
