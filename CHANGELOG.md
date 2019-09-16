@@ -1,35 +1,63 @@
 # Change Log
 
-## [v2.0.0-rc.2](https://github.com/mojotech/torch/tree/v2.0.0-rc.2) (2019-09-12)
-[Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.1...v2.0.0-rc.2)
+## [v2.0.0-rc.3](https://github.com/mojotech/torch/tree/v2.0.0-rc.3) (2019-09-16)
+[Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.2...v2.0.0-rc.3)
 
-**Enahancements:**
+**Implemented enhancements:**
 
-- Updated how the active navigation link is calculated [\#106](https://github.com/mojotech/torch/pull/106)
-- Added test cases for the mix install task and views
-- Added TravisCI integration
-
-**Fixed bugs:**
-
-- Fix issue where date inputs were disabled after a validation failure
-- Fixed a typo in an alert dialog
+- Add a "Starts With" filter option [\#35](https://github.com/mojotech/torch/issues/35)
 
 **Closed issues:**
 
-- Improve test coverage [\#85](https://github.com/mojotech/torch/issues/85)
+- Set torch nav active based on href, not link text [\#105](https://github.com/mojotech/torch/issues/105)
+- Is this library still being maintained? Release to 2.0.0? [\#104](https://github.com/mojotech/torch/issues/104)
+- Phoenix 1.4.2 Breaks Migration Generation [\#103](https://github.com/mojotech/torch/issues/103)
+- No torch.html generated when used with Phoenix 1.4 [\#100](https://github.com/mojotech/torch/issues/100)
+- elixir no route found for GET /torch [\#93](https://github.com/mojotech/torch/issues/93)
+- Edeliver and distillery deployment not working [\#91](https://github.com/mojotech/torch/issues/91)
+- Add Slim templates [\#84](https://github.com/mojotech/torch/issues/84)
+- Boolean fields should default to checkbox inputs [\#68](https://github.com/mojotech/torch/issues/68)
+
+**Merged pull requests:**
+
+- Default boolean filters to checkbox inputs [\#112](https://github.com/mojotech/torch/pull/112) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- \[docs\] Complete MojoTech transfer [\#111](https://github.com/mojotech/torch/pull/111) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Update NPM assets for security warnings [\#110](https://github.com/mojotech/torch/pull/110) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- \[test\] Configure coveralls for TravisCI [\#109](https://github.com/mojotech/torch/pull/109) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
+## [v2.0.0-rc.2](https://github.com/mojotech/torch/tree/v2.0.0-rc.2) (2019-09-12)
+[Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.1...v2.0.0-rc.2)
+
+**Closed issues:**
+
+- Add I18N support [\#101](https://github.com/mojotech/torch/issues/101)
+- Filter by has\_one association field [\#96](https://github.com/mojotech/torch/issues/96)
+- License? [\#94](https://github.com/mojotech/torch/issues/94)
+- test integration with coherence [\#92](https://github.com/mojotech/torch/issues/92)
+- UndefinedFunctionError "module Routes is not available" [\#89](https://github.com/mojotech/torch/issues/89)
 - Improve documentation [\#86](https://github.com/mojotech/torch/issues/86)
-- Install coveralls [\#88](https://github.com/mojotech/torch/issues/88)
-- Filter by has_one association field [\#96](https://github.com/mojotech/torch/pull/96)
-- Add I18N support [\#101](https://github.com/mojotech/torch/pull/101)
+- Improve test coverage [\#85](https://github.com/mojotech/torch/issues/85)
+- Hex version not updated, 2.0.0-alpha fails.  [\#80](https://github.com/mojotech/torch/issues/80)
+- Update path's and configs to work with phoenix 1.3 [\#77](https://github.com/mojotech/torch/issues/77)
+- Properly disable form inputs [\#76](https://github.com/mojotech/torch/issues/76)
+- torch does not work with ecto \>= 2.2.0 [\#75](https://github.com/mojotech/torch/issues/75)
+- NPM package will not install [\#74](https://github.com/mojotech/torch/issues/74)
+- Torch can't find infinite-red-logo [\#73](https://github.com/mojotech/torch/issues/73)
+- Issue with fonts. [\#71](https://github.com/mojotech/torch/issues/71)
+- Example app is currently broken -- Readme contains no instructions for compilation or tests [\#67](https://github.com/mojotech/torch/issues/67)
+- Add Webpack & Brunch Guides [\#62](https://github.com/mojotech/torch/issues/62)
+- Add .npmignore file [\#57](https://github.com/mojotech/torch/issues/57)
 
-**Merged Pull Requests**
+**Merged pull requests:**
 
-- Improve tests [\#87](https://github.com/mojotech/torch/pull/87)
-- Install coveralls [\#88](https://github.com/mojotech/torch/pull/88)
-- Modernize webpack [\#95](https://github.com/mojotech/torch/pull/95)
-- Add custom has_many filter association example to README [\#97](https://github.com/mojotech/torch/pull/97)
-- Add I18N support [\#102](https://github.com/mojotech/torch/pull/102)
-- Set active nav link based on link target, not text [\#106](https://github.com/mojotech/torch/pull/106)
+- Fix disabled inputs and prep for 2.0.0-rc2 [\#108](https://github.com/mojotech/torch/pull/108) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Set active nav link based on link target, not text [\#106](https://github.com/mojotech/torch/pull/106) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Add I18N support. [\#102](https://github.com/mojotech/torch/pull/102) ([solov9ev](https://github.com/solov9ev))
+- Fix start\_page in pagination rendering [\#99](https://github.com/mojotech/torch/pull/99) ([akrisanov](https://github.com/akrisanov))
+- Adds custom has\_many filter association example to Readme [\#97](https://github.com/mojotech/torch/pull/97) ([zberkom](https://github.com/zberkom))
+- Modernize Webpack [\#95](https://github.com/mojotech/torch/pull/95) ([danielberkompas](https://github.com/danielberkompas))
+- Install coveralls [\#88](https://github.com/mojotech/torch/pull/88) ([danielberkompas](https://github.com/danielberkompas))
+- \[\#85\] Improve tests [\#87](https://github.com/mojotech/torch/pull/87) ([danielberkompas](https://github.com/danielberkompas))
 
 ## [v2.0.0-rc.1](https://github.com/mojotech/torch/tree/v2.0.0-rc.1) (2018-04-13)
 [Full Changelog](https://github.com/mojotech/torch/compare/v1.0.0-rc.6...v2.0.0-rc.1)
@@ -59,7 +87,7 @@
 - Enusre form\#filters exists before attempting to add an event listener [\#66](https://github.com/mojotech/torch/pull/66) ([silasjmatson](https://github.com/silasjmatson))
 - \[\#62\] Add the initial version of Brunch & Webpack guides [\#63](https://github.com/mojotech/torch/pull/63) ([zberkom](https://github.com/zberkom))
 - Update Webpack config [\#61](https://github.com/mojotech/torch/pull/61) ([codeithuman](https://github.com/codeithuman))
-- Make `node\_module` requires relative [\#58](https://github.com/mojotech/torch/pull/58) ([mojotech](https://github.com/mojotech))
+- Make `node\_module` requires relative [\#58](https://github.com/mojotech/torch/pull/58) ([danielberkompas](https://github.com/danielberkompas))
 - Add support for read-only fields [\#56](https://github.com/mojotech/torch/pull/56) ([darinwilson](https://github.com/darinwilson))
 - Add ability to set default sort order [\#55](https://github.com/mojotech/torch/pull/55) ([mlaco](https://github.com/mlaco))
 
@@ -89,14 +117,14 @@
 - Fix badge [\#53](https://github.com/mojotech/torch/pull/53) ([GantMan](https://github.com/GantMan))
 - Add premium support note to README.md [\#51](https://github.com/mojotech/torch/pull/51) ([codeithuman](https://github.com/codeithuman))
 - \[fix\] remove padding before code block. [\#50](https://github.com/mojotech/torch/pull/50) ([Debetux](https://github.com/Debetux))
-- Move css, js to idiomatic assets folder [\#49](https://github.com/mojotech/torch/pull/49) ([mojotech](https://github.com/mojotech))
-- \[\#13\] Namespace normalize CSS [\#48](https://github.com/mojotech/torch/pull/48) ([mojotech](https://github.com/mojotech))
+- Move css, js to idiomatic assets folder [\#49](https://github.com/mojotech/torch/pull/49) ([danielberkompas](https://github.com/danielberkompas))
+- \[\#13\] Namespace normalize CSS [\#48](https://github.com/mojotech/torch/pull/48) ([danielberkompas](https://github.com/danielberkompas))
 - Add Slackin badge [\#45](https://github.com/mojotech/torch/pull/45) ([mlaco](https://github.com/mlaco))
 - Add test template [\#44](https://github.com/mojotech/torch/pull/44) ([lboekhorst](https://github.com/lboekhorst))
 - append the lists instead of string concatenation [\#43](https://github.com/mojotech/torch/pull/43) ([hanskenis](https://github.com/hanskenis))
-- Add badges [\#41](https://github.com/mojotech/torch/pull/41) ([mojotech](https://github.com/mojotech))
-- Run ecto.setup in bin/setup [\#40](https://github.com/mojotech/torch/pull/40) ([mojotech](https://github.com/mojotech))
-- \[\#22\] Fix query string [\#39](https://github.com/mojotech/torch/pull/39) ([mojotech](https://github.com/mojotech))
+- Add badges [\#41](https://github.com/mojotech/torch/pull/41) ([danielberkompas](https://github.com/danielberkompas))
+- Run ecto.setup in bin/setup [\#40](https://github.com/mojotech/torch/pull/40) ([danielberkompas](https://github.com/danielberkompas))
+- \[\#22\] Fix query string [\#39](https://github.com/mojotech/torch/pull/39) ([danielberkompas](https://github.com/danielberkompas))
 - Reorganize repo as a lib with example, rather than an umbrella app [\#33](https://github.com/mojotech/torch/pull/33) ([darinwilson](https://github.com/darinwilson))
 
 ## [v1.0.0-rc.5](https://github.com/mojotech/torch/tree/v1.0.0-rc.5) (2016-10-28)
@@ -147,15 +175,15 @@
 - Fixes for initial setup [\#16](https://github.com/mojotech/torch/pull/16) ([darinwilson](https://github.com/darinwilson))
 - Fix README errors [\#15](https://github.com/mojotech/torch/pull/15) ([darinwilson](https://github.com/darinwilson))
 - Fix out-of-date filtrex dependency [\#14](https://github.com/mojotech/torch/pull/14) ([darinwilson](https://github.com/darinwilson))
-- Add Credo for linting [\#7](https://github.com/mojotech/torch/pull/7) ([mojotech](https://github.com/mojotech))
+- Add Credo for linting [\#7](https://github.com/mojotech/torch/pull/7) ([danielberkompas](https://github.com/danielberkompas))
 
 ## [v1.0.0-rc.1](https://github.com/mojotech/torch/tree/v1.0.0-rc.1) (2016-07-15)
 [Full Changelog](https://github.com/mojotech/torch/compare/v0.2.0-rc.5...v1.0.0-rc.1)
 
 **Merged pull requests:**
 
-- Slim support [\#6](https://github.com/mojotech/torch/pull/6) ([mojotech](https://github.com/mojotech))
-- Boolean Filters, Association Support [\#5](https://github.com/mojotech/torch/pull/5) ([mojotech](https://github.com/mojotech))
+- Slim support [\#6](https://github.com/mojotech/torch/pull/6) ([danielberkompas](https://github.com/danielberkompas))
+- Boolean Filters, Association Support [\#5](https://github.com/mojotech/torch/pull/5) ([danielberkompas](https://github.com/danielberkompas))
 - Add filter UI [\#4](https://github.com/mojotech/torch/pull/4) ([codeithuman](https://github.com/codeithuman))
 - Add table styles [\#3](https://github.com/mojotech/torch/pull/3) ([codeithuman](https://github.com/codeithuman))
 - Add toolbar styles [\#2](https://github.com/mojotech/torch/pull/2) ([codeithuman](https://github.com/codeithuman))
