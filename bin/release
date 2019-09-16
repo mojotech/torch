@@ -5,7 +5,7 @@ print "> "
 version = gets.gsub(/\n/, "")
 
 continue = system "git add ."
-continue = system "git commit -am \"Release version #{version}\"" if continue
+continue = system "git commit -m \"Release version #{version}\"" if continue
 continue = system "git tag v#{version}" if continue
 continue = system "git push" if continue
 continue = system "git push -f origin v#{version}" if continue
