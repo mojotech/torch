@@ -27,3 +27,4 @@ node_modules/
 .DS_Store
 
 .dir-locals.el
+.env
