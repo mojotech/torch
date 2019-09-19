@@ -1,5 +1,17 @@
 # Change Log
 
+## [v2.0.0](https://github.com/mojotech/torch/tree/v2.0.0) (2019-09-19)
+[Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.3...v2.0.0)
+
+**Closed issues:**
+
+- Boolean fields should default to checkbox inputs [\#68](https://github.com/mojotech/torch/issues/68)
+
+**Merged pull requests:**
+
+- Default boolean filters to checkbox inputs [\#112](https://github.com/mojotech/torch/pull/112) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Update NPM assets for security warnings [\#110](https://github.com/mojotech/torch/pull/110) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
 ## [v2.0.0-rc.3](https://github.com/mojotech/torch/tree/v2.0.0-rc.3) (2019-09-16)
 [Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.2...v2.0.0-rc.3)
 
@@ -16,13 +28,10 @@
 - elixir no route found for GET /torch [\#93](https://github.com/mojotech/torch/issues/93)
 - Edeliver and distillery deployment not working [\#91](https://github.com/mojotech/torch/issues/91)
 - Add Slim templates [\#84](https://github.com/mojotech/torch/issues/84)
-- Boolean fields should default to checkbox inputs [\#68](https://github.com/mojotech/torch/issues/68)
 
 **Merged pull requests:**
 
-- Default boolean filters to checkbox inputs [\#112](https://github.com/mojotech/torch/pull/112) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - \[docs\] Complete MojoTech transfer [\#111](https://github.com/mojotech/torch/pull/111) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Update NPM assets for security warnings [\#110](https://github.com/mojotech/torch/pull/110) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - \[test\] Configure coveralls for TravisCI [\#109](https://github.com/mojotech/torch/pull/109) ([cpjolicoeur](https://github.com/cpjolicoeur))
 
 ## [v2.0.0-rc.2](https://github.com/mojotech/torch/tree/v2.0.0-rc.2) (2019-09-12)
