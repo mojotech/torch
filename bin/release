@@ -4,14 +4,18 @@ puts "What version number do you want to release?"
 print "> "
 version = gets.gsub(/\n/, "")
 
-continue = system "git commit -am \"Release version #{version}\"" if continue
+continue = system "git commit -am \"Release version #{version}\""
 continue = system "git tag v#{version}" if continue
 continue = system "git push" if continue
 continue = system "git push -f origin v#{version}" if continue
 continue = system "mix hex.publish" if continue
 continue = system "mix hex.publish docs" if continue
-continue = system "github_changelog_generator"
+continue = system "github_changelog_generator" if continue
 continue = system "git commit -am \"Update changelog for version #{version}\"" if continue
 continue = system "git push" if continue
 
-puts "Version #{version} was successfully released!"
+if continue
+  puts "Version #{version} was successfully released!"
+else
+  puts "Version #{version} failed releas process!"
+end
