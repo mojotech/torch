@@ -48,7 +48,7 @@ defmodule Torch.MixProject do
       {:timex, "~> 3.1"},
       {:jason, ">= 0.0.0", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
-      {:credo, "~> 0.5", only: [:dev, :test]},
+      {:credo, "~> 1.1", only: [:dev, :test]},
       {:ex_doc, ">= 0.0.0", only: [:dev, :test]}
     ]
   end
