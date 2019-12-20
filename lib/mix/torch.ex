@@ -75,6 +75,6 @@ defmodule Mix.Torch do
   end
 
   def remove_templates(template_dir) do
-    File.rm("priv/templates/#{template_dir}/")
+    File.rm_rf("priv/templates/#{template_dir}/")
   end
 end
