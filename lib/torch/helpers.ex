@@ -36,7 +36,7 @@ defmodule Torch.Helpers do
   end
 
   @doc """
-  Paginates a given `Ecto.Queryable` using Scrivener.
+  Paginates a given `Ecto.Queryable` using Scrivener.
 
   This is a very thin wrapper around `Scrivener.paginate/2`, so see [the Scrivener
   Ecto documentation](https://github.com/drewolson/scrivener_ecto) for more details.
