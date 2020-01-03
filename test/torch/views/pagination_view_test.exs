@@ -14,15 +14,15 @@ defmodule Torch.PaginationViewTest do
 
     test "when current page is more than 1" do
       current_page = 2
-      link = prev_link(%Plug.Conn{params: %{}}, current_page) |> safe_to_string()
+      link = %Plug.Conn{params: %{}} |> prev_link(current_page) |> safe_to_string()
       assert link =~ "?page=#{current_page - 1}"
     end
 
     test "internationalization" do
-      assert prev_link(%Plug.Conn{params: %{}}, 2) |> safe_to_string() =~ "Prev"
+      assert %Plug.Conn{params: %{}} |> prev_link(2) |> safe_to_string() =~ "Prev"
 
       set_locale("ru")
-      assert prev_link(%Plug.Conn{params: %{}}, 2) |> safe_to_string() =~ "Предыдущая"
+      assert %Plug.Conn{params: %{}} |> prev_link(2) |> safe_to_string() =~ "Предыдущая"
     end
   end
 
@@ -33,15 +33,15 @@ defmodule Torch.PaginationViewTest do
 
     test "when current page is more than num pages" do
       current_page = 1
-      link = next_link(%Plug.Conn{params: %{}}, current_page, 2) |> safe_to_string()
+      link = %Plug.Conn{params: %{}} |> next_link(current_page, 2) |> safe_to_string()
       assert link =~ "?page=#{current_page + 1}"
     end
 
     test "internationalization" do
-      assert next_link(%Plug.Conn{params: %{}}, 1, 2) |> safe_to_string() =~ "Next"
+      assert %Plug.Conn{params: %{}} |> next_link(1, 2) |> safe_to_string() =~ "Next"
 
       set_locale("ru")
-      assert next_link(%Plug.Conn{params: %{}}, 1, 2) |> safe_to_string() =~ "Следующая"
+      assert %Plug.Conn{params: %{}} |> next_link(1, 2) |> safe_to_string() =~ "Следующая"
     end
   end
 
