@@ -15,6 +15,9 @@ defmodule Mix.Tasks.Torch.Gen.Html do
   def run(args) do
     %{format: format} = Mix.Torch.parse_config!("torch.gen.html", args)
 
+    # First, backup the projects existing templates if they exist
+    Enum.each(@commands, &Mix.Torch.backup_project_templates/1)
+
     # Inject the torch templates for the generator into the priv/
     # directory so they will be picked up by the Phoenix generator
     Enum.each(@commands, &Mix.Torch.inject_templates(&1, format))
@@ -25,6 +28,9 @@ defmodule Mix.Tasks.Torch.Gen.Html do
     # Remove the injected templates from priv/ so they will not
     # affect future Phoenix generator commands
     Enum.each(@commands, &Mix.Torch.remove_templates/1)
+
+    # Restore the projects existing templates if present
+    Enum.each(@commands, &Mix.Torch.restore_project_templates/1)
 
     Mix.shell().info("""
     Ensure the following is added to your endpoint.ex:

@@ -74,7 +74,15 @@ defmodule Mix.Torch do
     ])
   end
 
+  def backup_project_templates(mix_task_name) do
+    File.rename("priv/templates/#{mix_task_name}", "priv/templates/#{mix_task_name}_backup")
+  end
+
+  def restore_project_templates(mix_task_name) do
+    File.rename("priv/templates/#{mix_task_name}_backup", "priv/templates/#{mix_task_name}")
+  end
+
   def remove_templates(template_dir) do
-    File.rm("priv/templates/#{template_dir}/")
+    File.rm_rf("priv/templates/#{template_dir}/")
   end
 end
