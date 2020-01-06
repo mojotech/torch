@@ -1,6 +1,22 @@
-# Change Log
+# Changelog
+
+## [v2.1.0](https://github.com/mojotech/torch/tree/v2.1.0) (2020-01-06)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0...v2.1.0)
+
+**Merged pull requests:**
+
+- Properly backup and restore project templates for torch.gen.html task [\#126](https://github.com/mojotech/torch/pull/126) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump excoveralls from 0.11.2 to 0.12.1 [\#124](https://github.com/mojotech/torch/pull/124) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump gettext from 0.17.0 to 0.17.1 [\#123](https://github.com/mojotech/torch/pull/123) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump credo from 0.10.2 to 1.1.5 [\#121](https://github.com/mojotech/torch/pull/121) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump phoenix\_html from 2.13.1 to 2.13.3 [\#120](https://github.com/mojotech/torch/pull/120) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump gettext from 0.16.1 to 0.17.0 [\#117](https://github.com/mojotech/torch/pull/117) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.19.3 to 0.21.2 [\#116](https://github.com/mojotech/torch/pull/116) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump excoveralls from 0.10.4 to 0.11.2 [\#114](https://github.com/mojotech/torch/pull/114) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v2.0.0](https://github.com/mojotech/torch/tree/v2.0.0) (2019-09-19)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.3...v2.0.0)
 
 **Closed issues:**
@@ -13,6 +29,7 @@
 - Update NPM assets for security warnings [\#110](https://github.com/mojotech/torch/pull/110) ([cpjolicoeur](https://github.com/cpjolicoeur))
 
 ## [v2.0.0-rc.3](https://github.com/mojotech/torch/tree/v2.0.0-rc.3) (2019-09-16)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.2...v2.0.0-rc.3)
 
 **Implemented enhancements:**
@@ -35,6 +52,7 @@
 - \[test\] Configure coveralls for TravisCI [\#109](https://github.com/mojotech/torch/pull/109) ([cpjolicoeur](https://github.com/cpjolicoeur))
 
 ## [v2.0.0-rc.2](https://github.com/mojotech/torch/tree/v2.0.0-rc.2) (2019-09-12)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0-rc.1...v2.0.0-rc.2)
 
 **Closed issues:**
@@ -69,6 +87,7 @@
 - \[\#85\] Improve tests [\#87](https://github.com/mojotech/torch/pull/87) ([danielberkompas](https://github.com/danielberkompas))
 
 ## [v2.0.0-rc.1](https://github.com/mojotech/torch/tree/v2.0.0-rc.1) (2018-04-13)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v1.0.0-rc.6...v2.0.0-rc.1)
 
 **Implemented enhancements:**
@@ -101,6 +120,7 @@
 - Add ability to set default sort order [\#55](https://github.com/mojotech/torch/pull/55) ([mlaco](https://github.com/mlaco))
 
 ## [v1.0.0-rc.6](https://github.com/mojotech/torch/tree/v1.0.0-rc.6) (2017-05-03)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v1.0.0-rc.5...v1.0.0-rc.6)
 
 **Fixed bugs:**
@@ -137,6 +157,7 @@
 - Reorganize repo as a lib with example, rather than an umbrella app [\#33](https://github.com/mojotech/torch/pull/33) ([darinwilson](https://github.com/darinwilson))
 
 ## [v1.0.0-rc.5](https://github.com/mojotech/torch/tree/v1.0.0-rc.5) (2016-10-28)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v1.0.0-rc.4...v1.0.0-rc.5)
 
 **Merged pull requests:**
@@ -144,6 +165,7 @@
 - Upgrade to latest version of Credo [\#30](https://github.com/mojotech/torch/pull/30) ([darinwilson](https://github.com/darinwilson))
 
 ## [v1.0.0-rc.4](https://github.com/mojotech/torch/tree/v1.0.0-rc.4) (2016-09-27)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v1.0.0-rc.3...v1.0.0-rc.4)
 
 **Fixed bugs:**
@@ -157,6 +179,7 @@
 - Fix `end\_page/3` math issue [\#27](https://github.com/mojotech/torch/pull/27) ([codeithuman](https://github.com/codeithuman))
 
 ## [v1.0.0-rc.3](https://github.com/mojotech/torch/tree/v1.0.0-rc.3) (2016-09-19)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v1.0.0-rc.2...v1.0.0-rc.3)
 
 **Closed issues:**
@@ -168,6 +191,7 @@
 - Restrict pagination links to groups of 10 [\#23](https://github.com/mojotech/torch/pull/23) ([darinwilson](https://github.com/darinwilson))
 
 ## [v1.0.0-rc.2](https://github.com/mojotech/torch/tree/v1.0.0-rc.2) (2016-08-15)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v1.0.0-rc.1...v1.0.0-rc.2)
 
 **Closed issues:**
@@ -187,6 +211,7 @@
 - Add Credo for linting [\#7](https://github.com/mojotech/torch/pull/7) ([danielberkompas](https://github.com/danielberkompas))
 
 ## [v1.0.0-rc.1](https://github.com/mojotech/torch/tree/v1.0.0-rc.1) (2016-07-15)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v0.2.0-rc.5...v1.0.0-rc.1)
 
 **Merged pull requests:**
@@ -199,21 +224,29 @@
 - Add CSS structure and header styles [\#1](https://github.com/mojotech/torch/pull/1) ([codeithuman](https://github.com/codeithuman))
 
 ## [v0.2.0-rc.5](https://github.com/mojotech/torch/tree/v0.2.0-rc.5) (2016-06-28)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v0.2.0-rc.4...v0.2.0-rc.5)
 
 ## [v0.2.0-rc.4](https://github.com/mojotech/torch/tree/v0.2.0-rc.4) (2016-06-28)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v0.2.0-rc.3...v0.2.0-rc.4)
 
 ## [v0.2.0-rc.3](https://github.com/mojotech/torch/tree/v0.2.0-rc.3) (2016-06-28)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/0.2.0-rc.2...v0.2.0-rc.3)
 
 ## [0.2.0-rc.2](https://github.com/mojotech/torch/tree/0.2.0-rc.2) (2016-06-28)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/0.2.0-rc.1...0.2.0-rc.2)
 
 ## [0.2.0-rc.1](https://github.com/mojotech/torch/tree/0.2.0-rc.1) (2016-06-28)
+
 [Full Changelog](https://github.com/mojotech/torch/compare/v0.1.0...0.2.0-rc.1)
 
 ## [v0.1.0](https://github.com/mojotech/torch/tree/v0.1.0) (2016-06-27)
 
+[Full Changelog](https://github.com/mojotech/torch/compare/0dbb20ebe44ecfe2796af1d54659c2424803790e...v0.1.0)
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*

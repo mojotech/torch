@@ -8,6 +8,7 @@ continue = system "git commit -am \"Release version #{version}\""
 continue = system "git tag v#{version}" if continue
 continue = system "git push" if continue
 continue = system "git push -f origin v#{version}" if continue
+continue = system "mix deps.get" if continue
 continue = system "mix hex.publish" if continue
 continue = system "mix hex.publish docs" if continue
 continue = system "github_changelog_generator" if continue
