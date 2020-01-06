@@ -17,5 +17,5 @@ continue = system "git push" if continue
 if continue
   puts "Version #{version} was successfully released!"
 else
-  puts "Version #{version} failed releas process!"
+  puts "Version #{version} failed release process!"
 end
