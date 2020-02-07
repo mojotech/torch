@@ -1,5 +1,25 @@
 # Changelog
 
+## [v3.0.0](https://github.com/mojotech/torch/tree/v3.0.0) (2020-02-07)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v2.1.0...v3.0.0)
+
+** Note **
+
+Explicit support for Elixir 1.5, 1.6 and 1.7 was dropped.  Torch was not testing
+against these older versions in CI, and while Torch currently will still work on
+those versions, we are explicity dropping official support for them since we do
+not and will not be testing the builds against them.
+
+This is why the major version number of Torch was jumped from 2.x to 3.x.  The
+new 3.x version is still fully backwards-compatible with the 2.x version; we
+only bumped the major version number to be explicit about the change of
+supported Elixir runtimes.
+
+**Merged pull requests:**
+
+- Add new date filter options and input [\#134](https://github.com/mojotech/torch/pull/134) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
 ## [v2.1.0](https://github.com/mojotech/torch/tree/v2.1.0) (2020-01-06)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v2.0.0...v2.1.0)
