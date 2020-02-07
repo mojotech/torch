@@ -7,10 +7,16 @@ cache:
 elixir:
   - 1.8.1
   - 1.9.1
+  - 1.10.0
 otp_release:
-  - 20.3
   - 21.3
-  - 22.0
+  - 22.2
+jobs:
+  include:
+    - elixir: '1.8.1'
+      otp_release: '20.3'
+    - elixir: '1.9.1'
+      otp_release: '20.3'
 script:
   - bin/setup
 before_script:
