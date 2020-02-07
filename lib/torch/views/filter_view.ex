@@ -54,6 +54,29 @@ defmodule Torch.FilterView do
   end
 
   @doc """
+  Generates a "before/after" filter type select box for a given `date` or
+  `datetime` field.
+
+  ## Example
+
+      iex> params = %{"post" => %{"updated_at_after" => "01/01/2019"}}
+      ...> filter_date_select(:post, :updated_at, params) |> safe_to_string()
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[updated_at_before]\\">Before</option><option value=\\"post[updated_at_after]\\" selected>After</option></select>"
+  """
+  @spec filter_date_select(prefix, field, map) :: Phoenix.HTML.safe()
+  def filter_date_select(prefix, field, params) do
+    prefix_str = to_string(prefix)
+    {selected, _value} = find_param(params[prefix_str], field)
+
+    opts = [
+      {dgettext("default", "Before"), "#{prefix}[#{field}_before]"},
+      {dgettext("default", "After"), "#{prefix}[#{field}_after]"}
+    ]
+
+    select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
+  end
+
+  @doc """
   Generates a number filter type select box for a given `number` field.
 
   ## Example
