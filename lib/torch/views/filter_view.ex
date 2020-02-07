@@ -9,6 +9,7 @@ defmodule Torch.FilterView do
 
   @type prefix :: atom | String.t()
   @type field :: atom | String.t()
+  @type input_type :: atom | String.t()
 
   @doc """
   Generates a select box for a `belongs_to` association.
@@ -149,9 +150,23 @@ defmodule Torch.FilterView do
       iex> params = %{"post" => %{"inserted_at_between" => %{"start" => "01/01/2018", "end" => "01/31/2018"}}}
       ...> filter_date_input(:post, :inserted_at, params) |> safe_to_string()
       "<input class=\\"datepicker start\\" name=\\"post[inserted_at_between][start]\\" placeholder=\\"Select Start Date\\" type=\\"text\\" value=\\"01/01/2018\\"><input class=\\"datepicker end\\" name=\\"post[inserted_at_between][end]\\" placeholder=\\"Select End Date\\" type=\\"text\\" value=\\"01/31/2018\\">"
+
+      iex> params = %{"post" => %{"inserted_at_between" => %{"start" => "01/01/2018", "end" => "01/31/2018"}}}
+      ...> filter_date_input(:post, :inserted_at, params, :range) |> safe_to_string()
+      "<input class=\\"datepicker start\\" name=\\"post[inserted_at_between][start]\\" placeholder=\\"Select Start Date\\" type=\\"text\\" value=\\"01/01/2018\\"><input class=\\"datepicker end\\" name=\\"post[inserted_at_between][end]\\" placeholder=\\"Select End Date\\" type=\\"text\\" value=\\"01/31/2018\\">"
+
+      iex> params = %{"post" => %{"inserted_at_before" => "01/01/2018"}}
+      ...> filter_date_input(:post, :inserted_at, params, :select) |> safe_to_string()
+      "<input class=\\"datepicker\\" name=\\"post[inserted_at_before]\\" placeholder=\\"Select Date\\" type=\\"text\\" value=\\"01/01/2018\\">"
+
+      iex> params = %{"post" => %{"inserted_at_after" => "01/01/2018"}}
+      ...> filter_date_input(:post, :inserted_at, params, :select) |> safe_to_string()
+      "<input class=\\"datepicker\\" name=\\"post[inserted_at_after]\\" placeholder=\\"Select Date\\" type=\\"text\\" value=\\"01/01/2018\\">"
   """
-  @spec filter_date_input(prefix, field, map) :: Phoenix.HTML.safe()
-  def filter_date_input(prefix, field, params) do
+  @spec filter_date_input(prefix, field, map, input_type) :: Phoenix.HTML.safe()
+  def filter_date_input(prefix, field, params, input_type \\ :range)
+
+  def filter_date_input(prefix, field, params, :range) do
     prefix = to_string(prefix)
     field = to_string(field)
 
@@ -172,6 +187,19 @@ defmodule Torch.FilterView do
     raw(start ++ ending)
   end
 
+  def filter_date_input(prefix, field, params, :select) do
+    prefix_str = to_string(prefix)
+    {name, value} = find_param(params[prefix_str], field, :date)
+
+    {:safe, date_input} =
+      torch_date_input(
+        "#{prefix}[#{name}]",
+        value
+      )
+
+    raw(date_input)
+  end
+
   @doc """
   Generates a filter select box for a boolean field.
 
@@ -190,6 +218,17 @@ defmodule Torch.FilterView do
       end
 
     checkbox(prefix, :"#{field}_equals", value: value)
+  end
+
+  defp torch_date_input(name, value) do
+    tag(
+      :input,
+      type: "text",
+      class: "datepicker",
+      name: name,
+      value: value,
+      placeholder: dgettext("default", "Select Date")
+    )
   end
 
   defp torch_date_input(name, value, "start") do
@@ -229,6 +268,7 @@ defmodule Torch.FilterView do
     cond do
       result == nil && type == :string -> {"#{pattern}_contains", nil}
       result == nil && type == :number -> {"#{pattern}_equals", nil}
+      result == nil && type == :date -> {"#{pattern}_before", nil}
       result != nil -> result
     end
   end
