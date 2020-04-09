@@ -1,62 +1,75 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: es\n"
+"Plural-Forms: nplurals=2\n"
+
 #, elixir-format
 #: lib/torch/messages_backend.ex:17
 msgid "< Prev"
-msgstr ""
+msgstr "< Prev"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:18
 msgid "Next >"
-msgstr ""
+msgstr "Sig >"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:6
 msgid "Choose one"
-msgstr ""
+msgstr "Elija uno"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:5
 msgid "Equals"
-msgstr ""
+msgstr "Igual a"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:4
 msgid "Contains"
-msgstr ""
+msgstr "Contiene"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:9
 msgid "Greater Than"
-msgstr ""
+msgstr "Mayor a"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:10
 msgid "Greater Than Or Equal"
-msgstr ""
+msgstr "Mayor o igual a"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:11
 msgid "Less Than"
-msgstr ""
+msgstr "Menor a"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:12
 msgid "start"
-msgstr ""
+msgstr "inicio"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:13
 msgid "end"
-msgstr ""
+msgstr "fin"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:15
 msgid "Select Start Date"
-msgstr ""
+msgstr "Seleccione fecha de inicio"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:16
 msgid "Select End Date"
-msgstr ""
+msgstr "Seleccione fecha de fin"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:8
@@ -71,4 +84,4 @@ msgstr ""
 #, elixir-format, fuzzy
 #: lib/torch/messages_backend.ex:14
 msgid "Select Date"
-msgstr ""
+msgstr "Seleccione fecha de fin"
