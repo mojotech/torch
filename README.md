@@ -168,3 +168,46 @@ above. Just change the stylesheet link in the `torch.html.eex` layout.
 
 If you want to use the theme, but override the colors, you'll need to include your
 own stylesheet with the specific overrides.
+
+## Internationalization
+
+Torch comes with `.po` files for `en`, `ru` and `es` locales. If you wish to add more
+translations you can configure it by creating a `MessagesBackend` module and then
+adding it as a configuration on you `config.exs`. You can find the all needed messages
+on [messages_backend.ex](lib/torch/messages_backend.ex).
+
+**Example**
+
+```elixir
+defmodule MyApp.Torch.MessagesBackend do
+  import MyAppWeb.Gettext, only: [dgettext: 2]
+
+  def message("Contains"), do: dgettext("torch", "Contains")
+  def message("Equals"), do: dgettext("torch", "Equals")
+  def message("Choose one"), do: dgettext("torch", "Choose one")
+  def message("Before"), do: dgettext("torch", "Before")
+  def message("After"), do: dgettext("torch", "After")
+  def message("Greater Than"), do: dgettext("torch", "Greater Than")
+  def message("Greater Than Or Equal"), do: dgettext("torch", "Greater Than Or Equal")
+  def message("Less Than"), do: dgettext("torch", "Less Than")
+  def message("start"), do: dgettext("torch", "start")
+  def message("end"), do: dgettext("torch", "end")
+  def message("Select Date"), do: dgettext("torch", "Select Date")
+  def message("Select Start Date"), do: dgettext("torch", "Select Start Date")
+  def message("Select End Date"), do: dgettext("torch", "Select End Date")
+  def message("< Prev"), do: dgettext("torch", "< Prev")
+  def message("Next >"), do: dgettext("torch", "Next >")
+  # ...
+
+  # You can add a fallback so it won't break with new added texts
+  def message(text), do: Torch.MessagesBackend.message(text)
+end
+```
+
+```elixir
+# config.exs
+config :torch,
+  otp_app: :my_app_name,
+  messages_backend: MyApp.Torch.MessagesBackend
+  template_format: "eex" || "slim"
+```

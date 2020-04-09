@@ -10,4 +10,8 @@ defmodule Torch.Config do
   def template_format do
     Application.get_env(:torch, :template_format)
   end
+
+  def messages_backend do
+    Application.get_env(:torch, :messages_backend, Torch.MessagesBackend)
+  end
 end
