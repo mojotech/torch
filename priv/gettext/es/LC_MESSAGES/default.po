@@ -74,12 +74,12 @@ msgstr "Seleccione fecha de fin"
 #, elixir-format
 #: lib/torch/messages_backend.ex:8
 msgid "After"
-msgstr ""
+msgstr "Después de"
 
 #, elixir-format
 #: lib/torch/messages_backend.ex:7
 msgid "Before"
-msgstr ""
+msgstr "Antes de"
 
 #, elixir-format, fuzzy
 #: lib/torch/messages_backend.ex:14
