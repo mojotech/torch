@@ -11,7 +11,7 @@ defmodule Torch.Config do
     Application.get_env(:torch, :template_format)
   end
 
-  def messages_backend do
-    Application.get_env(:torch, :messages_backend, Torch.MessagesBackend)
+  def i18n_backend do
+    Application.get_env(:torch, :i18n_backend, Torch.I18n.Backend)
   end
 end

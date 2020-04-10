@@ -5,7 +5,7 @@ defmodule Torch.FilterView do
 
   use Phoenix.HTML
 
-  import Torch.Config, only: [messages_backend: 0]
+  import Torch.I18n, only: [message: 1]
 
   @type prefix :: atom | String.t()
   @type field :: atom | String.t()
@@ -27,7 +27,7 @@ defmodule Torch.FilterView do
       :"#{field}_equals",
       options,
       value: params[to_string(prefix)]["#{field}_equals"],
-      prompt: messages_backend().message("Choose one")
+      prompt: message("Choose one")
     )
   end
 
@@ -47,8 +47,8 @@ defmodule Torch.FilterView do
     {selected, _value} = find_param(params[prefix_str], field)
 
     opts = [
-      {messages_backend().message("Contains"), "#{prefix}[#{field}_contains]"},
-      {messages_backend().message("Equals"), "#{prefix}[#{field}_equals]"}
+      {message("Contains"), "#{prefix}[#{field}_contains]"},
+      {message("Equals"), "#{prefix}[#{field}_equals]"}
     ]
 
     select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
@@ -70,8 +70,8 @@ defmodule Torch.FilterView do
     {selected, _value} = find_param(params[prefix_str], field)
 
     opts = [
-      {messages_backend().message("Before"), "#{prefix}[#{field}_before]"},
-      {messages_backend().message("After"), "#{prefix}[#{field}_after]"}
+      {message("Before"), "#{prefix}[#{field}_before]"},
+      {message("After"), "#{prefix}[#{field}_after]"}
     ]
 
     select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
@@ -92,10 +92,10 @@ defmodule Torch.FilterView do
     {selected, _value} = find_param(params[prefix_str], field)
 
     opts = [
-      {messages_backend().message("Equals"), "#{prefix}[#{field}_equals]"},
-      {messages_backend().message("Greater Than"), "#{prefix}[#{field}_greater_than]"},
-      {messages_backend().message("Greater Than Or Equal"), "#{prefix}[#{field}_greater_than_or]"},
-      {messages_backend().message("Less Than"), "#{prefix}[#{field}_less_than]"}
+      {message("Equals"), "#{prefix}[#{field}_equals]"},
+      {message("Greater Than"), "#{prefix}[#{field}_greater_than]"},
+      {message("Greater Than Or Equal"), "#{prefix}[#{field}_greater_than_or]"},
+      {message("Less Than"), "#{prefix}[#{field}_less_than]"}
     ]
 
     select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
@@ -174,14 +174,14 @@ defmodule Torch.FilterView do
       torch_date_input(
         "#{prefix}[#{field}_between][start]",
         get_in(params, [prefix, "#{field}_between", "start"]),
-        messages_backend().message("start")
+        message("start")
       )
 
     {:safe, ending} =
       torch_date_input(
         "#{prefix}[#{field}_between][end]",
         get_in(params, [prefix, "#{field}_between", "end"]),
-        messages_backend().message("end")
+        message("end")
       )
 
     raw(start ++ ending)
@@ -227,7 +227,7 @@ defmodule Torch.FilterView do
       class: "datepicker",
       name: name,
       value: value,
-      placeholder: messages_backend().message("Select Date")
+      placeholder: message("Select Date")
     )
   end
 
@@ -238,7 +238,7 @@ defmodule Torch.FilterView do
       class: "datepicker start",
       name: name,
       value: value,
-      placeholder: messages_backend().message("Select Start Date")
+      placeholder: message("Select Start Date")
     )
   end
 
@@ -249,7 +249,7 @@ defmodule Torch.FilterView do
       class: "datepicker end",
       name: name,
       value: value,
-      placeholder: messages_backend().message("Select End Date")
+      placeholder: message("Select End Date")
     )
   end
 

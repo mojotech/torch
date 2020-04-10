@@ -171,36 +171,32 @@ own stylesheet with the specific overrides.
 
 ## Internationalization
 
-Torch comes with `.po` files for `en`, `ru` and `es` locales. If you wish to add more
-translations you can configure it by creating a `MessagesBackend` module and then
-adding it as a configuration on you `config.exs`. You can find the all needed messages
-on [messages_backend.ex](lib/torch/messages_backend.ex).
+Torch comes with `.po` files for `en`, `ru` and `es` locales.  If you are using
+torch and can provide us with translation files for other languages, please
+submit a Pull Request with the translation file.  We'd love to add as many
+translations as possible.
+
+If you wish to add your own customized translations, you can configure Torch to
+use your own custom `MessagesBackend` and adding it in your Torch configuration 
+settings in `config.exs`. You can find the all messages that can be customized 
+in the default [i18n/backend.ex](lib/torch/i18n/backend.ex) file.
+
+If you are customizing a backend for a "standard" spoken language, please submit
+back a proper `.po` translation file for us to include in the official Torch
+releases so other users can take advantage.
 
 **Example**
 
 ```elixir
-defmodule MyApp.Torch.MessagesBackend do
-  import MyAppWeb.Gettext, only: [dgettext: 2]
+defmodule MyApp.CustomMessagesBackend do
+  def message("Contains"), do: "** CUSTOM Contains **"
+  def message("Equals"), do: "** CUSTOM Equals ****"
+  def message("< Prev"), do: "<--"
+  def message("Next >"), do: "-->"
 
-  def message("Contains"), do: dgettext("torch", "Contains")
-  def message("Equals"), do: dgettext("torch", "Equals")
-  def message("Choose one"), do: dgettext("torch", "Choose one")
-  def message("Before"), do: dgettext("torch", "Before")
-  def message("After"), do: dgettext("torch", "After")
-  def message("Greater Than"), do: dgettext("torch", "Greater Than")
-  def message("Greater Than Or Equal"), do: dgettext("torch", "Greater Than Or Equal")
-  def message("Less Than"), do: dgettext("torch", "Less Than")
-  def message("start"), do: dgettext("torch", "start")
-  def message("end"), do: dgettext("torch", "end")
-  def message("Select Date"), do: dgettext("torch", "Select Date")
-  def message("Select Start Date"), do: dgettext("torch", "Select Start Date")
-  def message("Select End Date"), do: dgettext("torch", "Select End Date")
-  def message("< Prev"), do: dgettext("torch", "< Prev")
-  def message("Next >"), do: dgettext("torch", "Next >")
-  # ...
-
-  # You can add a fallback so it won't break with new added texts
-  def message(text), do: Torch.MessagesBackend.message(text)
+  # You can add a fallback so it won't break with newly added messages or
+  # messages you did not customize
+  def message(text), do: Torch.I18n.Backend.message(text)
 end
 ```
 
@@ -208,6 +204,6 @@ end
 # config.exs
 config :torch,
   otp_app: :my_app_name,
-  messages_backend: MyApp.Torch.MessagesBackend
+  i18n_backend: MyApp.CustomMessagesBackend
   template_format: "eex" || "slim"
 ```

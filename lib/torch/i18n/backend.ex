@@ -1,4 +1,4 @@
-defmodule Torch.MessagesBackend do
+defmodule Torch.I18n.Backend do
   @moduledoc """
   Provides messages for different parts of the package. Can
   also be overridden to include custom translations.
