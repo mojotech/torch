@@ -8,7 +8,7 @@ defmodule Torch.I18nTest do
 
   setup_all do
     on_exit(fn ->
-      Application.put_env(:torch, :i18n_backend, CustomI18nBackend)
+      Application.put_env(:torch, :i18n_backend, Torch.I18N.Backend)
     end)
 
     [i18n_backend: Torch.Config.i18n_backend()]
