@@ -49,7 +49,8 @@ defmodule Torch.MixProject do
       {:jason, ">= 0.0.0", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       {:credo, "~> 1.1", only: [:dev, :test]},
-      {:ex_doc, ">= 0.0.0", only: [:dev, :test]}
+      {:ex_doc, ">= 0.0.0", only: [:dev, :test]},
+      {:ex_unit_notifier, "~> 0.1", only: [:test]}
     ]
   end
 
