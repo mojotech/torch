@@ -1,20 +1,21 @@
 # Changelog
 
+## [v3.1.0](https://github.com/mojotech/torch/tree/v3.1.0) (2020-04-13)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.0.0...v3.1.0)
+
+**Closed issues:**
+
+- Enhance internationalization [\#143](https://github.com/mojotech/torch/issues/143)
+
+**Merged pull requests:**
+
+- Allow configuring a messages backend [\#145](https://github.com/mojotech/torch/pull/145) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Update version in README [\#138](https://github.com/mojotech/torch/pull/138) ([mitchellhenke](https://github.com/mitchellhenke))
+
 ## [v3.0.0](https://github.com/mojotech/torch/tree/v3.0.0) (2020-02-07)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v2.1.0...v3.0.0)
-
-** Note **
-
-Explicit support for Elixir 1.5, 1.6 and 1.7 was dropped.  Torch was not testing
-against these older versions in CI, and while Torch currently will still work on
-those versions, we are explicity dropping official support for them since we do
-not and will not be testing the builds against them.
-
-This is why the major version number of Torch was jumped from 2.x to 3.x.  The
-new 3.x version is still fully backwards-compatible with the 2.x version; we
-only bumped the major version number to be explicit about the change of
-supported Elixir runtimes.
 
 **Merged pull requests:**
 
@@ -104,7 +105,6 @@ supported Elixir runtimes.
 - Adds custom has\_many filter association example to Readme [\#97](https://github.com/mojotech/torch/pull/97) ([zberkom](https://github.com/zberkom))
 - Modernize Webpack [\#95](https://github.com/mojotech/torch/pull/95) ([danielberkompas](https://github.com/danielberkompas))
 - Install coveralls [\#88](https://github.com/mojotech/torch/pull/88) ([danielberkompas](https://github.com/danielberkompas))
-- \[\#85\] Improve tests [\#87](https://github.com/mojotech/torch/pull/87) ([danielberkompas](https://github.com/danielberkompas))
 
 ## [v2.0.0-rc.1](https://github.com/mojotech/torch/tree/v2.0.0-rc.1) (2018-04-13)
 
@@ -130,6 +130,7 @@ supported Elixir runtimes.
 
 **Merged pull requests:**
 
+- \[\#85\] Improve tests [\#87](https://github.com/mojotech/torch/pull/87) ([danielberkompas](https://github.com/danielberkompas))
 - Fix date input conflicts [\#82](https://github.com/mojotech/torch/pull/82) ([dalpo](https://github.com/dalpo))
 - Upgrade torch to v2.0 [\#79](https://github.com/mojotech/torch/pull/79) ([zberkom](https://github.com/zberkom))
 - Enusre form\#filters exists before attempting to add an event listener [\#66](https://github.com/mojotech/torch/pull/66) ([silasjmatson](https://github.com/silasjmatson))
@@ -137,7 +138,7 @@ supported Elixir runtimes.
 - Update Webpack config [\#61](https://github.com/mojotech/torch/pull/61) ([codeithuman](https://github.com/codeithuman))
 - Make `node\_module` requires relative [\#58](https://github.com/mojotech/torch/pull/58) ([danielberkompas](https://github.com/danielberkompas))
 - Add support for read-only fields [\#56](https://github.com/mojotech/torch/pull/56) ([darinwilson](https://github.com/darinwilson))
-- Add ability to set default sort order [\#55](https://github.com/mojotech/torch/pull/55) ([mlaco](https://github.com/mlaco))
+- Add ability to set default sort order [\#55](https://github.com/mojotech/torch/pull/55) ([morgandonze](https://github.com/morgandonze))
 
 ## [v1.0.0-rc.6](https://github.com/mojotech/torch/tree/v1.0.0-rc.6) (2017-05-03)
 
@@ -168,7 +169,7 @@ supported Elixir runtimes.
 - \[fix\] remove padding before code block. [\#50](https://github.com/mojotech/torch/pull/50) ([Debetux](https://github.com/Debetux))
 - Move css, js to idiomatic assets folder [\#49](https://github.com/mojotech/torch/pull/49) ([danielberkompas](https://github.com/danielberkompas))
 - \[\#13\] Namespace normalize CSS [\#48](https://github.com/mojotech/torch/pull/48) ([danielberkompas](https://github.com/danielberkompas))
-- Add Slackin badge [\#45](https://github.com/mojotech/torch/pull/45) ([mlaco](https://github.com/mlaco))
+- Add Slackin badge [\#45](https://github.com/mojotech/torch/pull/45) ([morgandonze](https://github.com/morgandonze))
 - Add test template [\#44](https://github.com/mojotech/torch/pull/44) ([lboekhorst](https://github.com/lboekhorst))
 - append the lists instead of string concatenation [\#43](https://github.com/mojotech/torch/pull/43) ([hanskenis](https://github.com/hanskenis))
 - Add badges [\#41](https://github.com/mojotech/torch/pull/41) ([danielberkompas](https://github.com/danielberkompas))
