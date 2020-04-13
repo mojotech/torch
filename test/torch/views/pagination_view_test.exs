@@ -19,10 +19,13 @@ defmodule Torch.PaginationViewTest do
     end
 
     test "internationalization" do
-      assert %Plug.Conn{params: %{}} |> prev_link(2) |> safe_to_string() =~ "Prev"
+      assert %Plug.Conn{params: %{}} |> prev_link(2) |> safe_to_string() =~ "&lt; Prev"
 
       set_locale("ru")
       assert %Plug.Conn{params: %{}} |> prev_link(2) |> safe_to_string() =~ "Предыдущая"
+
+      set_locale("es")
+      assert %Plug.Conn{params: %{}} |> prev_link(2) |> safe_to_string() =~ "&lt; Prev"
     end
   end
 
@@ -38,10 +41,13 @@ defmodule Torch.PaginationViewTest do
     end
 
     test "internationalization" do
-      assert %Plug.Conn{params: %{}} |> next_link(1, 2) |> safe_to_string() =~ "Next"
+      assert %Plug.Conn{params: %{}} |> next_link(1, 2) |> safe_to_string() =~ "Next &gt;"
 
       set_locale("ru")
       assert %Plug.Conn{params: %{}} |> next_link(1, 2) |> safe_to_string() =~ "Следующая"
+
+      set_locale("es")
+      assert %Plug.Conn{params: %{}} |> next_link(1, 2) |> safe_to_string() =~ "Sig &gt;"
     end
   end
 

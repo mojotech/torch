@@ -168,3 +168,42 @@ above. Just change the stylesheet link in the `torch.html.eex` layout.
 
 If you want to use the theme, but override the colors, you'll need to include your
 own stylesheet with the specific overrides.
+
+## Internationalization
+
+Torch comes with `.po` files for `en`, `ru` and `es` locales.  If you are using
+torch and can provide us with translation files for other languages, please
+submit a Pull Request with the translation file.  We'd love to add as many
+translations as possible.
+
+If you wish to add your own customized translations, you can configure Torch to
+use your own custom `MessagesBackend` and adding it in your Torch configuration 
+settings in `config.exs`. You can find the all messages that can be customized 
+in the default [i18n/backend.ex](lib/torch/i18n/backend.ex) file.
+
+If you are customizing a backend for a "standard" spoken language, please submit
+back a proper `.po` translation file for us to include in the official Torch
+releases so other users can take advantage.
+
+**Example**
+
+```elixir
+defmodule MyApp.CustomMessagesBackend do
+  def message("Contains"), do: "** CUSTOM Contains **"
+  def message("Equals"), do: "** CUSTOM Equals ****"
+  def message("< Prev"), do: "<--"
+  def message("Next >"), do: "-->"
+
+  # You can add a fallback so it won't break with newly added messages or
+  # messages you did not customize
+  def message(text), do: Torch.I18n.Backend.message(text)
+end
+```
+
+```elixir
+# config.exs
+config :torch,
+  otp_app: :my_app_name,
+  i18n_backend: MyApp.CustomMessagesBackend
+  template_format: "eex" || "slim"
+```
