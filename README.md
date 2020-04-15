@@ -49,7 +49,9 @@ config :torch,
 
 4. Run `mix torch.install`
 
-NOTE: If you choose to use `slim` templates, you will need to [install Phoenix Slim](https://github.com/slime-lang/phoenix_slime).
+**NOTE:** You can also choose to use `slim` templates, but you will need to
+first [install Phoenix Slim](https://github.com/slime-lang/phoenix_slime) and
+then update your configuration to specify `template_format: "slim"`.
 
 Now you're ready to start generating your admin! :tada:
 
@@ -98,6 +100,17 @@ You will want to update it to include your new navigation link:
 <nav class="torch-nav">
   <a href="/posts">Posts</a>
 </nav>
+```
+
+There may be times when you are adding Torch into an already existing system
+where your application already contains the modules and controllers and you just
+want to use the Torch admin interface.  Since the `torch.gen` mix tasks are just
+wrappers around the existing `phx.gen` tasks, you can use most of the same
+flags.  To add an admin interface for `Posts` in the previous example, where the
+model and controller modules already exist, use the following command:
+
+```bash
+$ mix torch.gen.html Blog Post posts --no-schema --no-context --web Admin title:string body:text published_at:datetime published:boolean views:integer
 ```
 
 ### Association filters
