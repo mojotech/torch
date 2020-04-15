@@ -2,10 +2,6 @@
 [![Build Status](https://travis-ci.org/mojotech/torch.svg?branch=master)](https://travis-ci.org/mojotech/torch)
 [![Coverage Status](https://coveralls.io/repos/github/mojotech/torch/badge.svg?branch=master)](https://coveralls.io/github/mojotech/torch?branch=master)
 
-<p align="center">
-  <img width="489" alt="phoenix_torch_logo" src="https://user-images.githubusercontent.com/7085617/37124853-ef17cec8-221e-11e8-97b9-bb6d13188500.png">
-</p>
-
 # Torch
 
 Torch is a rapid admin generator for Phoenix apps. It creates custom templates and relies
