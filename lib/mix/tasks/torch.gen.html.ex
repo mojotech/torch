@@ -13,6 +13,10 @@ defmodule Mix.Tasks.Torch.Gen.Html do
   @commands ~w[phx.gen.html phx.gen.context]
 
   def run(args) do
+    if Mix.Project.umbrella?() do
+      Mix.raise("mix torch.gen.html can only be run inside an application directory")
+    end
+
     %{format: format} = Mix.Torch.parse_config!("torch.gen.html", args)
 
     # First, backup the projects existing templates if they exist
