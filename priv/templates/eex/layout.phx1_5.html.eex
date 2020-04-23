@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Admin</title>
+    <!-- Uncomment to just use the bare bones torch styles rather than the theme -->
+    <!--<link rel="stylesheet" href="<%= Routes.static_path(@conn, "/torch/base.css") %>">-->
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/torch/theme.css") %>">
+  </head>
+
+  <body class="<%= Torch.PageView.body_classes(@conn) %>">
+    <header>
+      <section id="torch-account-info">
+        <div class="torch-container">
+          <a href="/">user@example.com</a>
+          <a href="/">Logout</a>
+        </div>
+      </section>
+
+      <section id="torch-nav">
+        <div class="torch-container">
+          <div class="torch-logo">
+            <a href="/">
+              <h3>Torch</h3>
+            </a>
+          </div>
+          <nav class="torch-nav">
+            <!-- nav links here -->
+          </nav>
+        </div>
+      </section>
+    </header>
+
+    <%= Torch.FlashView.render("_flash_messages.html", assigns) %>
+    <%= @inner_content %>
+    <script src="<%= Routes.static_path(@conn, "/torch/torch.js") %>"></script>
+  </body>
+</html>
+
