@@ -1,5 +1,25 @@
 # Changelog
 
+## [v3.2.0](https://github.com/mojotech/torch/tree/v3.2.0) (2020-04-24)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.1.0...v3.2.0)
+
+**Closed issues:**
+
+- Can't run the server after installing  torch [\#146](https://github.com/mojotech/torch/issues/146)
+- Generate files into proper umbrella apps [\#83](https://github.com/mojotech/torch/issues/83)
+- Filter select view function should support custom options [\#65](https://github.com/mojotech/torch/issues/65)
+
+**Merged pull requests:**
+
+- Official support for Phoenix 1.5 [\#152](https://github.com/mojotech/torch/pull/152) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Dont allow torch mix tasks from top-level of umbrella app [\#148](https://github.com/mojotech/torch/pull/148) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump credo from 1.1.5 to 1.3.2 [\#142](https://github.com/mojotech/torch/pull/142) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump excoveralls from 0.12.1 to 0.12.3 [\#141](https://github.com/mojotech/torch/pull/141) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.21.2 to 0.21.3 [\#132](https://github.com/mojotech/torch/pull/132) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump gettext from 0.17.1 to 0.17.4 [\#128](https://github.com/mojotech/torch/pull/128) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump timex from 3.5.0 to 3.6.1 [\#118](https://github.com/mojotech/torch/pull/118) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v3.1.0](https://github.com/mojotech/torch/tree/v3.1.0) (2020-04-13)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.0.0...v3.1.0)
@@ -105,6 +125,7 @@
 - Adds custom has\_many filter association example to Readme [\#97](https://github.com/mojotech/torch/pull/97) ([zberkom](https://github.com/zberkom))
 - Modernize Webpack [\#95](https://github.com/mojotech/torch/pull/95) ([danielberkompas](https://github.com/danielberkompas))
 - Install coveralls [\#88](https://github.com/mojotech/torch/pull/88) ([danielberkompas](https://github.com/danielberkompas))
+- \[\#85\] Improve tests [\#87](https://github.com/mojotech/torch/pull/87) ([danielberkompas](https://github.com/danielberkompas))
 
 ## [v2.0.0-rc.1](https://github.com/mojotech/torch/tree/v2.0.0-rc.1) (2018-04-13)
 
@@ -130,7 +151,6 @@
 
 **Merged pull requests:**
 
-- \[\#85\] Improve tests [\#87](https://github.com/mojotech/torch/pull/87) ([danielberkompas](https://github.com/danielberkompas))
 - Fix date input conflicts [\#82](https://github.com/mojotech/torch/pull/82) ([dalpo](https://github.com/dalpo))
 - Upgrade torch to v2.0 [\#79](https://github.com/mojotech/torch/pull/79) ([zberkom](https://github.com/zberkom))
 - Enusre form\#filters exists before attempting to add an event listener [\#66](https://github.com/mojotech/torch/pull/66) ([silasjmatson](https://github.com/silasjmatson))
