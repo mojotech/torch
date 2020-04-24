@@ -117,8 +117,18 @@ window.onload = () => {
     })
   })
 
+  const formatDate = date =>
+        date
+        .toLocaleString('en-us', {year: 'numeric', month: '2-digit', day: '2-digit'})
+        .replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
+
   slice.call(document.querySelectorAll('.datepicker'), 0).forEach((field) => {
-    new Pikaday({field: field, theme: 'torch-datepicker'})
+      new Pikaday({
+          field: field,
+          toString: date => formatDate(date),
+          onSelect: date => field.value = formatDate(date),
+          theme: 'torch-datepicker'
+      })
   })
 
   slice.call(document.querySelectorAll('.torch-flash-close'), 0).forEach((field) => {
