@@ -20,12 +20,12 @@ defmodule Torch.MixCase do
                      shown below or pass it via the `--format` option.
 
                          config :torch,
-                           template_format: :slim
+                           template_format: :slime
 
                          # Alternatively
-                         mix #{unquote(task)} --format slim
+                         mix #{unquote(task)} --format slime
 
-                     Supported formats: eex, slim
+                     Supported formats: eex, slime
                      """,
                      fn ->
                        Mix.Task.rerun(unquote(task), ["--app", "my_app"])

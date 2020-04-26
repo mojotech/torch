@@ -27,7 +27,11 @@ defmodule Mix.Tasks.Torch.Gen.Html do
     Enum.each(@commands, &Mix.Torch.inject_templates(&1, format))
 
     # Run the Phoenix generator
-    Mix.Task.run("phx.gen.html", args)
+    if format == "slime" do
+      Mix.Task.run("phx.gen.html.slime", args)
+    else
+      Mix.Task.run("phx.gen.html", args)
+    end
 
     # Remove the injected templates from priv/ so they will not
     # affect future Phoenix generator commands

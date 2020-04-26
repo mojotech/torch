@@ -6,7 +6,7 @@ defmodule Mix.Torch do
   def parse_config!(task, args) do
     {opts, _, _} = OptionParser.parse(args, switches: [format: :string, app: :string])
 
-    format = opts[:format] || Config.template_format()
+    format = convert_format(opts[:format] || Config.template_format())
     otp_app = opts[:app] || Config.otp_app()
 
     unless otp_app do
@@ -22,18 +22,18 @@ defmodule Mix.Torch do
       """)
     end
 
-    unless format in ["eex", "slim"] do
+    unless format in ["eex", "slime"] do
       Mix.raise("""
       Template format is invalid: #{inspect(format)}. Either configure it as
       shown below or pass it via the `--format` option.
 
           config :torch,
-            template_format: :slim
+            template_format: :slime
 
           # Alternatively
-          mix #{task} --format slim
+          mix #{task} --format slime
 
-      Supported formats: eex, slim
+      Supported formats: eex, slime
       """)
     end
 
@@ -53,13 +53,15 @@ defmodule Mix.Torch do
 
   def inject_templates("phx.gen.html", format) do
     copy_from("priv/templates/#{format}/phx.gen.html", [
+      {"edit.html.eex", "priv/templates/phx.gen.html/edit.html.eex"},
+      {"form.html.eex", "priv/templates/phx.gen.html/form.html.eex"},
+      {"index.html.eex", "priv/templates/phx.gen.html/index.html.eex"},
+      {"new.html.eex", "priv/templates/phx.gen.html/new.html.eex"},
+      {"show.html.eex", "priv/templates/phx.gen.html/show.html.eex"},
+    ])
+    copy_from("priv/templates/common/phx.gen.html", [
       {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
       {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
-      {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.#{format}"},
-      {"form.html.#{format}", "priv/templates/phx.gen.html/form.html.#{format}"},
-      {"index.html.#{format}", "priv/templates/phx.gen.html/index.html.#{format}"},
-      {"new.html.#{format}", "priv/templates/phx.gen.html/new.html.#{format}"},
-      {"show.html.#{format}", "priv/templates/phx.gen.html/show.html.#{format}"},
       {"view.ex", "priv/templates/phx.gen.html/view.ex"}
     ])
   end
@@ -85,4 +87,7 @@ defmodule Mix.Torch do
   def remove_templates(template_dir) do
     File.rm_rf("priv/templates/#{template_dir}/")
   end
+
+  defp convert_format("slim"), do: "slime"
+  defp convert_format(format), do: format
 end
