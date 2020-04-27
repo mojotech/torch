@@ -28,3 +28,5 @@ node_modules/
 
 .dir-locals.el
 .env
+
+shell.nix
