@@ -47,10 +47,7 @@
   end
 
   defp do_paginate_<%= schema.plural %>(filter, params) do
-    <%= inspect schema.alias %>
-    |> Filtrex.query(filter)
-    |> order_by(^sort(params))
-    |> paginate(Repo, params, @pagination)
+    raise "TODO"
   end
 
   @doc """
@@ -63,7 +60,7 @@
 
   """
   def list_<%= schema.plural %> do
-    Repo.all(<%= inspect schema.alias %>)
+    raise "TODO"
   end
 
   @doc """
@@ -80,7 +77,7 @@
       ** (Ecto.NoResultsError)
 
   """
-  def get_<%= schema.singular %>!(id), do: Repo.get!(<%= inspect schema.alias %>, id)
+  def get_<%= schema.singular %>!(id), do: raise "TODO"
 
   @doc """
   Creates a <%= schema.singular %>.
@@ -95,9 +92,7 @@
 
   """
   def create_<%= schema.singular %>(attrs \\ %{}) do
-    %<%= inspect schema.alias %>{}
-    |> <%= inspect schema.alias %>.changeset(attrs)
-    |> Repo.insert()
+    raise "TODO"
   end
 
   @doc """
@@ -113,9 +108,7 @@
 
   """
   def update_<%= schema.singular %>(%<%= inspect schema.alias %>{} = <%= schema.singular %>, attrs) do
-    <%= schema.singular %>
-    |> <%= inspect schema.alias %>.changeset(attrs)
-    |> Repo.update()
+    raise "TODO"
   end
 
   @doc """
@@ -131,7 +124,7 @@
 
   """
   def delete_<%= schema.singular %>(%<%= inspect schema.alias %>{} = <%= schema.singular %>) do
-    Repo.delete(<%= schema.singular %>)
+    raise "TODO"
   end
 
   @doc """
@@ -144,17 +137,9 @@
 
   """
   def change_<%= schema.singular %>(%<%= inspect schema.alias %>{} = <%= schema.singular %>, _attrs \\ %{}) do
-    <%= inspect schema.alias %>.changeset(<%= schema.singular %>, %{})
+    raise "TODO"
   end
 
   defp filter_config(<%= inspect String.to_atom(schema.plural) %>) do
-    defconfig do
-      <%= for {name, type} <- schema.attrs do %><%= cond do %>
-        <% type in [:string, :text] -> %>text <%= inspect name %>
-        <% type in [:integer, :number] -> %>number <%= inspect name %>
-        <% type in [:naive_datetime, :utc_datetime, :datetime, :date] -> %>date <%= inspect name %>
-        <% type in [:boolean] -> %>boolean <%= inspect name %>
-        <% true -> %> #TODO add config for <%= name %> of type <%= type %>
-      <% end %><% end %>
-    end
+    raise "TODO"
   end
