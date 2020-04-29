@@ -142,8 +142,8 @@ Returns an `%Ecto.Changeset{}` for tracking <%= schema.singular %> changes.
     %Ecto.Changeset{source: %<%= inspect schema.alias %>{}}
 
 """
-def change_<%= schema.singular %>(%<%= inspect schema.alias %>{} = <%= schema.singular %>) do
-  <%= inspect schema.alias %>.changeset(<%= schema.singular %>, %{})
+def change_<%= schema.singular %>(%<%= inspect schema.alias %>{} = <%= schema.singular %>, attrs \\ %{}) do
+  <%= inspect schema.alias %>.changeset(<%= schema.singular %>, attrs)
 end
 
 defp filter_config(<%= inspect String.to_atom(schema.plural) %>) do
