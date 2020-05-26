@@ -4,7 +4,11 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   alias <%= inspect context.module %>
   alias <%= inspect schema.module %>
 
+  <%= if Application.spec(:phoenix, :vsn) |> to_string() |> Version.match?(">= 1.4.16") do %>
+  plug(:put_root_layout, {<%= inspect context.web_module %>.LayoutView, "torch.html"})
+  <%= else %>
   plug(:put_layout, {<%= inspect context.web_module %>.LayoutView, "torch.html"})
+  <% end %>
 
   def index(conn, params) do
     case <%= inspect context.alias %>.paginate_<%= schema.plural %>(params) do
