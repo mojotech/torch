@@ -6,7 +6,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
   <%= if Application.spec(:phoenix, :vsn) |> to_string() |> Version.match?(">= 1.4.16") do %>
   plug(:put_root_layout, {<%= inspect context.web_module %>.LayoutView, "torch.html"})
-  <%= else %>
+  <% else %>
   plug(:put_layout, {<%= inspect context.web_module %>.LayoutView, "torch.html"})
   <% end %>
 
