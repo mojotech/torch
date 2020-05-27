@@ -1,0 +1,56 @@
+section#torch-toolbar
+  .torch-container
+    = link "New <%= schema.human_singular %>", to: Routes.<%= schema.route_helper %>_path(@conn, :new)
+section#torch-index-content
+  .torch-container
+    section#torch-filters
+      h3 Find <%= schema.human_plural %>
+      = form_tag @conn.request_path, method: :get, id: "torch-filters-form" do
+      <%= for {key, type} <- schema.attrs, type in [:string, :text] do %>
+        .field
+          label <%= Phoenix.Naming.humanize(Atom.to_string(key)) %>
+          = filter_select(:<%= schema.singular %>, :<%= key %>, @conn.params)
+          = filter_<%= type %>_input(:<%= schema.singular %>, :<%= key %>, @conn.params)
+      <% end %>
+      <%= for {key, type} <- schema.attrs, type in [:boolean] do %>
+        .field
+          label <%= Phoenix.Naming.humanize(Atom.to_string(key)) %>
+          = filter_boolean_input(:<%= schema.singular %>, :<%= key %>, @conn.params)
+      <% end %>
+      <%= for {key, type} <- schema.attrs, type in [:date, :datetime, :utc_datetime, :naive_datetime] do %>
+        .field
+          label <%= Phoenix.Naming.humanize(Atom.to_string(key)) %>
+          = filter_date_input(:<%= schema.singular %>, :<%= key %>, @conn.params)
+      <% end %>
+      <%= for {key, type} <- schema.attrs, type in [:number, :integer] do %>
+        .field
+          label <%= Phoenix.Naming.humanize(Atom.to_string(key)) %>
+          = number_filter_select(:<%= schema.singular %>, :<%= key %>, @conn.params)
+          = filter_number_input(:<%= schema.singular %>, :<%= key %>, @conn.params)
+      <% end %>
+        button.torch-button type="submit"  Search
+        = link "Clear Filters", to: Routes.<%= schema.route_helper %>_path(@conn, :index)
+
+    section#torch-table
+      = if length(@<%= schema.plural %>) > 0 do
+        table
+          thead
+            tr
+            <%= for {k, _} <- schema.attrs do %>
+              th= table_link(@conn, "<%= Phoenix.Naming.humanize(Atom.to_string(k)) %>", <%= inspect(k) %>)
+            <% end %>
+              th
+                span Actions
+          tbody
+          = for <%= schema.singular %> <- @<%= schema.plural %> do
+            tr
+            <%= for {k, _} <- schema.attrs do %>
+              td= <%= schema.singular %>.<%= k %>
+            <% end %>
+              td.torch-actions
+                span= link "Show", to: Routes.<%= schema.route_helper %>_path(@conn, :show, <%= schema.singular %>)
+                span= link "Edit", to: Routes.<%= schema.route_helper %>_path(@conn, :edit, <%= schema.singular %>)
+                span= link "Delete", to: Routes.<%= schema.route_helper %>_path(@conn, :delete, <%= schema.singular %>), method: :delete, data: [confirm: "Are you sure?"]
+        = render Torch.PaginationView, "_pagination.html", assigns
+      - else
+        p.torch-no-data No <%= schema.human_plural %> match your search.
