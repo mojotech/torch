@@ -53,11 +53,11 @@ defmodule Mix.Torch do
 
   def inject_templates("phx.gen.html", format) do
     copy_from("priv/templates/#{format}/phx.gen.html", [
-      {"edit.html.eex", "priv/templates/phx.gen.html/edit.html.eex"},
-      {"form.html.eex", "priv/templates/phx.gen.html/form.html.eex"},
-      {"index.html.eex", "priv/templates/phx.gen.html/index.html.eex"},
-      {"new.html.eex", "priv/templates/phx.gen.html/new.html.eex"},
-      {"show.html.eex", "priv/templates/phx.gen.html/show.html.eex"},
+      {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.eex"},
+      {"form.html.#{format}", "priv/templates/phx.gen.html/form.html.eex"},
+      {"index.html.#{format}", "priv/templates/phx.gen.html/index.html.eex"},
+      {"new.html.#{format}", "priv/templates/phx.gen.html/new.html.eex"},
+      {"show.html.#{format}", "priv/templates/phx.gen.html/show.html.eex"},
     ])
     copy_from("priv/templates/common/phx.gen.html", [
       {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
