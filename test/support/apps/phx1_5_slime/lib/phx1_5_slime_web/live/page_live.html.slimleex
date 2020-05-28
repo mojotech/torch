@@ -1,0 +1,31 @@
+section.phx-hero
+  h1 = gettext "Welcome to %{name}!", name: "Phoenix"
+  p Peace-of-mind from prototype to production
+  form phx-change="suggest" phx-submit="search"
+    input type="text" name="q" value="<%= @query %>" placeholder="Live dependency search" list="results" autocomplete="off"
+    datalist#results
+      = for {app, _vsn} <- @results do
+       option value="#{app}" = app
+    button type="submit" phx-disable-with="Searching..." Go to Hexdocs
+
+section.row
+  article.column
+    h2 Resources
+    ul
+      li
+        a href="https://hexdocs.pm/phoenix/overview.html" Guides &amp; Docs
+      li
+        a href="https://github.com/phoenixframework/phoenix" Source
+      li
+        a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md" v1.5 Changelog
+  article.column
+    h2 Help
+    ul
+      li
+        a href="https://elixirforum.com/c/phoenix-forum" Forum
+      li
+        a href="https://webchat.freenode.net/?channels=elixir-lang" #elixir-lang on Freenode IRC
+      li
+        a href="https://twitter.com/elixirphoenix" Twitter @elixirphoenix
+      li
+        a href="https://elixir-slackin.herokuapp.com/" Elixir on Slack

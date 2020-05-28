@@ -33,3 +33,7 @@ cd "$TEST_ROOT/support/apps/phx1_4" && {
 cd "$TEST_ROOT/support/apps/phx1_5" && {
   bin/test || { echo 'Integration tests on regular Phoenix 1.5 project failed!'; exit 1; }
 }
+
+cd "$TEST_ROOT/support/apps/phx1_5_slime" && {
+  bin/test || { echo 'Integration tests on regular Phoenix 1.5 project with Slime generator failed!'; exit 1; }
+}
