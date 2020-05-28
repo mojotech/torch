@@ -27,18 +27,7 @@ defmodule Mix.Tasks.Torch.Install do
 
     %{format: format, otp_app: otp_app} = Mix.Torch.parse_config!("torch.install", args)
 
-    case Application.load(:phoenix) do
-      :ok ->
-        :ok
-
-      {:error, {:already_loaded, :phoenix}} ->
-        :ok
-
-      {:error, reason} ->
-        Mix.raise(
-          "mix torch.install could not complete due to Phoenix not being loaded: #{reason}"
-        )
-    end
+    Mix.Torch.ensure_phoenix_is_loaded!("torch.install")
 
     phoenix_version = Application.spec(:phoenix, :vsn)
 
