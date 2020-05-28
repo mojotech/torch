@@ -84,6 +84,18 @@ defmodule Torch.Templates do
         {"view.ex", "view.ex", nil}
       ]
 
+      iex> Torch.Templates.get_templates("phx.gen.html", "1.4.0", format: "slime")
+      [
+        {"controller.ex", "controller.ex", nil},
+        {"controller_test.exs", "controller_test.exs", nil},
+        {"edit.html.slime", "edit.html.slime", "slime"},
+        {"form.html.slime", "form.html.slime", "slime"},
+        {"index.html.slime", "index.html.slime", "slime"},
+        {"new.html.slime", "new.html.slime", "slime"},
+        {"show.html.slime", "show.html.slime", "slime"},
+        {"view.ex", "view.ex", nil}
+      ]
+
       iex> Torch.Templates.get_templates("phx.gen.html", "1.5.0")
       [
         {"controller.phx1_5_0.ex", "controller.ex", nil},
@@ -96,9 +108,9 @@ defmodule Torch.Templates do
         {"view.ex", "view.ex", nil}
       ]
 
-      iex> Torch.Templates.get_templates("torch.install", "1.4.0", format: "slim", suffixe: "torch_")
+      iex> Torch.Templates.get_templates("torch.install", "1.4.0", format: "slime", suffixe: "torch_")
       [
-        {"layout.html.slim", "torch_layout.html.slim", "slim"}
+        {"layout.html.slime", "torch_layout.html.slime", "slime"}
       ]
 
       iex> Torch.Templates.get_templates("torch.install", "1.5.0", suffixe: "torch_")

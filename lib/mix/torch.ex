@@ -54,4 +54,7 @@ defmodule Mix.Torch do
         )
     end
   end
+
+  defp convert_format("slim"), do: "slime"
+  defp convert_format(format), do: format
 end
