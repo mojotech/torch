@@ -19,7 +19,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
 
     %{format: format} = Mix.Torch.parse_config!("torch.gen.html", args)
 
-    Mix.Torch.ensure_phoenix_is_loaded("torch.install")
+    Mix.Torch.ensure_phoenix_is_loaded("torch.gen.html")
 
     # First, backup the projects existing templates if they exist
     Enum.each(@commands, &Mix.Torch.backup_project_templates/1)
