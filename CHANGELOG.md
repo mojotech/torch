@@ -1,5 +1,22 @@
 # Change Log
 
+## [v3.3.0](https://github.com/mojotech/torch/tree/v3.3.0) (2020-05-27)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.2.1...v3.3.0)
+
+**Fixed bugs:**
+
+- Fix slime generator [\#157](https://github.com/mojotech/torch/issues/157)
+
+**Closed issues:**
+
+- Pagination error "paginate\_products/1 is undefined or private." [\#163](https://github.com/mojotech/torch/issues/163)
+
+**Merged pull requests:**
+
+- Bump jason from 1.2.0 to 1.2.1 [\#162](https://github.com/mojotech/torch/pull/162) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump gettext from 0.17.4 to 0.18.0 [\#161](https://github.com/mojotech/torch/pull/161) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Fix slime generator [\#156](https://github.com/mojotech/torch/pull/156) ([juanvico](https://github.com/juanvico))
+
 ## [v3.2.1](https://github.com/mojotech/torch/tree/v3.2.1) (2020-04-29)
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.2.0...v3.2.1)
 
@@ -20,11 +37,14 @@
 ## [v3.2.0](https://github.com/mojotech/torch/tree/v3.2.0) (2020-04-24)
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.1.0...v3.2.0)
 
+**Implemented enhancements:**
+
+- Filter select view function should support custom options [\#65](https://github.com/mojotech/torch/issues/65)
+
 **Closed issues:**
 
 - Can't run the server after installing  torch [\#146](https://github.com/mojotech/torch/issues/146)
 - Generate files into proper umbrella apps [\#83](https://github.com/mojotech/torch/issues/83)
-- Filter select view function should support custom options [\#65](https://github.com/mojotech/torch/issues/65)
 
 **Merged pull requests:**
 

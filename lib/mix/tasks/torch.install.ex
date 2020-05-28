@@ -17,7 +17,7 @@ defmodule Mix.Tasks.Torch.Install do
 
   Also accepts `--format` and `--app` options:
 
-      mix torch.install --format slim --app my_app
+      mix torch.install --format slime --app my_app
   """
 
   import Mix.Torch

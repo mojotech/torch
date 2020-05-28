@@ -6,7 +6,7 @@ defmodule Mix.Torch do
   def parse_config!(task, args) do
     {opts, _, _} = OptionParser.parse(args, switches: [format: :string, app: :string])
 
-    format = opts[:format] || Config.template_format()
+    format = convert_format(opts[:format] || Config.template_format())
     otp_app = opts[:app] || Config.otp_app()
 
     unless otp_app do
@@ -22,18 +22,18 @@ defmodule Mix.Torch do
       """)
     end
 
-    unless format in ["eex", "slim"] do
+    unless format in ["eex", "slime"] do
       Mix.raise("""
       Template format is invalid: #{inspect(format)}. Either configure it as
       shown below or pass it via the `--format` option.
 
           config :torch,
-            template_format: :slim
+            template_format: :slime
 
           # Alternatively
-          mix #{task} --format slim
+          mix #{task} --format slime
 
-      Supported formats: eex, slim
+      Supported formats: eex, slime
       """)
     end
 
