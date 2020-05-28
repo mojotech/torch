@@ -51,6 +51,15 @@ defmodule Mix.Torch do
     end
   end
 
+  @doc """
+  Copy templates files depending of the executed mix task.
+
+  As the original mix `phx.gen.html` task (in which the `torch.gen.html` task depends)
+  uses specific templates files (even for slime templates), we partially rename templates files to be even.
+
+  It is why we copy *.slime files as *.eex files but they still remains Slime files
+  and they still be interpreted as such.
+  """
   def inject_templates("phx.gen.html", format) do
     copy_from("priv/templates/#{format}/phx.gen.html", [
       {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.eex"},
