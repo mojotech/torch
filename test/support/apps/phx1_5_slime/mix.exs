@@ -46,8 +46,7 @@ defmodule Phx15Slime.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_slime, "~> 0.13.1"},
-      {:torch, path: "../../../../"},
-      {:cowboy, "~> 2.7.0"}
+      {:torch, path: "../../../../"}
     ]
   end
 
