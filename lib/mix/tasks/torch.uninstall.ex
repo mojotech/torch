@@ -28,7 +28,7 @@ defmodule Mix.Tasks.Torch.Uninstall do
       "priv/templates/phx.gen.context/schema_access.ex",
       "priv/templates/phx.gen.context/test_cases.exs",
       "priv/templates/phx.gen.context/context_test.exs",
-      "lib/#{otp_app}_web/templates/layout/torch.html.#{format}"
+      "lib/#{otp_app}_web/templates/layout/torch_layout.html.#{format}"
     ]
 
     Enum.each(paths, &File.rm/1)
