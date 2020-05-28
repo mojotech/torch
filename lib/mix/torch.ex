@@ -51,14 +51,25 @@ defmodule Mix.Torch do
     end
   end
 
+  @doc """
+  Copy templates files depending of the executed mix task.
+
+  Torch currently supports both EEX and Slime templates.  The underlying mix tasks that
+  Torch uses to generate the templates into a Phoenix projects source code expect to
+  find templates with the `.html.eex` extension, regardless of actual template format.
+
+  This is why this function invocation of `copy_from/2` changes the template file extensions
+  to `.html.eex` reglardess of the original template format type.
+  """
   def inject_templates("phx.gen.html", format) do
     copy_from("priv/templates/#{format}/phx.gen.html", [
-      {"edit.html.eex", "priv/templates/phx.gen.html/edit.html.eex"},
-      {"form.html.eex", "priv/templates/phx.gen.html/form.html.eex"},
-      {"index.html.eex", "priv/templates/phx.gen.html/index.html.eex"},
-      {"new.html.eex", "priv/templates/phx.gen.html/new.html.eex"},
-      {"show.html.eex", "priv/templates/phx.gen.html/show.html.eex"},
+      {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.eex"},
+      {"form.html.#{format}", "priv/templates/phx.gen.html/form.html.eex"},
+      {"index.html.#{format}", "priv/templates/phx.gen.html/index.html.eex"},
+      {"new.html.#{format}", "priv/templates/phx.gen.html/new.html.eex"},
+      {"show.html.#{format}", "priv/templates/phx.gen.html/show.html.eex"}
     ])
+
     copy_from("priv/templates/common/phx.gen.html", [
       {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
       {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
