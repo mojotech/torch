@@ -1,5 +1,5 @@
-defmodule Phx15Web.Router do
-  use Phx15Web, :router
+defmodule Phx15SlimeWeb.Router do
+  use Phx15SlimeWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule Phx15Web.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Phx15Web do
+  scope "/", Phx15SlimeWeb do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -21,7 +21,7 @@ defmodule Phx15Web.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Phx15Web do
+  # scope "/api", Phx15SlimeWeb do
   #   pipe_through :api
   # end
 
@@ -37,7 +37,7 @@ defmodule Phx15Web.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard("/dashboard", metrics: Phx15Web.Telemetry)
+      live_dashboard("/dashboard", metrics: Phx15SlimeWeb.Telemetry)
     end
   end
 end
