@@ -24,9 +24,11 @@ defmodule Mix.Tasks.Torch.Gen.Html do
     # First, backup the projects existing templates if they exist
     Enum.each(@commands, &Mix.Torch.backup_project_templates/1)
 
+    phoenix_version = Application.spec(:phoenix, :vsn)
+
     # Inject the torch templates for the generator into the priv/
     # directory so they will be picked up by the Phoenix generator
-    Enum.each(@commands, &Mix.Torch.inject_templates(&1, format))
+    Enum.each(@commands, &Mix.Torch.inject_templates(&1, format, phoenix_version))
 
     # Run the Phoenix generator
     if format == "slime" do

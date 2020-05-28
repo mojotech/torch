@@ -66,7 +66,10 @@ defmodule Mix.Torch do
     end
   end
 
-  def inject_templates("phx.gen.html", format) do
+  def inject_templates(mix_task, format, phoenix_version) when is_list(phoenix_version),
+       do: inject_templates(mix_task, format, to_string(phoenix_version))
+
+  def inject_templates("phx.gen.html", format, phoenix_version) when is_binary(phoenix_version) do
     copy_from("priv/templates/#{format}/phx.gen.html", [
       {"edit.html.eex", "priv/templates/phx.gen.html/edit.html.eex"},
       {"form.html.eex", "priv/templates/phx.gen.html/form.html.eex"},
@@ -81,7 +84,7 @@ defmodule Mix.Torch do
     ])
   end
 
-  def inject_templates("phx.gen.context", _format) do
+  def inject_templates("phx.gen.context", _format, phoenix_version) when is_binary(phoenix_version) do
     copy_from("priv/templates/phx.gen.context", [
       {"access_no_schema.ex", "priv/templates/phx.gen.context/access_no_schema.ex"},
       {"context.ex", "priv/templates/phx.gen.context/context.ex"},
