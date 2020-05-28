@@ -1,5 +1,18 @@
 # Change Log
 
+## [v3.3.1](https://github.com/mojotech/torch/tree/v3.3.1) (2020-05-28)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.3.0...v3.3.1)
+
+**Fixed bugs:**
+
+- Fix typo in slime generator
+
+**Merged pull requests:**
+
+- Bump timex from 3.6.1 to 3.6.2 [\#167](https://github.com/mojotech/torch/pull/167) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.21.3 to 0.22.1 [\#166](https://github.com/mojotech/torch/pull/166) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump phoenix\_html from 2.13.3 to 2.13.4 [\#165](https://github.com/mojotech/torch/pull/165) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v3.3.0](https://github.com/mojotech/torch/tree/v3.3.0) (2020-05-27)
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.2.1...v3.3.0)
 
