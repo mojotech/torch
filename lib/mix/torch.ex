@@ -70,6 +70,15 @@ defmodule Mix.Torch do
        do: inject_templates(mix_task, format, to_string(phoenix_version))
 
   def inject_templates("phx.gen.html", format, phoenix_version) when is_binary(phoenix_version) do
+    if Version.match?(phoenix_version, ">= 1.5.0") do
+      copy_from("priv/templates/common/phx.gen.html", [
+        {"controller.phx1_5.ex", "priv/templates/phx.gen.html/controller.ex"},
+      ])
+    else
+      copy_from("priv/templates/common/phx.gen.html", [
+        {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
+      ])
+    end
     copy_from("priv/templates/#{format}/phx.gen.html", [
       {"edit.html.eex", "priv/templates/phx.gen.html/edit.html.eex"},
       {"form.html.eex", "priv/templates/phx.gen.html/form.html.eex"},
@@ -79,7 +88,6 @@ defmodule Mix.Torch do
     ])
     copy_from("priv/templates/common/phx.gen.html", [
       {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
-      {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
       {"view.ex", "priv/templates/phx.gen.html/view.ex"}
     ])
   end
