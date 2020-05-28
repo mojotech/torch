@@ -113,6 +113,16 @@ defmodule Torch.Templates do
         {"layout.html.slime", "torch_layout.html.slime", "slime"}
       ]
 
+      iex> Torch.Templates.get_templates("torch.install", "1.5.0", format: "slime", suffixe: "torch_")
+      [
+        {"layout.phx1_5_0.html.slime", "torch_layout.html.slime", "slime"}
+      ]
+
+      iex> Torch.Templates.get_templates("torch.install", "1.4.0", suffixe: "torch_")
+      [
+        {"layout.html.eex", "torch_layout.html.eex", "eex"}
+      ]
+
       iex> Torch.Templates.get_templates("torch.install", "1.5.0", suffixe: "torch_")
       [
         {"layout.phx1_5_0.html.eex", "torch_layout.html.eex", "eex"}
