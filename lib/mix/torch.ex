@@ -40,6 +40,21 @@ defmodule Mix.Torch do
     %{otp_app: otp_app, format: format}
   end
 
+  def ensure_phoenix_is_loaded(mix_task) do
+    case Application.load(:phoenix) do
+      :ok ->
+        :ok
+
+      {:error, {:already_loaded, :phoenix}} ->
+        :ok
+
+      {:error, reason} ->
+        Mix.raise(
+          "mix #{mix_task} could not complete due to Phoenix not being loaded: #{reason}"
+        )
+    end
+  end
+
   def copy_from(source_dir, mapping) when is_list(mapping) do
     for {source_file_path, target_file_path} <- mapping do
       contents =
