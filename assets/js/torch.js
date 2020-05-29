@@ -4,7 +4,7 @@ import Pikaday from 'pikaday'
 // from the dep.
 ;(function () {
   function buildHiddenInput (name, value) {
-    var input = document.createElement('input')
+    const input = document.createElement('input')
     input.type = 'hidden'
     input.name = name
     input.value = value
@@ -17,10 +17,10 @@ import Pikaday from 'pikaday'
       return
     }
 
-    var to = link.getAttribute('data-to'),
-      method = buildHiddenInput('_method', link.getAttribute('data-method')),
-      csrf = buildHiddenInput('_csrf_token', link.getAttribute('data-csrf')),
-      form = document.createElement('form')
+    const to = link.getAttribute('data-to')
+    const method = buildHiddenInput('_method', link.getAttribute('data-method'))
+    const csrf = buildHiddenInput('_csrf_token', link.getAttribute('data-csrf'))
+    const form = document.createElement('form')
 
     form.method = (link.getAttribute('data-method') === 'get') ? 'get' : 'post'
     form.action = to
@@ -54,9 +54,9 @@ window.onload = () => {
    * Set active nav link
    */
   slice.call(document.querySelectorAll('.torch-nav a'), 0).forEach((field) => {
-    let url = window.location.href
-    let linkTarget = field.getAttribute("href")
-    let regex = RegExp(linkTarget)
+    const url = window.location.href
+    const linkTarget = field.getAttribute('href')
+    const regex = RegExp(linkTarget)
 
     if (regex.test(url)) {
       field.classList.add('active')
@@ -68,7 +68,7 @@ window.onload = () => {
    */
   slice.call(document.querySelectorAll('button.torch-flash-close'), 0).forEach((button) => {
     button.addEventListener('click', function () {
-      let flashMessage = button.closest('.torch-flash')
+      const flashMessage = button.closest('.torch-flash')
       flashMessage.parentNode.removeChild(flashMessage)
     })
   })
@@ -85,9 +85,9 @@ window.onload = () => {
     let canSubmit = true
 
     slice.call(this.querySelectorAll('.field'), 0).forEach((field) => {
-      let text = field.getElementsByTagName('label')[0].textContent
-      let start = field.getElementsByClassName('start')[0]
-      let end = field.getElementsByClassName('end')[0]
+      const text = field.getElementsByTagName('label')[0].textContent
+      const start = field.getElementsByClassName('start')[0]
+      const end = field.getElementsByClassName('end')[0]
 
       if (start && end) {
         if (start.value === '' && end.value !== '') {
@@ -118,25 +118,26 @@ window.onload = () => {
   })
 
   const formatDate = date =>
-        date
-        .toLocaleString('en-us', {year: 'numeric', month: '2-digit', day: '2-digit'})
-        .replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
+    date
+      .toLocaleString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' })
+      .replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
 
+  /* eslint-disable no-new */
   slice.call(document.querySelectorAll('.datepicker'), 0).forEach((field) => {
-      new Pikaday({
-          field: field,
-          toString: date => formatDate(date),
-          onSelect: date => field.value = formatDate(date),
-          theme: 'torch-datepicker'
-      })
+    new Pikaday({
+      field: field,
+      toString: date => formatDate(date),
+      onSelect: date => (field.value = formatDate(date)),
+      theme: 'torch-datepicker'
+    })
   })
+  /* eslint-enable no-new */
 
   slice.call(document.querySelectorAll('.torch-flash-close'), 0).forEach((field) => {
     field.addEventListener('click', function (e) {
       let el = field
-      let selector = 'torch-flash'
-      while ((el = el.parentElement) && !((el.matches || el.matchesSelector).call(el, selector)))
-      el.parentNode.removeChild(el)
+      const selector = 'torch-flash'
+      while ((el = el.parentElement) && !((el.matches || el.matchesSelector).call(el, selector))) { el.parentNode.removeChild(el) }
     })
   })
 }
