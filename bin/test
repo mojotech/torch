@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+TEST_ROOT="$(pwd)/test"
+ASSETS_ROOT="$(pwd)/assets"
+
 MIX_ENV=test mix compile --warnings-as-errors --force || { echo 'Please fix all compiler warnings.'; exit 1; }
 MIX_ENV=test mix credo --strict --ignore design,consistency || { echo 'Elixir code failed Credo linting. See warnings above.'; exit 1; }
 MIX_ENV=test mix docs || { echo 'Elixir HTML docs were not generated!'; exit 1; }
 MIX_ENV=test mix test || { echo 'Elixir tests on Torch failed!'; exit 1; }
 
-TEST_ROOT="$(pwd)/test"
 
 if [ $CI ]; then
   if [ $TRAVIS ]; then
@@ -20,6 +22,14 @@ if [ $CI ]; then
     mix coveralls || { echo 'Elixir coverage on Torch failed!'; exit 1; }
   fi
 fi
+
+# Run JS assets lint checks
+cd "$ASSETS_ROOT" && {
+  npm install || { echo 'NPM install failed!'; exit 1; }
+}
+cd "$ASSETS_ROOT" && {
+  npm run test || { echo 'NPM test failed!'; exit 1; }
+}
 
 # Run integration tests
 cd "$TEST_ROOT/support/apps/phx1_3" && {
