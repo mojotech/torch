@@ -27,7 +27,7 @@
     "ie > 9"
   ],
   "scripts": {
-    "test": "standard && ./node_modules/webpack/bin/webpack.js",
+    "test": "./node_modules/.bin/standard && ./node_modules/webpack/bin/webpack.js",
     "compile": "webpack -p"
   }
 }
