@@ -17,13 +17,12 @@ import Pikaday from 'pikaday'
       return
     }
 
-    const to = link.getAttribute('data-to')
     const method = buildHiddenInput('_method', link.getAttribute('data-method'))
     const csrf = buildHiddenInput('_csrf_token', link.getAttribute('data-csrf'))
     const form = document.createElement('form')
 
     form.method = (link.getAttribute('data-method') === 'get') ? 'get' : 'post'
-    form.action = to
+    form.action = link.getAttribute('data-to')
     form.style.display = 'hidden'
 
     form.appendChild(csrf)
