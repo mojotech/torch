@@ -1,11 +1,17 @@
 # Change Log
 
+## [v3.4.0](https://github.com/mojotech/torch/tree/v3.4.0) (2020-06-10)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.3.1...v3.4.0)
+
+**Merged pull requests:**
+
+- Use new `put\_root\_layout` plug on Phoenix 1.5+ [\#176](https://github.com/mojotech/torch/pull/176) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Remove jQuery from assets [\#175](https://github.com/mojotech/torch/pull/175) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump excoveralls from 0.12.3 to 0.13.0 [\#174](https://github.com/mojotech/torch/pull/174) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Rename Slime injection templates [\#173](https://github.com/mojotech/torch/pull/173) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
 ## [v3.3.1](https://github.com/mojotech/torch/tree/v3.3.1) (2020-05-28)
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.3.0...v3.3.1)
-
-**Fixed bugs:**
-
-- Fix typo in slime generator
 
 **Merged pull requests:**
 
