@@ -1,5 +1,16 @@
 # Change Log
 
+## [v3.4.1](https://github.com/mojotech/torch/tree/v3.4.1) (2020-06-10)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.4.0...v3.4.1)
+
+**Closed issues:**
+
+- Invalid plug layout option [\#168](https://github.com/mojotech/torch/issues/168)
+
+**Merged pull requests:**
+
+- Fix slime template markup [\#177](https://github.com/mojotech/torch/pull/177) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
 ## [v3.4.0](https://github.com/mojotech/torch/tree/v3.4.0) (2020-06-10)
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.3.1...v3.4.0)
 
