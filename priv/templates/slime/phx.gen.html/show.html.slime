@@ -10,7 +10,7 @@ section#torch-header-and-content
     <%= for {k, _} <- schema.attrs do %>
       li
         .torch-show-label
-          <%= Phoenix.Naming.humanize(Atom.to_string(k)) %>:
+          | <%= Phoenix.Naming.humanize(Atom.to_string(k)) %>:
         .torch-show-data
           = @<%= schema.singular %>.<%= k %>
     <% end %>
