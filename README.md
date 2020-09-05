@@ -140,6 +140,27 @@ model and controller modules already exist, use the following command:
 $ mix torch.gen.html Blog Post posts --no-schema --no-context --web Admin title:string body:text published_at:datetime published:boolean views:integer
 ```
 
+### Torch.Pagination customization
+
+The following assumes you the above example when running `torch.gen.html`.
+
+By default, the Torch generators added the following code to your `Blog` context module:
+
+```elixir
+# blog.ex
+
+  use Torch.Pagination,
+    repo: MyApp.Repo,
+    model: MyApp.Blog.Post,
+    name: :posts
+
+```
+
+Please refer to [the `Torch.Pagination` module for documentation](https://hexdocs.pm/torch/Torch.Pagination.html) on how to customize the pagination options for each model,
+or globally for your whole application.
+
+**NOTE** If you want to customize the pagination functions themselves for your application, do not use the default `Torch.Pagination` as described above; instead you will need to define your own `paginate_*/2` method that will return a `Scrivener.Page` object.  You can also define your own pagination system and functions as well, but that will require further customization of the generated Torch controllers as well.
+
 ### Association filters
 
 Torch does not support association filters at this time. [Filtrex](https://github.com/rcdilorenzo/filtrex) does not yet support them.
