@@ -127,7 +127,20 @@ However, that does not mean you can't roll your own.
 We have a `Accounts.User` model that `has_many :credentials, Accounts.Credential` and we want to support filtering users
 by `credentials.email`.
 
-1. Update the `Accounts` domain.
+1. Add pagination for your schema in the context module:
+
+```elixir
+# accounts.ex
+
+  use Torch.Paginator,
+    repo: MyApp.Repo,
+    model: MyApp.Accounts.User,
+    name: :users
+
+```
+
+2. In case your want to override pagination functions for some reason, do not include paginator configuration above but update 
+the `Accounts` context module (check with `Torch.Paginator` for functions to override):
 
 ```elixir
 # accounts.ex
@@ -157,7 +170,7 @@ end
 ...
 ```
 
-2. Update form filters.
+3. Update form filters.
 
 ```eex
 # users/index.html.eex
