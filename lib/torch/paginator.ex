@@ -66,6 +66,7 @@ defmodule Torch.Paginator do
         end
       end
 
+      @spec unquote(:"do_paginate_#{name}")(Filtrex.t, Keyword.t) :: Scrivener.Page.t()
       defp unquote(:"do_paginate_#{name}")(filter, params) do
         unquote(model)
         |> Filtrex.query(filter)
@@ -73,6 +74,7 @@ defmodule Torch.Paginator do
         |> paginate(unquote(repo), params, @pagination)
       end
 
+      @spec filter_config(String.t) :: list(Filtrex.Type.Config.t)
       defp filter_config(unquote(:"#{name}")) do
         defconfig do
           fields = unquote(model).__schema__(:query_fields)
