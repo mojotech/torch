@@ -127,7 +127,7 @@ However, that does not mean you can't roll your own.
 We have a `Accounts.User` model that `has_many :credentials, Accounts.Credential` and we want to support filtering users
 by `credentials.email`.
 
-1. Add pagination for your schema in the context module:
+1. Add Torch pagination to the `Accounts` domain:
 
 ```elixir
 # accounts.ex
@@ -139,8 +139,7 @@ by `credentials.email`.
 
 ```
 
-2. In case your want to override pagination functions for some reason, do not include paginator configuration above but update 
-the `Accounts` context module (check with `Torch.Paginator` for functions to override):
+**NOTE** If you want to customize the pagination functions at all for your application, do not use the default `Torch.Pagination` as described above; instead you will need to define your own `paginate_*/2` method that will return a `Scrivener.Page` object.  You can also define your own pagination system and functions as well, but that will require further customization of the generated Torch controllers as well.
 
 ```elixir
 # accounts.ex
@@ -170,7 +169,7 @@ end
 ...
 ```
 
-3. Update form filters.
+2. Update form filters.
 
 ```eex
 # users/index.html.eex
