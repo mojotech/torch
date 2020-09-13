@@ -1,4 +1,4 @@
-defmodule Torch.Paginator do
+defmodule Torch.Pagination do
   @moduledoc """
   Handles torch pagination configuration.
 
@@ -8,17 +8,31 @@ defmodule Torch.Paginator do
   the following way:
 
       defmodule MyApp.Accounts do
-        use Torch.Paginator,
+        use Torch.Pagination,
           repo: MyApp.Repo,
           model: MyApp.Accounts.User,
-          name: :users
+          name: :users,
+          page_size: 15,
+          pagination_distance: 5,
       end
+
+  Options `page_size` and `pagination_distance` are optional per pagination.
+  Defaults are:
+    `page_size`: 15
+    `pagination_distance`: 5
+  You can configure `page_size` and `pagination_distance` on app level in the config.exs:
+
+    config :torch,
+      otp_app: :my_app,
+      page_size: 20,
+      pagination_distance: 5
+
 
   The following Torch context methods will be created:
 
-    * `paginate_users/1`
-    * `do_paginate_users/2`
-    * `filter_config/1`
+    * public `paginate_users/1`
+    * private `do_paginate_users/2`
+    * private `filter_config/1`
 
   ## Configuration options
 
@@ -26,13 +40,16 @@ defmodule Torch.Paginator do
     * `:model` - the user schema module (required)
     * `:name` - name of the collection that needs pagination (required)
   """
-  defmacro __using__(repo: repo, model: model, name: name) do
+  defmacro __using__(opts) do
+    name = Keyword.get(opts, :name)
+    repo = Keyword.get(opts, :repo)
+    model = Keyword.get(opts, :model)
+    page_size = Keyword.get(opts, :page_size) || Application.get_env(:torch, :page_size, 15)
+    pagination_distance = Keyword.get(opts, :pagination_distance) || Application.get_env(:torch, :pagination_distance, 5)
+
     quote do
       import Torch.Helpers, only: [sort: 1, paginate: 4]
       import Filtrex.Type.Config
-
-      @pagination [page_size: Application.get_env(:torch, :page_size, 15)]
-      @pagination_distance Application.get_env(:torch, :pagination_distance, 5)
 
       @spec unquote(:"paginate_#{name}")(map) :: {:ok, map} | {:error, any}
       def unquote(:"paginate_#{name}")(params \\ %{}) do
@@ -55,7 +72,7 @@ defmodule Torch.Paginator do
               page_size: page.page_size,
               total_pages: page.total_pages,
               total_entries: page.total_entries,
-              distance: @pagination_distance,
+              distance: unquote(pagination_distance),
               sort_field: sort_field,
               sort_direction: sort_direction
             }
@@ -66,15 +83,17 @@ defmodule Torch.Paginator do
         end
       end
 
-      @spec unquote(:"do_paginate_#{name}")(Filtrex.t, Keyword.t) :: Scrivener.Page.t()
+      @spec unquote(:"do_paginate_#{name}")(Filtrex.t(), Keyword.t()) :: Scrivener.Page.t()
       defp unquote(:"do_paginate_#{name}")(filter, params) do
+        pagination = [page_size: unquote(page_size)]
+
         unquote(model)
         |> Filtrex.query(filter)
         |> order_by(^sort(params))
-        |> paginate(unquote(repo), params, @pagination)
+        |> paginate(unquote(repo), params, pagination)
       end
 
-      @spec filter_config(String.t) :: list(Filtrex.Type.Config.t)
+      @spec filter_config(String.t()) :: list(Filtrex.Type.Config.t())
       defp filter_config(unquote(:"#{name}")) do
         defconfig do
           fields = unquote(model).__schema__(:query_fields)
