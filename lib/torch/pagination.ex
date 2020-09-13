@@ -17,16 +17,17 @@ defmodule Torch.Pagination do
       end
 
   Options `page_size` and `pagination_distance` are optional per pagination.
+
   Defaults are:
     `page_size`: 15
     `pagination_distance`: 5
+
   You can configure `page_size` and `pagination_distance` on app level in the config.exs:
 
     config :torch,
       otp_app: :my_app,
       page_size: 20,
       pagination_distance: 5
-
 
   The following Torch context methods will be created:
 
@@ -45,7 +46,10 @@ defmodule Torch.Pagination do
     repo = Keyword.get(opts, :repo)
     model = Keyword.get(opts, :model)
     page_size = Keyword.get(opts, :page_size) || Application.get_env(:torch, :page_size, 15)
-    pagination_distance = Keyword.get(opts, :pagination_distance) || Application.get_env(:torch, :pagination_distance, 5)
+
+    pagination_distance =
+      Keyword.get(opts, :pagination_distance) ||
+        Application.get_env(:torch, :pagination_distance, 5)
 
     quote do
       import Torch.Helpers, only: [sort: 1, paginate: 4]
