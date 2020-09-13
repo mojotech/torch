@@ -132,7 +132,7 @@ by `credentials.email`.
 ```elixir
 # accounts.ex
 
-  use Torch.Paginator,
+  use Torch.Pagination,
     repo: MyApp.Repo,
     model: MyApp.Accounts.User,
     name: :users
