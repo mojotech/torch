@@ -1,10 +1,13 @@
-name: Elixir CI
+name: Torch CI
 
 on:
   pull_request:
     branches: [ $default-branch ]
+    types: [ opened, edited, reopened, synchronize ]
   push:
     branches: [ $default-branch ]
+    tags:
+      - v*
 
 
 jobs:
