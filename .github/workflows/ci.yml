@@ -1,0 +1,70 @@
+name: Elixir CI
+
+on:
+  pull_request:
+    branches: [ $default-branch ]
+  push:
+    branches: [ $default-branch ]
+
+
+jobs:
+  mix_test:
+    name: mix test (Elixir ${{matrix.elixir}} | OTP ${{matrix.otp}})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - elixir: 1.8.x
+            otp: 20.3.8.26
+          - elixir: 1.9.x
+            otp: 20.3.8.26
+            warnings_as_errors: true
+          - elixir: 1.10.x
+            otp: 21.3.8.17
+          - elixir: 1.10.x
+            otp: 22.3.4.10
+          - elixir: 1.10.x
+            otp: 23.0.4
+            warnings_as_errors: true
+            static_analysis: true
+    services:
+      postgres:
+        image: postgres:10.1-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: example_test
+          POSTGRES_PASSWORD: ""
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health_interval 10s --health_timeout 5s --health_retries 5
+    env:
+      MIX_ENV: test
+      DATABASE_POSTGRESQL_USERNAME: postgres
+      PGHOST: postgres
+      PGUSER: postgres
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-elixir@v1
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+      - name: Install Deps
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+          mix deps.get --only test
+      - name: Cache build artifacts
+        uses: actions/cache@v2
+        with:
+          path: |
+            $HOME/.hex
+            $HOME/.mix
+            _build
+          key: ${{ matrix.otp }}-${{ matrix.elixir }}-build
+      - run: mix compile --warnings-as-errors
+        if: matrix.warnings_as_errors
+      - name: Run tests
+        run: bin/setup
+      - run: mix dialyzer --halt-exist-status
+        if: matrix.static_analysis
