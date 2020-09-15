@@ -2,18 +2,18 @@ name: Torch CI
 
 on:
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ master, main ]
     types: [ opened, edited, reopened, synchronize ]
   push:
-    branches: [ $default-branch ]
+    branches: [ master, main ]
     tags:
-      - v*
-
+      - v[1-9].[0-9]+.[0-9]+
 
 jobs:
   mix_test:
     name: mix test (Elixir ${{matrix.elixir}} | OTP ${{matrix.otp}})
     runs-on: ubuntu-latest
+
     strategy:
       fail-fast: false
       matrix:
@@ -30,22 +30,28 @@ jobs:
           - elixir: 1.10.x
             otp: 23.0.4
             warnings_as_errors: true
-            static_analysis: true
+            static_analysis: false
+
     services:
-      postgres:
+      db:
         image: postgres:10.1-alpine
         env:
           POSTGRES_USER: postgres
           POSTGRES_DB: example_test
           POSTGRES_PASSWORD: ""
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health_interval 10s --health_timeout 5s --health_retries 5
+        ports: [ '5432:5432' ]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     env:
       MIX_ENV: test
       DATABASE_POSTGRESQL_USERNAME: postgres
       PGHOST: postgres
       PGUSER: postgres
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-elixir@v1
