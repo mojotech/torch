@@ -1,87 +1,82 @@
-## "msgid"s in this file come from POT (.pot) files.
-##
-## Do not add, change, or remove "msgid"s manually here as
-## they're tied to the ones in the corresponding POT file
-## (with the same domain).
-##
-## Use "mix gettext.extract --merge" or "mix gettext.merge"
-## to merge POT files into PO files.
+# # "msgid"s in this file come from POT (.pot) files.
+# #
+# # Do not add, change, or remove "msgid"s manually here as
+# # they're tied to the ones in the corresponding POT file
+# # (with the same domain).
+# #
+# # Use "mix gettext.extract --merge" or "mix gettext.merge"
+# # to merge POT files into PO files.
 msgid ""
 msgstr ""
 "Language: es\n"
-"Plural-Forms: nplurals=2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: Torch\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: https://github.com/mojotech/torch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:17
+#: lib/torch/i18n/backend.ex:22
 msgid "< Prev"
 msgstr "< Prev"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:18
+#: lib/torch/i18n/backend.ex:23
 msgid "Next >"
 msgstr "Sig >"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:6
+#: lib/torch/i18n/backend.ex:11
 msgid "Choose one"
 msgstr "Elija uno"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:5
+#: lib/torch/i18n/backend.ex:10
 msgid "Equals"
 msgstr "Igual a"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:4
+#: lib/torch/i18n/backend.ex:9
 msgid "Contains"
 msgstr "Contiene"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:9
+#: lib/torch/i18n/backend.ex:14
 msgid "Greater Than"
 msgstr "Mayor a"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:10
+#: lib/torch/i18n/backend.ex:15
 msgid "Greater Than Or Equal"
 msgstr "Mayor o igual a"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:11
+#: lib/torch/i18n/backend.ex:16
 msgid "Less Than"
 msgstr "Menor a"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:12
+#: lib/torch/i18n/backend.ex:17
 msgid "start"
 msgstr "inicio"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:13
+#: lib/torch/i18n/backend.ex:18
 msgid "end"
 msgstr "fin"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:15
+#: lib/torch/i18n/backend.ex:20
 msgid "Select Start Date"
 msgstr "Seleccione fecha de inicio"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:16
+#: lib/torch/i18n/backend.ex:21
 msgid "Select End Date"
 msgstr "Seleccione fecha de fin"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:8
+#: lib/torch/i18n/backend.ex:13
 msgid "After"
 msgstr "Después de"
 
-#, elixir-format
-#: lib/torch/messages_backend.ex:7
+#: lib/torch/i18n/backend.ex:12
 msgid "Before"
 msgstr "Antes de"
 
-#, elixir-format, fuzzy
-#: lib/torch/messages_backend.ex:14
+#: lib/torch/i18n/backend.ex:19
 msgid "Select Date"
 msgstr "Seleccione fecha de fin"
