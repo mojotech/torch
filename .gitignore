@@ -29,4 +29,7 @@ node_modules/
 .dir-locals.el
 .env
 
+# Translation .mo files
+/priv/gettext/*/LC_MESSAGES/*.mo
+
 shell.nix
