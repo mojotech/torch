@@ -181,7 +181,7 @@ own stylesheet with the specific overrides.
 
 ## Internationalization
 
-Torch comes with `.po` files for `en`, `ru` `es` and `de` locales. If you are using
+Torch comes with `.po` files for `en`, `ru`, `es` and `de` locales. If you are using
 torch and can provide us with translation files for other languages, please
 submit a Pull Request with the translation file. We'd love to add as many
 translations as possible.
