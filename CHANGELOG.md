@@ -1,5 +1,25 @@
 # Change Log
 
+## [v3.5.0](https://github.com/mojotech/torch/tree/v3.5.0) (2020-10-02)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.4.1...v3.5.0)
+
+**Closed issues:**
+
+- CSS does not work [\#178](https://github.com/mojotech/torch/issues/178)
+
+**Merged pull requests:**
+
+- German Translations [\#192](https://github.com/mojotech/torch/pull/192) ([maennchen](https://github.com/maennchen))
+- \[mix\] Update uninstall task to mimic install [\#191](https://github.com/mojotech/torch/pull/191) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Update GH actions config [\#187](https://github.com/mojotech/torch/pull/187) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Update GH Actions hooks [\#186](https://github.com/mojotech/torch/pull/186) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Add Github Actions CI config [\#185](https://github.com/mojotech/torch/pull/185) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump jason from 1.2.1 to 1.2.2 [\#184](https://github.com/mojotech/torch/pull/184) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.22.2 to 0.22.5 [\#183](https://github.com/mojotech/torch/pull/183) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump gettext from 0.18.0 to 0.18.1 [\#181](https://github.com/mojotech/torch/pull/181) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump excoveralls from 0.13.0 to 0.13.1 [\#180](https://github.com/mojotech/torch/pull/180) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.22.1 to 0.22.2 [\#179](https://github.com/mojotech/torch/pull/179) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v3.4.1](https://github.com/mojotech/torch/tree/v3.4.1) (2020-06-10)
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.4.0...v3.4.1)
 
