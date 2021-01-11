@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: Torch\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: https://github.com/mojotech/torch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: lib/torch/i18n/backend.ex:22
+msgid "< Prev"
+msgstr "< Trước"
+
+#: lib/torch/i18n/backend.ex:23
+msgid "Next >"
+msgstr "Kế tiếp >"
+
+#: lib/torch/i18n/backend.ex:11
+msgid "Choose one"
+msgstr "Chọn một mục"
+
+#: lib/torch/i18n/backend.ex:10
+msgid "Equals"
+msgstr "Bằng"
+
+#: lib/torch/i18n/backend.ex:9
+msgid "Contains"
+msgstr "Chứa"
+
+#: lib/torch/i18n/backend.ex:14
+msgid "Greater Than"
+msgstr "Lớn hơn"
+
+#: lib/torch/i18n/backend.ex:15
+msgid "Greater Than Or Equal"
+msgstr "Lớn hơn hoặc bằng"
+
+#: lib/torch/i18n/backend.ex:16
+msgid "Less Than"
+msgstr "Nhỏ hơn"
+
+#: lib/torch/i18n/backend.ex:17
+msgid "start"
+msgstr "bắt đầu"
+
+#: lib/torch/i18n/backend.ex:18
+msgid "end"
+msgstr "kết thúc"
+
+#: lib/torch/i18n/backend.ex:20
+msgid "Select Start Date"
+msgstr "Chọn ngày bắt đầu"
+
+#: lib/torch/i18n/backend.ex:21
+msgid "Select End Date"
+msgstr "Chọn ngày kết thúc"
+
+#: lib/torch/i18n/backend.ex:13
+msgid "After"
+msgstr "Sau"
+
+#: lib/torch/i18n/backend.ex:12
+msgid "Before"
+msgstr "Trước"
+
+#: lib/torch/i18n/backend.ex:19
+msgid "Select Date"
+msgstr "Chọn ngày"
