@@ -5,8 +5,8 @@
 
 # Torch
 
-Torch is a rapid admin generator for Phoenix apps. It creates custom templates and relies
-on the Phoenix html generator under the hood.
+Torch is a rapid admin generator for Phoenix applications. It creates custom templates and relies
+on the Phoenix HTML generator under the hood.
 
 ![image](https://user-images.githubusercontent.com/7085617/36333572-70e3907e-132c-11e8-9ad2-bd5e98aadc7c.png)
 
@@ -181,8 +181,8 @@ own stylesheet with the specific overrides.
 
 ## Internationalization
 
-Torch comes with `.po` files for `en`, `ru`, `es` and `de` locales. If you are using
-torch and can provide us with translation files for other languages, please
+Torch comes with `.po` files for several locales. If you are using
+Torch and can provide us with translation files for other languages, please
 submit a Pull Request with the translation file. We'd love to add as many
 translations as possible.
 
