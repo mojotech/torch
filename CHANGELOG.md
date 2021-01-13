@@ -1,5 +1,13 @@
 # Change Log
 
+## [v3.6.0](https://github.com/mojotech/torch/tree/v3.6.0) (2021-01-13)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.5.0...v3.6.0)
+
+**Merged pull requests:**
+
+- Add Vietnamese locale translation [\#205](https://github.com/mojotech/torch/pull/205) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump credo from 1.4.0 to 1.4.1 [\#193](https://github.com/mojotech/torch/pull/193) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v3.5.0](https://github.com/mojotech/torch/tree/v3.5.0) (2020-10-02)
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.4.1...v3.5.0)
 
