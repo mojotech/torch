@@ -8,6 +8,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   plug(:put_layout, {<%= inspect context.web_module %>.LayoutView, "torch.html"})
   <% else %>
   plug(:put_root_layout, {<%= inspect context.web_module %>.LayoutView, "torch.html"})
+  plug(:put_layout, false)
   <% end %>
 
   def index(conn, params) do
