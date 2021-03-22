@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/hexpm/l/torch.svg)](https://github.com/mojotech/torch/blob/master/LICENSE)
 [![Hex.pm](https://img.shields.io/hexpm/v/torch.svg)](https://hex.pm/packages/torch)
-[![Build Status](https://travis-ci.org/mojotech/torch.svg?branch=master)](https://travis-ci.org/mojotech/torch)
+[![Build Status](https://travis-ci.com/mojotech/torch.svg?branch=master)](https://travis-ci.com/mojotech/torch)
 [![Coverage Status](https://coveralls.io/repos/github/mojotech/torch/badge.svg?branch=master)](https://coveralls.io/github/mojotech/torch?branch=master)
 
 # Torch
