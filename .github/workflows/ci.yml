@@ -24,11 +24,19 @@ jobs:
             otp: 20.3.8.26
             warnings_as_errors: true
           - elixir: 1.10.x
-            otp: 21.3.8.17
+            otp: 21.3.8.21
           - elixir: 1.10.x
-            otp: 22.3.4.10
+            otp: 22.3.4.16
           - elixir: 1.10.x
-            otp: 23.0.4
+            otp: 23.2.7
+            warnings_as_errors: true
+            static_analysis: false
+          - elixir: 1.11.x
+            otp: 21.3.8.21
+          - elixir: 1.11.x
+            otp: 22.3.4.16
+          - elixir: 1.11.x
+            otp: 23.2.7
             warnings_as_errors: true
             static_analysis: false
 
