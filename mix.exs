@@ -45,7 +45,6 @@ defmodule Torch.MixProject do
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, ">= 1.2.1"},
       {:filtrex, "~> 0.4.1"},
-      {:timex, "~> 3.1"},
       {:jason, ">= 0.0.0", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       {:credo, "~> 1.1", only: [:dev, :test]},
