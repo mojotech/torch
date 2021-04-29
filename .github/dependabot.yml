@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: mix
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "10:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - cpjolicoeur
+  ignore:
+  - dependency-name: phoenix
+    versions:
+    - ">= 1.4.a, < 1.5"
+  - dependency-name: phoenix_html
+    versions:
+    - ">= 2.14.a, < 2.15"
+  - dependency-name: timex
+    versions:
+    - 3.6.4
+    - 3.7.3
