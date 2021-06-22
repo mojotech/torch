@@ -44,7 +44,7 @@ defmodule Torch.FilterView do
   @spec filter_select(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_select(prefix, field, params) do
     prefix_str = to_string(prefix)
-    {selected, _value} = find_param(params[prefix_str], field)
+    {selected, _value} = find_param(params[prefix_str], field, :select)
 
     opts = [
       {message("Contains"), "#{prefix}[#{field}_contains]"},
@@ -67,7 +67,7 @@ defmodule Torch.FilterView do
   @spec filter_date_select(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_date_select(prefix, field, params) do
     prefix_str = to_string(prefix)
-    {selected, _value} = find_param(params[prefix_str], field)
+    {selected, _value} = find_param(params[prefix_str], field, :date_select)
 
     opts = [
       {message("Before"), "#{prefix}[#{field}_before]"},
@@ -89,7 +89,7 @@ defmodule Torch.FilterView do
   @spec number_filter_select(prefix, field, map) :: Phoenix.HTML.safe()
   def number_filter_select(prefix, field, params) do
     prefix_str = to_string(prefix)
-    {selected, _value} = find_param(params[prefix_str], field)
+    {selected, _value} = find_param(params[prefix_str], field, :number_select)
 
     opts = [
       {message("Equals"), "#{prefix}[#{field}_equals]"},
@@ -189,7 +189,7 @@ defmodule Torch.FilterView do
 
   def filter_date_input(prefix, field, params, :select) do
     prefix_str = to_string(prefix)
-    {name, value} = find_param(params[prefix_str], field, :date)
+    {name, value} = find_param(params[prefix_str], field, :date_select)
 
     {:safe, date_input} =
       torch_date_input(
@@ -257,19 +257,57 @@ defmodule Torch.FilterView do
     tag(:input, type: "text", class: "datepicker #{class}", name: name, value: value)
   end
 
-  defp find_param(params, pattern, type \\ :string) do
-    pattern = to_string(pattern)
+  defp find_param(params, field, type \\ :string)
+
+  defp find_param(params, field, :string) do
+    do_find_param(params, field, "contains")
+  end
+
+  defp find_param(params, field, :number) do
+    do_find_param(params, field, "equals")
+  end
+
+  defp find_param(params, field, :select) do
+    do_find_param(params, field, ~w(equals contains))
+  end
+
+  defp find_param(params, field, :date_select) do
+    do_find_param(params, field, ~w(before after))
+  end
+
+  defp find_param(params, field, :number_select) do
+    do_find_param(params, field, ~w(equals greater_than greater_than_or less_than))
+  end
+
+  defp do_find_param(params, field, comparison) when is_binary(comparison) do
+    field = to_string(field)
 
     result =
-      Enum.find(params || %{}, fn {key, _val} ->
-        String.starts_with?(key, pattern)
+      Enum.find(params || %{}, fn {param_name, _val} ->
+        param_name == "#{field}_#{comparison}"
       end)
 
-    cond do
-      result == nil && type == :string -> {"#{pattern}_contains", nil}
-      result == nil && type == :number -> {"#{pattern}_equals", nil}
-      result == nil && type == :date -> {"#{pattern}_before", nil}
-      result != nil -> result
+    if is_nil(result) do
+      {"#{field}_#{comparison}", nil}
+    else
+      result
+    end
+  end
+
+  defp do_find_param(params, field, suffixes) when is_list(suffixes) do
+    field = to_string(field)
+    suffix_patterns = Enum.join(suffixes, "|")
+    default = List.first(suffixes)
+
+    result =
+      Enum.find(params || %{}, fn {param_name, _val} ->
+        String.match?(param_name, ~r/#{field}_[#{suffix_patterns}]/)
+      end)
+
+    if is_nil(result) do
+      {"#{field}_#{default}", nil}
+    else
+      result
     end
   end
 end
