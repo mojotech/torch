@@ -1,5 +1,43 @@
 # Changelog
 
+## [v3.6.2](https://github.com/mojotech/torch/tree/v3.6.2) (2021-06-22)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.6.1...v3.6.2)
+
+**Implemented enhancements:**
+
+- Migrate from TravisCI to Github Actions for CI [\#213](https://github.com/mojotech/torch/issues/213)
+
+**Closed issues:**
+
+- Error rendering filters when two filter fields share the same prefix [\#242](https://github.com/mojotech/torch/issues/242)
+- Timex usage? [\#216](https://github.com/mojotech/torch/issues/216)
+- elixir no route found for GET /torch [\#93](https://github.com/mojotech/torch/issues/93)
+
+**Merged pull requests:**
+
+- Fix bug with multiple filters w/ the same prefix [\#243](https://github.com/mojotech/torch/pull/243) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump mix\_test\_watch from 1.0.2 to 1.0.3 [\#239](https://github.com/mojotech/torch/pull/239) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.24.1 to 0.24.2 [\#238](https://github.com/mojotech/torch/pull/238) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.5.5 to 1.5.6 [\#237](https://github.com/mojotech/torch/pull/237) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.14.0 to 0.14.1 [\#236](https://github.com/mojotech/torch/pull/236) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Test templates updated with best-practice describes [\#235](https://github.com/mojotech/torch/pull/235) ([d4rk5eed](https://github.com/d4rk5eed))
+- Bump hosted-git-info from 2.8.8 to 2.8.9 in /assets [\#227](https://github.com/mojotech/torch/pull/227) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump lodash from 4.17.15 to 4.17.21 in /assets [\#226](https://github.com/mojotech/torch/pull/226) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump y18n from 4.0.0 to 4.0.3 in /assets [\#221](https://github.com/mojotech/torch/pull/221) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Upgrade to GitHub-native Dependabot [\#219](https://github.com/mojotech/torch/pull/219) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- \[mix\] Remove direct dependency on Timex [\#217](https://github.com/mojotech/torch/pull/217) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump ex\_doc from 0.23.0 to 0.24.1 [\#215](https://github.com/mojotech/torch/pull/215) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- \[fix\] Ensure only the Torch layout is used on Phx 1.5 [\#212](https://github.com/mojotech/torch/pull/212) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump ex\_unit\_notifier from 1.0.0 to 1.1.0 [\#209](https://github.com/mojotech/torch/pull/209) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump excoveralls from 0.13.4 to 0.14.0 [\#208](https://github.com/mojotech/torch/pull/208) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump credo from 1.5.4 to 1.5.5 [\#206](https://github.com/mojotech/torch/pull/206) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump excoveralls from 0.13.1 to 0.13.4 [\#203](https://github.com/mojotech/torch/pull/203) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump credo from 1.4.1 to 1.5.4 [\#202](https://github.com/mojotech/torch/pull/202) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump timex from 3.6.2 to 3.6.3 [\#201](https://github.com/mojotech/torch/pull/201) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_unit\_notifier from 0.1.4 to 1.0.0 [\#200](https://github.com/mojotech/torch/pull/200) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.22.5 to 0.23.0 [\#195](https://github.com/mojotech/torch/pull/195) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v3.6.1](https://github.com/mojotech/torch/tree/v3.6.1) (2021-03-19)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.6.0...v3.6.1)
@@ -7,15 +45,6 @@
 **Closed issues:**
 
 - Torch in Umbrella? [\#207](https://github.com/mojotech/torch/issues/207)
-
-**Merged pull requests:**
-
-- \[fix\] Ensure only the Torch layout is used on Phx 1.5 [\#212](https://github.com/mojotech/torch/pull/212) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Bump excoveralls from 0.13.1 to 0.13.4 [\#203](https://github.com/mojotech/torch/pull/203) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump credo from 1.4.1 to 1.5.4 [\#202](https://github.com/mojotech/torch/pull/202) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump timex from 3.6.2 to 3.6.3 [\#201](https://github.com/mojotech/torch/pull/201) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex\_unit\_notifier from 0.1.4 to 1.0.0 [\#200](https://github.com/mojotech/torch/pull/200) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex\_doc from 0.22.5 to 0.23.0 [\#195](https://github.com/mojotech/torch/pull/195) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v3.6.0](https://github.com/mojotech/torch/tree/v3.6.0) (2021-01-13)
 
@@ -65,7 +94,7 @@
 
 **Merged pull requests:**
 
-- Use new `put\_root\_layout` plug on Phoenix 1.5+ [\#176](https://github.com/mojotech/torch/pull/176) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Use new `put_root_layout` plug on Phoenix 1.5+ [\#176](https://github.com/mojotech/torch/pull/176) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Remove jQuery from assets [\#175](https://github.com/mojotech/torch/pull/175) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Bump excoveralls from 0.12.3 to 0.13.0 [\#174](https://github.com/mojotech/torch/pull/174) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Rename Slime injection templates [\#173](https://github.com/mojotech/torch/pull/173) ([cpjolicoeur](https://github.com/cpjolicoeur))
@@ -202,7 +231,6 @@
 - Is this library still being maintained? Release to 2.0.0? [\#104](https://github.com/mojotech/torch/issues/104)
 - Phoenix 1.4.2 Breaks Migration Generation [\#103](https://github.com/mojotech/torch/issues/103)
 - No torch.html generated when used with Phoenix 1.4 [\#100](https://github.com/mojotech/torch/issues/100)
-- elixir no route found for GET /torch [\#93](https://github.com/mojotech/torch/issues/93)
 - Edeliver and distillery deployment not working [\#91](https://github.com/mojotech/torch/issues/91)
 - Add Slim templates [\#84](https://github.com/mojotech/torch/issues/84)
 
@@ -275,7 +303,7 @@
 - Enusre form\#filters exists before attempting to add an event listener [\#66](https://github.com/mojotech/torch/pull/66) ([silasjmatson](https://github.com/silasjmatson))
 - \[\#62\] Add the initial version of Brunch & Webpack guides [\#63](https://github.com/mojotech/torch/pull/63) ([zberkom](https://github.com/zberkom))
 - Update Webpack config [\#61](https://github.com/mojotech/torch/pull/61) ([codeithuman](https://github.com/codeithuman))
-- Make `node\_module` requires relative [\#58](https://github.com/mojotech/torch/pull/58) ([danielberkompas](https://github.com/danielberkompas))
+- Make `node_module` requires relative [\#58](https://github.com/mojotech/torch/pull/58) ([danielberkompas](https://github.com/danielberkompas))
 - Add support for read-only fields [\#56](https://github.com/mojotech/torch/pull/56) ([darinwilson](https://github.com/darinwilson))
 - Add ability to set default sort order [\#55](https://github.com/mojotech/torch/pull/55) ([morgandonze](https://github.com/morgandonze))
 
@@ -331,12 +359,12 @@
 **Fixed bugs:**
 
 - Javascript Errors in Safari [\#28](https://github.com/mojotech/torch/issues/28)
-- Pagination `end\_page/3` is broken [\#26](https://github.com/mojotech/torch/issues/26)
+- Pagination `end_page/3` is broken [\#26](https://github.com/mojotech/torch/issues/26)
 
 **Merged pull requests:**
 
 - Convert NodeList objects into an Array before using forEach [\#29](https://github.com/mojotech/torch/pull/29) ([silasjmatson](https://github.com/silasjmatson))
-- Fix `end\_page/3` math issue [\#27](https://github.com/mojotech/torch/pull/27) ([codeithuman](https://github.com/codeithuman))
+- Fix `end_page/3` math issue [\#27](https://github.com/mojotech/torch/pull/27) ([codeithuman](https://github.com/codeithuman))
 
 ## [v1.0.0-rc.3](https://github.com/mojotech/torch/tree/v1.0.0-rc.3) (2016-09-19)
 
