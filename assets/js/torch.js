@@ -123,10 +123,17 @@ window.onload = () => {
 
   /* eslint-disable no-new */
   slice.call(document.querySelectorAll('.datepicker'), 0).forEach((field) => {
+    let defaultDate = new Date()
+    const fieldValue = field.value.split('-')
+    if (fieldValue.length === 3) {
+      defaultDate = new Date(fieldValue[0], fieldValue[1] - 1, fieldValue[2])
+    }
+
     new Pikaday({
       field: field,
       toString: date => formatDate(date),
       onSelect: date => (field.value = formatDate(date)),
+      defaultDate: defaultDate,
       theme: 'torch-datepicker'
     })
   })
