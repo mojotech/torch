@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.6.3](https://github.com/mojotech/torch/tree/v3.6.3) (2021-06-30)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.6.2...v3.6.3)
+
+**Closed issues:**
+
+- Date filters are altered after applying filter [\#241](https://github.com/mojotech/torch/issues/241)
+
+**Merged pull requests:**
+
+- Set defaultDate for Pikaday to avoid "date jump" [\#246](https://github.com/mojotech/torch/pull/246) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
 ## [v3.6.2](https://github.com/mojotech/torch/tree/v3.6.2) (2021-06-22)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.6.1...v3.6.2)
