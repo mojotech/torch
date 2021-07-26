@@ -12,6 +12,9 @@ defmodule Torch.MixProject do
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       name: "Torch",
+      description: "Rapid admin generator for Phoenix",
+      source_url: @source_url,
+      homepage_url: @source_url,
       test_paths: ["test/mix", "test/torch"],
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
@@ -56,10 +59,9 @@ defmodule Torch.MixProject do
 
   defp package do
     [
-      description: "Rapid admin generator for Phoenix",
       maintainers: ["MojoTech"],
       licenses: ["MIT"],
-      files: ~w(lib priv mix.exs README.md LICENSE.md CHANGELOG.md CODE_OF_CONDUCT.md),
+      files: ~w(lib priv mix.exs README.md LICENSE CHANGELOG.md CODE_OF_CONDUCT.md),
       links: %{
         "Github" => @source_url
       }
@@ -75,8 +77,6 @@ defmodule Torch.MixProject do
         "README.md": [title: "Overview"]
       ],
       main: "readme",
-      homepage_url: @source_url,
-      source_url: @source_url,
       source_ref: "v#{@version}",
       formatters: ["html"]
     ]
