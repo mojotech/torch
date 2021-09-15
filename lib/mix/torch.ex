@@ -82,6 +82,16 @@ defmodule Mix.Torch do
     inject_templates("phx.gen.html", slime_or_eex, "eex")
   end
 
+  def inject_templates("phx.gen.context", _format) do
+    copy_from("priv/templates/phx.gen.context", [
+      {"access_no_schema.ex", "priv/templates/phx.gen.context/access_no_schema.ex"},
+      {"context.ex", "priv/templates/phx.gen.context/context.ex"},
+      {"schema_access.ex", "priv/templates/phx.gen.context/schema_access.ex"},
+      {"test_cases.exs", "priv/templates/phx.gen.context/test_cases.exs"},
+      {"context_test.exs", "priv/templates/phx.gen.context/context_test.exs"}
+    ])
+  end
+
   def inject_templates("phx.gen.html", format, dest_format) do
     copy_from("priv/templates/#{format}/phx.gen.html", [
       {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.#{dest_format}"},
@@ -95,16 +105,6 @@ defmodule Mix.Torch do
       {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
       {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
       {"view.ex", "priv/templates/phx.gen.html/view.ex"}
-    ])
-  end
-
-  def inject_templates("phx.gen.context", _format) do
-    copy_from("priv/templates/phx.gen.context", [
-      {"access_no_schema.ex", "priv/templates/phx.gen.context/access_no_schema.ex"},
-      {"context.ex", "priv/templates/phx.gen.context/context.ex"},
-      {"schema_access.ex", "priv/templates/phx.gen.context/schema_access.ex"},
-      {"test_cases.exs", "priv/templates/phx.gen.context/test_cases.exs"},
-      {"context_test.exs", "priv/templates/phx.gen.context/context_test.exs"}
     ])
   end
 
