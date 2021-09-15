@@ -21,12 +21,22 @@ defmodule Mix.Tasks.Torch.Gen.Html do
 
     Mix.Torch.ensure_phoenix_is_loaded!("torch.gen.html")
 
+    phoenix_version = to_string(Application.spec(:phoenix, :vsn))
+
+    # Check for Phoenix 1.6+ with Phoenix.HTML 3+ and Heex
+    template_format =
+      cond do
+        format == "slime" -> format
+        Version.match?(phoenix_version, ">= 1.6.0-rc.0", allow_pre: true) -> "heex"
+        true -> "eex"
+      end
+
     # First, backup the projects existing templates if they exist
     Enum.each(@commands, &Mix.Torch.backup_project_templates/1)
 
     # Inject the torch templates for the generator into the priv/
     # directory so they will be picked up by the Phoenix generator
-    Enum.each(@commands, &Mix.Torch.inject_templates(&1, format))
+    Enum.each(@commands, &Mix.Torch.inject_templates(&1, template_format))
 
     # Run the Phoenix generator
     if format == "slime" do
