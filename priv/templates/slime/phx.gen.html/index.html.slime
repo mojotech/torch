@@ -10,7 +10,7 @@ section#torch-index-content
         .field
           label <%= Phoenix.Naming.humanize(Atom.to_string(key)) %>
           = filter_select(:<%= schema.singular %>, :<%= key %>, @conn.params)
-          = filter_<%= type %>_input(:<%= schema.singular %>, :<%= key %>, @conn.params)
+          = filter_text_input(:<%= schema.singular %>, :<%= key %>, @conn.params)
       <% end %>
       <%= for {key, type} <- schema.attrs, type in [:boolean] do %>
         .field
