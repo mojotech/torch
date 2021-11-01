@@ -268,7 +268,7 @@ defmodule Torch.FilterView do
   end
 
   defp find_param(params, field, :select) do
-    do_find_param(params, field, ~w(equals contains))
+    do_find_param(params, field, ~w(contains equals))
   end
 
   defp find_param(params, field, :date_select) do
