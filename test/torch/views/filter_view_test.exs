@@ -25,4 +25,28 @@ defmodule Torch.FilterViewTest do
     assert expected ==
              safe_to_string(Torch.FilterView.filter_string_input(:user, :email, params))
   end
+
+  test "filter select defaults to the correct order" do
+    expected =
+      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option value=\"user[name_contains]\" selected>Contains</option><option value=\"user[name_equals]\">Equals</option></select>"
+
+    assert expected == safe_to_string(Torch.FilterView.filter_select(:user, :name, %{}))
+  end
+
+  test "filter select options selected properly based on params" do
+    params = %{
+      "filters" => [
+        "user[name_equals]",
+        "user[email_contains]"
+      ],
+      "user" => %{
+        "name_equals" => "Skywalker"
+      }
+    }
+
+    expected =
+      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option value=\"user[name_contains]\">Contains</option><option value=\"user[name_equals]\" selected>Equals</option></select>"
+
+    assert expected == safe_to_string(Torch.FilterView.filter_select(:user, :name, params))
+  end
 end
