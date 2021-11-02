@@ -129,7 +129,7 @@ defmodule Torch.FilterView do
   @spec filter_string_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_string_input(prefix, field, params) do
     prefix_str = to_string(prefix)
-    {name, value} = find_param(params[prefix_str], field)
+    {name, value} = find_param(params[prefix_str], field, :select)
     text_input(prefix, String.to_atom(name), value: value)
   end
 
@@ -257,8 +257,6 @@ defmodule Torch.FilterView do
     tag(:input, type: "text", class: "datepicker #{class}", name: name, value: value)
   end
 
-  defp find_param(params, field, type \\ :string)
-
   defp find_param(params, field, :string) do
     do_find_param(params, field, "contains")
   end
@@ -301,7 +299,7 @@ defmodule Torch.FilterView do
 
     result =
       Enum.find(params || %{}, fn {param_name, _val} ->
-        String.match?(param_name, ~r/#{field}_[#{suffix_patterns}]/)
+        String.match?(param_name, ~r/#{field}_(?:#{suffix_patterns})/)
       end)
 
     if is_nil(result) do
