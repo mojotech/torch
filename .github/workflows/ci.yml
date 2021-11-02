@@ -77,19 +77,18 @@ jobs:
         with:
           path: _build/test/
           key: build-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
-      - name: Install Deps
-        run: |
-          mix local.hex --force
-          mix local.rebar --force
-          mix deps.get --only test
       - name: Cache build artifacts
         uses: actions/cache@v2
         with:
           path: |
             $HOME/.hex
             $HOME/.mix
-            _build
-          key: ${{ matrix.otp }}-${{ matrix.elixir }}-build
+          key: artifacts-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+      - name: Install Deps
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+          mix deps.get --only test
       - run: mix compile --warnings-as-errors
         if: matrix.warnings_as_errors
       - name: Run tests
