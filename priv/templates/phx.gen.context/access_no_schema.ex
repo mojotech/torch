@@ -13,8 +13,9 @@
 
   ## Examples
 
-      iex> list_<%= schema.plural %>(%{})
+      iex> paginate_<%= schema.plural %>(%{})
       %{<%= schema.plural %>: [%<%= inspect schema.alias %>{}], ...}
+
   """
   @spec paginate_<%= schema.plural %>(map) :: {:ok, map} | {:error, any}
   def paginate_<%= schema.plural %>(params \\ %{}) do
