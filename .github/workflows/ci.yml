@@ -67,6 +67,7 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
+          cache-dependency-path: assets/package-lock.json
       - uses: erlef/setup-elixir@v1
         with:
           otp-version: ${{matrix.otp}}
