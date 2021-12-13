@@ -44,7 +44,7 @@ defmodule Torch.MixProject do
   defp deps do
     [
       {:phoenix, ">= 1.3.0 and < 1.6.0"},
-      {:phoenix_html, "~> 2.10"},
+      {:phoenix_html, "~> 3.1"},
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, ">= 1.2.1"},
       {:filtrex, "~> 0.4.1"},
