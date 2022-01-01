@@ -1,8 +1,20 @@
 # Changelog
 
+## [v3.7.1](https://github.com/mojotech/torch/tree/v3.7.1) (2022-01-01)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.6.4...v3.7.1)
+
+**Merged pull requests:**
+
+- Bump ex\_doc from 0.25.0 to 0.26.0 [\#273](https://github.com/mojotech/torch/pull/273) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Tweak generated context docs [\#272](https://github.com/mojotech/torch/pull/272) ([optikfluffel](https://github.com/optikfluffel))
+- Bump excoveralls from 0.14.2 to 0.14.4 [\#266](https://github.com/mojotech/torch/pull/266) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump mix\_test\_watch from 1.0.3 to 1.1.0 [\#260](https://github.com/mojotech/torch/pull/260) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump path-parse from 1.0.6 to 1.0.7 in /assets [\#253](https://github.com/mojotech/torch/pull/253) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v3.6.4](https://github.com/mojotech/torch/tree/v3.6.4) (2021-11-02)
 
-[Full Changelog](https://github.com/mojotech/torch/compare/v3.6.3...v3.6.4)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.7.0-rc.0...v3.6.4)
 
 **Closed issues:**
 
@@ -11,13 +23,8 @@
 
 **Merged pull requests:**
 
-- Fix ordering of FilterView.find_param for :select [\#271](https://github.com/mojotech/torch/pull/271) ([thedelchop](https://github.com/thedelchop))
+- Fix ordering of FilterView.find\_param for :select [\#271](https://github.com/mojotech/torch/pull/271) ([thedelchop](https://github.com/thedelchop))
 - Remove usage of deprecated method [\#268](https://github.com/mojotech/torch/pull/268) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Bump excoveralls from 0.14.1 to 0.14.2 [\#249](https://github.com/mojotech/torch/pull/249) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump ex_unit_notifier from 1.1.0 to 1.2.0 [\#248](https://github.com/mojotech/torch/pull/248) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Misc doc changes [\#247](https://github.com/mojotech/torch/pull/247) ([kianmeng](https://github.com/kianmeng))
-- Update CI test matrix to include latest IEX and OTP [\#245](https://github.com/mojotech/torch/pull/245) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Bump browserslist from 4.12.0 to 4.16.6 in /assets [\#233](https://github.com/mojotech/torch/pull/233) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.7.0-rc.0](https://github.com/mojotech/torch/tree/v3.7.0-rc.0) (2021-09-15)
 
@@ -26,6 +33,14 @@
 **Closed issues:**
 
 - References on Admin Page [\#147](https://github.com/mojotech/torch/issues/147)
+
+**Merged pull requests:**
+
+- Bump excoveralls from 0.14.1 to 0.14.2 [\#249](https://github.com/mojotech/torch/pull/249) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_unit\_notifier from 1.1.0 to 1.2.0 [\#248](https://github.com/mojotech/torch/pull/248) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Misc doc changes [\#247](https://github.com/mojotech/torch/pull/247) ([kianmeng](https://github.com/kianmeng))
+- Update CI test matrix to include latest IEX and OTP  [\#245](https://github.com/mojotech/torch/pull/245) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump browserslist from 4.12.0 to 4.16.6 in /assets [\#233](https://github.com/mojotech/torch/pull/233) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.6.3](https://github.com/mojotech/torch/tree/v3.6.3) (2021-06-30)
 
@@ -56,8 +71,8 @@
 **Merged pull requests:**
 
 - Fix bug with multiple filters w/ the same prefix [\#243](https://github.com/mojotech/torch/pull/243) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Bump mix_test_watch from 1.0.2 to 1.0.3 [\#239](https://github.com/mojotech/torch/pull/239) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump ex_doc from 0.24.1 to 0.24.2 [\#238](https://github.com/mojotech/torch/pull/238) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump mix\_test\_watch from 1.0.2 to 1.0.3 [\#239](https://github.com/mojotech/torch/pull/239) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.24.1 to 0.24.2 [\#238](https://github.com/mojotech/torch/pull/238) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump credo from 1.5.5 to 1.5.6 [\#237](https://github.com/mojotech/torch/pull/237) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump excoveralls from 0.14.0 to 0.14.1 [\#236](https://github.com/mojotech/torch/pull/236) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Test templates updated with best-practice describes [\#235](https://github.com/mojotech/torch/pull/235) ([d4rk5eed](https://github.com/d4rk5eed))
@@ -66,16 +81,16 @@
 - Bump y18n from 4.0.0 to 4.0.3 in /assets [\#221](https://github.com/mojotech/torch/pull/221) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to GitHub-native Dependabot [\#219](https://github.com/mojotech/torch/pull/219) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - \[mix\] Remove direct dependency on Timex [\#217](https://github.com/mojotech/torch/pull/217) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Bump ex_doc from 0.23.0 to 0.24.1 [\#215](https://github.com/mojotech/torch/pull/215) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.23.0 to 0.24.1 [\#215](https://github.com/mojotech/torch/pull/215) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - \[fix\] Ensure only the Torch layout is used on Phx 1.5 [\#212](https://github.com/mojotech/torch/pull/212) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Bump ex_unit_notifier from 1.0.0 to 1.1.0 [\#209](https://github.com/mojotech/torch/pull/209) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_unit\_notifier from 1.0.0 to 1.1.0 [\#209](https://github.com/mojotech/torch/pull/209) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump excoveralls from 0.13.4 to 0.14.0 [\#208](https://github.com/mojotech/torch/pull/208) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump credo from 1.5.4 to 1.5.5 [\#206](https://github.com/mojotech/torch/pull/206) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump excoveralls from 0.13.1 to 0.13.4 [\#203](https://github.com/mojotech/torch/pull/203) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump credo from 1.4.1 to 1.5.4 [\#202](https://github.com/mojotech/torch/pull/202) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump timex from 3.6.2 to 3.6.3 [\#201](https://github.com/mojotech/torch/pull/201) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex_unit_notifier from 0.1.4 to 1.0.0 [\#200](https://github.com/mojotech/torch/pull/200) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex_doc from 0.22.5 to 0.23.0 [\#195](https://github.com/mojotech/torch/pull/195) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_unit\_notifier from 0.1.4 to 1.0.0 [\#200](https://github.com/mojotech/torch/pull/200) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.22.5 to 0.23.0 [\#195](https://github.com/mojotech/torch/pull/195) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v3.6.1](https://github.com/mojotech/torch/tree/v3.6.1) (2021-03-19)
 
@@ -110,10 +125,10 @@
 - Update GH Actions hooks [\#186](https://github.com/mojotech/torch/pull/186) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Add Github Actions CI config [\#185](https://github.com/mojotech/torch/pull/185) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Bump jason from 1.2.1 to 1.2.2 [\#184](https://github.com/mojotech/torch/pull/184) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex_doc from 0.22.2 to 0.22.5 [\#183](https://github.com/mojotech/torch/pull/183) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.22.2 to 0.22.5 [\#183](https://github.com/mojotech/torch/pull/183) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump gettext from 0.18.0 to 0.18.1 [\#181](https://github.com/mojotech/torch/pull/181) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump excoveralls from 0.13.0 to 0.13.1 [\#180](https://github.com/mojotech/torch/pull/180) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex_doc from 0.22.1 to 0.22.2 [\#179](https://github.com/mojotech/torch/pull/179) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.22.1 to 0.22.2 [\#179](https://github.com/mojotech/torch/pull/179) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v3.4.1](https://github.com/mojotech/torch/tree/v3.4.1) (2020-06-10)
 
@@ -145,8 +160,8 @@
 **Merged pull requests:**
 
 - Bump timex from 3.6.1 to 3.6.2 [\#167](https://github.com/mojotech/torch/pull/167) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex_doc from 0.21.3 to 0.22.1 [\#166](https://github.com/mojotech/torch/pull/166) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump phoenix_html from 2.13.3 to 2.13.4 [\#165](https://github.com/mojotech/torch/pull/165) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.21.3 to 0.22.1 [\#166](https://github.com/mojotech/torch/pull/166) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump phoenix\_html from 2.13.3 to 2.13.4 [\#165](https://github.com/mojotech/torch/pull/165) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v3.3.0](https://github.com/mojotech/torch/tree/v3.3.0) (2020-05-27)
 
@@ -158,7 +173,7 @@
 
 **Closed issues:**
 
-- Pagination error "paginate_products/1 is undefined or private." [\#163](https://github.com/mojotech/torch/issues/163)
+- Pagination error "paginate\_products/1 is undefined or private." [\#163](https://github.com/mojotech/torch/issues/163)
 
 **Merged pull requests:**
 
@@ -194,7 +209,7 @@
 
 **Closed issues:**
 
-- Can't run the server after installing torch [\#146](https://github.com/mojotech/torch/issues/146)
+- Can't run the server after installing  torch [\#146](https://github.com/mojotech/torch/issues/146)
 - Generate files into proper umbrella apps [\#83](https://github.com/mojotech/torch/issues/83)
 
 **Merged pull requests:**
@@ -203,7 +218,7 @@
 - Dont allow torch mix tasks from top-level of umbrella app [\#148](https://github.com/mojotech/torch/pull/148) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Bump credo from 1.1.5 to 1.3.2 [\#142](https://github.com/mojotech/torch/pull/142) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump excoveralls from 0.12.1 to 0.12.3 [\#141](https://github.com/mojotech/torch/pull/141) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex_doc from 0.21.2 to 0.21.3 [\#132](https://github.com/mojotech/torch/pull/132) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.21.2 to 0.21.3 [\#132](https://github.com/mojotech/torch/pull/132) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump gettext from 0.17.1 to 0.17.4 [\#128](https://github.com/mojotech/torch/pull/128) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump timex from 3.5.0 to 3.6.1 [\#118](https://github.com/mojotech/torch/pull/118) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
@@ -238,9 +253,9 @@
 - Bump excoveralls from 0.11.2 to 0.12.1 [\#124](https://github.com/mojotech/torch/pull/124) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump gettext from 0.17.0 to 0.17.1 [\#123](https://github.com/mojotech/torch/pull/123) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump credo from 0.10.2 to 1.1.5 [\#121](https://github.com/mojotech/torch/pull/121) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump phoenix_html from 2.13.1 to 2.13.3 [\#120](https://github.com/mojotech/torch/pull/120) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump phoenix\_html from 2.13.1 to 2.13.3 [\#120](https://github.com/mojotech/torch/pull/120) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump gettext from 0.16.1 to 0.17.0 [\#117](https://github.com/mojotech/torch/pull/117) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump ex_doc from 0.19.3 to 0.21.2 [\#116](https://github.com/mojotech/torch/pull/116) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ex\_doc from 0.19.3 to 0.21.2 [\#116](https://github.com/mojotech/torch/pull/116) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump excoveralls from 0.10.4 to 0.11.2 [\#114](https://github.com/mojotech/torch/pull/114) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v2.0.0](https://github.com/mojotech/torch/tree/v2.0.0) (2019-09-19)
@@ -285,13 +300,13 @@
 **Closed issues:**
 
 - Add I18N support [\#101](https://github.com/mojotech/torch/issues/101)
-- Filter by has_one association field [\#96](https://github.com/mojotech/torch/issues/96)
+- Filter by has\_one association field [\#96](https://github.com/mojotech/torch/issues/96)
 - License? [\#94](https://github.com/mojotech/torch/issues/94)
 - test integration with coherence [\#92](https://github.com/mojotech/torch/issues/92)
 - UndefinedFunctionError "module Routes is not available" [\#89](https://github.com/mojotech/torch/issues/89)
 - Improve documentation [\#86](https://github.com/mojotech/torch/issues/86)
 - Improve test coverage [\#85](https://github.com/mojotech/torch/issues/85)
-- Hex version not updated, 2.0.0-alpha fails. [\#80](https://github.com/mojotech/torch/issues/80)
+- Hex version not updated, 2.0.0-alpha fails.  [\#80](https://github.com/mojotech/torch/issues/80)
 - Update path's and configs to work with phoenix 1.3 [\#77](https://github.com/mojotech/torch/issues/77)
 - Properly disable form inputs [\#76](https://github.com/mojotech/torch/issues/76)
 - torch does not work with ecto \>= 2.2.0 [\#75](https://github.com/mojotech/torch/issues/75)
@@ -307,8 +322,8 @@
 - Fix disabled inputs and prep for 2.0.0-rc2 [\#108](https://github.com/mojotech/torch/pull/108) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Set active nav link based on link target, not text [\#106](https://github.com/mojotech/torch/pull/106) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Add I18N support. [\#102](https://github.com/mojotech/torch/pull/102) ([solov9ev](https://github.com/solov9ev))
-- Fix start_page in pagination rendering [\#99](https://github.com/mojotech/torch/pull/99) ([akrisanov](https://github.com/akrisanov))
-- Adds custom has_many filter association example to Readme [\#97](https://github.com/mojotech/torch/pull/97) ([zberkom](https://github.com/zberkom))
+- Fix start\_page in pagination rendering [\#99](https://github.com/mojotech/torch/pull/99) ([akrisanov](https://github.com/akrisanov))
+- Adds custom has\_many filter association example to Readme [\#97](https://github.com/mojotech/torch/pull/97) ([zberkom](https://github.com/zberkom))
 - Modernize Webpack [\#95](https://github.com/mojotech/torch/pull/95) ([danielberkompas](https://github.com/danielberkompas))
 - Install coveralls [\#88](https://github.com/mojotech/torch/pull/88) ([danielberkompas](https://github.com/danielberkompas))
 - \[\#85\] Improve tests [\#87](https://github.com/mojotech/torch/pull/87) ([danielberkompas](https://github.com/danielberkompas))
@@ -329,9 +344,9 @@
 
 **Closed issues:**
 
-- mix torch.install - Phoenix.HTML.Form.date_input/3 conflicts with local function [\#81](https://github.com/mojotech/torch/issues/81)
+- mix torch.install - Phoenix.HTML.Form.date\_input/3 conflicts with local function [\#81](https://github.com/mojotech/torch/issues/81)
 - Support Phoenix 1.3 [\#78](https://github.com/mojotech/torch/issues/78)
-- Docs incorrect regarding css setup. [\#72](https://github.com/mojotech/torch/issues/72)
+- Docs incorrect regarding css setup.  [\#72](https://github.com/mojotech/torch/issues/72)
 - last release Phoenix 1.3... throws error [\#70](https://github.com/mojotech/torch/issues/70)
 - Brunch not building correct JS imports [\#59](https://github.com/mojotech/torch/issues/59)
 
@@ -364,7 +379,7 @@
 **Closed issues:**
 
 - Example app post index controller error [\#47](https://github.com/mojotech/torch/issues/47)
-- ArgumentError with filter_date_input [\#42](https://github.com/mojotech/torch/issues/42)
+- ArgumentError with filter\_date\_input [\#42](https://github.com/mojotech/torch/issues/42)
 - Move example app into separate repo or subdirectory [\#24](https://github.com/mojotech/torch/issues/24)
 
 **Merged pull requests:**
@@ -474,4 +489,6 @@
 
 [Full Changelog](https://github.com/mojotech/torch/compare/0dbb20ebe44ecfe2796af1d54659c2424803790e...v0.1.0)
 
-\* _This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)_
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
