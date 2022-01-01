@@ -74,13 +74,21 @@ defmodule Mix.Torch do
   This is why this function invocation of `copy_from/2` changes the template file extensions
   to `.html.eex` reglardess of the original template format type.
   """
-  def inject_templates("phx.gen.html", format) do
+  def inject_templates("phx.gen.html", "heex") do
+    inject_templates("phx.gen.html", "heex", "heex")
+  end
+
+  def inject_templates("phx.gen.html", slime_or_eex) when is_binary(slime_or_eex) do
+    inject_templates("phx.gen.html", slime_or_eex, "eex")
+  end
+
+  def inject_templates("phx.gen.html", format, dest_format) do
     copy_from("priv/templates/#{format}/phx.gen.html", [
-      {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.eex"},
-      {"form.html.#{format}", "priv/templates/phx.gen.html/form.html.eex"},
-      {"index.html.#{format}", "priv/templates/phx.gen.html/index.html.eex"},
-      {"new.html.#{format}", "priv/templates/phx.gen.html/new.html.eex"},
-      {"show.html.#{format}", "priv/templates/phx.gen.html/show.html.eex"}
+      {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.#{dest_format}"},
+      {"form.html.#{format}", "priv/templates/phx.gen.html/form.html.#{dest_format}"},
+      {"index.html.#{format}", "priv/templates/phx.gen.html/index.html.#{dest_format}"},
+      {"new.html.#{format}", "priv/templates/phx.gen.html/new.html.#{dest_format}"},
+      {"show.html.#{format}", "priv/templates/phx.gen.html/show.html.#{dest_format}"}
     ])
 
     copy_from("priv/templates/common/phx.gen.html", [

@@ -2,7 +2,7 @@ defmodule Torch.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/mojotech/torch"
-  @version "3.6.4"
+  @version "3.7.0-rc.0"
 
   def project do
     [
@@ -43,8 +43,8 @@ defmodule Torch.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix, ">= 1.3.0 and < 1.6.0"},
-      {:phoenix_html, "~> 2.10"},
+      {:phoenix, ">= 1.3.0 and < 1.7.0"},
+      {:phoenix_html, "~> 3.0"},
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, ">= 1.2.1"},
       {:filtrex, "~> 0.4.1"},
