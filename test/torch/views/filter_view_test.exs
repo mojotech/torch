@@ -31,7 +31,7 @@ defmodule Torch.FilterViewTest do
     # * See Github Issue 270: https://github.com/mojotech/torch/issues/270
 
     expected =
-      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option value=\"user[name_contains]\" selected>Contains</option><option value=\"user[name_equals]\">Equals</option></select>"
+      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option selected value=\"user[name_contains]\">Contains</option><option value=\"user[name_equals]\">Equals</option></select>"
 
     assert expected == safe_to_string(Torch.FilterView.filter_select(:user, :name, %{}))
 
@@ -56,7 +56,7 @@ defmodule Torch.FilterViewTest do
     }
 
     expected =
-      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option value=\"user[name_contains]\">Contains</option><option value=\"user[name_equals]\" selected>Equals</option></select>"
+      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option value=\"user[name_contains]\">Contains</option><option selected value=\"user[name_equals]\">Equals</option></select>"
 
     assert expected == safe_to_string(Torch.FilterView.filter_select(:user, :name, params))
 
