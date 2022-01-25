@@ -18,7 +18,7 @@ defmodule Torch.FilterView do
 
       iex> params = %{"post" => %{"category_id_equals" => 1}}
       ...> filter_assoc_select(:post, :category_id, [{"Articles", 1}], params) |> safe_to_string()
-      "<select id=\\"post_category_id_equals\\" name=\\"post[category_id_equals]\\"><option value=\\"\\">Choose one</option><option value=\\"1\\" selected>Articles</option></select>"
+      "<select id=\\"post_category_id_equals\\" name=\\"post[category_id_equals]\\"><option value=\\"\\">Choose one</option><option selected value=\\"1\\">Articles</option></select>"
   """
   @spec filter_assoc_select(prefix, field, list, map) :: Phoenix.HTML.safe()
   def filter_assoc_select(prefix, field, options, params) do
@@ -39,7 +39,7 @@ defmodule Torch.FilterView do
 
       iex> params = %{"post" => %{"title_contains" => "test"}}
       ...> filter_select(:post, :title, params) |> safe_to_string()
-      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[title_contains]\\" selected>Contains</option><option value=\\"post[title_equals]\\">Equals</option></select>"
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option selected value=\\"post[title_contains]\\">Contains</option><option value=\\"post[title_equals]\\">Equals</option></select>"
   """
   @spec filter_select(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_select(prefix, field, params) do
@@ -62,7 +62,7 @@ defmodule Torch.FilterView do
 
       iex> params = %{"post" => %{"updated_at_after" => "01/01/2019"}}
       ...> filter_date_select(:post, :updated_at, params) |> safe_to_string()
-      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[updated_at_before]\\">Before</option><option value=\\"post[updated_at_after]\\" selected>After</option></select>"
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[updated_at_before]\\">Before</option><option selected value=\\"post[updated_at_after]\\">After</option></select>"
   """
   @spec filter_date_select(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_date_select(prefix, field, params) do
@@ -84,7 +84,7 @@ defmodule Torch.FilterView do
 
       iex> params = %{"post" => %{"rating_greater_than" => 0}}
       ...> number_filter_select(:post, :rating, params) |> safe_to_string()
-      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[rating_equals]\\">Equals</option><option value=\\"post[rating_greater_than]\\" selected>Greater Than</option><option value=\\"post[rating_greater_than_or]\\">Greater Than Or Equal</option><option value=\\"post[rating_less_than]\\">Less Than</option></select>"
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[rating_equals]\\">Equals</option><option selected value=\\"post[rating_greater_than]\\">Greater Than</option><option value=\\"post[rating_greater_than_or]\\">Greater Than Or Equal</option><option value=\\"post[rating_less_than]\\">Less Than</option></select>"
   """
   @spec number_filter_select(prefix, field, map) :: Phoenix.HTML.safe()
   def number_filter_select(prefix, field, params) do
