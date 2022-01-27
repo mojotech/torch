@@ -83,13 +83,13 @@ else
     }
 fi
 
-requiredMinVersion="21"
+requiredMinVersion="22"
 if [ "$(printf '%s\n' "$requiredMinVersion" "$otpCurrentVersion" | sort -Vr | head -n1)" = "$requiredMinVersion" ]; then
-    echo '[Skipping] OTP 22+ is required for Phoenix 1.5+'
+    echo '[Skipping] OTP 22+ is required for Phoenix 1.6+'
 else
-    cd "$TEST_ROOT/support/apps/phx1_5" && {
+    cd "$TEST_ROOT/support/apps/phx1_6" && {
         bin/test || {
-            echo 'Integration tests on regular Phoenix 1.5 project failed!'
+            echo 'Integration tests on regular Phoenix 1.6 project failed!'
             exit 1
         }
     }
