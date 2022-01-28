@@ -21,5 +21,5 @@ html
             / nav links here
 
     = Torch.FlashView.render("_flash_messages.html", assigns)
-    = render @view_module, @view_template, assigns
+    = @inner_content
     script src="#{Routes.static_path(@conn, "/torch/torch.js")}"
