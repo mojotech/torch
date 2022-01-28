@@ -41,10 +41,6 @@ defmodule Mix.Tasks.Torch.Install do
     do: phoenix_version |> to_string() |> template_file(format)
 
   defp template_file(phoenix_version, format) when is_binary(phoenix_version) do
-    if Version.match?(phoenix_version, ">= 1.6.0") do
-      "layout.phx1_6.html.#{format}"
-    else
-      "layout.html.#{format}"
-    end
+    "layout.html.#{format}"
   end
 end
