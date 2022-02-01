@@ -85,9 +85,43 @@ $ mix torch.gen.html Blog Post posts title:string body:text published_at:datetim
 The output would look like:
 
 ```bash
-Add the resource to your browser scope in lib/my_app_web/router.ex:
+* creating priv/templates/phx.gen.html/edit.html.heex
+* creating priv/templates/phx.gen.html/form.html.heex
+* creating priv/templates/phx.gen.html/index.html.heex
+* creating priv/templates/phx.gen.html/new.html.heex
+* creating priv/templates/phx.gen.html/show.html.heex
+* creating priv/templates/phx.gen.html/controller_test.exs
+* creating priv/templates/phx.gen.html/controller.ex
+* creating priv/templates/phx.gen.html/view.ex
+* creating priv/templates/phx.gen.context/access_no_schema.ex
+* creating priv/templates/phx.gen.context/context.ex
+* creating priv/templates/phx.gen.context/schema_access.ex
+* creating priv/templates/phx.gen.context/test_cases.exs
+* creating priv/templates/phx.gen.context/context_test.exs
+* creating lib/phx1_6_web/controllers/post_controller.ex
+* creating lib/phx1_6_web/templates/post/edit.html.heex
+* creating lib/phx1_6_web/templates/post/form.html.heex
+* creating lib/phx1_6_web/templates/post/index.html.heex
+* creating lib/phx1_6_web/templates/post/new.html.heex
+* creating lib/phx1_6_web/templates/post/show.html.heex
+* creating lib/phx1_6_web/views/post_view.ex
+* creating test/phx1_6_web/controllers/post_controller_test.exs
+* creating lib/phx1_6/blog/post.ex
+* creating priv/repo/migrations/20220201154756_create_posts.exs
+* creating lib/phx1_6/blog.ex
+* injecting lib/phx1_6/blog.ex
+* creating test/phx1_6/blog_test.exs
+* injecting test/phx1_6/blog_test.exs
+* injecting test/support/fixtures/blog_fixtures.ex
+
+Add the resource to your browser scope in lib/phx1_6_web/router.ex:
 
     resources "/posts", PostController
+
+
+Remember to update your repository by running migrations:
+
+    $ mix ecto.migrate
 
 Ensure the following is added to your endpoint.ex:
 
@@ -100,7 +134,12 @@ Ensure the following is added to your endpoint.ex:
       headers: [{"access-control-allow-origin", "*"}]
     )
 
-  :fire: Torch generated html for Posts! :fire:
+Also don't forget to add a link to layouts/torch.html.
+
+    <nav class="torch-nav">
+      <!-- nav links here -->
+    </nav>
+
 ```
 
 Torch also installed an admin layout into your `my_app_web/templates/layout/torch.html.eex`.
@@ -121,6 +160,32 @@ model and controller modules already exist, use the following command:
 
 ```bash
 $ mix torch.gen.html Blog Post posts --no-schema --no-context --web Admin title:string body:text published_at:datetime published:boolean views:integer
+```
+
+Would only generate these files:
+
+```bash
+* creating priv/templates/phx.gen.html/edit.html.heex
+* creating priv/templates/phx.gen.html/form.html.heex
+* creating priv/templates/phx.gen.html/index.html.heex
+* creating priv/templates/phx.gen.html/new.html.heex
+* creating priv/templates/phx.gen.html/show.html.heex
+* creating priv/templates/phx.gen.html/controller_test.exs
+* creating priv/templates/phx.gen.html/controller.ex
+* creating priv/templates/phx.gen.html/view.ex
+* creating priv/templates/phx.gen.context/access_no_schema.ex
+* creating priv/templates/phx.gen.context/context.ex
+* creating priv/templates/phx.gen.context/schema_access.ex
+* creating priv/templates/phx.gen.context/test_cases.exs
+* creating priv/templates/phx.gen.context/context_test.exs
+* creating lib/phx1_6_web/controllers/admin/post_controller.ex
+* creating lib/phx1_6_web/templates/admin/post/edit.html.heex
+* creating lib/phx1_6_web/templates/admin/post/form.html.heex
+* creating lib/phx1_6_web/templates/admin/post/index.html.heex
+* creating lib/phx1_6_web/templates/admin/post/new.html.heex
+* creating lib/phx1_6_web/templates/admin/post/show.html.heex
+* creating lib/phx1_6_web/views/admin/post_view.ex
+* creating test/phx1_6_web/controllers/admin/post_controller_test.exs
 ```
 
 ### Association filters
