@@ -67,7 +67,7 @@ Now you're ready to start generating your admin! :tada:
 
 ## Usage
 
-Torch uses Phoenix generators under the hood. Torch injects it's own custom templates
+Torch uses [Phoenix generators](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Html.html) under the hood. Torch injects it's own custom templates
 into your `priv/static` directory, then runs the `mix phx.gen.html` task with the options
 you passed in. Finally, it uninstalls the custom templates so they don't interfere with
 running the plain Phoenix generators.
@@ -98,21 +98,7 @@ The output would look like:
 * creating priv/templates/phx.gen.context/schema_access.ex
 * creating priv/templates/phx.gen.context/test_cases.exs
 * creating priv/templates/phx.gen.context/context_test.exs
-* creating lib/phx1_6_web/controllers/post_controller.ex
-* creating lib/phx1_6_web/templates/post/edit.html.heex
-* creating lib/phx1_6_web/templates/post/form.html.heex
-* creating lib/phx1_6_web/templates/post/index.html.heex
-* creating lib/phx1_6_web/templates/post/new.html.heex
-* creating lib/phx1_6_web/templates/post/show.html.heex
-* creating lib/phx1_6_web/views/post_view.ex
-* creating test/phx1_6_web/controllers/post_controller_test.exs
-* creating lib/phx1_6/blog/post.ex
-* creating priv/repo/migrations/20220201154756_create_posts.exs
-* creating lib/phx1_6/blog.ex
-* injecting lib/phx1_6/blog.ex
-* creating test/phx1_6/blog_test.exs
-* injecting test/phx1_6/blog_test.exs
-* injecting test/support/fixtures/blog_fixtures.ex
+...<more output from phx.gen.html>...
 
 Add the resource to your browser scope in lib/phx1_6_web/router.ex:
 
@@ -134,7 +120,7 @@ Ensure the following is added to your endpoint.ex:
       headers: [{"access-control-allow-origin", "*"}]
     )
 
-Also don't forget to add a link to layouts/torch.html.
+Also don't forget to add a link to layouts/torch.html if desired.
 
     <nav class="torch-nav">
       <!-- nav links here -->
@@ -160,32 +146,6 @@ model and controller modules already exist, use the following command:
 
 ```bash
 $ mix torch.gen.html Blog Post posts --no-schema --no-context --web Admin title:string body:text published_at:datetime published:boolean views:integer
-```
-
-Would only generate these files:
-
-```bash
-* creating priv/templates/phx.gen.html/edit.html.heex
-* creating priv/templates/phx.gen.html/form.html.heex
-* creating priv/templates/phx.gen.html/index.html.heex
-* creating priv/templates/phx.gen.html/new.html.heex
-* creating priv/templates/phx.gen.html/show.html.heex
-* creating priv/templates/phx.gen.html/controller_test.exs
-* creating priv/templates/phx.gen.html/controller.ex
-* creating priv/templates/phx.gen.html/view.ex
-* creating priv/templates/phx.gen.context/access_no_schema.ex
-* creating priv/templates/phx.gen.context/context.ex
-* creating priv/templates/phx.gen.context/schema_access.ex
-* creating priv/templates/phx.gen.context/test_cases.exs
-* creating priv/templates/phx.gen.context/context_test.exs
-* creating lib/phx1_6_web/controllers/admin/post_controller.ex
-* creating lib/phx1_6_web/templates/admin/post/edit.html.heex
-* creating lib/phx1_6_web/templates/admin/post/form.html.heex
-* creating lib/phx1_6_web/templates/admin/post/index.html.heex
-* creating lib/phx1_6_web/templates/admin/post/new.html.heex
-* creating lib/phx1_6_web/templates/admin/post/show.html.heex
-* creating lib/phx1_6_web/views/admin/post_view.ex
-* creating test/phx1_6_web/controllers/admin/post_controller_test.exs
 ```
 
 ### Association filters
