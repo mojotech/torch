@@ -66,6 +66,7 @@ about the supported options and format.
 For example, if we wanted to generate a blog with a `Post` model we could run the following command:
 
 ```bash
+# mix torch.gen.html <Context Module> <Schema Module> <Schema Table Name> [<Column Name>:<Column Type>]+
 $ mix torch.gen.html Blog Post posts title:string body:text published_at:datetime published:boolean views:integer
 ```
 
