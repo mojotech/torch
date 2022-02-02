@@ -66,7 +66,7 @@ defmodule Mix.Tasks.Torch.Gen.Html do
     """)
 
     Mix.shell().info("""
-    Also don't forget to add a link to layouts/torch.html.
+    Also don't forget to add a link to layouts/torch.html if desired.
 
         <nav class="torch-nav">
           <!-- nav links here -->
