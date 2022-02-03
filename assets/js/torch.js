@@ -119,7 +119,6 @@ window.onload = () => {
   const formatDate = date =>
     date
       .toLocaleString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' })
-      .replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
 
   /* eslint-disable no-new */
   slice.call(document.querySelectorAll('.datepicker'), 0).forEach((field) => {
