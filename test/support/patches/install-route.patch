@@ -1,0 +1,12 @@
+diff --git a/test/support/apps/phx1_6/lib/phx1_6_web/router.ex b/test/support/apps/phx1_6/lib/phx1_6_web/router.ex
+index a508a9c..da60647 100644
+--- a/test/support/apps/phx1_6/lib/phx1_6_web/router.ex
++++ b/test/support/apps/phx1_6/lib/phx1_6_web/router.ex
+@@ -18,6 +18,7 @@ defmodule Phx16Web.Router do
+     pipe_through :browser
+ 
+     get "/", PageController, :index
++    resources "/posts", PostController
+   end
+ 
+   # Other scopes may use custom stacks.
