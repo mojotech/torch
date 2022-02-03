@@ -12,14 +12,18 @@ function cleanup() {
     rm -rf lib/phx1_6_web/templates/post/
     rm -rf lib/phx1_6_web/views/post_view.ex
     rm -rf test/phx1_6_web/controllers/post_controller_test.exs
-    cp ../../routers/phx1_6_original.ex lib/phx1_6_web/router.ex
+    rm -rf test/support/fixtures/
+    patch -i ../../patches/install-torch.patch -p 5 -R
+    patch -i ../../patches/install-route.patch -p 5 -R
 }
 
-mix deps.get || { echo 'Dependencies could not be fetched!'; exit 1; }
-MIX_ENV=test mix ecto.drop || { echo 'Database could not be dropped'; exit 1; }
-MIX_ENV=test mix torch.install || { echo 'Torch could not be installed!'; exit 1; }
+patch -i ../../patches/install-torch.patch -p 5
+mix deps.get || { cleanup; echo 'Dependencies could not be fetched!'; exit 1; }
+MIX_ENV=test mix ecto.drop || { cleanup; echo 'Database could not be dropped'; exit 1; }
+MIX_ENV=test mix torch.install || { cleanup; echo 'Torch could not be installed!'; exit 1; }
 MIX_ENV=test mix torch.gen.html Blog Post posts title:string published:boolean published_at:datetime views:integer || { echo 'Torch files not generated!'; exit 1; }
-cp ../../routers/phx1_6_modified.ex lib/phx1_6_web/router.ex
+MIX_ENV=test mix ecto.setup ||  { cleanup; echo 'Torch database could not be setup!'; exit 1; }
+patch -i ../../patches/install-route.patch -p 5
 MIX_ENV=test mix test || { echo 'Tests failed!'; cleanup; exit 1; }
 
 # Ensure that put_root_layout is used by default on > Phx 1.5
