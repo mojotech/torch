@@ -230,3 +230,28 @@ config :torch,
   i18n_backend: MyApp.CustomMessagesBackend
   template_format: "eex" || "slime"
 ```
+
+# Development 
+
+## Getting Started 
+
+### Building the javascript bundle
+
+The javascript bundle is included in `priv/static/torch.js`
+
+To build this bundle go to `assets` folder
+```bash
+cd assets
+```
+
+Install dependencies:
+```bash
+npm i
+```
+
+Run webpack build:
+```bash
+npm run compile
+```
+
+Node version 14 is required.

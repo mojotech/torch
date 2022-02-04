@@ -25,6 +25,9 @@
     "> 1%",
     "ie > 9"
   ],
+  "engines": {
+    "node": ">=14 <16"
+  },
   "scripts": {
     "test": "./node_modules/.bin/standard && ./node_modules/webpack/bin/webpack.js",
     "compile": "webpack -p"
