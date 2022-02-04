@@ -25,11 +25,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
-            options: {
-              plugins: ['transform-object-rest-spread'],
-              cacheDirectory: true
-            }
+            loader: 'babel-loader'
           }
         ]
       },
