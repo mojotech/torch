@@ -88,18 +88,9 @@ The output would look like:
 ```bash
 * creating priv/templates/phx.gen.html/edit.html.heex
 * creating priv/templates/phx.gen.html/form.html.heex
-* creating priv/templates/phx.gen.html/index.html.heex
-* creating priv/templates/phx.gen.html/new.html.heex
-* creating priv/templates/phx.gen.html/show.html.heex
-* creating priv/templates/phx.gen.html/controller_test.exs
-* creating priv/templates/phx.gen.html/controller.ex
-* creating priv/templates/phx.gen.html/view.ex
-* creating priv/templates/phx.gen.context/access_no_schema.ex
-* creating priv/templates/phx.gen.context/context.ex
-* creating priv/templates/phx.gen.context/schema_access.ex
-* creating priv/templates/phx.gen.context/test_cases.exs
-* creating priv/templates/phx.gen.context/context_test.exs
-...<more output from phx.gen.html>...
+...<omitted for brevity>...
+* injecting test/phx1_6/blog_test.exs
+* injecting test/support/fixtures/blog_fixtures.ex
 
 Add the resource to your browser scope in lib/phx1_6_web/router.ex:
 
