@@ -121,19 +121,23 @@ window.onload = () => {
       .toLocaleString('en-us', { year: 'numeric', month: '2-digit', day: '2-digit' })
       .replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2')
 
+  const parseDate = (dateString) => {
+    const dateParts = dateString.split('-')
+    if (dateParts.length === 3) {
+      return new Date(dateParts[0], dateParts[1] - 1, dateParts[2])
+    }
+  }
+
   /* eslint-disable no-new */
   slice.call(document.querySelectorAll('.datepicker'), 0).forEach((field) => {
-    let defaultDate = new Date()
-    const fieldValue = field.value.split('-')
-    if (fieldValue.length === 3) {
-      defaultDate = new Date(fieldValue[0], fieldValue[1] - 1, fieldValue[2])
-    }
+    const defaultDate = parseDate(field.value) || new Date()
 
     new Pikaday({
       field: field,
       toString: date => formatDate(date),
       onSelect: date => (field.value = formatDate(date)),
       defaultDate: defaultDate,
+      parse: parseDate,
       theme: 'torch-datepicker'
     })
   })
