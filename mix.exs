@@ -43,12 +43,12 @@ defmodule Torch.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix, ">= 1.3.0 and < 1.7.0"},
+      {:phoenix, "~> 1.6.0"},
       {:phoenix_html, "~> 3.0"},
       {:gettext, "~> 0.16"},
-      {:scrivener_ecto, ">= 1.2.1"},
+      {:scrivener_ecto, "~> 2.7.0"},
       {:filtrex, "~> 0.4.1"},
-      {:jason, ">= 0.0.0", only: [:dev, :test]},
+      {:jason, "~> 1.2", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       {:credo, "~> 1.1", only: [:dev, :test]},
       {:ex_doc, ">= 0.0.0", only: [:dev, :test], runtime: false},
