@@ -14,6 +14,15 @@ on the Phoenix HTML generator under the hood.
 
 ![image](https://user-images.githubusercontent.com/7085617/36333572-70e3907e-132c-11e8-9ad2-bd5e98aadc7c.png)
 
+## NOTE
+
+At the moment, the main release of Torch (version 3.x) only supports Phoenix Framework 1.5 and below.  If you
+need Phoenix 1.6+ support, please use the Torch v4.x release and reference the code in the [v4 branch](https://github.com/mojotech/torch/tree/v4).
+
+When Phoenix 1.6 support is fully stabilized in the [v4 branch](https://github.com/mojotech/torch/tree/v4), Torch 4
+will become the new "default" release, and we will move the current Torch v3 release into a `v3` branch which will be maintained
+for support but no new feature development.  All new feature development will be on Torch v4 going forward.
+
 ## Installation
 
 To install Torch, perform the following steps:
@@ -23,7 +32,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 3.6"}
+    {:torch, "~> 3.8"}
   ]
 end
 ```
