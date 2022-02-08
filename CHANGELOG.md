@@ -1,8 +1,32 @@
 # Changelog
 
+## [v3.8.0](https://github.com/mojotech/torch/tree/v3.8.0) (2022-02-08)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.7.1...v3.8.0)
+
+**Closed issues:**
+
+- Manual Date Entry is Changing [\#281](https://github.com/mojotech/torch/issues/281)
+- phoenix 1.6 is unsupported (use Torch v4 instead) [\#269](https://github.com/mojotech/torch/issues/269)
+
+**Merged pull requests:**
+
+- \[chore\] extract date parse logic [\#296](https://github.com/mojotech/torch/pull/296) ([chewnoill](https://github.com/chewnoill))
+- Revert "Bump ex\_doc from 0.26.0 to 0.28.0" [\#288](https://github.com/mojotech/torch/pull/288) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Revert support for phoenix 1.6 from the master branch [\#287](https://github.com/mojotech/torch/pull/287) ([chewnoill](https://github.com/chewnoill))
+- Bump ex\_doc from 0.26.0 to 0.28.0 [\#285](https://github.com/mojotech/torch/pull/285) ([dependabot[bot]](https://github.com/apps/dependabot))
+- "use Mix.Config is deprecated. Use the Config module instead" [\#280](https://github.com/mojotech/torch/pull/280) ([krainboltgreene](https://github.com/krainboltgreene))
+- "clauses with the same name should be grouped together" [\#279](https://github.com/mojotech/torch/pull/279) ([krainboltgreene](https://github.com/krainboltgreene))
+- Bump jason from 1.2.2 to 1.3.0 [\#277](https://github.com/mojotech/torch/pull/277) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump gettext from 0.18.2 to 0.19.0 [\#275](https://github.com/mojotech/torch/pull/275) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v3.7.1](https://github.com/mojotech/torch/tree/v3.7.1) (2022-01-01)
 
-[Full Changelog](https://github.com/mojotech/torch/compare/v3.6.4...v3.7.1)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.7.0...v3.7.1)
+
+## [v3.7.0](https://github.com/mojotech/torch/tree/v3.7.0) (2022-01-01)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.6.4...v3.7.0)
 
 **Merged pull requests:**
 
