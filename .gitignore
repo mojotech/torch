@@ -33,3 +33,7 @@ node_modules/
 /priv/gettext/*/LC_MESSAGES/*.mo
 
 shell.nix
+
+test/support/apps/phx1_3
+test/support/apps/phx1_4
+test/support/apps/phx1_5
