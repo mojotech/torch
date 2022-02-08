@@ -53,7 +53,7 @@ defmodule Torch.Helpers do
       paginate(query, Repo, params, [page_size: 15])
       # => %Scrivener.Page{...}
   """
-  @spec paginate(Ecto.Queryable.t(), Ecto.Repo.t(), params, Keyword.t()) :: %Scrivener.Page{}
+  @spec paginate(Ecto.Queryable.t(), Ecto.Repo.t(), params, Keyword.t()) :: Scrivener.Page.t()
   def paginate(query, repo, params, settings \\ [page_size: 10]) do
     Scrivener.paginate(query, Scrivener.Config.new(repo, settings, params))
   end
