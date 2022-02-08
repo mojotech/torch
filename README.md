@@ -54,7 +54,7 @@ plug(
 ```
 config :torch,
   otp_app: :my_app_name,
-  template_format: "eex" || "slime"
+  template_format: "heex"
 ```
 
 4. Run `mix torch.install`
@@ -120,7 +120,7 @@ Also don't forget to add a link to layouts/torch.html if desired.
 
 ```
 
-Torch also installed an admin layout into your `my_app_web/templates/layout/torch.html.eex`.
+Torch also installed an admin layout into your `my_app_web/templates/layout/torch.html.heex`.
 You will want to update it to include your new navigation link:
 
 ```
@@ -190,7 +190,7 @@ end
 2. Update form filters.
 
 ```eex
-# users/index.html.eex
+# users/index.html.heex
 <div class="field">
   <label>Credential email</label>
   <%= text_input(:credentials, :email, value: maybe(@conn.params, ["credentials", "email"])) %>
@@ -198,13 +198,13 @@ end
 ```
 
 Note: You'll need to install & import `Maybe` into your views `{:maybe, "~> 1.0.0"}` for
-the above `eex` to work.
+the above `heex` to work.
 
 ## Styling
 
 Torch generates two CSS themes you can use: `base.css` & `theme.css`.
 The base styles are basically bare bones, and the theme styles look like the screenshot
-above. Just change the stylesheet link in the `torch.html.eex` layout.
+above. Just change the stylesheet link in the `torch.html.heex` layout.
 
 If you want to use the theme, but override the colors, you'll need to include your
 own stylesheet with the specific overrides.
@@ -245,12 +245,12 @@ end
 config :torch,
   otp_app: :my_app_name,
   i18n_backend: MyApp.CustomMessagesBackend
-  template_format: "eex" || "slime"
+  template_format: "heex"
 ```
 
-# Development 
+# Development
 
-## Getting Started 
+## Getting Started
 
 ### Building the javascript bundle
 
