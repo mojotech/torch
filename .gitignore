@@ -34,6 +34,6 @@ node_modules/
 
 shell.nix
 
-test/support/apps/phx_1_3
-test/support/apps/phx_1_4
-test/support/apps/phx_1_5
+test/support/apps/phx1_3
+test/support/apps/phx1_4
+test/support/apps/phx1_5
