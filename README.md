@@ -14,14 +14,10 @@ on the Phoenix HTML generator under the hood.
 
 ![image](https://user-images.githubusercontent.com/7085617/36333572-70e3907e-132c-11e8-9ad2-bd5e98aadc7c.png)
 
-## NOTE
+## Requirements
 
-At the moment, the main release of Torch (version 3.x) only supports Phoenix Framework 1.5 and below.  If you
-need Phoenix 1.6+ support, please use the Torch v4.x release and reference the code in the [v4 branch](https://github.com/mojotech/torch/tree/v4).
-
-When Phoenix 1.6 support is fully stabilized in the [v4 branch](https://github.com/mojotech/torch/tree/v4), Torch 4
-will become the new "default" release, and we will move the current Torch v3 release into a `v3` branch which will be maintained
-for support but no new feature development.  All new feature development will be on Torch v4 going forward.
+* [Phoenix Framework 1.6+](https://hex.pm/packages/phoenix)
+* [Elixir 1.12+](https://elixir-lang.org/)
 
 ## Installation
 
@@ -32,7 +28,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 3.8"}
+    {:torch, "~> 4.0"}
   ]
 end
 ```
@@ -45,7 +41,8 @@ plug(
   at: "/torch",
   from: {:torch, "priv/static"},
   gzip: true,
-  cache_control_for_etags: "public, max-age=86400"
+  cache_control_for_etags: "public, max-age=86400",
+  headers: [{"access-control-allow-origin", "*"}]
 )
 ```
 
@@ -252,23 +249,17 @@ config :torch,
 
 ## Getting Started
 
-### Building the javascript bundle
+Torch currently uses Node 14 to build its assets.
 
-The javascript bundle is included in `priv/static/torch.js`
+### Building the Torch asset bundles
 
-To build this bundle go to `assets` folder
+The JavaScript bundle is output to `priv/static/torch.js`, and the CSS bundles are
+output to `priv/static/base.css` and `priv/static/theme.css`.
+
+To build the bundles navigate to the `assets` folder and run the following commands:
+
 ```bash
-cd assets
+$ cd assets
+$ npm i
+$ npm run compile
 ```
-
-Install dependencies:
-```bash
-npm i
-```
-
-Run webpack build:
-```bash
-npm run compile
-```
-
-Node version 14 is required.
