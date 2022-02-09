@@ -22,7 +22,7 @@ defmodule Mix.Torch do
       """)
     end
 
-    unless format in ["eex", "slime"] do
+    unless format in ["heex", "slime"] do
       Mix.raise("""
       Template format is invalid: #{inspect(format)}. Either configure it as
       shown below or pass it via the `--format` option.
@@ -67,19 +67,19 @@ defmodule Mix.Torch do
   @doc """
   Copy templates files depending of the executed mix task.
 
-  Torch currently supports both EEX and Slime templates.  The underlying mix tasks that
+  Torch currently supports both HEEX and Slime templates.  The underlying mix tasks that
   Torch uses to generate the templates into a Phoenix projects source code expect to
-  find templates with the `.html.eex` extension, regardless of actual template format.
+  find templates with the `.html.heex` extension, regardless of actual template format.
 
   This is why this function invocation of `copy_from/2` changes the template file extensions
-  to `.html.eex` reglardess of the original template format type.
+  to `.html.heex` reglardess of the original template format type.
   """
   def inject_templates("phx.gen.html", "heex") do
     inject_templates("phx.gen.html", "heex", "heex")
   end
 
   def inject_templates("phx.gen.html", slime_or_eex) when is_binary(slime_or_eex) do
-    inject_templates("phx.gen.html", slime_or_eex, "eex")
+    inject_templates("phx.gen.html", slime_or_eex, "heex")
   end
 
   def inject_templates("phx.gen.context", _) do
@@ -121,5 +121,6 @@ defmodule Mix.Torch do
   end
 
   defp convert_format("slim"), do: "slime"
+  defp convert_format("eex"), do: "heex"
   defp convert_format(format), do: format
 end
