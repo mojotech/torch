@@ -8,7 +8,7 @@ function cleanup() {
     rm -rf lib/phx1_6/blog
     rm -rf test/phx1_6/blog_test.exs
     rm -rf lib/phx1_6_web/controllers/post_controller.ex
-    rm -rf lib/phx1_6_web/templates/layout/torch.html.eex
+    rm -rf lib/phx1_6_web/templates/layout/torch.html.heex
     rm -rf lib/phx1_6_web/templates/post/
     rm -rf lib/phx1_6_web/views/post_view.ex
     rm -rf test/phx1_6_web/controllers/post_controller_test.exs
