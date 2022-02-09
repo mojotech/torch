@@ -1,4 +1,4 @@
-<%%= form_for @changeset, @action, [multipart: true, id: "torch-form"], fn f -> %>
+<.form let={f} for={@changeset} action={@action} id="torch-form" enctype="multipart/form-data">
   <fieldset class="torch-panel">
     <legend>
       <span>Details</span>
@@ -17,4 +17,4 @@
       <%%= submit "Submit", class: "torch-submit-button" %>
     </div>
   </fieldset>
-<%% end %>
+</.form>
