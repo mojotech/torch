@@ -10,6 +10,11 @@ on the Phoenix HTML generator under the hood.
 
 ![image](https://user-images.githubusercontent.com/7085617/36333572-70e3907e-132c-11e8-9ad2-bd5e98aadc7c.png)
 
+## Requirements
+
+* [Phoenix Framework 1.6+](https://hex.pm/packages/phoenix)
+* [Elixir 1.12+](https://elixir-lang.org/)
+
 ## Installation
 
 To install Torch, perform the following steps:
@@ -19,7 +24,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 3.6"}
+    {:torch, "~> 4.0"}
   ]
 end
 ```
@@ -32,7 +37,8 @@ plug(
   at: "/torch",
   from: {:torch, "priv/static"},
   gzip: true,
-  cache_control_for_etags: "public, max-age=86400"
+  cache_control_for_etags: "public, max-age=86400",
+  headers: [{"access-control-allow-origin", "*"}]
 )
 ```
 
@@ -239,23 +245,17 @@ config :torch,
 
 ## Getting Started
 
-### Building the javascript bundle
+Torch currently uses Node 14 to build its assets.
 
-The javascript bundle is included in `priv/static/torch.js`
+### Building the Torch asset bundles
 
-To build this bundle go to `assets` folder
+The JavaScript bundle is output to `priv/static/torch.js`, and the CSS bundles are
+output to `priv/static/base.css` and `priv/static/theme.css`.
+
+To build the bundles navigate to the `assets` folder and run the following commands:
+
 ```bash
-cd assets
+$ cd assets
+$ npm i
+$ npm run compile
 ```
-
-Install dependencies:
-```bash
-npm i
-```
-
-Run webpack build:
-```bash
-npm run compile
-```
-
-Node version 14 is required.
