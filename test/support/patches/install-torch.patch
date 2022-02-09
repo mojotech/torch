@@ -8,7 +8,7 @@ index 3c2eed0..df7ce7c 100644
  
 +config :torch,
 +  otp_app: :phx1_6,
-+  template_format: "eex" || "slime"
++  template_format: "heex"
 +
  # Import environment specific config. This must remain at the bottom
  # of this file so it overrides the configuration defined above.
