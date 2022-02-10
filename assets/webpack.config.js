@@ -1,5 +1,4 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
+var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var path = require('path')
 
 var env = process.env.MIX_ENV || 'dev'
@@ -9,8 +8,8 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   entry: {
     'torch.js': './js/torch.js',
-    'base.css': './css/base.sass',
-    'theme.css': './css/theme.sass'
+    'base': './css/base.sass',
+    'theme': './css/theme.sass'
   },
   output: {
     path: path.resolve(__dirname, '../priv/static/'),
@@ -30,29 +29,17 @@ module.exports = {
         ]
       },
       {
-        test: /\.(sass|scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true
-              }
-            },
-            {
-              loader: 'postcss-loader'
-            },
-            {
-              loader: 'sass-loader'
-            }
-          ]
-        })
+        test: /\.(sa|sc|c)ss/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('[name]', { allChunks: true }),
-    new CopyWebpackPlugin([{ from: './static/images' }])
-  ]
+  plugins: [].concat(isProduction ? [
+    new MiniCssExtractPlugin({ chunkFilename: '[id].css' })
+  ] : [])
 }
