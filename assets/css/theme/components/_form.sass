@@ -1,15 +1,17 @@
 form#torch-form
   background-color: $white
+  display: flex
   padding: 20px
 
   .torch-form-error
-    text-align: center
     background-color: $orange
     color: $white
-    padding: 5px
     margin-bottom: 20px
+    padding: 5px
+    text-align: center
 
   .torch-form-group
+    align-items: center
     display: flex
     flex-wrap: wrap
     margin-bottom: 20px
@@ -21,7 +23,7 @@ form#torch-form
       font-size: 15px
       font-family: $helvetica-neue
       color: $dark-gray
-      width: calc(30% - 10px)
+      flex: 1
       text-align: right
       margin-right: 20px
 
@@ -29,7 +31,7 @@ form#torch-form
     input[type="password"],
     textarea
       @extend %text-input
-      width: calc(70% - 10px)
+      flex: 1
 
     input[type="number"]
       @extend %text-input
@@ -44,9 +46,27 @@ form#torch-form
       color: $orange
       font-size: 14px
 
+  .torch-form-group-input
+    align-items: center
+    display: flex
+    flex: 3
+    flex-wrap: wrap
+
+    select:first-child
+      margin-left: 0
+
+    select
+      margin-right: 0.5em
+      margin-left: 0.5em
+
+
+    .invalid-feedback
+      flex: 1
+      flex-basis: 100%
+
   .torch-submit-form
-    text-align: right
+    display: flex
+    justify-content: flex-end
 
     .torch-submit-button
       @extend %red-button
-
