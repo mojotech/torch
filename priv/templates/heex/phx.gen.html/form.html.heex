@@ -9,8 +9,10 @@
   <%= for {label, input, error} <- inputs, input do %>
     <div class="torch-form-group">
       <%= label %>
-      <%= input %>
-      <%= error %>
+      <div class="torch-form-group-input">
+        <%= input %>
+        <%= error %>
+      </div>
     </div>
   <% end %>
     <div class="torch-submit-form">
