@@ -4,11 +4,11 @@ section#torch-toolbar
     = link "Back", to: Routes.<%= schema.route_helper %>_path(@conn, :index), class: "torch-button"
 section#torch-header-and-content
   .torch-container
-    .header
+    header.header
       h3 <%= String.capitalize(schema.human_singular) %> Details
-    ul
+    section.torch-show-details
     <%= for {k, _} <- schema.attrs do %>
-      li
+      .torch-show-attribute
         .torch-show-label
           | <%= Phoenix.Naming.humanize(Atom.to_string(k)) %>:
         .torch-show-data

@@ -7,16 +7,16 @@
 
 <section id="torch-header-and-content">
   <div class="torch-container">
-    <div class="header">
+    <header class="header">
       <h3><%= String.capitalize(schema.human_singular) %> Details</h3>
-    </div>
-    <ul>
+    </header>
+    <section class="torch-show-details">
       <%= for {k, _} <- schema.attrs do %>
-        <li>
+        <div class="torch-show-attribute">
           <div class="torch-show-label"><%= Phoenix.Naming.humanize(Atom.to_string(k)) %>:</div>
           <div class="torch-show-data"><%%= @<%= schema.singular %>.<%= k %> %></div>
-        </li>
+        </div>
       <% end %>
-    </ul>
+    </section>
   </div>
 </section>
