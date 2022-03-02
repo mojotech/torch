@@ -17,17 +17,23 @@ section#torch-filters
     flex-wrap: wrap
 
     label
-      width: 100%
       @extend %base-label
+      flex: 1
+      flex-basis: 100%
 
     select
       @extend %select-input
+      flex: 1
       margin-right: 20px
-      width: calc(35% - 20px)
+      max-width: 30%
+
+    input[type="number"]
+      @extend %text-input
+      flex: 3
 
     input[type="text"]
       @extend %text-input
-      width: 65%
+      flex: 3
 
       &.datepicker
         width: calc(50% - 10px)
