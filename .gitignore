@@ -25,6 +25,7 @@ torch-*.tar
 .elixir_ls/*
 node_modules/
 .DS_Store
+assets/.parcel-cache
 
 .dir-locals.el
 .env

@@ -4,21 +4,13 @@
     "path": "^0.12.7",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
-    "pikaday": "^1.8.0"
+    "pikaday": "1.8.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "autoprefixer": "^10.4.2",
-    "babel-loader": "^8.2.3",
-    "css-loader": "^6.6.0",
-    "mini-css-extract-plugin": "^2.5.3",
+    "@parcel/transformer-sass": "^2.5.0",
     "node-sass": "^4.12.0",
-    "postcss-loader": "^6.2.1",
-    "sass-loader": "^12.4.0",
-    "standard": "^14.0.2",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2"
+    "parcel": "^2.5.0",
+    "standard": "^14.0.2"
   },
   "browserslist": [
     "defaults",
@@ -32,7 +24,8 @@
     "node": ">=14 <16"
   },
   "scripts": {
-    "test": "./node_modules/.bin/standard && ./node_modules/webpack/bin/webpack.js",
-    "compile": "webpack --mode production"
+    "compile": "npm run compile:js && npm run compile:css",
+    "compile:js": "npx parcel build --dist-dir ../priv/static ./js/torch.js",
+    "compile:css": "npx parcel build --dist-dir ../priv/static ./css/*.sass"
   }
 }
