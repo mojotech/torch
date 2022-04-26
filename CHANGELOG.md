@@ -7,7 +7,7 @@
 **Closed issues:**
 
 - Manual Date Entry is Changing [\#281](https://github.com/mojotech/torch/issues/281)
-- phoenix 1.6 is unsupported (use Torch v4 instead) [\#269](https://github.com/mojotech/torch/issues/269)
+- phoenix 1.6 is unsupported [\#269](https://github.com/mojotech/torch/issues/269)
 
 **Merged pull requests:**
 
@@ -345,7 +345,7 @@
 
 - Fix disabled inputs and prep for 2.0.0-rc2 [\#108](https://github.com/mojotech/torch/pull/108) ([cpjolicoeur](https://github.com/cpjolicoeur))
 - Set active nav link based on link target, not text [\#106](https://github.com/mojotech/torch/pull/106) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Add I18N support. [\#102](https://github.com/mojotech/torch/pull/102) ([solov9ev](https://github.com/solov9ev))
+- Add I18N support. [\#102](https://github.com/mojotech/torch/pull/102) ([ghost](https://github.com/ghost))
 - Fix start\_page in pagination rendering [\#99](https://github.com/mojotech/torch/pull/99) ([akrisanov](https://github.com/akrisanov))
 - Adds custom has\_many filter association example to Readme [\#97](https://github.com/mojotech/torch/pull/97) ([zberkom](https://github.com/zberkom))
 - Modernize Webpack [\#95](https://github.com/mojotech/torch/pull/95) ([danielberkompas](https://github.com/danielberkompas))
