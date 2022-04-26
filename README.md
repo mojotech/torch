@@ -16,12 +16,14 @@ on the Phoenix HTML generator under the hood.
 
 ## NOTE
 
-At the moment, the main release of Torch (version 3.x) only supports Phoenix Framework 1.5 and below.  If you
-need Phoenix 1.6+ support, please use the Torch v4.x release and reference the code in the [v4 branch](https://github.com/mojotech/torch/tree/v4).
+You are currently viewing the older Torch version 3.x branch that supports Phoenix Framework 1.5 and below.
 
-When Phoenix 1.6 support is fully stabilized in the [v4 branch](https://github.com/mojotech/torch/tree/v4), Torch 4
-will become the new "default" release, and we will move the current Torch v3 release into a `v3` branch which will be maintained
-for support but no new feature development.  All new feature development will be on Torch v4 going forward.
+At the moment, the main release of Torch (version 3.x) only supports Phoenix Framework 1.5 and below.  If you
+need Phoenix 1.6+ support, please use the main Torch branch and reference the code in the [default
+branch](https://github.com/mojotech/torch).
+
+Torch v3 will continue to be maintained for security and minimal support, but most new feature additions will be
+made to the default branch going forward.
 
 ## Installation
 
