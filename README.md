@@ -15,6 +15,10 @@ on the Phoenix HTML generator under the hood.
 * [Phoenix Framework 1.6+](https://hex.pm/packages/phoenix)
 * [Elixir 1.12+](https://elixir-lang.org/)
 
+## Upgrading
+
+If you are upgrading from Torch v3 (or earlier) you can find additional documentation in the [UPGRADING](UPGRADING.md) file.
+
 ## Installation
 
 To install Torch, perform the following steps:
