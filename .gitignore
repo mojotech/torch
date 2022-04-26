@@ -33,3 +33,6 @@ node_modules/
 /priv/gettext/*/LC_MESSAGES/*.mo
 
 shell.nix
+
+test/support/apps/phx1_6
+assets/.parcel-cache
