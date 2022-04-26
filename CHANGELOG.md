@@ -1,5 +1,23 @@
 # Changelog
 
+## [v4.0.0](https://github.com/mojotech/torch/tree/v4.0.0) (2022-04-26)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.0.0-rc.0...v4.0.0)
+
+**Closed issues:**
+
+- Phoenix 1.4.2 Breaks Migration Generation [\#103](https://github.com/mojotech/torch/issues/103)
+- No torch.html generated when used with Phoenix 1.4 [\#100](https://github.com/mojotech/torch/issues/100)
+- Generate files into proper umbrella apps [\#83](https://github.com/mojotech/torch/issues/83)
+
+**Merged pull requests:**
+
+- V4 [\#325](https://github.com/mojotech/torch/pull/325) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
+## [v4.0.0-rc.0](https://github.com/mojotech/torch/tree/v4.0.0-rc.0) (2022-04-26)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.8.0...v4.0.0-rc.0)
+
 ## [v3.8.0](https://github.com/mojotech/torch/tree/v3.8.0) (2022-02-08)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.7.1...v3.8.0)
