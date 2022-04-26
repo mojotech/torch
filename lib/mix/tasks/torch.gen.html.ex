@@ -21,14 +21,11 @@ defmodule Mix.Tasks.Torch.Gen.Html do
 
     Mix.Torch.ensure_phoenix_is_loaded!("torch.gen.html")
 
-    phoenix_version = to_string(Application.spec(:phoenix, :vsn))
-
-    # Check for Phoenix 1.6+ with Phoenix.HTML 3+ and Heex
     template_format =
-      cond do
-        format == "slime" -> format
-        Version.match?(phoenix_version, ">= 1.6.0-rc.0", allow_pre: true) -> "heex"
-        true -> "eex"
+      if format == "slime" do
+        format
+      else
+        "heex"
       end
 
     # First, backup the projects existing templates if they exist
