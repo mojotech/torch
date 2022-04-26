@@ -5,8 +5,8 @@
 
 # Torch
 
-> This version of Torch (3.x) only supports Phoenix 1.5 and below.
-> See [v4.0](https://github.com/mojotech/torch/tree/v4) if you need support for Phoenix 1.6+
+> This version of Torch (4.x) only supports Phoenix 1.6 and above.
+> See [v3.0](https://github.com/mojotech/torch/tree/v3) if you need support for Phoenix 1.5 and below
 
 
 Torch is a rapid admin generator for Phoenix applications. It creates custom templates and relies
