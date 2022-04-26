@@ -1,0 +1,104 @@
+name: Torch v3 CI
+
+on:
+  pull_request:
+    branches: [v3]
+    types: [opened, edited, reopened, synchronize]
+  push:
+    branches: [v3]
+
+jobs:
+  mix_test:
+    name: mix test (Elixir ${{matrix.elixir}} | OTP ${{matrix.otp}})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - elixir: 1.10.x
+            otp: 21.3.8.21
+          - elixir: 1.10.x
+            otp: 22.3.4.16
+          - elixir: 1.10.x
+            otp: 23.2.7
+            warnings_as_errors: true
+            static_analysis: false
+          - elixir: 1.11.x
+            otp: 21.3.8.21
+          - elixir: 1.11.x
+            otp: 22.3.4.16
+          - elixir: 1.11.x
+            otp: 23.2.7
+            warnings_as_errors: true
+            static_analysis: false
+          - elixir: 1.12.x
+            otp: 22.x
+          - elixir: 1.12.x
+            otp: 23.x
+          - elixir: 1.12.x
+            otp: 24.x
+
+    services:
+      db:
+        image: postgres:10.1-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: example_test
+          POSTGRES_PASSWORD: ""
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      MIX_ENV: test
+      DATABASE_POSTGRESQL_USERNAME: postgres
+      PGHOST: postgres
+      PGUSER: postgres
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+          cache-dependency-path: assets/package-lock.json
+      - uses: erlef/setup-elixir@v1
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+      - name: Get Deps cache
+        uses: actions/cache@v2
+        with:
+          path: deps/
+          key: deps-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+      - name: Get BUILD cache
+        uses: actions/cache@v2
+        with:
+          path: _build/test/
+          key: build-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+      - name: Cache build artifacts
+        uses: actions/cache@v2
+        with:
+          path: |
+            $HOME/.hex
+            $HOME/.mix
+          key: artifacts-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+      - name: Install Deps
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+          mix deps.get --only test
+      - run: mix compile --warnings-as-errors
+        if: matrix.warnings_as_errors
+      - name: Run tests
+        run: bin/setup
+      - name: coveralls
+        run: mix coveralls.github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: mix dialyzer --halt-exist-status
+        if: matrix.static_analysis
