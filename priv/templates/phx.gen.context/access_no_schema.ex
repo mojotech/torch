@@ -1,5 +1,5 @@
 
-  import Torch.Helpers, only: [sort: 1, paginate: 4]
+  import Torch.Helpers, only: [sort: 1, paginate: 4, strip_unset_booleans: 3]
   import Filtrex.Type.Config
 
   alias <%= inspect schema.module %>
@@ -21,6 +21,7 @@
   def paginate_<%= schema.plural %>(params \\ %{}) do
     params =
       params
+      |> strip_unset_booleans("<%= schema.singular %>", [<%= Enum.reduce(schema.attrs, [], &(if elem(&1, 1) == :boolean, do: [inspect(elem(&1, 0)) | &2], else: &2)) %>])
       |> Map.put_new("sort_direction", "desc")
       |> Map.put_new("sort_field", "inserted_at")
 
