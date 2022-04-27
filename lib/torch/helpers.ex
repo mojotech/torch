@@ -57,4 +57,67 @@ defmodule Torch.Helpers do
   def paginate(query, repo, params, settings \\ [page_size: 10]) do
     Scrivener.paginate(query, Scrivener.Config.new(repo, settings, params))
   end
+
+  @doc """
+  Removes any "un-set" boolean parameters from the filter params list.
+
+  Due to the nature of boolean params (on/off) it becomes hard to include
+  the "filter on true" and "filter on false" states while also including a
+  third option of "don't filter at all" on this boolean argument.  Since the
+  parameter is always sent in the filter form (due to the checkbox).
+
+  We need a way to encode 3 states for a boolean field (on, off, any|ignore).
+
+  This function takes a list of boolean field names, and will remove from the
+  params argument, any matching boolean fields whose current value is set to
+  "any" (which is the default placeholder Torch UI uses to signify this third
+  boolean state).
+
+  ## Examples
+
+      iex> strip_unset_booleans(%{}, "post", [])
+      %{}
+
+      iex> strip_unset_booleans(%{"post" => %{"title_contains" => "foo"}}, "post", [])
+      %{"post" => %{"title_contains" => "foo"}}
+
+      iex> strip_unset_booleans(%{"post" => %{"title_equals" => "true"}}, "post", [:title])
+      %{"post" => %{"title_equals" => "true"}}
+
+      iex> strip_unset_booleans(%{"post" => %{"title_equals" => "any"}}, "post", [:title])
+      %{"post" => %{}}
+
+      iex> strip_unset_booleans(%{"post" => %{"name_contains" => "foo", "title_equals" => "any"}}, "post", [:title])
+      %{"post" => %{"name_contains" => "foo"}}
+
+  """
+  @spec strip_unset_booleans(params, binary, [atom]) :: params
+  def strip_unset_booleans(params, _, []), do: params
+
+  def strip_unset_booleans(params, schema_name, [bool_field | rest] = bool_fields)
+      when is_list(bool_fields) and is_binary(schema_name) do
+    params
+    |> strip_unset_boolean(schema_name, bool_field)
+    |> strip_unset_booleans(schema_name, rest)
+  end
+
+  defp strip_unset_boolean(params, schema_name, bool_field) when is_atom(bool_field) do
+    strip_unset_boolean(params, schema_name, to_string(bool_field))
+  end
+
+  defp strip_unset_boolean(params, schema_name, bool_field) when is_binary(bool_field) do
+    field_name = bool_field <> "_equals"
+
+    case Map.fetch(params, schema_name) do
+      {:ok, schema_params} ->
+        case Map.get(schema_params, field_name) do
+          nil -> params
+          "any" -> Map.put(params, schema_name, Map.drop(schema_params, [field_name]))
+          _v -> params
+        end
+
+      :error ->
+        params
+    end
+  end
 end
