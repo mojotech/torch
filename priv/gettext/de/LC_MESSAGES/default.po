@@ -21,62 +21,92 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:22
 msgid "< Prev"
 msgstr "< Zurück"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:23
 msgid "Next >"
 msgstr "> Vorwärts"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:11
 msgid "Choose one"
 msgstr "Wählen Sie eine"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:10
 msgid "Equals"
 msgstr "Ist gleich"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:9
 msgid "Contains"
 msgstr "Beinhaltet"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:14
 msgid "Greater Than"
 msgstr "Grösser als"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:15
 msgid "Greater Than Or Equal"
 msgstr "Grösser als oder gleich"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:16
 msgid "Less Than"
 msgstr "Kleiner als"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:17
 msgid "start"
 msgstr "Start"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:18
 msgid "end"
 msgstr "Ende"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:20
 msgid "Select Start Date"
 msgstr "Startdatum auswählen"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:21
 msgid "Select End Date"
 msgstr "Enddatum auswählen"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:13
 msgid "After"
 msgstr "Danach"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:12
 msgid "Before"
 msgstr "Davor"
 
+#, elixir-autogen
 #: lib/torch/i18n/backend.ex:19
 msgid "Select Date"
 msgstr "Datum wählen"
+
+#, elixir-autogen, elixir-format
+#: lib/torch/i18n/backend.ex:24
+msgid "Any"
+msgstr "Jeder"
+
+#, elixir-autogen, elixir-format
+#: lib/torch/i18n/backend.ex:26
+msgid "False"
+msgstr "Falsch"
+
+#, elixir-autogen, elixir-format
+#: lib/torch/i18n/backend.ex:25
+msgid "True"
+msgstr "Wahr"
