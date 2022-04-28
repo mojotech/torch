@@ -21,4 +21,7 @@ defmodule Torch.I18n.Backend do
   def message("Select End Date"), do: dgettext("default", "Select End Date")
   def message("< Prev"), do: dgettext("default", "< Prev")
   def message("Next >"), do: dgettext("default", "Next >")
+  def message("Any"), do: dgettext("default", "Any")
+  def message("True"), do: dgettext("default", "True")
+  def message("False"), do: dgettext("default", "False")
 end
