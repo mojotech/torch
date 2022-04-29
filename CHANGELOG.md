@@ -1,5 +1,18 @@
 # Changelog
 
+## [v4.1.0](https://github.com/mojotech/torch/tree/v4.1.0) (2022-04-28)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.0.0...v4.1.0)
+
+**Closed issues:**
+
+- Boolean filter somtimes needs three states: true, false, and "don't include in filter" [\#324](https://github.com/mojotech/torch/issues/324)
+
+**Merged pull requests:**
+
+- Update boolean input filter UI [\#328](https://github.com/mojotech/torch/pull/328) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Remove code checking for phx \< 1.6 [\#327](https://github.com/mojotech/torch/pull/327) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
 ## [v4.0.0](https://github.com/mojotech/torch/tree/v4.0.0) (2022-04-26)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v4.0.0-rc.0...v4.0.0)
@@ -17,6 +30,18 @@
 ## [v4.0.0-rc.0](https://github.com/mojotech/torch/tree/v4.0.0-rc.0) (2022-04-26)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.8.0...v4.0.0-rc.0)
+
+## [v3.9.0](https://github.com/mojotech/torch/tree/v3.9.0) (2022-04-28)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.8.0...v3.9.0)
+
+**Closed issues:**
+
+- Boolean filter somtimes needs three states: true, false, and "don't include in filter" [\#324](https://github.com/mojotech/torch/issues/324)
+
+**Merged pull requests:**
+
+- Update boolean input for v3 branch [\#329](https://github.com/mojotech/torch/pull/329) ([cpjolicoeur](https://github.com/cpjolicoeur))
 
 ## [v3.8.0](https://github.com/mojotech/torch/tree/v3.8.0) (2022-02-08)
 
