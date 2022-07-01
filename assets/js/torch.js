@@ -54,10 +54,9 @@ window.onload = () => {
    */
   slice.call(document.querySelectorAll('.torch-nav a'), 0).forEach((field) => {
     const url = window.location.href
-    const linkTarget = field.getAttribute('href')
-    const regex = RegExp(linkTarget)
+    const linkTargetFullPath = new URL(field.getAttribute('href'), document.baseURI).href
 
-    if (regex.test(url)) {
+    if (url.startsWith(linkTargetFullPath)) {
       field.classList.add('active')
     }
   })
