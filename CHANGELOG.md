@@ -1,12 +1,36 @@
 # Changelog
 
-## [v4.1.0](https://github.com/mojotech/torch/tree/v4.1.0) (2022-04-28)
+## [v4.2.0](https://github.com/mojotech/torch/tree/v4.2.0) (2022-07-11)
 
-[Full Changelog](https://github.com/mojotech/torch/compare/v4.0.0...v4.1.0)
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.9.0...v4.2.0)
 
 **Closed issues:**
 
-- Boolean filter somtimes needs three states: true, false, and "don't include in filter" [\#324](https://github.com/mojotech/torch/issues/324)
+- undefined function form/1  [\#337](https://github.com/mojotech/torch/issues/337)
+- Updated styles without fixed widths [\#330](https://github.com/mojotech/torch/issues/330)
+- Boolean filter sometimes needs three states: true, false, and "don't include in filter" [\#324](https://github.com/mojotech/torch/issues/324)
+- Update test suite for Phoenix 1.6 [\#278](https://github.com/mojotech/torch/issues/278)
+
+**Merged pull requests:**
+
+- fix matching for setting active navbar link [\#338](https://github.com/mojotech/torch/pull/338) ([RVRX](https://github.com/RVRX))
+- Bump phoenix from 1.6.6 to 1.6.8 [\#333](https://github.com/mojotech/torch/pull/333) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.28.3 to 0.28.4 [\#331](https://github.com/mojotech/torch/pull/331) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump glob-parent from 5.1.1 to 5.1.2 in /assets [\#326](https://github.com/mojotech/torch/pull/326) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/setup-node from 2 to 3.1.1 [\#323](https://github.com/mojotech/torch/pull/323) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump minimist from 1.2.5 to 1.2.6 in /assets [\#322](https://github.com/mojotech/torch/pull/322) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/cache from 2 to 3.0.1 [\#321](https://github.com/mojotech/torch/pull/321) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.26.0 to 0.28.3 [\#319](https://github.com/mojotech/torch/pull/319) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 2 to 3 [\#315](https://github.com/mojotech/torch/pull/315) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ajv from 6.12.2 to 6.12.6 in /assets [\#306](https://github.com/mojotech/torch/pull/306) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v3.9.0](https://github.com/mojotech/torch/tree/v3.9.0) (2022-04-28)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.1.0...v3.9.0)
+
+## [v4.1.0](https://github.com/mojotech/torch/tree/v4.1.0) (2022-04-28)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.0.0...v4.1.0)
 
 **Merged pull requests:**
 
@@ -30,18 +54,6 @@
 ## [v4.0.0-rc.0](https://github.com/mojotech/torch/tree/v4.0.0-rc.0) (2022-04-26)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.8.0...v4.0.0-rc.0)
-
-## [v3.9.0](https://github.com/mojotech/torch/tree/v3.9.0) (2022-04-28)
-
-[Full Changelog](https://github.com/mojotech/torch/compare/v3.8.0...v3.9.0)
-
-**Closed issues:**
-
-- Boolean filter somtimes needs three states: true, false, and "don't include in filter" [\#324](https://github.com/mojotech/torch/issues/324)
-
-**Merged pull requests:**
-
-- Update boolean input for v3 branch [\#329](https://github.com/mojotech/torch/pull/329) ([cpjolicoeur](https://github.com/cpjolicoeur))
 
 ## [v3.8.0](https://github.com/mojotech/torch/tree/v3.8.0) (2022-02-08)
 
