@@ -38,7 +38,7 @@ defmodule Phx16Web.Router do
     scope "/" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: Phx16Web.Telemetry
+      live_dashboard("/dashboard", metrics: Phx16Web.Telemetry)
     end
   end
 
@@ -50,7 +50,7 @@ defmodule Phx16Web.Router do
     scope "/dev" do
       pipe_through :browser
 
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+      forward("/mailbox", Plug.Swoosh.MailboxPreview)
     end
   end
 end
