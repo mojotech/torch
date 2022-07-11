@@ -1,2 +1,3 @@
 elixir 1.13.4-otp-24
 nodejs lts-fermium
+python 2.7.18
