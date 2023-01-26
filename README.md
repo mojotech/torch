@@ -5,7 +5,8 @@
 
 # Torch
 
-> This version of Torch (4.x) only supports Phoenix 1.6 and above.
+> This version of Torch (5.x) only supports Phoenix 1.7 and above.
+> See [v4.0](https://github.com/mojotech/torch/tree/v4) if you need support for Phoenix 1.6
 > See [v3.0](https://github.com/mojotech/torch/tree/v3) if you need support for Phoenix 1.5 and below
 
 
@@ -16,12 +17,12 @@ on the Phoenix HTML generator under the hood.
 
 ## Requirements
 
-* [Phoenix Framework 1.6+](https://hex.pm/packages/phoenix)
-* [Elixir 1.12+](https://elixir-lang.org/)
+* [Phoenix Framework 1.7+](https://hex.pm/packages/phoenix)
+* [Elixir 1.14+](https://elixir-lang.org/)
 
 ## Upgrading
 
-If you are upgrading from Torch v3 (or earlier) you can find additional documentation in the [UPGRADING](UPGRADING.md) file.
+If you are upgrading from Torch v4 (or earlier) you can find additional documentation in the [UPGRADING](UPGRADING.md) file.
 
 ## Installation
 
@@ -32,7 +33,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 4.0"}
+    {:torch, "~> 5.0"}
   ]
 end
 ```
@@ -54,15 +55,10 @@ plug(
 
 ```
 config :torch,
-  otp_app: :my_app_name,
-  template_format: "heex"
+  otp_app: :my_app_name
 ```
 
 4. Run `mix torch.install`
-
-**NOTE:** You can also choose to use `slime` templates, but you will need to
-first [install Phoenix Slime](https://github.com/slime-lang/phoenix_slime) and
-then update your configuration to specify `template_format: "slime"`.
 
 Now you're ready to start generating your admin! :tada:
 
