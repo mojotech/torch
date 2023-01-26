@@ -8,7 +8,7 @@ defmodule Torch.Config do
   end
 
   def template_format do
-    Application.get_env(:torch, :template_format)
+    "heex"
   end
 
   def i18n_backend do

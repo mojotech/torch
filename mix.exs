@@ -10,7 +10,6 @@ defmodule Torch.MixProject do
       version: @version,
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       name: "Torch",
       description: "Rapid admin generator for Phoenix",
       source_url: @source_url,
@@ -43,7 +42,7 @@ defmodule Torch.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix, "~> 1.6.0"},
+      {:phoenix, "~> 1.7.0-rc.2"},
       {:phoenix_html, "~> 3.0"},
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, "~> 2.7.0"},
