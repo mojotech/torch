@@ -4,9 +4,8 @@ defmodule Mix.Torch do
   alias Torch.Config
 
   def parse_config!(task, args) do
-    {opts, _, _} = OptionParser.parse(args, switches: [format: :string, app: :string])
+    {opts, _, _} = OptionParser.parse(args, switches: [app: :string])
 
-    format = convert_format(opts[:format] || Config.template_format())
     otp_app = opts[:app] || Config.otp_app()
 
     unless otp_app do
@@ -22,22 +21,7 @@ defmodule Mix.Torch do
       """)
     end
 
-    unless format in ["heex", "slime"] do
-      Mix.raise("""
-      Template format is invalid: #{inspect(format)}. Either configure it as
-      shown below or pass it via the `--format` option.
-
-          config :torch,
-            template_format: :slime
-
-          # Alternatively
-          mix #{task} --format slime
-
-      Supported formats: eex, slime
-      """)
-    end
-
-    %{otp_app: otp_app, format: format}
+    %{otp_app: otp_app, format: "heex"}
   end
 
   def ensure_phoenix_is_loaded!(mix_task \\ "task") do
@@ -67,22 +51,9 @@ defmodule Mix.Torch do
   @doc """
   Copy templates files depending of the executed mix task.
 
-  Torch currently supports both HEEX and Slime templates.  The underlying mix tasks that
-  Torch uses to generate the templates into a Phoenix projects source code expect to
-  find templates with the `.html.heex` extension, regardless of actual template format.
-
-  This is why this function invocation of `copy_from/2` changes the template file extensions
-  to `.html.heex` reglardess of the original template format type.
+  Torch currently only supports HEEX templates.
   """
-  def inject_templates("phx.gen.html", "heex") do
-    inject_templates("phx.gen.html", "heex", "heex")
-  end
-
-  def inject_templates("phx.gen.html", slime_or_eex) when is_binary(slime_or_eex) do
-    inject_templates("phx.gen.html", slime_or_eex, "heex")
-  end
-
-  def inject_templates("phx.gen.context", _) do
+  def inject_templates("phx.gen.context") do
     copy_from("priv/templates/phx.gen.context", [
       {"access_no_schema.ex", "priv/templates/phx.gen.context/access_no_schema.ex"},
       {"context.ex", "priv/templates/phx.gen.context/context.ex"},
@@ -92,13 +63,13 @@ defmodule Mix.Torch do
     ])
   end
 
-  def inject_templates("phx.gen.html", format, dest_format) do
-    copy_from("priv/templates/#{format}/phx.gen.html", [
-      {"edit.html.#{format}", "priv/templates/phx.gen.html/edit.html.#{dest_format}"},
-      {"form.html.#{format}", "priv/templates/phx.gen.html/form.html.#{dest_format}"},
-      {"index.html.#{format}", "priv/templates/phx.gen.html/index.html.#{dest_format}"},
-      {"new.html.#{format}", "priv/templates/phx.gen.html/new.html.#{dest_format}"},
-      {"show.html.#{format}", "priv/templates/phx.gen.html/show.html.#{dest_format}"}
+  def inject_templates("phx.gen.html") do
+    copy_from("priv/templates/heex/phx.gen.html", [
+      {"edit.html.heex", "priv/templates/phx.gen.html/edit.html.heex"},
+      {"form.html.heex", "priv/templates/phx.gen.html/form.html.heex"},
+      {"index.html.heex", "priv/templates/phx.gen.html/index.html.heex"},
+      {"new.html.heex", "priv/templates/phx.gen.html/new.html.heex"},
+      {"show.html.heex", "priv/templates/phx.gen.html/show.html.heex"}
     ])
 
     copy_from("priv/templates/common/phx.gen.html", [
@@ -119,8 +90,4 @@ defmodule Mix.Torch do
   def remove_templates(template_dir) do
     File.rm_rf("priv/templates/#{template_dir}/")
   end
-
-  defp convert_format("slim"), do: "slime"
-  defp convert_format("eex"), do: "heex"
-  defp convert_format(format), do: format
 end
