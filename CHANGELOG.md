@@ -26,17 +26,19 @@
 - Bump excoveralls from 0.14.4 to 0.14.5 [\#334](https://github.com/mojotech/torch/pull/334) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump credo from 1.5.6 to 1.6.4 [\#313](https://github.com/mojotech/torch/pull/313) ([dependabot[bot]](https://github.com/apps/dependabot))
 
-## [v5.0.0-rc.2](https://github.com/mojotech/torch/tree/v5.0.0-rc.2) (2023-03-31)
-
-[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.1...v5.0.0-rc.2)
-
-## [v5.0.0-rc.1](https://github.com/mojotech/torch/tree/v5.0.0-rc.1) (2023-03-02)
-
-[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.0...v5.0.0-rc.1)
-
 ## [v5.0.0-rc.0](https://github.com/mojotech/torch/tree/v5.0.0-rc.0) (2023-02-28)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v4.2.1...v5.0.0-rc.0)
+
+**MINIMAL WORKING** version for _existing_ Torch installations.  The v5.0.0-rc.0 is simply
+a quick-fix update to get existing Torch projects to still work with Phoenix 1.7.
+
+**NOTE:** The torch mix tasks that generate new files have not yet been updated to be fully
+compatible with Phoenix 1.7, so attempting to generate new torch files will very likely fail.
+
+A future RC will include torch mix task support, followed by the official v5 release which will
+upgrade Torch to be fully Phoenix 1.7 and LiveView compatible.  Untill then, the v5 RC releases
+will come from the [v5](https://github.com/mojotech/torch/tree/v5) branch, not from the `main` branch.
 
 ## [v4.2.1](https://github.com/mojotech/torch/tree/v4.2.1) (2022-07-11)
 
