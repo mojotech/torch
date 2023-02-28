@@ -60,14 +60,13 @@ echo "[DEBUG] Current Elixir Version: $iexCurrentVersion"
 otpCurrentVersion="$(erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell | sed 's/\"//g')"
 echo "[DEBUG] Current OTP Version: $otpCurrentVersion"
 
-
-requiredMinVersion="22"
+requiredMinVersion="24"
 if [ "$(printf '%s\n' "$requiredMinVersion" "$otpCurrentVersion" | sort -Vr | head -n1)" = "$requiredMinVersion" ]; then
-    echo '[Skipping] OTP 22+ is required for Phoenix 1.6+'
+    echo '[Skipping] OTP 24+ is required for Phoenix 1.7+'
 else
-    cd "$TEST_ROOT/support/apps/phx1_6" && {
+    cd "$TEST_ROOT/support/apps/phx1_7" && {
         bin/test || {
-            echo 'Integration tests on regular Phoenix 1.6 project failed!'
+            echo 'Integration tests on regular Phoenix 1.7 project failed!'
             exit 1
         }
     }

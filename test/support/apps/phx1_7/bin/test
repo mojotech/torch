@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Clean up generated files
+function cleanup() {
+    rm -rf priv/templates
+    rm -rf priv/repo/migrations/*.exs
+    rm -rf lib/phx1_7/blog.ex
+    rm -rf lib/phx1_7/blog
+    rm -rf test/phx1_7/blog_test.exs
+    rm -rf lib/phx1_7_web/controllers/post_controller.ex
+    rm -rf lib/phx1_7_web/templates/layout/torch.html.heex
+    rm -rf lib/phx1_7_web/templates/post/
+    rm -rf lib/phx1_7_web/views/post_view.ex
+    rm -rf test/phx1_7_web/controllers/post_controller_test.exs
+    rm -rf test/support/fixtures/
+    patch -i ../../patches/install-torch.diff -p 1 -R
+    patch -i ../../patches/install-route.diff -p 1 -R
+}
+
+patch -i ../../patches/install-torch.diff -p 1
+mix deps.get || { cleanup; echo 'Dependencies could not be fetched!'; exit 1; }
+MIX_ENV=test mix ecto.drop || { cleanup; echo 'Database could not be dropped'; exit 1; }
+MIX_ENV=test mix torch.install || { cleanup; echo 'Torch could not be installed!'; exit 1; }
+MIX_ENV=test mix torch.gen.html Blog Post posts title:string published:boolean published_at:datetime views:integer || { echo 'Torch files not generated!'; exit 1; }
+MIX_ENV=test mix ecto.setup ||  { cleanup; echo 'Torch database could not be setup!'; exit 1; }
+patch -i ../../patches/install-route.diff -p 1
+MIX_ENV=test mix test || { echo 'Tests failed!'; cleanup; exit 1; }
+
+# Ensure that put_root_layout is used by default on > Phx 1.5
+if ! grep -q "plug(:put_root_layout" lib/phx1_7_web/controllers/post_controller.ex ; then
+    echo 'Generated Phoenix controller not using `put_root_layout` syntax'
+    cleanup
+    exit 1;
+fi
+
+cleanup
+
+echo 'Tests succeeded!'
+exit 0
