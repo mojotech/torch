@@ -1,13 +1,13 @@
-name: Torch v3 CI
+name: Torch v4 CI
 
 on:
   pull_request:
-    branches: [v1, v2, v3]
+    branches: [v4]
     types: [opened, edited, reopened, synchronize]
   push:
-    branches: [v3]
+    branches: [v4]
     tags:
-      - v[1-3].[0-9]+.[0-9]+
+      - v4.[0-9]+.[0-9]+
 
 jobs:
   mix_test:
@@ -18,22 +18,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - elixir: 1.10.x
-            otp: 21.3.8.21
-          - elixir: 1.10.x
-            otp: 22.3.4.16
-          - elixir: 1.10.x
-            otp: 23.2.7
-            warnings_as_errors: true
-            static_analysis: false
-          - elixir: 1.11.x
-            otp: 21.3.8.21
-          - elixir: 1.11.x
-            otp: 22.3.4.16
-          - elixir: 1.11.x
-            otp: 23.2.7
-            warnings_as_errors: true
-            static_analysis: false
           - elixir: 1.12.x
             otp: 22.x
           - elixir: 1.12.x

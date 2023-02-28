@@ -1,13 +1,13 @@
-name: Torch CI
+name: Torch Main CI
 
 on:
   pull_request:
-    branches: [master, main]
+    branches: [master, main, v5]
     types: [opened, edited, reopened, synchronize]
   push:
-    branches: [master, main]
+    branches: [master, main, v5]
     tags:
-      - v[1-9].[0-9]+.[0-9]+
+      - v[5-9].[0-9]+.[0-9]+
 
 jobs:
   mix_test:
@@ -18,20 +18,18 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - elixir: 1.12.x
-            otp: 22.x
-          - elixir: 1.12.x
-            otp: 23.x
-          - elixir: 1.12.x
+          - elixir: 1.14.x
             otp: 24.x
+          - elixir: 1.14.x
+            otp: 25.x
 
     services:
       db:
-        image: postgres:10.1-alpine
+        image: postgres:latest
         env:
           POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
           POSTGRES_DB: example_test
-          POSTGRES_PASSWORD: ""
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
