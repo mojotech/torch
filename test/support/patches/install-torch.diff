@@ -1,0 +1,46 @@
+diff --git a/config/config.exs b/config/config.exs
+index f58eb52..a3022e3 100644
+--- a/config/config.exs
++++ b/config/config.exs
+@@ -59,6 +59,10 @@ config :logger, :console,
+ # Use Jason for JSON parsing in Phoenix
+ config :phoenix, :json_library, Jason
+
++config :torch,
++  otp_app: :phx1_7,
++  template_format: "heex"
++
+ # Import environment specific config. This must remain at the bottom
+ # of this file so it overrides the configuration defined above.
+ import_config "#{config_env()}.exs"
+diff --git a/lib/phx1_7_web/endpoint.ex b/lib/phx1_7_web/endpoint.ex
+index 622d5e1..804a311 100644
+--- a/lib/phx1_7_web/endpoint.ex
++++ b/lib/phx1_7_web/endpoint.ex
+@@ -23,6 +23,12 @@ defmodule Phx17Web.Endpoint do
+     gzip: false,
+     only: Phx17Web.static_paths()
+
++  plug Plug.Static,
++    at: "/torch",
++    from: {:torch, "priv/static"},
++    gzip: true,
++    cache_control_for_etags: "public, max-age=86400"
++
+   # Code reloading can be explicitly enabled under the
+   # :code_reloader configuration of your endpoint.
+   if code_reloading? do
+diff --git a/mix.exs b/mix.exs
+index 34ce721..257007a 100644
+--- a/mix.exs
++++ b/mix.exs
+@@ -50,7 +50,8 @@ defmodule Phx17.MixProject do
+       {:telemetry_poller, "~> 1.0"},
+       {:gettext, "~> 0.20"},
+       {:jason, "~> 1.2"},
+-      {:plug_cowboy, "~> 2.5"}
++      {:plug_cowboy, "~> 2.5"},
++      {:torch, path: "../../../../"}
+     ]
+   end
+
