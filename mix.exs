@@ -43,8 +43,9 @@ defmodule Torch.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix, "~> 1.6.0"},
+      {:phoenix, "~> 1.7"},
       {:phoenix_html, "~> 3.0"},
+      {:phoenix_view, "~> 2.0"},
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, "~> 2.7.0"},
       {:filtrex, "~> 0.4.1"},
