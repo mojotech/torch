@@ -2,10 +2,12 @@ name: Torch v3 CI
 
 on:
   pull_request:
-    branches: [v3]
+    branches: [v1, v2, v3]
     types: [opened, edited, reopened, synchronize]
   push:
     branches: [v3]
+    tags:
+      - v[1-3].[0-9]+.[0-9]+
 
 jobs:
   mix_test:
