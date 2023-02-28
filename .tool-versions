@@ -1,3 +1,4 @@
-elixir 1.14.3-otp-24
+elixir 1.14.3-otp-25
+erlang 25.2.3
 nodejs lts-fermium
 python 2.7.18
