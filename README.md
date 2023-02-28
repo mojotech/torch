@@ -5,8 +5,9 @@
 
 # Torch
 
-> This version of Torch (4.x) only supports Phoenix 1.6 and above.
+> This version of Torch (5.x) only supports Phoenix 1.7 and above.
 > See [v3.0](https://github.com/mojotech/torch/tree/v3) if you need support for Phoenix 1.5 and below
+> See [v4.0](https://github.com/mojotech/torch/tree/v4) if you need support for Phoenix 1.6
 
 
 Torch is a rapid admin generator for Phoenix applications. It creates custom templates and relies
@@ -16,8 +17,8 @@ on the Phoenix HTML generator under the hood.
 
 ## Requirements
 
-* [Phoenix Framework 1.6+](https://hex.pm/packages/phoenix)
-* [Elixir 1.12+](https://elixir-lang.org/)
+* [Phoenix Framework 1.7+](https://hex.pm/packages/phoenix)
+* [Elixir 1.14+](https://elixir-lang.org/)
 
 ## Upgrading
 
@@ -32,7 +33,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 4.0"}
+    {:torch, "~> 5.0.0-rc.0"}
   ]
 end
 ```

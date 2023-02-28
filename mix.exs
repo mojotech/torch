@@ -2,15 +2,14 @@ defmodule Torch.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/mojotech/torch"
-  @version "4.2.1"
+  @version "5.0.0-rc.0"
 
   def project do
     [
       app: :torch,
       version: @version,
-      elixir: "~> 1.12",
+      elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       name: "Torch",
       description: "Rapid admin generator for Phoenix",
       source_url: @source_url,
@@ -43,8 +42,9 @@ defmodule Torch.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix, "~> 1.6.0"},
+      {:phoenix, "~> 1.7"},
       {:phoenix_html, "~> 3.0"},
+      {:phoenix_view, "~> 2.0"},
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, "~> 2.7.0"},
       {:filtrex, "~> 0.4.1"},
