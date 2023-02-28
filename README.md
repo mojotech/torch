@@ -3,6 +3,12 @@
 [![Build Status](https://github.com/mojotech/torch/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mojotech/torch/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/github/mojotech/torch/badge.svg?branch=master)](https://coveralls.io/github/mojotech/torch?branch=master)
 
+# WORK IN PROGRESS
+
+Please note that this RC candidate is a Work in Progress.  The current RC will only enable existing Torch installations to
+use Phoenix 1.7, however the `mix torch` tasks will not properly generate new torch models yet.  Currently, you will only
+be able to use existing Torch generated models and pages until a future RC is released.
+
 # Torch
 
 > This version of Torch (5.x) only supports Phoenix 1.7 and above.
