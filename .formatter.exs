@@ -1,6 +1,6 @@
 # Used by "mix format"
 [
-  inputs: ["mix.exs", "{config,lib,test}/**/*.{ex,exs}", "test/{mix,torch}/**/*.{ex,exs}"],
+  inputs: ["mix.exs", "{config,lib}/**/*.{ex,exs}", "test/{mix,torch}/**/*.{ex,exs}"],
   locals_without_parens: [
     # Phoenix
     plug: 2,
