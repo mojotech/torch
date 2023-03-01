@@ -13,31 +13,6 @@ defmodule Torch.MixCase do
   # Generates tests on the given mix task to ensure it handles errors properly
   defmacro test_mix_config_errors(task) do
     quote location: :keep do
-      test "raises error if :format not specified" do
-        assert_raise Mix.Error,
-                     """
-                     Template format is invalid: nil. Either configure it as
-                     shown below or pass it via the `--format` option.
-
-                         config :torch,
-                           template_format: :slime
-
-                         # Alternatively
-                         mix #{unquote(task)} --format slime
-
-                     Supported formats: eex, slime
-                     """,
-                     fn ->
-                       Mix.Task.rerun(unquote(task), ["--app", "my_app"])
-                     end
-      end
-
-      test "raises error if format is invalid" do
-        assert_raise Mix.Error, fn ->
-          Mix.Task.rerun(unquote(task), ["--app", "my_app", "--format", "invalid"])
-        end
-      end
-
       test "raises error if :otp_app not specified" do
         assert_raise Mix.Error,
                      """

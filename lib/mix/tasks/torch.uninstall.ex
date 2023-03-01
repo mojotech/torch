@@ -25,7 +25,7 @@ defmodule Mix.Tasks.Torch.Uninstall do
     end
 
     paths = [
-      "lib/#{otp_app}_web/templates/layout/torch.html.#{format}"
+      "lib/#{otp_app}_web/components/layouts/torch.html.#{format}"
     ]
 
     Enum.each(paths, &File.rm/1)
