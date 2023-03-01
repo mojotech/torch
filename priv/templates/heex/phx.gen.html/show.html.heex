@@ -1,7 +1,7 @@
 <section id="torch-toolbar">
   <div class="torch-container">
-    <%%= link "Edit", to: Routes.<%= schema.route_helper %>_path(@conn, :edit, @<%= schema.singular %>), class: "torch-button" %>
-    <%%= link "Back", to: Routes.<%= schema.route_helper %>_path(@conn, :index), class: "torch-button" %>
+    <%%= link "Edit", to: ~p"<%= schema.route_prefix %>/#{@<%= schema.singular %>}/edit", class: "torch-button" %>
+    <%%= link "Back", to: ~p"<%= schema.route_prefix %>", class: "torch-button" %>
   </div>
 </section>
 
