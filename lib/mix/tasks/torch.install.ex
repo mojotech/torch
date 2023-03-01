@@ -33,7 +33,7 @@ defmodule Mix.Tasks.Torch.Install do
 
     Mix.Torch.copy_from("priv/templates/#{format}", [
       {template_file(phoenix_version, format),
-       "lib/#{otp_app}_web/templates/layout/torch.html.#{format}"}
+       "lib/#{otp_app}_web/components/layouts/torch.html.#{format}"}
     ])
   end
 

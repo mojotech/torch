@@ -1,6 +1,6 @@
 <section id="torch-toolbar">
   <div class="torch-container">
-    <%%= link "New <%= schema.human_singular %>", to: Routes.<%= schema.route_helper %>_path(@conn, :new) %>
+    <%%= link "New <%= schema.human_singular %>", to: ~p"<%= schema.route_prefix %>/new" %>
   </div>
 </section>
 <section id="torch-index-content">
@@ -35,7 +35,7 @@
           </div>
         <% end %>
         <button type="submit" class="torch-button">Search</button>
-        <%%= link "Clear Filters", to: Routes.<%= schema.route_helper %>_path(@conn, :index) %>
+        <%%= link "Clear Filters", to: ~p"<%=  schema.route_prefix %>" %>
       <%% end %>
 
     </section>
@@ -58,9 +58,9 @@
                 <td><%%= <%= schema.singular %>.<%= k %> %></td>
               <% end %>
               <td class="torch-actions">
-                <span><%%= link "Show", to: Routes.<%= schema.route_helper %>_path(@conn, :show, <%= schema.singular %>) %></span>
-                <span><%%= link "Edit", to: Routes.<%= schema.route_helper %>_path(@conn, :edit, <%= schema.singular %>) %></span>
-                <span><%%= link "Delete", to: Routes.<%= schema.route_helper %>_path(@conn, :delete, <%= schema.singular %>), method: :delete, data: [confirm: "Are you sure?"] %></span>
+                <span><%%= link "Show", to: ~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}" %></span>
+                <span><%%= link "Edit", to: ~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}/edit" %></span>
+                <span><%%= link "Delete", to: ~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}", method: :delete, data: [confirm: "Are you sure?"] %></span>
               </td>
             </tr>
           <%% end %>
