@@ -66,7 +66,6 @@ defmodule Mix.Torch do
   def inject_templates("phx.gen.html") do
     copy_from("priv/templates/heex/phx.gen.html", [
       {"edit.html.heex", "priv/templates/phx.gen.html/edit.html.heex"},
-      {"form.html.heex", "priv/templates/phx.gen.html/form.html.heex"},
       {"index.html.heex", "priv/templates/phx.gen.html/index.html.heex"},
       {"new.html.heex", "priv/templates/phx.gen.html/new.html.heex"},
       {"show.html.heex", "priv/templates/phx.gen.html/show.html.heex"}
@@ -75,7 +74,7 @@ defmodule Mix.Torch do
     copy_from("priv/templates/common/phx.gen.html", [
       {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
       {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
-      {"view.ex", "priv/templates/phx.gen.html/view.ex"}
+      {"html.ex", "priv/templates/phx.gen.html/html.ex"}
     ])
   end
 
@@ -89,5 +88,63 @@ defmodule Mix.Torch do
 
   def remove_templates(template_dir) do
     File.rm_rf("priv/templates/#{template_dir}/")
+  end
+
+  def torch_inputs(%Mix.Phoenix.Schema{} = schema) do
+    Enum.map(schema.attrs, fn
+      {_, {:references, _}} ->
+        {nil, nil, nil}
+
+      {key, :integer} ->
+        {label(key), ~s(<%= number_input f, #{inspect(key)} %>), error(key)}
+
+      {key, :float} ->
+        {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
+
+      {key, :decimal} ->
+        {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
+
+      {key, :boolean} ->
+        {label(key), ~s(<%= checkbox f, #{inspect(key)} %>), error(key)}
+
+      {key, :text} ->
+        {label(key), ~s(<%= textarea f, #{inspect(key)} %>), error(key)}
+
+      {key, :date} ->
+        {label(key), ~s(<%= date_select f, #{inspect(key)} %>), error(key)}
+
+      {key, :time} ->
+        {label(key), ~s(<%= time_select f, #{inspect(key)} %>), error(key)}
+
+      {key, :utc_datetime} ->
+        {label(key), ~s(<%= datetime_select f, #{inspect(key)} %>), error(key)}
+
+      {key, :naive_datetime} ->
+        {label(key), ~s(<%= datetime_select f, #{inspect(key)} %>), error(key)}
+
+      {key, {:array, :integer}} ->
+        {label(key), ~s(<%= multiple_select f, #{inspect(key)}, ["1": 1, "2": 2] %>), error(key)}
+
+      {key, {:array, _}} ->
+        {label(key),
+         ~s(<%= multiple_select f, #{inspect(key)}, ["Option 1": "option1", "Option 2": "option2"] %>),
+         error(key)}
+
+      {key, {:enum, _}} ->
+        {label(key),
+         ~s|<%= select f, #{inspect(key)}, Ecto.Enum.values(#{inspect(schema.module)}, #{inspect(key)}), prompt: "Choose a value" %>|,
+         error(key)}
+
+      {key, _} ->
+        {label(key), ~s(<%= text_input f, #{inspect(key)} %>), error(key)}
+    end)
+  end
+
+  defp label(key) do
+    ~s(<%= label f, #{inspect(key)} %>)
+  end
+
+  defp error(field) do
+    ~s(<%= error_tag f, #{inspect(field)} %>)
   end
 end

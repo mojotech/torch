@@ -15,7 +15,7 @@ defmodule Mix.Tasks.Torch.Uninstall do
     %{format: format, otp_app: otp_app} = Mix.Torch.parse_config!("torch.uninstall", args)
 
     paths = [
-      "lib/#{otp_app}_web/templates/layout/torch.html.#{format}"
+      "lib/#{otp_app}_web/components/layouts/torch.html.#{format}"
     ]
 
     Enum.each(paths, &File.rm/1)
