@@ -72,4 +72,39 @@ defmodule Torch.FilterViewTest do
     assert input_email_expected ==
              safe_to_string(Torch.FilterView.filter_string_input(:user, :email, params))
   end
+
+  test "param name does not greedily match" do
+    # * See GitHub PR 372: https://github.com/mojotech/torch/pull/372
+
+    params = %{
+      "filters" => [
+        "robot[board_serial_contains]",
+        "robot[serial_contains]",
+        "robot[other_serial_contains]"
+      ],
+      "robot" => %{
+        "board_serial_contains" => "0987654321",
+        "serial_contains" => "1234567890",
+        "other_serial_contains" => "qwertyuiop"
+      }
+    }
+
+    expected =
+      "<input id=\"robot_board_serial_contains\" name=\"robot[board_serial_contains]\" type=\"text\" value=\"0987654321\">"
+
+    assert expected ==
+             safe_to_string(Torch.FilterView.filter_string_input(:robot, :board_serial, params))
+
+    expected =
+      "<input id=\"robot_serial_contains\" name=\"robot[serial_contains]\" type=\"text\" value=\"1234567890\">"
+
+    assert expected ==
+             safe_to_string(Torch.FilterView.filter_string_input(:robot, :serial, params))
+
+    expected =
+      "<input id=\"robot_other_serial_contains\" name=\"robot[other_serial_contains]\" type=\"text\" value=\"qwertyuiop\">"
+
+    assert expected ==
+             safe_to_string(Torch.FilterView.filter_string_input(:robot, :other_serial, params))
+  end
 end
