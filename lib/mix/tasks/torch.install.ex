@@ -29,18 +29,8 @@ defmodule Mix.Tasks.Torch.Install do
 
     Mix.Torch.ensure_phoenix_is_loaded!("torch.install")
 
-    phoenix_version = Application.spec(:phoenix, :vsn)
-
-    Mix.Torch.copy_from("priv/templates/#{format}", [
-      {template_file(phoenix_version, format),
-       "lib/#{otp_app}_web/components/layouts/torch.html.#{format}"}
+    Mix.Torch.copy_from("priv/templates/torch.install", [
+      {"layout.html.heex", "lib/#{otp_app}_web/components/layouts/torch.html.#{format}"}
     ])
-  end
-
-  defp template_file(phoenix_version, format) when is_list(phoenix_version),
-    do: phoenix_version |> to_string() |> template_file(format)
-
-  defp template_file(phoenix_version, format) when is_binary(phoenix_version) do
-    "layout.html.#{format}"
   end
 end
