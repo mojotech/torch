@@ -26,6 +26,17 @@
 - Bump excoveralls from 0.14.4 to 0.14.5 [\#334](https://github.com/mojotech/torch/pull/334) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump credo from 1.5.6 to 1.6.4 [\#313](https://github.com/mojotech/torch/pull/313) ([dependabot[bot]](https://github.com/apps/dependabot))
 
+## [v5.0.0-rc.1](https://github.com/mojotech/torch/tree/v5.0.0-rc.1) (2023-03-02)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.0...v5.0.0-rc.1)
+
+**MINIMAL WORKING** version for _existing_ Torch installations.  The v5.0.0-rc.0 is simply
+a quick-fix update to get existing Torch projects to still work with Phoenix 1.7.
+
+**NOTE:** The torch mix tasks should now be compatible and functional.  These stil generate
+the "old style" Phoenix.View based templates, and not the new functional component style
+templates as of this RC.
+
 ## [v5.0.0-rc.0](https://github.com/mojotech/torch/tree/v5.0.0-rc.0) (2023-02-28)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v4.2.1...v5.0.0-rc.0)
