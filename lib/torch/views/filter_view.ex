@@ -306,7 +306,7 @@ defmodule Torch.FilterView do
 
     result =
       Enum.find(params || %{}, fn {param_name, _val} ->
-        String.match?(param_name, ~r/#{field}_(?:#{suffix_patterns})/)
+        String.match?(param_name, ~r/^#{field}_(?:#{suffix_patterns})/)
       end)
 
     if is_nil(result) do
