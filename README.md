@@ -5,9 +5,8 @@
 
 # WORK IN PROGRESS
 
-Please note that this RC candidate is a Work in Progress.  The current RC will only enable existing Torch installations to
-use Phoenix 1.7, however the `mix torch` tasks will not properly generate new torch models yet.  Currently, you will only
-be able to use existing Torch generated models and pages until a future RC is released.
+Please note that this RC candidate is a Work in Progress.  The current Release Candidate still relies on Phoenix.View
+based templates and has not yet been fully updated to Phoenix.LiveView functional components.
 
 # Torch
 
