@@ -34,7 +34,7 @@
       </section>
     </header>
 
-    <%= Torch.FlashView.render("_flash_messages.html", assigns) %>
+    <%= Torch.FlashView.flash_messages(@conn.assigns) %>
     <%= @inner_content %>
     <script defer src={Phoenix.VerifiedRoutes.static_path(@conn, "/torch/torch.js")}></script>
   </body>

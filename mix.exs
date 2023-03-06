@@ -43,6 +43,7 @@ defmodule Torch.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.7"},
+      {:phoenix_live_view, "~> 0.18"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_view, "~> 2.0"},
       {:gettext, "~> 0.16"},
