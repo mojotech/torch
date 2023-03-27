@@ -64,14 +64,43 @@ defmodule Torch.TableView do
     end
   end
 
-  @doc false
-  def querystring(conn, opts) do
-    original = URI.decode_query(conn.query_string)
+  @doc """
+  Takes an existing URI query string and adds or replaces the page, sort_field, direction with an updated
+  query string value.
+
+  ## Examples
+
+      iex> querystring("", %{}, %{page: 1})
+      "page=1"
+
+      iex> querystring("foo=bar", %{}, %{page: 2})
+      "foo=bar&page=2"
+
+      iex> querystring("foo=bar&page=14", %{}, %{page: 3})
+      "foo=bar&page=3"
+
+      iex> querystring("foo=bar", %{"sort_direction" => "asc", "sort_field" => "name"}, %{page: 4})
+      "foo=bar&page=4&sort_direction=asc&sort_field=name"
+
+      iex> querystring("foo=bar", %{"sort_direction" => "asc", "sort_field" => "name"}, %{page: 4, sort_direction: "desc"})
+      "foo=bar&page=4&sort_direction=desc&sort_field=name"
+
+      iex> querystring("foo=bar", %{"sort_direction" => "asc", "sort_field" => "name"}, %{page: 4, sort_direction: "desc", sort_field: "id"})
+      "foo=bar&page=4&sort_direction=desc&sort_field=id"
+  """
+  def querystring(%Plug.Conn{} = conn, opts) do
+    querystring(conn.query_string, conn.params, opts)
+  end
+
+  @spec querystring(String.t(), %{optional(binary()) => term()}, %{optional(atom()) => term()}) ::
+          String.t()
+  def querystring(conn_query_string, conn_params, opts) do
+    original = URI.decode_query(conn_query_string)
 
     opts = %{
       "page" => opts[:page],
-      "sort_field" => opts[:sort_field] || conn.params["sort_field"] || nil,
-      "sort_direction" => opts[:sort_direction] || conn.params["sort_direction"] || nil
+      "sort_field" => opts[:sort_field] || conn_params["sort_field"] || nil,
+      "sort_direction" => opts[:sort_direction] || conn_params["sort_direction"] || nil
     }
 
     original
