@@ -3,11 +3,6 @@
 [![Build Status](https://github.com/mojotech/torch/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mojotech/torch/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/github/mojotech/torch/badge.svg?branch=master)](https://coveralls.io/github/mojotech/torch?branch=master)
 
-# WORK IN PROGRESS
-
-Please note that this RC candidate is a Work in Progress.  The current Release Candidate still relies on Phoenix.View
-based templates and has not yet been fully updated to Phoenix.LiveView functional components.
-
 # Torch
 
 > This version of Torch (5.x) only supports Phoenix 1.7 and above.
