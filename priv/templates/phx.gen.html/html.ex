@@ -2,7 +2,6 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
   use <%= inspect context.web_module %>, :html
 
   use Phoenix.HTML
-  use Phoenix.View, root: "./<%= schema.singular %>_html/"
 
   import Torch.TableView
   import Torch.FilterView
