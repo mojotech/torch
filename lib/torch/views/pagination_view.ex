@@ -1,8 +1,4 @@
 defmodule Torch.PaginationView do
-  @moduledoc """
-  `Phoenix.View` to render pagination controls for Torch-generated index templates.
-  """
-
   use Phoenix.Component
   use Phoenix.HTML
 
