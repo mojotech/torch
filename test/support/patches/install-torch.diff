@@ -2,13 +2,12 @@ diff --git a/config/config.exs b/config/config.exs
 index f58eb52..a3022e3 100644
 --- a/config/config.exs
 +++ b/config/config.exs
-@@ -59,6 +59,10 @@ config :logger, :console,
+@@ -59,6 +59,9 @@ config :logger, :console,
  # Use Jason for JSON parsing in Phoenix
  config :phoenix, :json_library, Jason
 
 +config :torch,
-+  otp_app: :phx1_7,
-+  template_format: "heex"
++  otp_app: :phx1_7
 +
  # Import environment specific config. This must remain at the bottom
  # of this file so it overrides the configuration defined above.
@@ -43,4 +42,3 @@ index 34ce721..257007a 100644
 +      {:torch, path: "../../../../"}
      ]
    end
-

@@ -5,6 +5,10 @@ defmodule Mix.Tasks.Torch.Uninstall do
   ## Example
 
       mix torch.uninstall
+
+  Also accepts the `--app` option:
+
+      mix torch.uninstall --app my_app
   """
 
   def run(args) do
@@ -12,7 +16,7 @@ defmodule Mix.Tasks.Torch.Uninstall do
       Mix.raise("mix torch.uninstall can only be run inside an application directory")
     end
 
-    %{format: format, otp_app: otp_app} = Mix.Torch.parse_config!("torch.uninstall", args)
+    %{otp_app: otp_app} = Mix.Torch.parse_config!("torch.uninstall", args)
 
     Mix.Torch.ensure_phoenix_is_loaded!("torch.uninstall")
 
@@ -25,7 +29,7 @@ defmodule Mix.Tasks.Torch.Uninstall do
     end
 
     paths = [
-      "lib/#{otp_app}_web/components/layouts/torch.html.#{format}"
+      "lib/#{otp_app}_web/components/layouts/torch.html.heex"
     ]
 
     Enum.each(paths, &File.rm/1)
