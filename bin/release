@@ -1,19 +1,20 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-puts "What version number do you want to release?"
-print "> "
-version = gets.gsub(/\n/, "")
+puts 'What version number do you want to release?'
+print '> '
+version = gets.gsub(/\n/, '')
 
 continue = system "git commit -am \"Release version #{version}\""
 continue = system "git tag v#{version}" if continue
-continue = system "git push" if continue
+continue = system 'git push' if continue
 continue = system "git push -f origin v#{version}" if continue
-continue = system "mix deps.get" if continue
-continue = system "mix hex.publish package" if continue
-continue = system "mix hex.publish docs" if continue
-continue = system "github_changelog_generator -u mojotech -p torch" if continue
+continue = system 'mix deps.get' if continue
+continue = system 'mix hex.publish package' if continue
+continue = system 'mix hex.publish docs' if continue
+continue = system 'github_changelog_generator -u mojotech -p torch' if continue
 continue = system "git commit -am \"Update changelog for version #{version}\"" if continue
-continue = system "git push" if continue
+continue = system 'git push' if continue
 
 if continue
   puts "Version #{version} was successfully released!"
