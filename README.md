@@ -5,7 +5,8 @@
 
 # Torch
 
-> This version of Torch (5.x) only supports Phoenix 1.7 and above.
+> This version of Torch (5.x) only supports Phoenix 1.7 and above and is not fully backwards-compatible with
+> previous versions of Torch.  See [UPGRADING](./UPGRADING.md) for more details.
 
 > See [v4.0](https://github.com/mojotech/torch/tree/v4) if you need support for Phoenix 1.6
 
