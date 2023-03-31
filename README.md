@@ -244,7 +244,6 @@ end
 config :torch,
   otp_app: :my_app_name,
   i18n_backend: MyApp.CustomMessagesBackend
-  template_format: "heex"
 ```
 
 # Development
