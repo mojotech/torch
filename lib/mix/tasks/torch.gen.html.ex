@@ -21,9 +21,9 @@ defmodule Mix.Tasks.Torch.Gen.Html do
 
     phoenix_version = :phoenix |> Application.spec(:vsn) |> to_string()
 
-    if Version.match?(phoenix_version, ">= 1.7.0") do
+    if Version.match?(phoenix_version, "< 1.7.0") do
       Mix.raise(
-        "Torch v4 Mix tasks will not run on Phoenix 1.7+.  Please upgrade to Torch v5 or newer."
+        "Torch v5 Mix tasks will only run on Phoenix 1.7+.  Phoenix version detected: #{phoenix_version}"
       )
     end
 
