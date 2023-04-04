@@ -38,3 +38,5 @@ shell.nix
 test/support/apps/phx1_3
 test/support/apps/phx1_4
 test/support/apps/phx1_5
+test/support/apps/phx1_6*
+test/support/apps/phx1_7_torch_v4
