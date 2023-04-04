@@ -29,7 +29,13 @@ defmodule Mix.Tasks.Torch.Install do
 
     Mix.Torch.ensure_phoenix_is_loaded!("torch.install")
 
-    phoenix_version = Application.spec(:phoenix, :vsn)
+    phoenix_version = :phoenix |> Application.spec(:vsn) |> to_string()
+
+    if Version.match?(phoenix_version, ">= 1.7.0") do
+      Mix.raise(
+        "Torch v4 Mix tasks will not run on Phoenix 1.7+.  Please upgrade to Torch v5 or newer."
+      )
+    end
 
     Mix.Torch.copy_from("priv/templates/#{format}", [
       {template_file(phoenix_version, format),
