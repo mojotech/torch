@@ -12,7 +12,7 @@ on:
 jobs:
   mix_test:
     name: mix test (Elixir ${{matrix.elixir}} | OTP ${{matrix.otp}})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     strategy:
       fail-fast: false
@@ -20,10 +20,18 @@ jobs:
         include:
           - elixir: 1.12.x
             otp: 22.x
+          - elixir: 1.13.x
+            otp: 22.x
           - elixir: 1.12.x
+            otp: 23.x
+          - elixir: 1.13.x
             otp: 23.x
           - elixir: 1.12.x
             otp: 24.x
+          - elixir: 1.13.x
+            otp: 24.x
+          - elixir: 1.14.x
+            otp: 23.x
           - elixir: 1.14.x
             otp: 24.x
           - elixir: 1.14.x
@@ -46,6 +54,7 @@ jobs:
     env:
       MIX_ENV: test
       DATABASE_POSTGRESQL_USERNAME: postgres
+      DATABASE_POSTGRESQL_PASSWORD: postgres
       PGHOST: postgres
       PGUSER: postgres
 
@@ -56,7 +65,7 @@ jobs:
           node-version: '14'
           cache: 'npm'
           cache-dependency-path: assets/package-lock.json
-      - uses: erlef/setup-elixir@v1
+      - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
