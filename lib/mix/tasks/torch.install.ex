@@ -5,8 +5,7 @@ defmodule Mix.Tasks.Torch.Install do
   ## Configuration
 
       config :torch,
-        otp_app: :my_app,
-        template_format: :eex
+        otp_app: :my_app
 
   ## Example
 
@@ -15,9 +14,9 @@ defmodule Mix.Tasks.Torch.Install do
 
      mix torch.install
 
-  Also accepts `--format` and `--app` options:
+  Also accepts the `--app` option:
 
-      mix torch.install --format slime --app my_app
+      mix torch.install --app my_app
   """
 
   def run(args) do
@@ -25,15 +24,15 @@ defmodule Mix.Tasks.Torch.Install do
       Mix.raise("mix torch.install can only be run inside an application directory")
     end
 
-    %{format: format, otp_app: otp_app} = Mix.Torch.parse_config!("torch.install", args)
+    %{otp_app: otp_app} = Mix.Torch.parse_config!("torch.install", args)
 
     Mix.Torch.ensure_phoenix_is_loaded!("torch.install")
 
     phoenix_version = :phoenix |> Application.spec(:vsn) |> to_string()
 
-    if Version.match?(phoenix_version, ">= 1.7.0") do
+    if Version.match?(phoenix_version, "< 1.7.0") do
       Mix.raise(
-        "Torch v4 Mix tasks will not run on Phoenix 1.7+.  Please upgrade to Torch v5 or newer."
+        "Torch v5 Mix tasks will only run on Phoenix 1.7+.  Phoenix version detected: #{phoenix_version}"
       )
     end
 
