@@ -1,5 +1,35 @@
 # Changelog
 
+## [v4.3.0](https://github.com/mojotech/torch/tree/v4.3.0) (2023-04-04)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.2.1...v4.3.0)
+
+**Merged pull requests:**
+
+- Add baseline Phoenix 1.7 support to Torch v4. [\#378](https://github.com/mojotech/torch/pull/378) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump ex_doc from 0.28.4 to 0.29.1 [\#357](https://github.com/mojotech/torch/pull/357) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.6.11 to 1.6.15 [\#355](https://github.com/mojotech/torch/pull/355) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.14.6 to 0.15.0 [\#351](https://github.com/mojotech/torch/pull/351) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.6.5 to 1.6.7 [\#347](https://github.com/mojotech/torch/pull/347) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump gettext from 0.19.1 to 0.20.0 [\#344](https://github.com/mojotech/torch/pull/344) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.6.4 to 1.6.5 [\#342](https://github.com/mojotech/torch/pull/342) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.6.8 to 1.6.11 [\#341](https://github.com/mojotech/torch/pull/341) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.14.5 to 0.14.6 [\#340](https://github.com/mojotech/torch/pull/340) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.14.4 to 0.14.5 [\#334](https://github.com/mojotech/torch/pull/334) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.5.6 to 1.6.4 [\#313](https://github.com/mojotech/torch/pull/313) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v5.0.0-rc.2](https://github.com/mojotech/torch/tree/v5.0.0-rc.2) (2023-03-31)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.1...v5.0.0-rc.2)
+
+## [v5.0.0-rc.1](https://github.com/mojotech/torch/tree/v5.0.0-rc.1) (2023-03-02)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.0...v5.0.0-rc.1)
+
+## [v5.0.0-rc.0](https://github.com/mojotech/torch/tree/v5.0.0-rc.0) (2023-02-28)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.2.1...v5.0.0-rc.0)
+
 ## [v4.2.1](https://github.com/mojotech/torch/tree/v4.2.1) (2022-07-11)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v4.2.0...v4.2.1)
