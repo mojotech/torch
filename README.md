@@ -5,7 +5,14 @@
 
 # Torch
 
-> This version of Torch (4.x) only supports Phoenix 1.6 and above.
+> This version of Torch (4.x) only fully supports Phoenix 1.6 and minimally runs on Phoenix 1.7.
+
+> Installations that use Torch v4 prior to Phoenix 1.7,
+> can also continue to use Torch v4 in a limited manner - new torch models and views cannot be generated for
+> Phoenix 1.7, but previously generated torch templates will continue to function.  For users running Phoenix 1.7
+> and newer, please upgrade to Torch v5 to generate new Torch templates and take advantage of future Torch updates.
+> If using Torch v4 with Phoenix 1.7, you will need to manually add `{:phoenix_view, "~> 2.0"}` to your `deps` in `mix.exs`.
+
 > See [v3.0](https://github.com/mojotech/torch/tree/v3) if you need support for Phoenix 1.5 and below
 
 
@@ -32,7 +39,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 4.0"}
+    {:torch, "~> 4.3"}
   ]
 end
 ```
