@@ -125,6 +125,10 @@ defmodule Torch.FilterView do
       iex> params = %{"post" => %{"title_contains" => "test"}}
       iex> filter_string_input(:post, :title, params) |> safe_to_string()
       "<input id=\\"post_title_contains\\" name=\\"post[title_contains]\\" type=\\"text\\" value=\\"test\\">"
+
+      iex> params = %{"post" => %{"board_title_contains" => "board test", "title_contains" => "test"}}
+      iex> filter_string_input(:post, :title, params) |> safe_to_string()
+      "<input id=\\"post_title_contains\\" name=\\"post[title_contains]\\" type=\\"text\\" value=\\"test\\">"
   """
   @spec filter_string_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_string_input(prefix, field, params) do
