@@ -1,5 +1,13 @@
 # Changelog
 
+## [v4.3.1](https://github.com/mojotech/torch/tree/v4.3.1) (2023-04-05)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.3.0...v4.3.1)
+
+**Merged pull requests:**
+
+- Fix filter view greedy regex [\#379](https://github.com/mojotech/torch/pull/379) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
 ## [v4.3.0](https://github.com/mojotech/torch/tree/v4.3.0) (2023-04-04)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v4.2.1...v4.3.0)
@@ -7,7 +15,7 @@
 **Merged pull requests:**
 
 - Add baseline Phoenix 1.7 support to Torch v4. [\#378](https://github.com/mojotech/torch/pull/378) ([cpjolicoeur](https://github.com/cpjolicoeur))
-- Bump ex_doc from 0.28.4 to 0.29.1 [\#357](https://github.com/mojotech/torch/pull/357) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.28.4 to 0.29.1 [\#357](https://github.com/mojotech/torch/pull/357) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump phoenix from 1.6.11 to 1.6.15 [\#355](https://github.com/mojotech/torch/pull/355) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump excoveralls from 0.14.6 to 0.15.0 [\#351](https://github.com/mojotech/torch/pull/351) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump credo from 1.6.5 to 1.6.7 [\#347](https://github.com/mojotech/torch/pull/347) ([dependabot[bot]](https://github.com/apps/dependabot))
