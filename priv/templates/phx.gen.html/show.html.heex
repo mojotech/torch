@@ -1,7 +1,7 @@
 <section id="torch-toolbar">
   <div class="torch-container">
-    <%%= link "Edit", to: ~p"<%= schema.route_prefix %>/#{@<%= schema.singular %>}/edit", class: "torch-button" %>
-    <%%= link "Back", to: ~p"<%= schema.route_prefix %>", class: "torch-button" %>
+    <.link href={~p"<%= schema.route_prefix %>/#{@<%= schema.singular %>}/edit"} class="torch-button"><%%= Torch.I18n.message("Edit") %></.link>
+    <.link href={~p"<%= schema.route_prefix %>"} class="torch-button"><%%= Torch.I18n.message("Back") %></.link>
   </div>
 </section>
 

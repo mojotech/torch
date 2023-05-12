@@ -24,4 +24,11 @@ defmodule Torch.I18n.Backend do
   def message("Any"), do: dgettext("default", "Any")
   def message("True"), do: dgettext("default", "True")
   def message("False"), do: dgettext("default", "False")
+  def message("Cancel"), do: dgettext("default", "Cancel")
+  def message("Submit"), do: dgettext("default", "Submit")
+  def message("Back"), do: dgettext("default", "Back")
+  def message("Edit"), do: dgettext("default", "Edit")
+  def message("Show"), do: dgettext("default", "Show")
+  def message("Delete"), do: dgettext("default", "Delete")
+  def message("Are you sure?"), do: dgettext("default", "Are you sure?")
 end

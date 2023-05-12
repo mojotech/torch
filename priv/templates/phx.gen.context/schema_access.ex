@@ -1,3 +1,4 @@
+
   import Torch.Helpers, only: [sort: 1, paginate: 4, strip_unset_booleans: 3]
   import Filtrex.Type.Config
 
@@ -149,8 +150,10 @@
   end
 
   defp filter_config(<%= inspect String.to_atom(schema.plural) %>) do
+    # TODO: Handele :array and :enum field types
     defconfig do
       <%= for {name, type} <- schema.attrs do %><%= cond do %>
+        <% is_tuple(type) -> %>
         <% type in [:string, :text] -> %>text <%= inspect name %>
         <% type in [:integer, :number] -> %>number <%= inspect name %>
         <% type in [:naive_datetime, :utc_datetime, :datetime, :date] -> %>date <%= inspect name %>
