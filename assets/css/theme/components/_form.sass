@@ -33,7 +33,8 @@ form#torch-form
       @extend %text-input
       flex: 1
 
-    input[type="number"]
+    input[type="number"],
+    input[type="datetime-local"]
       @extend %text-input
 
     select
@@ -59,10 +60,13 @@ form#torch-form
       margin-right: 0.5em
       margin-left: 0.5em
 
+    .form-field-error
+      border: 1px solid red !important
 
     .invalid-feedback
       flex: 1
-      flex-basis: 100%
+      margin-left: 1rem
+      color: red
 
   .torch-submit-form
     display: flex
