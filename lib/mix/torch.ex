@@ -53,7 +53,11 @@ defmodule Mix.Torch do
 
   Torch currently only supports HEEX templates.
   """
-  def inject_templates("phx.gen.context") do
+
+  def inject_templates(task),
+    do: inject_templates(task, to_string(Application.spec(:phoenix, :vsn)))
+
+  def inject_templates("phx.gen.context", _vsn) do
     copy_from("priv/templates/phx.gen.context", [
       {"access_no_schema.ex", "priv/templates/phx.gen.context/access_no_schema.ex"},
       {"context.ex", "priv/templates/phx.gen.context/context.ex"},
@@ -63,11 +67,12 @@ defmodule Mix.Torch do
     ])
   end
 
-  def inject_templates("phx.gen.html") do
+  def inject_templates("phx.gen.html", phx_version) do
     copy_from("priv/templates/phx.gen.html", [
-      {"edit.html.heex", "priv/templates/phx.gen.html/edit.html.heex"},
+      {versioned_template("edit", phx_version), "priv/templates/phx.gen.html/edit.html.heex"},
+      {"resource_form.html.heex", "priv/templates/phx.gen.html/resource_form.html.heex"},
       {"index.html.heex", "priv/templates/phx.gen.html/index.html.heex"},
-      {"new.html.heex", "priv/templates/phx.gen.html/new.html.heex"},
+      {versioned_template("new", phx_version), "priv/templates/phx.gen.html/new.html.heex"},
       {"show.html.heex", "priv/templates/phx.gen.html/show.html.heex"},
       {"controller_test.exs", "priv/templates/phx.gen.html/controller_test.exs"},
       {"controller.ex", "priv/templates/phx.gen.html/controller.ex"},
@@ -90,58 +95,128 @@ defmodule Mix.Torch do
   def torch_inputs(%Mix.Phoenix.Schema{} = schema) do
     Enum.map(schema.attrs, fn
       {_, {:references, _}} ->
-        {nil, nil, nil}
+        ~s"""
+        <span>Association references are not yet supported</span>
+        """
 
       {key, :integer} ->
-        {label(key), ~s(<%= number_input f, #{inspect(key)} %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="number" />
+        """
 
       {key, :float} ->
-        {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="number" />
+        """
 
       {key, :decimal} ->
-        {label(key), ~s(<%= number_input f, #{inspect(key)}, step: "any" %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="number" />
+        """
 
       {key, :boolean} ->
-        {label(key), ~s(<%= checkbox f, #{inspect(key)} %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="checkbox" />
+        """
 
       {key, :text} ->
-        {label(key), ~s(<%= textarea f, #{inspect(key)} %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="textarea" />
+        """
+
+      {key, :string} ->
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="string" />
+        """
 
       {key, :date} ->
-        {label(key), ~s(<%= date_select f, #{inspect(key)} %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="date" />
+        """
 
       {key, :time} ->
-        {label(key), ~s(<%= time_select f, #{inspect(key)} %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="time" />
+        """
 
       {key, :utc_datetime} ->
-        {label(key), ~s(<%= datetime_select f, #{inspect(key)} %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="datetime-local" />
+        """
 
       {key, :naive_datetime} ->
-        {label(key), ~s(<%= datetime_select f, #{inspect(key)} %>), error(key)}
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="datetime-local" />
+        """
 
-      {key, {:array, :integer}} ->
-        {label(key), ~s(<%= multiple_select f, #{inspect(key)}, ["1": 1, "2": 2] %>), error(key)}
-
-      {key, {:array, _}} ->
-        {label(key),
-         ~s(<%= multiple_select f, #{inspect(key)}, ["Option 1": "option1", "Option 2": "option2"] %>),
-         error(key)}
+      {key, {:array, _} = type} ->
+        ~s"""
+        <.torch_input
+          field={f[#{inspect(key)}]}
+          type="select"
+          multiple
+          label="#{label(key)}"
+          options={#{inspect(default_options(type))}}
+        />
+        """
 
       {key, {:enum, _}} ->
-        {label(key),
-         ~s|<%= select f, #{inspect(key)}, Ecto.Enum.values(#{inspect(schema.module)}, #{inspect(key)}), prompt: "Choose a value" %>|,
-         error(key)}
+        ~s"""
+        <.torch_input
+          field={f[#{inspect(key)}]}
+          type="select"
+          label="#{label(key)}"
+          prompt="Choose a value"
+          options={Ecto.Enum.values(#{inspect(schema.module)}, #{inspect(key)})}
+        />
+        """
 
-      {key, _} ->
-        {label(key), ~s(<%= text_input f, #{inspect(key)} %>), error(key)}
+      {key, type} ->
+        ~s"""
+        <.torch_input label="#{label(key)}" field={f[#{inspect(key)}]} type="#{type}" />
+        """
     end)
   end
 
-  defp label(key) do
-    ~s(<%= label f, #{inspect(key)} %>)
+  @doc false
+  def indent_inputs(inputs), do: indent_inputs(inputs, 2)
+
+  def indent_inputs(inputs, col_padding) do
+    columns = String.duplicate(" ", col_padding)
+
+    inputs
+    |> Enum.map(fn input ->
+      lines = input |> String.split("\n") |> Enum.reject(&(&1 == ""))
+
+      case lines do
+        [line] ->
+          [columns, line]
+
+        [first_line | rest] ->
+          rest = Enum.map_join(rest, "\n", &(columns <> &1))
+          [columns, first_line, "\n", rest]
+      end
+    end)
+    |> Enum.intersperse("\n")
   end
 
-  defp error(field) do
-    ~s(<%= error_tag f, #{inspect(field)} %>)
+  defp default_options({:array, :string}),
+    do: Enum.map([1, 2], &{"Option #{&1}", "option#{&1}"})
+
+  defp default_options({:array, :integer}),
+    do: Enum.map([1, 2], &{"#{&1}", &1})
+
+  defp default_options({:array, _}), do: []
+
+  defp label(key), do: Phoenix.Naming.humanize(to_string(key))
+
+  defp versioned_template(template_name, phx_version) when template_name in ["new", "edit"] do
+    if Version.match?(phx_version, "< 1.7.1") do
+      "#{template_name}_1_7_0.html.heex"
+    else
+      "#{template_name}.html.heex"
+    end
   end
+
+  defp versioned_template(template_name, _phx_version), do: "#{template_name}.html.heex"
 end

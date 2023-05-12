@@ -5,10 +5,11 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
 
   import Torch.TableView
   import Torch.FilterView
+  import Torch.Component
 
   def error_tag(form, field) do
     Enum.map(Keyword.get_values(form.errors, field), fn error ->
-      content_tag(:span, translate_error(error),
+      content_tag(:span, Torch.Component.translate_error(error),
         class: "invalid-feedback",
         phx_feedback_for: input_name(form, field)
       )
