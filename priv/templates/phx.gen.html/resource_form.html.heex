@@ -1,0 +1,14 @@
+<.form :let={f} for={@changeset} action={@action} id="torch-form" enctype="multipart/form-data">
+  <fieldset class="torch-panel">
+    <legend>
+      <span>Details</span>
+    </legend>
+    <%%= if @changeset.action do %>
+      <p class="torch-form-error">Oops, something went wrong! Please check the errors below.</p>
+    <%% end %>
+<%= Mix.Torch.indent_inputs(Mix.Torch.torch_inputs(schema), 4) %>
+    <div class="torch-submit-form">
+      <button type="submit" class="torch-submit-button"><%%= Torch.I18n.message("Submit") %></button>
+    </div>
+  </fieldset>
+</.form>

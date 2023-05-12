@@ -1,6 +1,6 @@
 <section id="torch-toolbar">
   <div class="torch-container">
-    <%%= link "New <%= schema.human_singular %>", to: ~p"<%= schema.route_prefix %>/new" %>
+    <.link href={~p"<%= schema.route_prefix %>/new"} class="torch-button">New <%= schema.human_singular %></.link>
   </div>
 </section>
 <section id="torch-index-content">
@@ -58,9 +58,9 @@
                 <td><%%= <%= schema.singular %>.<%= k %> %></td>
               <% end %>
               <td class="torch-actions">
-                <span><%%= link "Show", to: ~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}" %></span>
-                <span><%%= link "Edit", to: ~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}/edit" %></span>
-                <span><%%= link "Delete", to: ~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}", method: :delete, data: [confirm: "Are you sure?"] %></span>
+                <span><.link href={~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}"}><%%= Torch.I18n.message("Show") %></.link></span>
+                <span><.link href={~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}/edit"}><%%= Torch.I18n.message("Edit") %></.link></span>
+                <span><.link href={~p"<%= schema.route_prefix %>/#{<%= schema.singular %>}"} method="delete" data-confirm={Torch.I18n.message("Are you sure?")}><%%= Torch.I18n.message("Delete") %></.link></span>
               </td>
             </tr>
           <%% end %>

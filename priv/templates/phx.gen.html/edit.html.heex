@@ -1,6 +1,6 @@
 <section id="torch-toolbar">
   <div class="torch-container">
-    <%%= link "Cancel", to: ~p"<%= schema.route_prefix %>", class: "torch-button" %>
+    <.link href={~p"<%= schema.route_prefix %>"} class="torch-button"><%%= Torch.I18n.message("Cancel") %></.link>
   </div>
 </section>
 
@@ -9,27 +9,6 @@
     <div class="header">
       <h3>Edit <%= String.capitalize(schema.human_singular) %></h3>
     </div>
-    <.form :let={f} for={@changeset} action={~p"<%= schema.route_prefix %>/#{@<%= schema.singular %>}"} id="torch-form" enctype="multipart/form-data">
-      <fieldset class="torch-panel">
-        <legend>
-          <span>Details</span>
-        </legend>
-        <%%= if @changeset.action do %>
-          <p class="torch-form-error">Oops, something went wrong! Please check the errors below.</p>
-        <%% end %>
-      <%= for {label, input, error} <- Mix.Torch.torch_inputs(schema) do%>
-        <div class="torch-form-group">
-          <%= label %>
-          <div class="torch-form-group-input">
-            <%= input %>
-            <%= error %>
-          </div>
-        </div>
-      <% end %>
-        <div class="torch-submit-form">
-          <%%= submit "Submit", class: "torch-submit-button" %>
-        </div>
-      </fieldset>
-    </.form>
+    <.<%= schema.singular %>_form changeset={@changeset} action={~p"<%= schema.route_prefix %>/#{@<%= schema.singular %>}"} />
   </div>
 </section>
