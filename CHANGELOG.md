@@ -1,5 +1,20 @@
 # Changelog
 
+## [v5.0.0-rc.3](https://github.com/mojotech/torch/tree/v5.0.0-rc.3) (2023-05-14)
+
+- Migrated generated templates to use Phoenix.Component elements via the new Torch.Component module
+- Reworked template generation scripts to match the new templates used in Phoenix 1.7.0 and 1.7.1+
+
+**Breaking Changes**
+
+- Fully removed deprecated `filter_text_input/3` method.
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.2...v5.0.0-rc.3)
+
+**Closed issues:**
+
+- Nullable date field in new/edit view [\#155](https://github.com/mojotech/torch/issues/155)
+
 ## [v4.3.1](https://github.com/mojotech/torch/tree/v4.3.1) (2023-04-05)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v4.3.0...v4.3.1)
