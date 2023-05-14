@@ -21,92 +21,127 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:22
+#, elixir-autogen
 msgid "< Prev"
 msgstr "< Prev"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:23
+#, elixir-autogen
 msgid "Next >"
 msgstr "Sig >"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:11
+#, elixir-autogen
 msgid "Choose one"
 msgstr "Elija uno"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:10
+#, elixir-autogen
 msgid "Equals"
 msgstr "Igual a"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:9
+#, elixir-autogen
 msgid "Contains"
 msgstr "Contiene"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:14
+#, elixir-autogen
 msgid "Greater Than"
 msgstr "Mayor a"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:15
+#, elixir-autogen
 msgid "Greater Than Or Equal"
 msgstr "Mayor o igual a"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:16
+#, elixir-autogen
 msgid "Less Than"
 msgstr "Menor a"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:17
+#, elixir-autogen
 msgid "start"
 msgstr "inicio"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:18
+#, elixir-autogen
 msgid "end"
 msgstr "fin"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:20
+#, elixir-autogen
 msgid "Select Start Date"
 msgstr "Seleccione fecha de inicio"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:21
+#, elixir-autogen
 msgid "Select End Date"
 msgstr "Seleccione fecha de fin"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:13
+#, elixir-autogen
 msgid "After"
 msgstr "Después de"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:12
+#, elixir-autogen
 msgid "Before"
 msgstr "Antes de"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:19
+#, elixir-autogen
 msgid "Select Date"
 msgstr "Seleccione fecha de fin"
 
-#, elixir-autogen, elixir-format
 #: lib/torch/i18n/backend.ex:24
+#, elixir-autogen, elixir-format
 msgid "Any"
 msgstr "Todo"
 
-#, elixir-autogen, elixir-format
 #: lib/torch/i18n/backend.ex:26
+#, elixir-autogen, elixir-format
 msgid "False"
 msgstr "Falso"
 
-#, elixir-autogen, elixir-format
 #: lib/torch/i18n/backend.ex:25
+#, elixir-autogen, elixir-format
 msgid "True"
 msgstr "Verdad"
+
+#: lib/torch/i18n/backend.ex:33
+#, elixir-autogen, elixir-format
+msgid "Are you sure?"
+msgstr "Estas seguro"
+
+#: lib/torch/i18n/backend.ex:29
+#, elixir-autogen, elixir-format
+msgid "Back"
+msgstr "Regresa"
+
+#: lib/torch/i18n/backend.ex:27
+#, elixir-autogen, elixir-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: lib/torch/i18n/backend.ex:32
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr "Borrar"
+
+#: lib/torch/i18n/backend.ex:30
+#, elixir-autogen, elixir-format
+msgid "Edit"
+msgstr "Editar"
+
+#: lib/torch/i18n/backend.ex:31
+#, elixir-autogen, elixir-format
+msgid "Show"
+msgstr "Mostrar"
+
+#: lib/torch/i18n/backend.ex:28
+#, elixir-autogen, elixir-format
+msgid "Submit"
+msgstr "Enviar"
