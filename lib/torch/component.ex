@@ -6,7 +6,7 @@ defmodule Torch.Component do
   use Phoenix.Component
 
   @doc """
-  Renders an Torch form input with label and error messages.
+  Renders a Torch form input with label and error messages.
 
   A `%Phoenix.HTML.Form{}` and field name may be passed to the input
   to build input names and error messages, or all the attributes and
