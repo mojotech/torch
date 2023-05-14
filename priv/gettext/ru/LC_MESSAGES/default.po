@@ -13,92 +13,127 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:22
+#, elixir-autogen
 msgid "< Prev"
 msgstr "< Предыдущая"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:23
+#, elixir-autogen
 msgid "Next >"
 msgstr "Следующая >"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:11
+#, elixir-autogen
 msgid "Choose one"
 msgstr "Выберите один элемент"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:10
+#, elixir-autogen
 msgid "Equals"
 msgstr "Равно"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:9
+#, elixir-autogen
 msgid "Contains"
 msgstr "Содержит"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:14
+#, elixir-autogen
 msgid "Greater Than"
 msgstr "Больше"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:15
+#, elixir-autogen
 msgid "Greater Than Or Equal"
 msgstr "Больше или равно"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:16
+#, elixir-autogen
 msgid "Less Than"
 msgstr "Меньше"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:17
+#, elixir-autogen
 msgid "start"
 msgstr "начало"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:18
+#, elixir-autogen
 msgid "end"
 msgstr "конец"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:20
+#, elixir-autogen
 msgid "Select Start Date"
 msgstr "Выберите дату начала"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:21
+#, elixir-autogen
 msgid "Select End Date"
 msgstr "Выберите дату окончания"
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:13
+#, elixir-autogen
 msgid "After"
 msgstr ""
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:12
+#, elixir-autogen
 msgid "Before"
 msgstr ""
 
-#, elixir-autogen
 #: lib/torch/i18n/backend.ex:19
+#, elixir-autogen
 msgid "Select Date"
 msgstr "Выберите дату окончания"
 
-#, elixir-autogen, elixir-format
 #: lib/torch/i18n/backend.ex:24
+#, elixir-autogen, elixir-format
 msgid "Any"
 msgstr "Любые"
 
-#, elixir-autogen, elixir-format
 #: lib/torch/i18n/backend.ex:26
+#, elixir-autogen, elixir-format
 msgid "False"
 msgstr "ЛОЖЬ"
 
-#, elixir-autogen, elixir-format
 #: lib/torch/i18n/backend.ex:25
+#, elixir-autogen, elixir-format
 msgid "True"
 msgstr "истинный"
+
+#: lib/torch/i18n/backend.ex:33
+#, elixir-autogen, elixir-format
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: lib/torch/i18n/backend.ex:29
+#, elixir-autogen, elixir-format
+msgid "Back"
+msgstr "Вернуться"
+
+#: lib/torch/i18n/backend.ex:27
+#, elixir-autogen, elixir-format
+msgid "Cancel"
+msgstr "Отмена"
+
+#: lib/torch/i18n/backend.ex:32
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr "Удалить"
+
+#: lib/torch/i18n/backend.ex:30
+#, elixir-autogen, elixir-format
+msgid "Edit"
+msgstr "Редактировать"
+
+#: lib/torch/i18n/backend.ex:31
+#, elixir-autogen, elixir-format
+msgid "Show"
+msgstr "Показать"
+
+#: lib/torch/i18n/backend.ex:28
+#, elixir-autogen, elixir-format
+msgid "Submit"
+msgstr "Отправить"
