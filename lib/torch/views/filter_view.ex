@@ -134,15 +134,6 @@ defmodule Torch.FilterView do
   end
 
   @doc """
-  DEPRECATED: Generates a filter input for a text field.
-  Use the `filter_string_input/3` function instead.
-  """
-  @deprecated "Use filter_string_input/3 instead"
-  def filter_text_input(prefix, field, params) do
-    filter_string_input(prefix, field, params)
-  end
-
-  @doc """
   Generates a filter datepicker input.
 
   ## Example
