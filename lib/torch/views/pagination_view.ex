@@ -5,6 +5,9 @@ defmodule Torch.PaginationView do
   import Torch.I18n, only: [message: 1]
   alias Torch.TableView
 
+  @doc """
+  Render pagination links directly from a `Plug.Conn`
+  """
   def pagination(conn) do
     assigns =
       %{__changed__: %{}}
@@ -17,6 +20,10 @@ defmodule Torch.PaginationView do
     <.torch_pagination page_number={@page_number} page_size={@page_size} total_pages={@total_pages} total_entries={@total_entries} distance={@distance} sort_field={@sort_field} sort_direction={@sort_direction} query_string={@query_string} conn_params={@conn_params} />
     """
   end
+
+  @doc """
+  Render Torch pagination links based on current page, sort, and filters
+  """
 
   attr(:page_number, :integer, required: true)
   attr(:page_size, :integer, required: true)
