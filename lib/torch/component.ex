@@ -1,6 +1,6 @@
 defmodule Torch.Component do
   @moduledoc """
-  Provides Phoenix.Components for use in Torch views
+  Provides Phoenix.Components for use in Torch views and layouts
   """
 
   use Phoenix.Component
@@ -177,6 +177,37 @@ defmodule Torch.Component do
   def torch_error(assigns) do
     ~H"""
     <span class="invalid-feedback" phx-feedback-for={@for}><%= render_slot(@inner_block) %></span>
+    """
+  end
+
+  @doc """
+  Returns a formatted group of all flash messages available.
+
+  ## Example
+
+      <.flash_messages flash={conn.assigns.flash} />
+  """
+  attr(:flash, :map)
+
+  def flash_messages(assigns) do
+    ~H"""
+    <section id="torch-flash-messages">
+      <div class="torch-container">
+        <.torch_flash :for={{flash_type, flash_msg} <- @flash} message={flash_msg} flash_type={flash_type} />
+      </div>
+    </section>
+    """
+  end
+
+  @doc """
+  Renders a simple flash message tag
+  """
+  attr(:flash_type, :string)
+  attr(:message, :string)
+
+  def torch_flash(assigns) do
+    ~H"""
+    <p class={"torch-flash #{@flash_type}"}><%= @message %>&nbsp;<button class="torch-flash-close">x</button></p>
     """
   end
 
