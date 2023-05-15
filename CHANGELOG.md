@@ -1,5 +1,16 @@
 # Changelog
 
+## [v5.0.0-rc.4](https://github.com/mojotech/torch/tree/v5.0.0-rc.4) (2023-05-15)
+
+**Deprecations**
+
+Please update your `torch.html.heex` layout file with the following deprecated module functions:
+
+- Deprecated `Torch.PageView.body_classes/1` in favor of `Torch.Helpers.body_classes/1`
+- Deprecated `Torch.FlashView.flash_messages/1` in favor of `Torch.Component.flash_messages/1`
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.3...v5.0.0-rc.4)
+
 ## [v5.0.0-rc.3](https://github.com/mojotech/torch/tree/v5.0.0-rc.3) (2023-05-14)
 
 - Migrated generated templates to use Phoenix.Component elements via the new Torch.Component module
