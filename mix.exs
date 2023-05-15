@@ -2,7 +2,7 @@ defmodule Torch.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/mojotech/torch"
-  @version "5.0.0"
+  @version "5.0.0-rc.4"
 
   def project do
     [
