@@ -1,5 +1,7 @@
 defmodule Torch.PageView do
   @doc """
+  DEPRECATED: Use Torch.Helpers.body_classes/1 instead
+
   Takes the controller action name and appends it to the torch- prefix.
 
   ## Example
@@ -11,19 +13,6 @@ defmodule Torch.PageView do
       "torch-custom-action"
   """
   @spec body_classes(Plug.Conn.t()) :: String.t()
-  def body_classes(conn) do
-    conn
-    |> action_name()
-    |> add_prefix()
-    |> String.trim()
-  end
-
-  defp action_name(conn) do
-    conn
-    |> Phoenix.Controller.action_name()
-    |> Atom.to_string()
-    |> String.replace("_", "-")
-  end
-
-  defp add_prefix(str), do: "torch-#{str}"
+  @deprecated "Use Torch.Helpers.body_classes/1 instead"
+  def body_classes(conn), do: Torch.Helpers.body_classes(conn)
 end
