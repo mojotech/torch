@@ -6,10 +6,15 @@ defmodule Torch.PageView do
 
       iex> body_classes(%Plug.Conn{private: %{phoenix_action: :create}})
       "torch-create"
+
+      iex> body_classes(%Plug.Conn{private: %{phoenix_action: :custom_action}})
+      "torch-custom-action"
   """
   @spec body_classes(Plug.Conn.t()) :: String.t()
   def body_classes(conn) do
-    "torch-#{action_name(conn)}"
+    conn
+    |> action_name()
+    |> add_prefix()
     |> String.trim()
   end
 
@@ -19,4 +24,6 @@ defmodule Torch.PageView do
     |> Atom.to_string()
     |> String.replace("_", "-")
   end
+
+  defp add_prefix(str), do: "torch-#{str}"
 end
