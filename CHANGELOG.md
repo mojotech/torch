@@ -1,5 +1,9 @@
 # Changelog
 
+## [v5.0.0](https://github.com/mojotech/torch/tree/v5.0.0) (2023-05-16)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.4...v5.0.0)
+
 ## [v5.0.0-rc.4](https://github.com/mojotech/torch/tree/v5.0.0-rc.4) (2023-05-15)
 
 **Deprecations**
