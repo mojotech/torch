@@ -61,7 +61,7 @@ defmodule Torch.MixProject do
     [
       maintainers: ["MojoTech"],
       licenses: ["MIT"],
-      files: ~w(lib priv mix.exs README.md LICENSE CHANGELOG.md CODE_OF_CONDUCT.md),
+      files: ~w(lib priv mix.exs README.md LICENSE CHANGELOG.md CODE_OF_CONDUCT.md UPGRADING.md),
       links: %{
         "Github" => @source_url
       }
@@ -74,7 +74,8 @@ defmodule Torch.MixProject do
         "CHANGELOG.md": [title: "Changelog"],
         "CODE_OF_CONDUCT.md": [title: "Code of Conduct"],
         LICENSE: [title: "License"],
-        "README.md": [title: "Overview"]
+        "README.md": [title: "Overview"],
+        "UPGRADING.md": [title: "Upgrading"]
       ],
       main: "readme",
       source_ref: "v#{@version}",
