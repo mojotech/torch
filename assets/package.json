@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.5.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^8.0.0",
     "parcel": "^2.5.0",
     "standard": "^14.0.2"
   },
