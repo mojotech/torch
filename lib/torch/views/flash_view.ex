@@ -2,6 +2,7 @@ defmodule Torch.FlashView do
   @moduledoc """
   Contains functions for dealing with flash messages.
   """
+  @moduledoc deprecated: "This module will be fully removed in Torch 6.0"
 
   use Phoenix.Component
 

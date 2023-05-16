@@ -132,6 +132,7 @@ defmodule Torch.Helpers do
       iex> body_classes(%Plug.Conn{private: %{phoenix_action: :custom_action}})
       "torch-custom-action"
   """
+  @doc since: "5.0.0"
   @spec body_classes(Plug.Conn.t()) :: String.t()
   def body_classes(conn) do
     conn
