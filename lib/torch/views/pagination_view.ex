@@ -24,6 +24,7 @@ defmodule Torch.PaginationView do
   @doc """
   Render Torch pagination links based on current page, sort, and filters
   """
+  @doc since: "5.0.0"
 
   attr(:page_number, :integer, required: true)
   attr(:page_size, :integer, required: true)
@@ -80,6 +81,8 @@ defmodule Torch.PaginationView do
       ...> page_link(a) |> Phoenix.HTML.Safe.to_iodata() |> IO.iodata_to_binary()
       "<a href=\\"?page=14\\" class=\\"active\\">14</a>"
   """
+  @doc since: "5.0.0"
+
   attr(:query_string, :string, default: "")
   attr(:conn_params, :any, required: true)
   attr(:page_number, :integer, required: true)
@@ -128,6 +131,8 @@ defmodule Torch.PaginationView do
       ""
   """
   # NOTE: query_string param can contain sort info also (e.g. sort_field=name&sort_direction=asc)
+  @doc since: "5.0.0"
+
   attr(:query_string, :string, default: "")
   attr(:conn_params, :any, required: true)
   attr(:page_number, :integer, required: true)
@@ -188,6 +193,8 @@ defmodule Torch.PaginationView do
       ...> next_link(a) |> Phoenix.HTML.Safe.to_iodata() |> IO.iodata_to_binary()
       ""
   """
+  @doc since: "5.0.0"
+
   attr(:query_string, :string, default: "")
   attr(:conn_params, :any, required: true)
   attr(:page_number, :integer, required: true)

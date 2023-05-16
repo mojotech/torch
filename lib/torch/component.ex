@@ -2,6 +2,7 @@ defmodule Torch.Component do
   @moduledoc """
   Provides Phoenix.Components for use in Torch views and layouts
   """
+  @moduledoc since: "5.0.0"
 
   use Phoenix.Component
 
