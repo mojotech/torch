@@ -4,7 +4,6 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
-    time: "10:00"
   open-pull-requests-limit: 10
   reviewers:
   - cpjolicoeur
@@ -19,6 +18,10 @@ updates:
     versions:
     - 3.6.4
     - 3.7.3
+- package-ecosystem: npm
+  directory: "/assets"
+  schedule:
+    interval: weekly
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
