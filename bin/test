@@ -3,15 +3,15 @@
 TEST_ROOT="$(pwd)/test"
 ASSETS_ROOT="$(pwd)/assets"
 
-MIX_ENV=test mix compile --warnings-as-errors --force || {
+mix compile --warnings-as-errors --force || {
     echo 'Please fix all compiler warnings.'
     exit 1
 }
-MIX_ENV=test mix credo --strict --ignore design,consistency || {
+mix credo --strict --ignore design,consistency || {
     echo 'Elixir code failed Credo linting. See warnings above.'
     exit 1
 }
-MIX_ENV=test mix docs || {
+mix docs || {
     echo 'Elixir HTML docs were not generated!'
     exit 1
 }
@@ -60,9 +60,9 @@ echo "[DEBUG] Current Elixir Version: $iexCurrentVersion"
 otpCurrentVersion="$(erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().' -noshell | sed 's/\"//g')"
 echo "[DEBUG] Current OTP Version: $otpCurrentVersion"
 
-requiredMinVersion="24"
+requiredMinVersion="23"
 if [ "$(printf '%s\n' "$requiredMinVersion" "$otpCurrentVersion" | sort -Vr | head -n1)" = "$requiredMinVersion" ]; then
-    echo '[Skipping] OTP 24+ is required for Phoenix 1.7+'
+    echo '[Skipping] OTP 23+ is required for Phoenix 1.7+'
 else
     cd "$TEST_ROOT/support/apps/phx1_7" && {
         bin/test || {
