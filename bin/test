@@ -20,8 +20,8 @@ MIX_ENV=test mix test || {
     exit 1
 }
 
-if [ $CI ]; then
-    if [ $TRAVIS ]; then
+if [ "$CI" ]; then
+    if [ "$TRAVIS" ]; then
         echo "----------------------------------------------------------"
         echo "Running coveralls.travis..."
         echo "----------------------------------------------------------"
