@@ -81,6 +81,9 @@ defmodule Torch.Helpers do
       iex> strip_unset_booleans(%{"post" => %{"title_contains" => "foo"}}, "post", [])
       %{"post" => %{"title_contains" => "foo"}}
 
+      iex> strip_unset_booleans(%{"post" => %{"title_contains" => "foo"}}, "post", [:title])
+      %{"post" => %{"title_contains" => "foo"}}
+
       iex> strip_unset_booleans(%{"post" => %{"title_equals" => "true"}}, "post", [:title])
       %{"post" => %{"title_equals" => "true"}}
 
@@ -89,6 +92,12 @@ defmodule Torch.Helpers do
 
       iex> strip_unset_booleans(%{"post" => %{"name_contains" => "foo", "title_equals" => "any"}}, "post", [:title])
       %{"post" => %{"name_contains" => "foo"}}
+
+      iex> strip_unset_booleans(%{"post" => %{"name_equals" => "any", "title_equals" => "any"}}, "post", [:title, :name])
+      %{"post" => %{}}
+
+      iex> strip_unset_booleans(%{"post" => %{"name_equals" => "any", "title_equals" => "any", "surname_equals" => "bar"}}, "post", [:title, :name])
+      %{"post" => %{"surname_equals" => "bar"}}
 
   """
   @spec strip_unset_booleans(params, binary, [atom]) :: params
