@@ -109,11 +109,23 @@ defmodule Torch.FilterView do
       iex> params = %{"post" => %{"rating_equals" => 5}}
       ...> filter_number_input(:post, :rating, params) |> safe_to_string()
       "<input id=\\"post_rating_equals\\" name=\\"post[rating_equals]\\" type=\\"number\\" value=\\"5\\">"
+
+      iex> params = %{"post" => %{"rating_greater_than_or" => 15}}
+      ...> filter_number_input(:post, :rating, params) |> safe_to_string()
+      "<input id=\\"post_rating_greater_than_or\\" name=\\"post[rating_greater_than_or]\\" type=\\"number\\" value=\\"15\\">"
+
+      iex> params = %{"post" => %{"rating_greater_than" => 15}}
+      ...> filter_number_input(:post, :rating, params) |> safe_to_string()
+      "<input id=\\"post_rating_greater_than\\" name=\\"post[rating_greater_than]\\" type=\\"number\\" value=\\"15\\">"
+
+      iex> params = %{"post" => %{"rating_less_than" => 18}}
+      ...> filter_number_input(:post, :rating, params) |> safe_to_string()
+      "<input id=\\"post_rating_less_than\\" name=\\"post[rating_less_than]\\" type=\\"number\\" value=\\"18\\">"
   """
   @spec filter_number_input(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_number_input(prefix, field, params) do
     prefix_str = to_string(prefix)
-    {name, value} = find_param(params[prefix_str], field, :number)
+    {name, value} = find_param(params[prefix_str], field, :number_select)
     text_input(prefix, String.to_atom(name), value: value, type: "number")
   end
 
