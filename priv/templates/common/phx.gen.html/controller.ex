@@ -15,7 +15,7 @@ defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web
     case <%= inspect context.alias %>.paginate_<%= schema.plural %>(params) do
       {:ok, assigns} ->
         render(conn, "index.html", assigns)
-      error ->
+      {:error, error} ->
         conn
         |> put_flash(:error, "There was an error rendering <%= schema.human_plural %>. #{inspect(error)}")
         |> redirect(to: Routes.<%= schema.route_helper %>_path(conn, :index))
