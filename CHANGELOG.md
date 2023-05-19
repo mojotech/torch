@@ -1,5 +1,13 @@
 # Changelog
 
+## [v4.3.2](https://github.com/mojotech/torch/tree/v4.3.2) (2023-05-19)
+
+- Added additional tests
+- Fixed issue with number selects in the `FilterView` UI
+- Better error message handling for `Filtrex` errors
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.3.1...v4.3.2)
+
 ## [v4.3.1](https://github.com/mojotech/torch/tree/v4.3.1) (2023-04-05)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v4.3.0...v4.3.1)
