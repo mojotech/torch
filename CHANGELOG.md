@@ -1,5 +1,17 @@
 # Changelog
 
+## [v5.1.0](https://github.com/mojotech/torch/tree/v5.0.0) (2023-05-19)
+
+**Merged pull requests:**
+
+- Torch.Pagination module [\#394](https://github.com/mojotech/torch/pull/394) ([cpjolicoeur](https://github.com/cpjolicoeur))
+
+**Closed issues:**
+
+- Support for phoenix 1.7 [\#356](https://github.com/mojotech/torch/issues/356)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0...v5.1.0)
+
 ## [v5.0.0](https://github.com/mojotech/torch/tree/v5.0.0) (2023-05-16)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.0.0-rc.4...v5.0.0)
