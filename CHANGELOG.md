@@ -1,5 +1,19 @@
 # Changelog
 
+## [v3.9.1](https://github.com/mojotech/torch/tree/v3.9.1) (2023-05-19)
+
+- Added additional test coverage
+- Fixed issue with number filters UI
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.9.0...v3.9.1)
+
+## [v3.9.0](https://github.com/mojotech/torch/tree/v3.9.0) (2022-04-29)
+
+- Added additional translation keys for I18N
+- Updated `FilterView` for boolean selects
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v3.8.0...v3.9.1)
+
 ## [v3.8.0](https://github.com/mojotech/torch/tree/v3.8.0) (2022-02-08)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v3.7.1...v3.8.0)
