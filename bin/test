@@ -3,57 +3,6 @@
 TEST_ROOT="$(pwd)/test"
 ASSETS_ROOT="$(pwd)/assets"
 
-mix compile --warnings-as-errors --force || {
-    echo 'Please fix all compiler warnings.'
-    exit 1
-}
-mix credo --strict --ignore design,consistency || {
-    echo 'Elixir code failed Credo linting. See warnings above.'
-    exit 1
-}
-mix docs || {
-    echo 'Elixir HTML docs were not generated!'
-    exit 1
-}
-MIX_ENV=test mix test || {
-    echo 'Elixir tests on Torch failed!'
-    exit 1
-}
-
-if [ "$CI" ]; then
-    if [ "$TRAVIS" ]; then
-        echo "----------------------------------------------------------"
-        echo "Running coveralls.travis..."
-        echo "----------------------------------------------------------"
-        mix coveralls.travis || {
-            echo 'Elixir coverage on Torch failed!'
-            exit 1
-        }
-    else
-        echo "----------------------------------------------------------"
-        echo "Running coveralls..."
-        echo "----------------------------------------------------------"
-        mix coveralls || {
-            echo 'Elixir coverage on Torch failed!'
-            exit 1
-        }
-    fi
-fi
-
-# Run JS assets lint checks
-cd "$ASSETS_ROOT" && {
-    npm install || {
-        echo 'NPM install failed!'
-        exit 1
-    }
-}
-cd "$ASSETS_ROOT" && {
-    npm run test || {
-        echo 'NPM test failed!'
-        exit 1
-    }
-}
-
 # Run integration tests
 iexCurrentVersion="$(iex -v | tail -n 1 | cut -d " " -f2)"
 echo "[DEBUG] Current Elixir Version: $iexCurrentVersion"

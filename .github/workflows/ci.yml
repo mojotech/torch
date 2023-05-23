@@ -57,35 +57,54 @@ jobs:
         with:
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
-      - name: Get Deps cache
-        uses: actions/cache@v3
-        with:
-          path: deps/
-          key: deps-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
-      - name: Get BUILD cache
-        uses: actions/cache@v3
-        with:
-          path: _build/test/
-          key: build-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
-      - name: Cache build artifacts
+      - name: Cache mix deps
         uses: actions/cache@v3
         with:
           path: |
-            $HOME/.hex
-            $HOME/.mix
-          key: artifacts-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
-      - name: Install Deps
+            deps
+            _build
+          key: deps-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: |
+            deps-${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-
+      - name: Get NPM cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+      - name: Get node deps
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: nodejs-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            nodejs-${{ runner.os }}-
+      - name: Install hex deps
         run: |
           mix local.hex --force
           mix local.rebar --force
+      - name: Install mix deps
+        run: |
           mix deps.get --only test
-      - run: mix compile --warnings-as-errors
-        if: matrix.warnings_as_errors
-      - name: Run tests
-        run: bin/setup
+      - name: Mix compile
+        run: mix compile --warnings-as-errors --force
+      - name: Credo lint
+        run: mix credo --strict --ignore design,consistency
+      - name: Build docs
+        run: mix docs
+      - name: Mix test
+        run: mix test
+        env:
+          MIX_ENV: test
       - name: coveralls
         run: mix coveralls.github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Node Deps
+        run: npm install
+        working-directory: ./assets
+      - name: Build Node assets
+        run: npm run compile
+        working-directory: ./assets
+      - name: Run phoenix support app tests
+        run: bin/setup
       - run: mix dialyzer --halt-exist-status
         if: matrix.static_analysis
