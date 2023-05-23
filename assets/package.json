@@ -10,7 +10,7 @@
     "@parcel/transformer-sass": "^2.8.3",
     "node-sass": "^8.0.0",
     "parcel": "^2.8.3",
-    "standard": "^14.0.2"
+    "standard": "^17.0.0"
   },
   "browserslist": [
     "defaults",
