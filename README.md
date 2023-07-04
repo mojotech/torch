@@ -272,7 +272,7 @@ config :torch,
 
 ## Getting Started
 
-Torch currently uses Node 14 to build its assets.
+Torch currently uses Node 18 to build its assets.
 
 ### Building the Torch asset bundles
 
