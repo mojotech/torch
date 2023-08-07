@@ -56,7 +56,7 @@ plug(
 
 3. Configure Torch by adding the following to your `config.exs`.
 
-```
+```elixir
 config :torch,
   otp_app: :my_app_name
 ```
@@ -85,7 +85,7 @@ $ mix torch.gen.html Blog Post posts title:string body:text published_at:datetim
 
 The output would look like:
 
-```bash
+```
 * creating priv/templates/phx.gen.html/edit.html.heex
 * creating priv/templates/phx.gen.html/form.html.heex
 ...<omitted for brevity>...
@@ -123,7 +123,7 @@ Also don't forget to add a link to layouts/torch.html if desired.
 Torch also installed an admin layout into your `my_app_web/templates/layout/torch.html.heex`.
 You will want to update it to include your new navigation link:
 
-```
+```html
 <nav class="torch-nav">
   <a href="/posts">Posts</a>
 </nav>
