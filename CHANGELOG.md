@@ -1,10 +1,49 @@
 # Changelog
 
-## [v5.1.0](https://github.com/mojotech/torch/tree/v5.0.0) (2023-05-19)
+## [v5.1.1](https://github.com/mojotech/torch/tree/v5.1.1) (2023-09-14)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.1.0...v5.1.1)
+
+**Merged pull requests:**
+
+- Add Japanese locale translation [\#426](https://github.com/mojotech/torch/pull/426) ([matsu911](https://github.com/matsu911))
+- Bump mix\_test\_watch from 1.1.0 to 1.1.1 [\#425](https://github.com/mojotech/torch/pull/425) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.17.0 to 0.17.1 [\#423](https://github.com/mojotech/torch/pull/423) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.30.5 to 0.30.6 [\#422](https://github.com/mojotech/torch/pull/422) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump gettext from 0.23.0 to 0.23.1 [\#421](https://github.com/mojotech/torch/pull/421) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump gettext from 0.22.3 to 0.23.0 [\#420](https://github.com/mojotech/torch/pull/420) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.16.1 to 0.17.0 [\#419](https://github.com/mojotech/torch/pull/419) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.29.4 to 0.30.5 [\#418](https://github.com/mojotech/torch/pull/418) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix\_html from 3.3.1 to 3.3.2 [\#417](https://github.com/mojotech/torch/pull/417) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update README.md - Improve syntax highlighting [\#416](https://github.com/mojotech/torch/pull/416) ([arcanemachine](https://github.com/arcanemachine))
+- Bump phoenix\_live\_view from 0.19.3 to 0.19.5 [\#414](https://github.com/mojotech/torch/pull/414) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.7.6 to 1.7.7 [\#412](https://github.com/mojotech/torch/pull/412) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump jason from 1.4.0 to 1.4.1 [\#410](https://github.com/mojotech/torch/pull/410) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update README.md [\#408](https://github.com/mojotech/torch/pull/408) ([kimihito](https://github.com/kimihito))
+- Bump gettext from 0.22.2 to 0.22.3 [\#407](https://github.com/mojotech/torch/pull/407) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix\_live\_view from 0.19.2 to 0.19.3 [\#406](https://github.com/mojotech/torch/pull/406) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.7.3 to 1.7.6 [\#405](https://github.com/mojotech/torch/pull/405) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix\_live\_view from 0.19.0 to 0.19.2 [\#404](https://github.com/mojotech/torch/pull/404) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.7.2 to 1.7.3 [\#403](https://github.com/mojotech/torch/pull/403) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump gettext from 0.22.1 to 0.22.2 [\#402](https://github.com/mojotech/torch/pull/402) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix\_live\_view from 0.18.18 to 0.19.0 [\#401](https://github.com/mojotech/torch/pull/401) ([dependabot[bot]](https://github.com/apps/dependabot))
+- NodeJS and NPM deps updates [\#400](https://github.com/mojotech/torch/pull/400) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump @parcel/transformer-sass from 2.5.0 to 2.8.3 in /assets [\#399](https://github.com/mojotech/torch/pull/399) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v5.1.0](https://github.com/mojotech/torch/tree/v5.1.0) (2023-05-19)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v4.3.2...v5.1.0)
 
 **Merged pull requests:**
 
 - Torch.Pagination module [\#394](https://github.com/mojotech/torch/pull/394) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump ansi-regex from 4.1.0 to 4.1.1 in /assets [\#391](https://github.com/mojotech/torch/pull/391) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump tar and node-sass in /assets [\#390](https://github.com/mojotech/torch/pull/390) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump terser from 5.10.0 to 5.17.4 in /assets [\#388](https://github.com/mojotech/torch/pull/388) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump parcel from 2.5.0 to 2.8.3 in /assets [\#386](https://github.com/mojotech/torch/pull/386) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_unit\_notifier from 1.2.0 to 1.3.0 [\#385](https://github.com/mojotech/torch/pull/385) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump json5 from 2.2.1 to 2.2.3 in /assets [\#360](https://github.com/mojotech/torch/pull/360) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump qs from 6.5.2 to 6.5.3 in /assets [\#359](https://github.com/mojotech/torch/pull/359) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 **Closed issues:**
 
