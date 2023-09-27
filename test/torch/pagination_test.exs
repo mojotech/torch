@@ -88,7 +88,7 @@ defmodule PaginationTest do
           assert ~w(body title) == Enum.sort(attr_keys)
 
         :number ->
-          assert ~w(view_count) == Enum.sort(attr_keys)
+          assert ~w(id view_count) == Enum.sort(attr_keys)
 
         :boolean ->
           assert ~w(archived) == Enum.sort(attr_keys)
@@ -105,7 +105,7 @@ defmodule PaginationTest do
           assert ~w(body title) == Enum.sort(attr_keys)
 
         :number ->
-          assert [] == attr_keys
+          assert ~w(id) == attr_keys
 
         :boolean ->
           assert [] == attr_keys
@@ -122,7 +122,7 @@ defmodule PaginationTest do
           assert [] == attr_keys
 
         :number ->
-          assert [] == attr_keys
+          assert ~w(id) == attr_keys
 
         :boolean ->
           assert [] == attr_keys
