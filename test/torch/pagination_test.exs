@@ -38,6 +38,16 @@ defmodule NoAttrsMockModel do
   end
 end
 
+defmodule AssocMockModel do
+  use Ecto.Schema
+
+  schema "assoc_mocks" do
+    field(:title, :string)
+    field(:small_mock_id, :integer, references: SmallMockModel)
+    belongs_to(:mock, MockModel, foreign_key: :mock_id)
+  end
+end
+
 defmodule MockContext do
   import Ecto.Query, warn: false
 
@@ -59,6 +69,15 @@ defmodule MultiMockContext do
     repo: MockRepo,
     model: NoAttrsMockModel,
     name: :no_mocks
+end
+
+defmodule AssocMockContext do
+  import Ecto.Query, warn: false
+
+  use Torch.Pagination,
+    repo: MockRepo,
+    model: AssocMockModel,
+    name: :assoc_mocks
 end
 
 defmodule PaginationTest do
@@ -88,7 +107,7 @@ defmodule PaginationTest do
           assert ~w(body title) == Enum.sort(attr_keys)
 
         :number ->
-          assert ~w(view_count) == Enum.sort(attr_keys)
+          assert ~w(id view_count) == Enum.sort(attr_keys)
 
         :boolean ->
           assert ~w(archived) == Enum.sort(attr_keys)
@@ -105,7 +124,7 @@ defmodule PaginationTest do
           assert ~w(body title) == Enum.sort(attr_keys)
 
         :number ->
-          assert [] == attr_keys
+          assert ~w(id) == attr_keys
 
         :boolean ->
           assert [] == attr_keys
@@ -122,7 +141,24 @@ defmodule PaginationTest do
           assert [] == attr_keys
 
         :number ->
+          assert ~w(id) == attr_keys
+
+        :boolean ->
           assert [] == attr_keys
+
+        :date ->
+          assert [] == attr_keys
+      end
+    end
+
+    for %Filtrex.Type.Config{type: t, keys: attr_keys} <-
+          AssocMockContext.filter_config(:assoc_mocks) do
+      case t do
+        :text ->
+          assert ~w(title) == Enum.sort(attr_keys)
+
+        :number ->
+          assert ~w(mock_id small_mock_id id) == attr_keys
 
         :boolean ->
           assert [] == attr_keys
