@@ -1,5 +1,19 @@
 # Changelog
 
+## [v5.1.2](https://github.com/mojotech/torch/tree/v5.1.2) (2023-09-28)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.1.1...v5.1.2)
+
+**Closed issues:**
+
+- How to paginate on non-standard timestamp keys? [\#427](https://github.com/mojotech/torch/issues/427)
+
+**Merged pull requests:**
+
+- Support filtering `id` type fields [\#430](https://github.com/mojotech/torch/pull/430) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump phoenix\_live\_view from 0.19.5 to 0.20.0 [\#428](https://github.com/mojotech/torch/pull/428) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 3 to 4 [\#424](https://github.com/mojotech/torch/pull/424) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v5.1.1](https://github.com/mojotech/torch/tree/v5.1.1) (2023-09-14)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.1.0...v5.1.1)
