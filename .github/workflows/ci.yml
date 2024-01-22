@@ -58,7 +58,7 @@ jobs:
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
       - name: Cache mix deps
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             deps
@@ -71,7 +71,7 @@ jobs:
         shell: bash
         run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
       - name: Get node deps
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: nodejs-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
