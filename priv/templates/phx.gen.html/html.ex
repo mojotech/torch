@@ -1,7 +1,9 @@
 defmodule <%= inspect context.web_module %>.<%= inspect Module.concat(schema.web_namespace, schema.alias) %>HTML do
   use <%= inspect context.web_module %>, :html
 
-  use Phoenix.HTML
+  import Phoenix.HTML
+  import Phoenix.HTML.Form
+  use PhoenixHTMLHelpers
 
   import Torch.TableView
   import Torch.FilterView
