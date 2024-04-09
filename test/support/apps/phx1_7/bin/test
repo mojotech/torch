@@ -13,6 +13,10 @@ function cleanup() {
     rm -rf lib/phx1_7_web/views/post_view.ex
     rm -rf test/phx1_7_web/controllers/post_controller_test.exs
     rm -rf test/support/fixtures/
+    rm -rf lib/phx1_7_web/components/layouts/torch.html.heex
+    rm -rf lib/phx1_7_web/controllers/post_html.ex
+    rm -rf lib/phx1_7_web/controllers/post_html/
+
     patch -i ../../patches/install-torch.diff -p 1 -R
     patch -i ../../patches/install-route.diff -p 1 -R
 }
