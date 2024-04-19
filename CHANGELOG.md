@@ -1,5 +1,25 @@
 # Changelog
 
+## [v5.2.0](https://github.com/mojotech/torch/tree/v5.2.0) (2024-04-19)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.1.2...v5.2.0)
+
+**Merged pull requests:**
+
+- Bump phoenix from 1.7.9 to 1.7.12 [\#453](https://github.com/mojotech/torch/pull/453) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Changes to allow torch to work with `phoenix_html >= 4.0` [\#452](https://github.com/mojotech/torch/pull/452) ([noahduncan](https://github.com/noahduncan))
+- Some cleanup of tests and test artifacts [\#451](https://github.com/mojotech/torch/pull/451) ([noahduncan](https://github.com/noahduncan))
+- Bump actions/cache from 3 to 4 [\#449](https://github.com/mojotech/torch/pull/449) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.30.9 to 0.31.1 [\#447](https://github.com/mojotech/torch/pull/447) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.7.1 to 1.7.3 [\#445](https://github.com/mojotech/torch/pull/445) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump gettext from 0.23.1 to 0.24.0 [\#441](https://github.com/mojotech/torch/pull/441) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/setup-node from 3 to 4 [\#439](https://github.com/mojotech/torch/pull/439) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.30.6 to 0.30.9 [\#438](https://github.com/mojotech/torch/pull/438) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.7.7 to 1.7.9 [\#437](https://github.com/mojotech/torch/pull/437) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.17.1 to 0.18.0 [\#434](https://github.com/mojotech/torch/pull/434) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix\_live\_view from 0.20.0 to 0.20.1 [\#433](https://github.com/mojotech/torch/pull/433) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.7.0 to 1.7.1 [\#431](https://github.com/mojotech/torch/pull/431) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v5.1.2](https://github.com/mojotech/torch/tree/v5.1.2) (2023-09-28)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.1.1...v5.1.2)
