@@ -54,7 +54,8 @@ defmodule Torch.MixProject do
       {:credo, "~> 1.1", only: [:dev, :test]},
       {:ex_doc, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:ex_unit_notifier, "~> 1.0", only: [:test]},
-      {:mix_test_watch, "~> 1.0", only: [:dev], runtime: false}
+      {:mix_test_watch, "~> 1.0", only: [:dev], runtime: false},
+      {:ssl_verify_fun, manager: :rebar3, runtime: false, override: true}
     ]
   end
 
