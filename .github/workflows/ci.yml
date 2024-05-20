@@ -24,6 +24,18 @@ jobs:
             otp: 24.x
           - elixir: 1.14.x
             otp: 25.x
+          - elixir: 1.15.x
+            otp: 24.x
+          - elixir: 1.15.x
+            otp: 25.x
+          - elixir: 1.15.x
+            otp: 26.x
+          - elixir: 1.16.x
+            otp: 24.x
+          - elixir: 1.16.x
+            otp: 25.x
+          - elixir: 1.16.x
+            otp: 26.x
 
     services:
       db:
