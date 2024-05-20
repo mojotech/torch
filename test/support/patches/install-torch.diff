@@ -33,12 +33,13 @@ diff --git a/mix.exs b/mix.exs
 index 34ce721..257007a 100644
 --- a/mix.exs
 +++ b/mix.exs
-@@ -51,7 +51,8 @@ defmodule Phx17.MixProject do
+@@ -51,6 +51,8 @@ defmodule Phx17.MixProject do
        {:telemetry_poller, "~> 1.0"},
        {:gettext, "~> 0.20"},
        {:jason, "~> 1.2"},
 -      {:plug_cowboy, "~> 2.5"}
 +      {:plug_cowboy, "~> 2.5"},
++      {:ssl_verify_fun, manager: :rebar3, runtime: false, override: true},
 +      {:torch, path: "../../../../"}
      ]
    end
