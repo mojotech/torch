@@ -71,6 +71,8 @@ defmodule Torch.Pagination do
   @type filter_config() :: [Filtrex.Type.Config.t()]
   @type t() :: {:ok, page()} | {:error | any}
 
+  import Ecto.Query, only: [order_by: 2]
+
   defmacro __using__(opts) do
     {:__aliases__, _, module_name} = Keyword.fetch!(opts, :model)
     {:__aliases__, _, repo_name} = Keyword.fetch!(opts, :repo)
