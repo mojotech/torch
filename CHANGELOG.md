@@ -1,5 +1,20 @@
 # Changelog
 
+## [v5.3.1](https://github.com/mojotech/torch/tree/v5.3.1) (2024-05-23)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.2.0...v5.3.1)
+
+**Closed issues:**
+
+- If `use Torch.Pagination` in top of Module compilation failed [\#458](https://github.com/mojotech/torch/issues/458)
+- Update phoenix\_html to 4.0.0 [\#448](https://github.com/mojotech/torch/issues/448)
+
+**Merged pull requests:**
+
+- \[fix\] Properly import used functions [\#463](https://github.com/mojotech/torch/pull/463) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Support OTP 26 [\#461](https://github.com/mojotech/torch/pull/461) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump ex\_doc from 0.31.1 to 0.32.1 [\#455](https://github.com/mojotech/torch/pull/455) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v5.2.0](https://github.com/mojotech/torch/tree/v5.2.0) (2024-04-19)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.1.2...v5.2.0)
