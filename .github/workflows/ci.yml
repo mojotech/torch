@@ -57,6 +57,7 @@ jobs:
       DATABASE_POSTGRESQL_PASSWORD: postgres
       PGHOST: postgres
       PGUSER: postgres
+      ImageOS: ubuntu20 # run on ubuntu-20.04 (which supports Erlang/OTP 20-25)
 
     steps:
       - uses: actions/checkout@v4
