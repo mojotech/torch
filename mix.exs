@@ -47,7 +47,7 @@ defmodule Torch.MixProject do
       {:phoenix_html, "~> 4.1"},
       {:phoenix_html_helpers, "~> 1.0"},
       {:gettext, "~> 0.16"},
-      {:scrivener_ecto, github: "mojotech/scrivener_ecto", tag: "v2.7.1"},
+      {:scrivener_ecto, "~> 2.8.0", hex: "torch_scrivener_ecto"},
       {:filtrex, "~> 0.4.1"},
       {:jason, "~> 1.2", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
