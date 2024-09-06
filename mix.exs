@@ -2,7 +2,7 @@ defmodule Torch.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/mojotech/torch"
-  @version "5.3.1"
+  @version "5.3.2"
 
   def project do
     [
@@ -47,7 +47,7 @@ defmodule Torch.MixProject do
       {:phoenix_html, "~> 4.1"},
       {:phoenix_html_helpers, "~> 1.0"},
       {:gettext, "~> 0.16"},
-      {:scrivener_ecto, "~> 2.7.0"},
+      {:scrivener_ecto, github: "mojotech/scrivener_ecto", tag: "v2.7.1"},
       {:filtrex, "~> 0.4.1"},
       {:jason, "~> 1.2", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
