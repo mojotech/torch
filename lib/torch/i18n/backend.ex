@@ -4,7 +4,7 @@ defmodule Torch.I18n.Backend do
   also be overridden to include custom translations.
   """
 
-  import Torch.Gettext, only: [dgettext: 2]
+  use Gettext, backend: Torch.Gettext
 
   def message("Contains"), do: dgettext("default", "Contains")
   def message("Equals"), do: dgettext("default", "Equals")
