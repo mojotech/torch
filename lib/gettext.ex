@@ -14,5 +14,5 @@ defmodule Torch.Gettext do
       dgettext("errors", "Here is the error message to translate")
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :torch
+  use Gettext.Backend, otp_app: :torch
 end
