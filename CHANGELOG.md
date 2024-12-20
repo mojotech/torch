@@ -1,5 +1,39 @@
 # Changelog
 
+## [v5.4.0](https://github.com/mojotech/torch/tree/v5.4.0) (2024-12-20)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.3.2...v5.4.0)
+
+**Closed issues:**
+
+- undocumented breaking change going from v4 -\> v5? [\#486](https://github.com/mojotech/torch/issues/486)
+
+**Merged pull requests:**
+
+- Bump scrivener\_ecto [\#483](https://github.com/mojotech/torch/pull/483) ([samhamilton](https://github.com/samhamilton))
+
+## [v5.3.2](https://github.com/mojotech/torch/tree/v5.3.2) (2024-09-06)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.3.1...v5.3.2)
+
+**Closed issues:**
+
+- Is it possible to view/edit naivedatetime in browser's local timezone [\#477](https://github.com/mojotech/torch/issues/477)
+
+**Merged pull requests:**
+
+- Use fork of scrivener\_ecto [\#480](https://github.com/mojotech/torch/pull/480) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Add ex\_doc links to Phoenix.HTML.Form [\#476](https://github.com/mojotech/torch/pull/476) ([axelson](https://github.com/axelson))
+- Bump excoveralls from 0.18.1 to 0.18.2 [\#473](https://github.com/mojotech/torch/pull/473) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.33.0 to 0.34.2 [\#472](https://github.com/mojotech/torch/pull/472) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.7.12 to 1.7.14 [\#470](https://github.com/mojotech/torch/pull/470) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.7.6 to 1.7.7 [\#466](https://github.com/mojotech/torch/pull/466) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.32.1 to 0.33.0 [\#464](https://github.com/mojotech/torch/pull/464) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Fix OTP 26  [\#462](https://github.com/mojotech/torch/pull/462) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump credo from 1.7.3 to 1.7.6 [\#459](https://github.com/mojotech/torch/pull/459) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump mix\_test\_watch from 1.1.1 to 1.2.0 [\#456](https://github.com/mojotech/torch/pull/456) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump excoveralls from 0.18.0 to 0.18.1 [\#454](https://github.com/mojotech/torch/pull/454) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v5.3.1](https://github.com/mojotech/torch/tree/v5.3.1) (2024-05-23)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.2.0...v5.3.1)
