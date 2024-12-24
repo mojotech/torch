@@ -93,7 +93,7 @@ defmodule Torch.Pagination do
     schema_attrs = model.__schema__(:query_fields)
     schema_filter_config = build_filter_config(model, schema_attrs)
 
-    quote do
+    quote(generated: true) do
       def unquote(:"paginate_#{name}")(params \\ %{}) do
         params =
           params
