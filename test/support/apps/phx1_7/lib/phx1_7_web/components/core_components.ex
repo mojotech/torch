@@ -270,9 +270,9 @@ defmodule Phx17Web.CoreComponents do
   @doc """
   Renders an input with label and error messages.
 
-  A `%Phoenix.HTML.Form{}` and field name may be passed to the input
-  to build input names and error messages, or all the attributes and
-  errors may be passed explicitly.
+  A `%Phoenix.HTML.Form{}` (see `Phoenix.HTML.Form{}`) and field name may be
+  passed to the input to build input names and error messages, or all the
+  attributes and errors may be passed explicitly.
 
   ## Examples
 
@@ -295,7 +295,7 @@ defmodule Phx17Web.CoreComponents do
   attr :errors, :list, default: []
   attr :checked, :boolean, doc: "the checked flag for checkbox inputs"
   attr :prompt, :string, default: nil, doc: "the prompt for select inputs"
-  attr :options, :list, doc: "the options to pass to Phoenix.HTML.Form.options_for_select/2"
+  attr :options, :list, doc: "the options to pass to `Phoenix.HTML.Form.options_for_select/2`"
   attr :multiple, :boolean, default: false, doc: "the multiple flag for select inputs"
   attr :rest, :global, include: ~w(autocomplete cols disabled form max maxlength min minlength
                                    pattern placeholder readonly required rows size step)
