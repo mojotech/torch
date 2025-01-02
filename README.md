@@ -36,7 +36,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 5.3"}
+    {:torch, "~> 5.5"}
   ]
 end
 ```
