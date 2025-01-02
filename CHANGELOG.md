@@ -1,5 +1,19 @@
 # Changelog
 
+## [v5.5.0](https://github.com/mojotech/torch/tree/v5.5.0) (2025-01-02)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.4.0...v5.5.0)
+
+**Closed issues:**
+
+- Support for Phoenix LiveView 1.0 [\#491](https://github.com/mojotech/torch/issues/491)
+
+**Merged pull requests:**
+
+- Update for LiveView 1.0 [\#493](https://github.com/mojotech/torch/pull/493) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Fix compilation warning on Elixir 1.18 [\#492](https://github.com/mojotech/torch/pull/492) ([axelson](https://github.com/axelson))
+- More doc links [\#490](https://github.com/mojotech/torch/pull/490) ([axelson](https://github.com/axelson))
+
 ## [v5.4.0](https://github.com/mojotech/torch/tree/v5.4.0) (2024-12-20)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.3.2...v5.4.0)
