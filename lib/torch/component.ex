@@ -47,9 +47,11 @@ defmodule Torch.Component do
   slot(:inner_block)
 
   def torch_input(%{field: %Phoenix.HTML.FormField{} = field} = assigns) do
+    errors = if Phoenix.Component.used_input?(field), do: field.errors, else: []
+
     assigns
     |> assign(field: nil, id: assigns.id || field.id)
-    |> assign(:errors, Enum.map(field.errors, &translate_error(&1)))
+    |> assign(:errors, Enum.map(errors, &translate_error(&1)))
     |> assign_new(:name, fn -> if assigns.multiple, do: field.name <> "[]", else: field.name end)
     |> assign_new(:value, fn -> field.value end)
     |> torch_input()
@@ -60,7 +62,7 @@ defmodule Torch.Component do
       assign_new(assigns, :checked, fn -> Phoenix.HTML.Form.normalize_value("checkbox", value) end)
 
     ~H"""
-    <div class="torch-form-group" phx-feedback-for={@name}>
+    <div class="torch-form-group">
       <.torch_label for={@id}><%= @label %></.torch_label>
       <div class="torch-form-group-input">
         <input type="hidden" name={@name} value="false" />
@@ -81,7 +83,7 @@ defmodule Torch.Component do
 
   def torch_input(%{type: "select"} = assigns) do
     ~H"""
-    <div class="torch-form-group" phx-feedback-for={@name}>
+    <div class="torch-form-group">
       <.torch_label for={@id}><%= @label %></.torch_label>
       <div class="torch-form-group-input">
         <select
@@ -102,7 +104,7 @@ defmodule Torch.Component do
 
   def torch_input(%{type: "textarea"} = assigns) do
     ~H"""
-    <div class="torch-form-group" phx-feedback-for={@name}>
+    <div class="torch-form-group">
       <.torch_label for={@id}><%= @label %></.torch_label>
       <div class="torch-form-group-input">
         <textarea
@@ -119,7 +121,7 @@ defmodule Torch.Component do
 
   def torch_input(%{type: "string"} = assigns) do
     ~H"""
-    <div class="torch-form-group" phx-feedback-for={@name}>
+    <div class="torch-form-group">
       <.torch_label for={@id}><%= @label %></.torch_label>
       <div class="torch-form-group-input">
         <input
@@ -138,7 +140,7 @@ defmodule Torch.Component do
 
   def torch_input(assigns) do
     ~H"""
-    <div class="torch-form-group" phx-feedback-for={@name}>
+    <div class="torch-form-group">
       <.torch_label for={@id}><%= @label %></.torch_label>
       <div class="torch-form-group-input">
         <input
@@ -177,7 +179,7 @@ defmodule Torch.Component do
 
   def torch_error(assigns) do
     ~H"""
-    <span class="invalid-feedback" phx-feedback-for={@for}><%= render_slot(@inner_block) %></span>
+    <span class="invalid-feedback"><%= render_slot(@inner_block) %></span>
     """
   end
 
