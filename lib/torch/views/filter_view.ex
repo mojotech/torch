@@ -272,14 +272,6 @@ defmodule Torch.FilterView do
     tag(:input, type: "text", class: "datepicker #{class}", name: name, value: value)
   end
 
-  defp find_param(params, field, :string) do
-    do_find_param(params, field, "contains")
-  end
-
-  defp find_param(params, field, :number) do
-    do_find_param(params, field, "equals")
-  end
-
   defp find_param(params, field, :select) do
     do_find_param(params, field, ~w(contains equals))
   end
