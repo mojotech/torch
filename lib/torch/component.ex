@@ -22,7 +22,7 @@ defmodule Torch.Component do
 
   attr(:type, :string,
     default: "text",
-    values: ~w(number checkbox textarea date datetime time datetime-local select text string)
+    values: ~w(number checkbox textarea date datetime time datetime-local select text string file)
   )
 
   attr(:value, :any)
