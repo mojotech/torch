@@ -21,6 +21,7 @@ on the Phoenix HTML generator under the hood.
 ## Requirements
 
 * [Phoenix Framework 1.7+](https://hex.pm/packages/phoenix)
+* [Phoenix Ecto 4.6+](https://hex.pm/packages/phoenix_ecto)
 * [Elixir 1.14+](https://elixir-lang.org/install.html)
 * [OTP 24+](https://www.erlang.org/downloads)
 
