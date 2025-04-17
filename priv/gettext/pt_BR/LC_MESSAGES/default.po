@@ -1,0 +1,147 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: Torch\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: https://github.com/mojotech/torch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: lib/torch/i18n/backend.ex:22
+#, elixir-autogen
+msgid "< Prev"
+msgstr "< Anterior"
+
+#: lib/torch/i18n/backend.ex:23
+#, elixir-autogen
+msgid "Next >"
+msgstr "Próximo >"
+
+#: lib/torch/i18n/backend.ex:11
+#, elixir-autogen
+msgid "Choose one"
+msgstr "Escolha um"
+
+#: lib/torch/i18n/backend.ex:10
+#, elixir-autogen
+msgid "Equals"
+msgstr "Igual"
+
+#: lib/torch/i18n/backend.ex:9
+#, elixir-autogen
+msgid "Contains"
+msgstr "Contém"
+
+#: lib/torch/i18n/backend.ex:14
+#, elixir-autogen
+msgid "Greater Than"
+msgstr "Maior que"
+
+#: lib/torch/i18n/backend.ex:15
+#, elixir-autogen
+msgid "Greater Than Or Equal"
+msgstr "Maior que ou igual"
+
+#: lib/torch/i18n/backend.ex:16
+#, elixir-autogen
+msgid "Less Than"
+msgstr "Menor que"
+
+#: lib/torch/i18n/backend.ex:17
+#, elixir-autogen
+msgid "start"
+msgstr "início"
+
+#: lib/torch/i18n/backend.ex:18
+#, elixir-autogen
+msgid "end"
+msgstr "final"
+
+#: lib/torch/i18n/backend.ex:20
+#, elixir-autogen
+msgid "Select Start Date"
+msgstr "Selecione a Data de Início"
+
+#: lib/torch/i18n/backend.ex:21
+#, elixir-autogen
+msgid "Select End Date"
+msgstr "Selecione a Data Final"
+
+#: lib/torch/i18n/backend.ex:13
+#, elixir-autogen
+msgid "After"
+msgstr "Após"
+
+#: lib/torch/i18n/backend.ex:12
+#, elixir-autogen
+msgid "Before"
+msgstr "Anterior"
+
+#: lib/torch/i18n/backend.ex:19
+#, elixir-autogen
+msgid "Select Date"
+msgstr "Selecione a Data"
+
+#: lib/torch/i18n/backend.ex:24
+#, elixir-autogen, elixir-format
+msgid "Any"
+msgstr "Qualquer"
+
+#: lib/torch/i18n/backend.ex:26
+#, elixir-autogen, elixir-format
+msgid "False"
+msgstr "Falso"
+
+#: lib/torch/i18n/backend.ex:25
+#, elixir-autogen, elixir-format
+msgid "True"
+msgstr "Verdadeiro"
+
+#: lib/torch/i18n/backend.ex:33
+#, elixir-autogen, elixir-format
+msgid "Are you sure?"
+msgstr "Você tem certeza?"
+
+#: lib/torch/i18n/backend.ex:29
+#, elixir-autogen, elixir-format
+msgid "Back"
+msgstr "Voltar"
+
+#: lib/torch/i18n/backend.ex:27
+#, elixir-autogen, elixir-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: lib/torch/i18n/backend.ex:32
+#, elixir-autogen, elixir-format
+msgid "Delete"
+msgstr "Remover"
+
+#: lib/torch/i18n/backend.ex:30
+#, elixir-autogen, elixir-format
+msgid "Edit"
+msgstr "Editar"
+
+#: lib/torch/i18n/backend.ex:31
+#, elixir-autogen, elixir-format
+msgid "Show"
+msgstr "Exibir"
+
+#: lib/torch/i18n/backend.ex:28
+#, elixir-autogen, elixir-format
+msgid "Submit"
+msgstr "Enviar"
