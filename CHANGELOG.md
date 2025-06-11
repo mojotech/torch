@@ -1,3 +1,19 @@
+## Unreleased
+
+### Added
+
+- Migration from Scrivener to Flop for pagination, filtering, and sorting
+- Added `Torch.FlopAdapter` module to bridge between Scrivener and Flop APIs
+- Added `Torch.PaginationView.pagination_from_meta/2` for rendering pagination from Flop.Meta
+- Added `Torch.TableView.flop_table_link/3` for generating sortable table headers with Flop
+- Updated documentation with migration guide from Scrivener to Flop
+
+### Changed
+
+- Updated `Torch.Helpers.paginate/4` to use Flop internally while maintaining backward compatibility
+- Updated `Torch.Pagination` module to use Flop while maintaining backward compatibility
+- Updated code generation templates to use Flop
+
 # Changelog
 
 ## [v5.5.0](https://github.com/mojotech/torch/tree/v5.5.0) (2025-01-02)

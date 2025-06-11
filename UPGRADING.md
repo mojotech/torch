@@ -1,5 +1,142 @@
 # Upgrading
 
+## Upgrading to Torch 6.0.0 (Scrivener to Flop Migration)
+
+Torch 6.0.0 introduces a significant change by migrating from Scrivener to Flop for pagination, filtering, and sorting. This migration provides more advanced features while maintaining backward compatibility.
+
+### What's Changed
+
+1. **Dependencies**: Torch now includes both Scrivener and Flop, with Flop being the primary pagination library.
+2. **API Compatibility**: A `Torch.FlopAdapter` module bridges between Scrivener and Flop APIs to maintain backward compatibility.
+3. **New Features**: Flop provides additional capabilities like cursor-based pagination, compound fields, and more advanced filtering.
+
+### Backward Compatibility
+
+Existing code that uses Torch's pagination should continue to work without changes. The following functions maintain backward compatibility:
+
+- `Torch.Helpers.paginate/4`
+- `Torch.Pagination` module
+- `Torch.PaginationView.pagination/1`
+
+### Using Flop Directly (Recommended for New Code)
+
+For new applications or when enhancing existing ones, we recommend using Flop directly:
+
+```elixir
+# In your controller
+def index(conn, params) do
+  {:ok, {users, meta}} = 
+    User
+    |> Flop.validate_and_run(params, for: User)
+    
+  render(conn, "index.html", users: users, meta: meta)
+end
+
+# In your view
+def pagination(conn, meta) do
+  Torch.PaginationView.pagination_from_meta(conn, meta)
+end
+```
+
+### New Functions for Flop Integration
+
+Torch provides new functions for working directly with Flop:
+
+- `Torch.PaginationView.pagination_from_meta/2` - Renders pagination links from a Flop.Meta struct
+- `Torch.TableView.flop_table_link/3` - Generates sortable table headers with Flop parameters
+
+### Migrating Existing Code to Flop
+
+While not required, migrating to Flop directly provides access to more advanced features:
+
+1. **Update Schema**: Add `@derive {Flop.Schema, ...}` to your Ecto schemas to define filterable and sortable fields:
+
+```elixir
+@derive {Flop.Schema, 
+  filterable: [:name, :email, :status],
+  sortable: [:name, :email, :inserted_at]
+}
+schema "users" do
+  # ...
+end
+```
+
+2. **Update Controllers**: Replace Scrivener pagination with Flop:
+
+```elixir
+# Before (with Scrivener)
+def index(conn, params) do
+  page =
+    User
+    |> Repo.paginate(params)
+  
+  render(conn, "index.html", users: page.entries, page: page)
+end
+
+# After (with Flop)
+def index(conn, params) do
+  {:ok, {users, meta}} =
+    User
+    |> Flop.validate_and_run(params, for: User)
+  
+  render(conn, "index.html", users: users, meta: meta)
+end
+```
+
+3. **Update Views**: Use the new Flop-compatible pagination function:
+
+```elixir
+# Before
+<%= Torch.PaginationView.pagination(@conn) %>
+
+# After
+<%= Torch.PaginationView.pagination_from_meta(@conn, @meta) %>
+```
+
+4. **Update Table Headers**: Use the Flop-compatible table link function:
+
+```elixir
+# Before
+<%= table_link(@conn, "Name", :name) %>
+
+# After
+<%= flop_table_link(@conn, "Name", :name) %>
+```
+
+### Advanced Flop Features
+
+Flop provides several advanced features not available in Scrivener:
+
+1. **Cursor-based Pagination**: More efficient for large datasets:
+
+```elixir
+flop_params = %{
+  "first" => 10,
+  "after" => cursor
+}
+```
+
+2. **Compound Fields**: Filter on multiple fields with a single parameter:
+
+```elixir
+@derive {Flop.Schema, 
+  filterable: [:name, :email],
+  compound_fields: [full_text: [:name, :email]]
+}
+```
+
+3. **Custom Fields**: Define custom filter logic:
+
+```elixir
+@derive {Flop.Schema, 
+  custom_fields: [
+    %{name: :age_range, filter: {MyApp.CustomFilters, :filter_by_age_range}}
+  ]
+}
+```
+
+For more information on using Flop's advanced features, see the [Flop documentation](https://hexdocs.pm/flop/readme.html).
+
 ### Torch v4 to Torch v5
 
 Torch v5 **IS NOT ** fully backwards compatible with Torch v4.  Due to Phoenix 1.7 dropping the inclusion
@@ -56,3 +193,4 @@ becomes:
 Another option to "upgrade" is to just generate new templates again via the Torch v4 generators.  Run the same
 generator commands as the first time and overwrite your existing files.  Then resolve any customization previously
 made to your Torch v3 templates by re-applying those change to the newly generated Torch v4 templates.
+</initial_code>

@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/hexpm/l/torch.svg)](https://github.com/mojotech/torch/blob/master/LICENSE)
 [![Hex.pm](https://img.shields.io/hexpm/v/torch.svg)](https://hex.pm/packages/torch)
-[![Build Status](https://github.com/mojotech/torch/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mojotech/torch/actions/workflows/ci.yml)
+[![Build Status](https://travis-ci.org/mojotech/torch.svg?branch=master)](https://travis-ci.org/mojotech/torch)
 [![Coverage Status](https://coveralls.io/repos/github/mojotech/torch/badge.svg?branch=master)](https://coveralls.io/github/mojotech/torch?branch=master)
 
 # Torch
@@ -221,6 +221,48 @@ end
 
 Note: You'll need to install & import `Maybe` into your views `{:maybe, "~> 1.0.0"}` for
 the above `heex` to work.
+
+## Pagination
+
+Torch provides pagination using [Flop](https://github.com/woylie/flop) (previously [Scrivener](https://github.com/drewolson/scrivener)). 
+Pagination is automatically included in the generated controllers and templates.
+
+If you're using Ecto, you can use Flop to add pagination to your queries:
+
+```elixir
+# In your controller
+def index(conn, params) do
+  {:ok, {users, meta}} = 
+    User
+    |> Flop.validate_and_run(params, for: User)
+    
+  render(conn, "index.html", users: users, meta: meta)
+end
+
+# In your view
+def pagination(conn, meta) do
+  Torch.PaginationView.pagination_from_meta(conn, meta)
+end
+```
+
+For more information on using Flop, see the [Flop documentation](https://hexdocs.pm/flop/readme.html).
+
+**NOTE** If you want to customize the pagination functions themselves for your application, do not use the default `Torch.Pagination` as described above; instead you will need to define your own `paginate_*/2` method that will return a `Scrivener.Page` object.  You can also define your own pagination system and functions as well, but that will require further customization of the generated Torch controllers as well.
+
+## Migrating from Scrivener to Flop
+
+Torch 6.0.0 migrates from Scrivener to Flop for pagination. Flop provides more advanced filtering, sorting, and pagination capabilities. The migration is designed to be backward compatible, but there are some changes to be aware of:
+
+1. Torch now includes both Scrivener and Flop dependencies, with Flop being the primary pagination library.
+2. A `Torch.FlopAdapter` module is provided to bridge between Scrivener and Flop APIs.
+3. The `Torch.Helpers.paginate/4` function now uses Flop internally but maintains the same interface.
+4. New functions are available for working directly with Flop:
+   - `Torch.PaginationView.pagination_from_meta/2` for rendering pagination from a Flop.Meta struct
+   - `Torch.TableView.flop_table_link/3` for generating sortable table headers with Flop parameters
+
+For new applications, we recommend using Flop directly. For existing applications, the adapter provides backward compatibility while you transition to Flop.
+
+See the [UPGRADING.md](UPGRADING.md) file for more details on migrating from Scrivener to Flop.
 
 ## Styling
 

@@ -1,5 +1,4 @@
-
-  import Torch.Helpers, only: [sort: 1, paginate: 4, strip_unset_booleans: 3]
+import Torch.Helpers, only: [sort: 1, paginate: 4, strip_unset_booleans: 3]
   import Filtrex.Type.Config
 
   alias <%= inspect schema.module %>
@@ -28,25 +27,90 @@
     {:ok, sort_direction} = Map.fetch(params, "sort_direction")
     {:ok, sort_field} = Map.fetch(params, "sort_field")
 
-    with {:ok, filter} <- Filtrex.parse_params(filter_config(<%= inspect String.to_atom(schema.plural) %>), params["<%= schema.singular %>"] || %{}),
-         %Scrivener.Page{} = page <- do_paginate_<%= schema.plural %>(filter, params) do
-      {:ok,
-        %{
-          <%= schema.plural %>: page.entries,
-          page_number: page.page_number,
-          page_size: page.page_size,
-          total_pages: page.total_pages,
-          total_entries: page.total_entries,
-          distance: @pagination_distance,
-          sort_field: sort_field,
-          sort_direction: sort_direction
-        }
-      }
-    else
-      {:error, error} -> {:error, error}
-      error -> {:error, error}
+    # Convert params to Flop format
+    flop_params = %{
+      "page" => params["page"] || 1,
+      "page_size" => @pagination |> Keyword.get(:page_size),
+      "order_by" => [sort_field],
+      "order_directions" => [sort_direction]
+    }
+
+    # Add filters from params if they exist
+    flop_params =
+      if Map.has_key?(params, "<%= schema.singular %>") do
+        filters = convert_filtrex_to_flop_filters(params["<%= schema.singular %>"])
+        Map.put(flop_params, "filters", filters)
+      else
+        flop_params
+      end
+
+    # Use Flop to validate and run the query
+    case Flop.validate_and_run(<%= inspect schema.alias %>, flop_params, for: <%= inspect schema.alias %>) do
+      {:ok, {entries, meta}} ->
+        {:ok,
+         %{
+           <%= schema.plural %>: entries,
+           page_number: meta.current_page || 1,
+           page_size: meta.page_size,
+           total_pages: meta.total_pages,
+           total_entries: meta.total_count,
+           distance: @pagination_distance,
+           sort_field: sort_field,
+           sort_direction: sort_direction
+         }}
+
+      {:error, error} ->
+        {:error, error}
     end
   end
+
+  # Helper function to convert Filtrex filters to Flop filters
+  defp convert_filtrex_to_flop_filters(filtrex_params) do
+    filtrex_params
+    |> Enum.map(fn {key, value} ->
+      # Parse the key to extract field and operator
+      {field, op} = parse_filtrex_key(key)
+      
+      # Convert to Flop filter format
+      %{
+        "field" => field,
+        "op" => convert_filtrex_op_to_flop(op),
+        "value" => value
+      }
+    end)
+    |> Enum.filter(fn filter -> filter["value"] != nil && filter["value"] != "" end)
+  end
+
+  # Parse Filtrex key format (e.g., "name_contains") to field and operator
+  defp parse_filtrex_key(key) do
+    key = to_string(key)
+    
+    cond do
+      String.ends_with?(key, "_contains") ->
+        {String.replace(key, "_contains", ""), "contains"}
+      String.ends_with?(key, "_equals") ->
+        {String.replace(key, "_equals", ""), "equals"}
+      String.ends_with?(key, "_greater_than") ->
+        {String.replace(key, "_greater_than", ""), "greater_than"}
+      String.ends_with?(key, "_greater_than_or_equal_to") ->
+        {String.replace(key, "_greater_than_or_equal_to", ""), "greater_than_or_equal_to"}
+      String.ends_with?(key, "_less_than") ->
+        {String.replace(key, "_less_than", ""), "less_than"}
+      String.ends_with?(key, "_less_than_or_equal_to") ->
+        {String.replace(key, "_less_than_or_equal_to", ""), "less_than_or_equal_to"}
+      true ->
+        {key, "equals"}
+    end
+  end
+
+  # Convert Filtrex operators to Flop operators
+  defp convert_filtrex_op_to_flop("contains"), do: "ilike"
+  defp convert_filtrex_op_to_flop("equals"), do: "=="
+  defp convert_filtrex_op_to_flop("greater_than"), do: ">"
+  defp convert_filtrex_op_to_flop("greater_than_or_equal_to"), do: ">="
+  defp convert_filtrex_op_to_flop("less_than"), do: "<"
+  defp convert_filtrex_op_to_flop("less_than_or_equal_to"), do: "<="
+  defp convert_filtrex_op_to_flop(_), do: "=="
 
   defp do_paginate_<%= schema.plural %>(filter, params) do
     raise "TODO"
