@@ -32,16 +32,6 @@ defmodule Torch.PaginationView do
   """
   @doc since: "5.0.0"
 
-  attr(:page_number, :integer, required: true)
-  attr(:page_size, :integer, required: true)
-  attr(:total_pages, :integer, required: true)
-  attr(:total_entries, :integer, required: true)
-  attr(:distance, :integer, required: false)
-  attr(:sort_field, :string, required: false)
-  attr(:sort_direction, :string, required: false)
-  attr(:query_string, :string, required: true)
-  attr(:conn_params, :map, required: true)
-
   def torch_pagination(assigns) do
     assigns =
       assigns
@@ -88,20 +78,13 @@ defmodule Torch.PaginationView do
       |> assign(:total_pages, meta.total_pages)
       |> assign(:total_entries, meta.total_count)
       |> assign(:distance, Map.get(conn.assigns, :distance, 5))
-      |> assign(:sort_field, get_sort_field(meta))
-      |> assign(:sort_direction, get_sort_direction(meta))
+      |> assign(:sort_field, "inserted_at")  # Default sort field
+      |> assign(:sort_direction, "desc")     # Default sort direction
 
     ~H"""
     <.torch_pagination page_number={@page_number} page_size={@page_size} total_pages={@total_pages} total_entries={@total_entries} distance={@distance} sort_field={@sort_field} sort_direction={@sort_direction} query_string={@query_string} conn_params={@conn_params} />
     """
   end
-
-  # Helper functions to extract sort information from Flop.Meta
-  defp get_sort_field(%Flop.Meta{order_by: [field | _]}), do: to_string(field)
-  defp get_sort_field(_), do: "inserted_at"
-
-  defp get_sort_direction(%Flop.Meta{order_directions: [direction | _]}), do: to_string(direction)
-  defp get_sort_direction(_), do: "desc"
 
   @doc """
   Generates a "_N_" link to a page of results (where N is the page number).
@@ -120,11 +103,6 @@ defmodule Torch.PaginationView do
   """
   @doc since: "5.0.0"
 
-  attr(:query_string, :string, default: "")
-  attr(:conn_params, :any, required: true)
-  attr(:page_number, :integer, required: true)
-  attr(:is_active, :boolean, default: false)
-
   def page_link(
         %{
           __changed__: _,
@@ -136,6 +114,7 @@ defmodule Torch.PaginationView do
       when is_integer(pn) and pn > 0 do
     assigns =
       assigns
+      |> assign_new(:is_active, fn -> false end)
       |> assign(
         :new_querystring,
         TableView.querystring(qs, params, %{page: pn})
@@ -170,12 +149,13 @@ defmodule Torch.PaginationView do
   # NOTE: query_string param can contain sort info also (e.g. sort_field=name&sort_direction=asc)
   @doc since: "5.0.0"
 
-  attr(:query_string, :string, default: "")
-  attr(:conn_params, :any, required: true)
-  attr(:page_number, :integer, required: true)
-
   def prev_link(
-        %{__changed__: _, query_string: qs, conn_params: params, page_number: pn} = assigns
+        %{
+          __changed__: _,
+          query_string: qs,
+          conn_params: params,
+          page_number: pn
+        } = assigns
       )
       when is_integer(pn) and pn > 1 do
     assigns =
@@ -188,6 +168,19 @@ defmodule Torch.PaginationView do
     ~H"""
     <a href={"?#{@new_querystring}"}><%= message("< Prev") %></a>
     """
+  end
+
+  def prev_link(
+        %{
+          __changed__: _,
+          page_number: pn
+        } = assigns
+      )
+      when is_integer(pn) and pn > 1 do
+    assigns
+    |> assign(:query_string, "")
+    |> assign(:conn_params, %{})
+    |> prev_link()
   end
 
   def prev_link(%{__changed__: _, query_string: _, conn_params: _, page_number: _} = assigns) do
@@ -232,11 +225,6 @@ defmodule Torch.PaginationView do
   """
   @doc since: "5.0.0"
 
-  attr(:query_string, :string, default: "")
-  attr(:conn_params, :any, required: true)
-  attr(:page_number, :integer, required: true)
-  attr(:total_pages, :integer, required: true)
-
   def next_link(
         %{
           __changed__: _,
@@ -262,6 +250,20 @@ defmodule Torch.PaginationView do
   def next_link(
         %{
           __changed__: _,
+          page_number: page_number,
+          total_pages: total_pages
+        } = assigns
+      )
+      when is_integer(page_number) and is_integer(total_pages) and page_number < total_pages do
+    assigns
+    |> assign(:query_string, "")
+    |> assign(:conn_params, %{})
+    |> next_link()
+  end
+
+  def next_link(
+        %{
+          __changed__: _,
           query_string: _qs,
           conn_params: _params,
           page_number: _page_number,
@@ -282,6 +284,8 @@ defmodule Torch.PaginationView do
       ) do
     assigns
     |> assign(:conn_params, %{})
+    |> assign(:page_number, 1)
+    |> assign(:total_pages, 1)
     |> next_link()
   end
 

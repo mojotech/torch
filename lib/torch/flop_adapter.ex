@@ -97,9 +97,9 @@ defmodule Torch.FlopAdapter do
     }
   end
   
-  def normalize_options(%Scrivener.Config{page: page, page_size: page_size}) do
+  def normalize_options(%Scrivener.Config{page_number: page_number, page_size: page_size}) do
     %Flop{
-      page: page,
+      page: page_number,
       page_size: page_size
     }
   end
@@ -132,4 +132,3 @@ defmodule Torch.FlopAdapter do
     {[field], [direction]}
   end
 end
-

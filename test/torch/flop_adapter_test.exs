@@ -52,7 +52,7 @@ defmodule Torch.FlopAdapterTest do
     end
 
     test "converts Scrivener.Config" do
-      config = %Scrivener.Config{page: 4, page_size: 25}
+      config = %Scrivener.Config{page_number: 4, page_size: 25}
       result = FlopAdapter.normalize_options(config)
 
       assert result.page == 4
@@ -84,4 +84,3 @@ defmodule Torch.FlopAdapterTest do
     end
   end
 end
-

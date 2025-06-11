@@ -18,34 +18,6 @@ defmodule Torch.Component do
       <.torch_input field={@form[:email]} type="email" />
       <.torch_input name="my-input" errors={["oh no!"]} />
   """
-  attr(:id, :any, default: nil)
-
-  attr(:type, :string,
-    default: "text",
-    values: ~w(number checkbox textarea date datetime time datetime-local select text string file)
-  )
-
-  attr(:value, :any)
-  attr(:name, :any)
-  attr(:label, :string, default: nil)
-
-  attr(:field, Phoenix.HTML.FormField,
-    doc: "a form field struct retrieved from the form, for example: @form[:email]"
-  )
-
-  attr(:errors, :list, default: [])
-  attr(:checked, :boolean, doc: "the checked flag for checkbox inputs")
-  attr(:prompt, :string, default: nil, doc: "the prompt for select inputs")
-  attr(:options, :list, doc: "the options to pass to `Phoenix.HTML.Form.options_for_select/2`")
-  attr(:multiple, :boolean, default: false, doc: "the multiple flag for select inputs")
-
-  attr(:rest, :global,
-    include:
-      ~w(autocomplete cols disabled form max maxlength min minlength pattern placeholder readonly required rows size step)
-  )
-
-  slot(:inner_block)
-
   def torch_input(%{field: %Phoenix.HTML.FormField{} = field} = assigns) do
     errors = if Phoenix.Component.used_input?(field), do: field.errors, else: []
 
@@ -160,9 +132,6 @@ defmodule Torch.Component do
   @doc """
   Renders a label
   """
-  attr(:for, :string, default: nil)
-  slot(:inner_block, required: true)
-
   def torch_label(assigns) do
     ~H"""
     <label for={@for}>
@@ -174,9 +143,6 @@ defmodule Torch.Component do
   @doc """
   Renders generic error message
   """
-  attr(:for, :string, default: nil)
-  slot(:inner_block, required: true)
-
   def torch_error(assigns) do
     ~H"""
     <span class="invalid-feedback"><%= render_slot(@inner_block) %></span>
@@ -190,8 +156,6 @@ defmodule Torch.Component do
 
       <.flash_messages flash={conn.assigns.flash} />
   """
-  attr(:flash, :map)
-
   def flash_messages(assigns) do
     ~H"""
     <section id="torch-flash-messages">
@@ -205,9 +169,6 @@ defmodule Torch.Component do
   @doc """
   Renders a simple flash message tag
   """
-  attr(:flash_type, :string)
-  attr(:message, :string)
-
   def torch_flash(assigns) do
     ~H"""
     <p class={"torch-flash #{@flash_type}"}><%= @message %>&nbsp;<button class="torch-flash-close">x</button></p>
@@ -249,3 +210,4 @@ defmodule Torch.Component do
     for {^field, {msg, opts}} <- errors, do: translate_error({msg, opts})
   end
 end
+

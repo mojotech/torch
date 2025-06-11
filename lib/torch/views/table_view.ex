@@ -51,9 +51,9 @@ defmodule Torch.TableView do
 
   ## Example
 
-      iex> conn = %Plug.Conn{params: %{"order_by" => ["name"], "order_directions" => ["asc"]}}
-      ...> flop_table_link(conn, "Name", :name) |> safe_to_string()
-      "<a class=\\\"active asc\\\" href=\\\"?order_by[]=name&amp;order_directions[]=desc\\\">Name<span class=\\\"caret\\\"></span></a>"
+      iex> conn = %Plug.Conn{params: %{\"order_by\" => [\"name\"], \"order_directions\" => [\"asc\"]}}
+      ...> flop_table_link(conn, \"Name\", :name) |> safe_to_string()
+      \"<a class=\\\"active asc\\\" href=\\\"?order_by[]=name&amp;order_directions[]=desc\\\">Name<span class=\\\"caret\\\"></span></a>\"
   """
   @spec flop_table_link(Plug.Conn.t(), String.t(), atom) :: Phoenix.HTML.safe()
   def flop_table_link(conn, text, field) do
