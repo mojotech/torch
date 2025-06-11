@@ -61,7 +61,7 @@ defmodule Torch.FilterView do
   ## Example
       iex> params = %{"post" => %{"id_equals" => "test"}}
       ...> filter_uuid(:post, :id, params) |> safe_to_string()
-      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option value=\\"post[id_equals]\\">Equals</option></select>"
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option selected value=\\"post[id_equals]\\">Equals</option></select>"
   """
   @spec filter_uuid(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_uuid(prefix, field, params) do
