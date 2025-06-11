@@ -16,7 +16,7 @@ defmodule Torch.TableView do
 
       iex> conn = %Plug.Conn{params: %{"sort_field" => "name", "sort_direction" => "asc"}}
       ...> table_link(conn, "Name", :name) |> safe_to_string()
-      "<a class=\\"active asc\\" href=\\"?sort_direction=desc&amp;sort_field=name\\">Name<span class=\\"caret\\"></span></a>"
+      "<a class=\\\"active asc\\\" href=\\\"?sort_direction=desc&amp;sort_field=name\\\">Name<span class=\\\"caret\\\"></span></a>"
   """
   @spec table_link(Plug.Conn.t(), String.t(), atom) :: Phoenix.HTML.safe()
   def table_link(conn, text, field) do
@@ -38,6 +38,53 @@ defmodule Torch.TableView do
       ]
 
       link to: "?" <> querystring(conn, opts) do
+        raw(~s{#{text}<span class="caret"></span>})
+      end
+    end
+  end
+
+  @doc """
+  Generates a sortable link for a table heading using Flop parameters.
+
+  This function is similar to `table_link/3` but uses Flop's parameter format.
+  It can be used when directly working with Flop instead of the Torch adapter.
+
+  ## Example
+
+      iex> conn = %Plug.Conn{params: %{"order_by" => ["name"], "order_directions" => ["asc"]}}
+      ...> flop_table_link(conn, "Name", :name) |> safe_to_string()
+      "<a class=\\\"active asc\\\" href=\\\"?order_by[]=name&amp;order_directions[]=desc\\\">Name<span class=\\\"caret\\\"></span></a>"
+  """
+  @spec flop_table_link(Plug.Conn.t(), String.t(), atom) :: Phoenix.HTML.safe()
+  def flop_table_link(conn, text, field) do
+    field_str = to_string(field)
+    order_by = List.wrap(conn.params["order_by"] || [])
+    order_directions = List.wrap(conn.params["order_directions"] || [])
+    
+    # Check if this field is the primary sort field
+    is_active = Enum.at(order_by, 0) == field_str
+    
+    if is_active do
+      # Field is already being sorted, so reverse the direction
+      current_direction = Enum.at(order_directions, 0, "asc")
+      new_direction = reverse(current_direction)
+      
+      opts = %{
+        "order_by[]" => field_str,
+        "order_directions[]" => new_direction
+      }
+      
+      link to: "?" <> URI.encode_query(opts), class: "active #{current_direction}" do
+        raw(~s{#{text}<span class="caret"></span>})
+      end
+    else
+      # Field is not being sorted yet, so set it as the primary sort field
+      opts = %{
+        "order_by[]" => field_str,
+        "order_directions[]" => "desc"
+      }
+      
+      link to: "?" <> URI.encode_query(opts) do
         raw(~s{#{text}<span class="caret"></span>})
       end
     end

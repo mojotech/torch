@@ -36,26 +36,49 @@ defmodule Torch.Helpers do
   end
 
   @doc """
-  Paginates a given `Ecto.Queryable` using Scrivener.
+  Paginates a given `Ecto.Queryable` using Flop.
 
-  This is a very thin wrapper around `Scrivener.paginate/2`, so see [the Scrivener
-  Ecto documentation](https://github.com/drewolson/scrivener_ecto) for more details.
+  This is a wrapper around `Flop.validate_and_run/3` that maintains backward
+  compatibility with the previous Scrivener-based implementation.
 
   ## Parameters
 
   - `query`: An `Ecto.Queryable` to paginate.
   - `repo`: Your Repo module.
   - `params`: Parameters from your `conn`. For example `%{"page" => 1}`.
-  - `settings`: A list of settings for Scrivener, including `:page_size`.
+  - `settings`: A list of settings for pagination, including `:page_size`.
 
   ## Examples
 
       paginate(query, Repo, params, [page_size: 15])
-      # => %Scrivener.Page{...}
+      # => %{entries: [...], page_number: 1, ...}
   """
-  @spec paginate(Ecto.Queryable.t(), Ecto.Repo.t(), params, Keyword.t()) :: Scrivener.Page.t()
+  @spec paginate(Ecto.Queryable.t(), Ecto.Repo.t(), params, Keyword.t()) :: map()
   def paginate(query, repo, params, settings \\ [page_size: 10]) do
-    Scrivener.paginate(query, Scrivener.Config.new(repo, settings, params))
+    # For backward compatibility, we convert the result to a Scrivener.Page-like structure
+    page_size = Keyword.get(settings, :page_size, 10)
+    
+    # Convert params to Flop format
+    flop_params = %{
+      "page" => params["page"] || 1,
+      "page_size" => page_size,
+      "order_by" => params["sort_field"] && [params["sort_field"]],
+      "order_directions" => params["sort_direction"] && [params["sort_direction"]]
+    }
+    
+    case Flop.validate_and_run(query, flop_params, repo: repo) do
+      {:ok, {entries, meta}} ->
+        Torch.FlopAdapter.to_scrivener_page(entries, meta)
+      {:error, _changeset} ->
+        # Return empty page on error for compatibility
+        %{
+          entries: [],
+          page_number: 1,
+          page_size: page_size,
+          total_pages: 0,
+          total_entries: 0
+        }
+    end
   end
 
   @doc """

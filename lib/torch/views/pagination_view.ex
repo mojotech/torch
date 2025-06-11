@@ -7,6 +7,9 @@ defmodule Torch.PaginationView do
 
   @doc """
   Render pagination links directly from a `Plug.Conn`
+  
+  This function is backward compatible with the Scrivener-based implementation
+  but uses Flop internally.
   """
   def pagination(conn) do
     assigns =
@@ -23,6 +26,9 @@ defmodule Torch.PaginationView do
 
   @doc """
   Render Torch pagination links based on current page, sort, and filters
+  
+  This function is backward compatible with the Scrivener-based implementation
+  but can also work with Flop.Meta structs.
   """
   @doc since: "5.0.0"
 
@@ -65,6 +71,37 @@ defmodule Torch.PaginationView do
     </section>
     """
   end
+
+  @doc """
+  Render pagination links from a Flop.Meta struct
+  
+  This function allows direct use of Flop.Meta structs for pagination.
+  """
+  def pagination_from_meta(conn, %Flop.Meta{} = meta) do
+    assigns =
+      %{__changed__: %{}}
+      |> Map.merge(conn.assigns)
+      |> assign(:query_string, conn.query_string)
+      |> assign(:conn_params, conn.params)
+      |> assign(:page_number, meta.current_page || 1)
+      |> assign(:page_size, meta.page_size)
+      |> assign(:total_pages, meta.total_pages)
+      |> assign(:total_entries, meta.total_count)
+      |> assign(:distance, Map.get(conn.assigns, :distance, 5))
+      |> assign(:sort_field, get_sort_field(meta))
+      |> assign(:sort_direction, get_sort_direction(meta))
+
+    ~H"""
+    <.torch_pagination page_number={@page_number} page_size={@page_size} total_pages={@total_pages} total_entries={@total_entries} distance={@distance} sort_field={@sort_field} sort_direction={@sort_direction} query_string={@query_string} conn_params={@conn_params} />
+    """
+  end
+
+  # Helper functions to extract sort information from Flop.Meta
+  defp get_sort_field(%Flop.Meta{order_by: [field | _]}), do: to_string(field)
+  defp get_sort_field(_), do: "inserted_at"
+
+  defp get_sort_direction(%Flop.Meta{order_directions: [direction | _]}), do: to_string(direction)
+  defp get_sort_direction(_), do: "desc"
 
   @doc """
   Generates a "_N_" link to a page of results (where N is the page number).
