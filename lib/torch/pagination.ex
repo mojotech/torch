@@ -193,6 +193,10 @@ defmodule Torch.Pagination do
     Map.update(collection, :text, [attr], fn curr_value -> [attr | curr_value] end)
   end
 
+  defp collect_attributes_by_type(attr, :binary_id, collection) do
+    Map.update(collection, :id, [attr], fn curr_value -> [attr | curr_value] end)
+  end
+
   defp collect_attributes_by_type(_attr, _attr_type, collection), do: collection
 
   defp build_filtrex_configs({:date, attrs_list}, configs),
@@ -206,6 +210,9 @@ defmodule Torch.Pagination do
 
   defp build_filtrex_configs({:boolean, attrs_list}, configs),
     do: add_filtrex_config(configs, :boolean, attrs_list)
+
+  defp build_filtrex_configs({:binary_id, attrs_list}, configs),
+    do: add_filtrex_config(configs, :binary_id, attrs_list)
 
   defp build_filtrex_configs(_, configs), do: configs
 

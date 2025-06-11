@@ -245,7 +245,7 @@ defmodule Torch.FilterView do
   @spec filter_uuid(prefix, field, map) :: Phoenix.HTML.safe()
   def filter_uuid(prefix, field, params) do
     prefix_str = to_string(prefix)
-    {selected, _value} = find_param(params[prefix_str], field, :uuid_select)
+    {selected, _value} = find_param(params[prefix_str], field, :equals)
 
     opts = [
       {message("Equals"), "#{prefix}[#{field}_equals]"}
@@ -303,7 +303,7 @@ defmodule Torch.FilterView do
     do_find_param(params, field, ~w(equals greater_than greater_than_or less_than))
   end
 
-  defp find_param(params, field, :uuid_select) do
+  defp find_param(params, field, :equals) do
     do_find_param(params, field, "equals")
   end
 
