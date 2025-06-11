@@ -129,5 +129,11 @@ defmodule Torch.FilterViewTest do
       "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option selected value=\"post[id_equals]\">Equals</option></select>"
 
     assert expected == safe_to_string(Torch.FilterView.filter_uuid(:post, :id, params))
+
+    input_expected =
+      "<input id=\"post_id_equals\" name=\"post[id_equals]\" type=\"text\" value=\"#{uuid}\">"
+
+    assert input_expected ==
+             safe_to_string(Torch.FilterView.filter_string_input(:post, :id, params))
   end
 end
