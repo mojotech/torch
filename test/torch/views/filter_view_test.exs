@@ -107,4 +107,33 @@ defmodule Torch.FilterViewTest do
     assert expected ==
              safe_to_string(Torch.FilterView.filter_string_input(:robot, :other_serial, params))
   end
+
+  test "filter uuid_select option selects a uuid" do
+    expected =
+      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option selected value=\"post[id_equals]\">Equals</option></select>"
+
+    assert expected == safe_to_string(Torch.FilterView.filter_uuid(:post, :id, %{}))
+
+    uuid = "3e03842b-0bde-471b-8825-24768ef6fbc2"
+
+    params = %{
+      "filters" => [
+        "post[id_equals]"
+      ],
+      "post" => %{
+        "id_equals" => uuid
+      }
+    }
+
+    expected =
+      "<select class=\"filter-type\" id=\"filters_\" name=\"filters[]\"><option selected value=\"post[id_equals]\">Equals</option></select>"
+
+    assert expected == safe_to_string(Torch.FilterView.filter_uuid(:post, :id, params))
+
+    input_expected =
+      "<input id=\"post_id_equals\" name=\"post[id_equals]\" type=\"text\" value=\"#{uuid}\">"
+
+    assert input_expected ==
+             safe_to_string(Torch.FilterView.filter_string_input(:post, :id, params))
+  end
 end

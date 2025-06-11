@@ -235,6 +235,25 @@ defmodule Torch.FilterView do
     select(prefix, :"#{field}_equals", opts, class: "boolean-type", value: value)
   end
 
+  @doc """
+  Generates a "equals" filter type select box for a given `uuid` field
+  ## Example
+      iex> params = %{"post" => %{"id_equals" => "test"}}
+      ...> filter_uuid(:post, :id, params) |> safe_to_string()
+      "<select class=\\"filter-type\\" id=\\"filters_\\" name=\\"filters[]\\"><option selected value=\\"post[id_equals]\\">Equals</option></select>"
+  """
+  @spec filter_uuid(prefix, field, map) :: Phoenix.HTML.safe()
+  def filter_uuid(prefix, field, params) do
+    prefix_str = to_string(prefix)
+    {selected, _value} = find_param(params[prefix_str], field, :uuid_select)
+
+    opts = [
+      {message("Equals"), "#{prefix}[#{field}_equals]"}
+    ]
+
+    select(:filters, "", opts, class: "filter-type", value: "#{prefix}[#{selected}]")
+  end
+
   defp torch_date_input(name, value) do
     tag(
       :input,
@@ -282,6 +301,10 @@ defmodule Torch.FilterView do
 
   defp find_param(params, field, :number_select) do
     do_find_param(params, field, ~w(equals greater_than greater_than_or less_than))
+  end
+
+  defp find_param(params, field, :uuid_select) do
+    do_find_param(params, field, "equals")
   end
 
   defp do_find_param(params, field, comparison) when is_binary(comparison) do
