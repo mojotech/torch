@@ -159,7 +159,7 @@ defmodule Torch.Pagination do
   defp build_filter_config(model, schema_attrs) do
     schema_attrs
     |> Enum.reduce(
-      Map.from_keys(~w(date number text boolean id)a, []),
+      Map.from_keys(~w(date number text boolean id binary_id)a, []),
       &collect_attributes_by_type(&1, model.__schema__(:type, &1), &2)
     )
     |> Enum.reduce([], &build_filtrex_configs/2)
@@ -193,6 +193,10 @@ defmodule Torch.Pagination do
     Map.update(collection, :text, [attr], fn curr_value -> [attr | curr_value] end)
   end
 
+  defp collect_attributes_by_type(attr, :binary_id, collection) do
+    Map.update(collection, :binary_id, [attr], fn curr_value -> [attr | curr_value] end)
+  end
+
   defp collect_attributes_by_type(_attr, _attr_type, collection), do: collection
 
   defp build_filtrex_configs({:date, attrs_list}, configs),
@@ -206,6 +210,9 @@ defmodule Torch.Pagination do
 
   defp build_filtrex_configs({:boolean, attrs_list}, configs),
     do: add_filtrex_config(configs, :boolean, attrs_list)
+
+  defp build_filtrex_configs({:binary_id, attrs_list}, configs),
+    do: add_filtrex_config(configs, :binary_id, attrs_list)
 
   defp build_filtrex_configs(_, configs), do: configs
 
