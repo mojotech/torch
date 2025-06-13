@@ -179,6 +179,10 @@ defmodule Torch.Pagination do
     Map.update(collection, :number, [attr], fn curr_value -> [attr | curr_value] end)
   end
 
+  defp collect_attributes_by_type(attr, :binary_id, collection) do
+    Map.update(collection, :id, [attr], fn curr_value -> [attr | curr_value] end)
+  end
+
   defp collect_attributes_by_type(attr, attr_type, collection)
        when attr_type in [:naive_datetime, :utc_datetime, :datetime, :date] do
     Map.update(collection, :date, [attr], fn curr_value -> [attr | curr_value] end)
