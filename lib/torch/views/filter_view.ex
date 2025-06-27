@@ -340,3 +340,4 @@ defmodule Torch.FilterView do
     end
   end
 end
+
