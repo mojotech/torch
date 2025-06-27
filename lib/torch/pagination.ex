@@ -211,6 +211,9 @@ defmodule Torch.Pagination do
   defp build_filtrex_configs({:boolean, attrs_list}, configs),
     do: add_filtrex_config(configs, :boolean, attrs_list)
 
+  defp build_filtrex_configs({:id, attrs_list}, configs),
+    do: add_filtrex_config(configs, :text, attrs_list)
+
   defp build_filtrex_configs(_, configs), do: configs
 
   defp add_filtrex_config(c, ft, fk), do: add_filtrex_config(c, ft, fk, %{})
