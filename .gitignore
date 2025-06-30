@@ -29,11 +29,11 @@ assets/.parcel-cache
 
 .dir-locals.el
 .env
+.envrc
+.direnv/*
 
 # Translation .mo files
 /priv/gettext/*/LC_MESSAGES/*.mo
-
-shell.nix
 
 test/support/apps/phx1_3
 test/support/apps/phx1_4
