@@ -30,7 +30,15 @@ assets/.parcel-cache
 .dir-locals.el
 .env
 .envrc
-.direnv/*
+.direnv/
+.aider*
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Nix shell config
+.nix-hex
+.nix-mix
+
 
 # Translation .mo files
 /priv/gettext/*/LC_MESSAGES/*.mo
