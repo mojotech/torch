@@ -95,9 +95,9 @@ defmodule PaginationTest do
   end
 
   test "Ensure we have Fitrex configuration for each key type" do
-    assert 4 == length(MockContext.filter_config(:mocks))
-    assert 4 == length(MultiMockContext.filter_config(:small_mocks))
-    assert 4 == length(MultiMockContext.filter_config(:no_mocks))
+    assert 5 == length(MockContext.filter_config(:mocks))
+    assert 5 == length(MultiMockContext.filter_config(:small_mocks))
+    assert 5 == length(MultiMockContext.filter_config(:no_mocks))
   end
 
   test "ensure proper attributes list for filter types" do
@@ -114,6 +114,9 @@ defmodule PaginationTest do
 
         :date ->
           assert ~w(inserted_at published_at updated_at) == Enum.sort(attr_keys)
+
+        :binary_id ->
+          assert ~w(uuid) == Enum.sort(attr_keys)
       end
     end
 
@@ -130,6 +133,9 @@ defmodule PaginationTest do
           assert [] == attr_keys
 
         :date ->
+          assert [] == attr_keys
+
+        :binary_id ->
           assert [] == attr_keys
       end
     end
@@ -148,6 +154,9 @@ defmodule PaginationTest do
 
         :date ->
           assert [] == attr_keys
+
+        :binary_id ->
+          assert [] == attr_keys
       end
     end
 
@@ -164,6 +173,9 @@ defmodule PaginationTest do
           assert [] == attr_keys
 
         :date ->
+          assert [] == attr_keys
+
+        :binary_id ->
           assert [] == attr_keys
       end
     end

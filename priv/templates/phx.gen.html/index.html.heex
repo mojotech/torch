@@ -34,6 +34,13 @@
             <%%= filter_number_input(:<%= schema.singular %>, :<%= key %>, @conn.params) %>
           </div>
         <% end %>
+        <%= for {key, type} <- schema.attrs, type in [:binary_id] do %>
+          <div class="field">
+            <label><%= Phoenix.Naming.humanize(Atom.to_string(key)) %></label>
+            <%%= filter_uuid(:<%= schema.singular %>, :<%= key %>, @conn.params) %>
+            <%%= filter_string_input(:<%= schema.singular %>, :<%= key %>, @conn.params) %>
+          </div>
+        <% end %>
         <button type="submit" class="torch-button">Search</button>
         <%%= link "Clear Filters", to: ~p"<%=  schema.route_prefix %>" %>
       <%% end %>
