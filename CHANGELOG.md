@@ -1,5 +1,31 @@
 # Changelog
 
+## [v5.6.0](https://github.com/mojotech/torch/tree/v5.6.0) (2025-07-07)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.5.0...v5.6.0)
+
+**Closed issues:**
+
+- Support binary\_id search fields [\#256](https://github.com/mojotech/torch/issues/256)
+
+**Merged pull requests:**
+
+- UUID field [\#521](https://github.com/mojotech/torch/pull/521) ([kevinam99](https://github.com/kevinam99))
+- Bump mix\_test\_watch from 1.2.0 to 1.3.0 [\#519](https://github.com/mojotech/torch/pull/519) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix\_live\_view from 1.0.1 to 1.0.17 [\#518](https://github.com/mojotech/torch/pull/518) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ex\_doc from 0.35.1 to 0.38.2 [\#517](https://github.com/mojotech/torch/pull/517) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.7.11 to 1.7.12 [\#512](https://github.com/mojotech/torch/pull/512) ([dependabot[bot]](https://github.com/apps/dependabot))
+- \[i18n\] Add support to Brazilian Portuguese [\#509](https://github.com/mojotech/torch/pull/509) ([diogenes](https://github.com/diogenes))
+- Bump credo from 1.7.10 to 1.7.11 [\#500](https://github.com/mojotech/torch/pull/500) ([dependabot[bot]](https://github.com/apps/dependabot))
+- \[conf\] Update Github action runner os [\#498](https://github.com/mojotech/torch/pull/498) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump excoveralls from 0.18.3 to 0.18.5 [\#496](https://github.com/mojotech/torch/pull/496) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Fix elixir 1.18 compilation warnings [\#495](https://github.com/mojotech/torch/pull/495) ([axelson](https://github.com/axelson))
+- Add file as a type for torch\_input [\#494](https://github.com/mojotech/torch/pull/494) ([axelson](https://github.com/axelson))
+- Bump ex\_doc from 0.34.2 to 0.35.1 [\#489](https://github.com/mojotech/torch/pull/489) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump gettext from 0.26.1 to 0.26.2 [\#488](https://github.com/mojotech/torch/pull/488) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump credo from 1.7.8 to 1.7.10 [\#487](https://github.com/mojotech/torch/pull/487) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump scrivener\_ecto from 3.0.1 to 3.1.0 [\#484](https://github.com/mojotech/torch/pull/484) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v5.5.0](https://github.com/mojotech/torch/tree/v5.5.0) (2025-01-02)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.4.0...v5.5.0)
