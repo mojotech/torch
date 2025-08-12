@@ -2,13 +2,13 @@ defmodule Torch.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/mojotech/torch"
-  @version "5.6.0"
+  @version "6.0.0"
 
   def project do
     [
       app: :torch,
       version: @version,
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       name: "Torch",
       description: "Rapid admin generator for Phoenix",

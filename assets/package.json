@@ -21,7 +21,7 @@
     "es5"
   ],
   "engines": {
-    "node": ">14 <20"
+    "node": ">18 <24"
   },
   "scripts": {
     "compile": "npm run compile:js && npm run compile:css",
