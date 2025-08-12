@@ -1,10 +1,10 @@
 with import <nixpkgs> {}; let
   basePackages = [
     sqlite
-    nodejs_20
-    beam26Packages.erlang
-    beam26Packages.elixir_1_16
-    beam26Packages.elixir-ls
+    nodejs_22
+    beam27Packages.erlang
+    beam27Packages.elixir_1_17
+    beam27Packages.elixir-ls
     fswatch
     direnv
     nix-direnv
