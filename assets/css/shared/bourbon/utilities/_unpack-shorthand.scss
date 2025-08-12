@@ -1,3 +1,4 @@
+@use "sass:list";
 @charset "UTF-8";
 
 /// Transforms shorthand that can range from 1-to-4 values to be 4 values.
@@ -16,13 +17,13 @@
 ///
 /// @access private
 
-@function _unpack-shorthand($shorthand) {
-  @if length($shorthand) == 1 {
-    @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
-  } @else if length($shorthand) == 2 {
-    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
-  } @else if length($shorthand) == 3 {
-    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
+@function unpack-shorthand($shorthand) {
+  @if list.length($shorthand) == 1 {
+    @return list.nth($shorthand, 1) list.nth($shorthand, 1) list.nth($shorthand, 1) list.nth($shorthand, 1);
+  } @else if list.length($shorthand) == 2 {
+    @return list.nth($shorthand, 1) list.nth($shorthand, 2) list.nth($shorthand, 1) list.nth($shorthand, 2);
+  } @else if list.length($shorthand) == 3 {
+    @return list.nth($shorthand, 1) list.nth($shorthand, 2) list.nth($shorthand, 3) list.nth($shorthand, 2);
   } @else {
     @return $shorthand;
   }

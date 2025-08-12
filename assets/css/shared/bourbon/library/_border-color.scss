@@ -1,3 +1,5 @@
+@use "../utilities/directional-property";
+
 @charset "UTF-8";
 
 /// Provides a concise, one-line method for setting `border-color` on specific
@@ -22,5 +24,5 @@
 /// @require {mixin} _directional-property
 
 @mixin border-color($values) {
-  @include _directional-property(border, color, $values);
+  @include directional-property.directional-property(border, color, $values);
 }

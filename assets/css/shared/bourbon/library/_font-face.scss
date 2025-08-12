@@ -1,3 +1,6 @@
+@use "../utilities/fetch-bourbon-setting";
+@use "../utilities/font-source-declaration";
+
 @charset "UTF-8";
 
 /// Generates an `@font-face` declaration. You can choose the specific file
@@ -49,12 +52,12 @@
 @mixin font-face(
   $font-family,
   $file-path,
-  $file-formats: _fetch-bourbon-setting("global-font-file-formats"),
-  $asset-pipeline: _fetch-bourbon-setting("rails-asset-pipeline")
+  $file-formats: fetch-bourbon-setting.fetch-bourbon-setting("global-font-file-formats"),
+  $asset-pipeline: fetch-bourbon-setting.fetch-bourbon-setting("rails-asset-pipeline")
 ) {
   @font-face {
     font-family: $font-family;
-    src: _font-source-declaration(
+    src: font-source-declaration.font-source-declaration(
       $font-family,
       $file-path,
       $asset-pipeline,

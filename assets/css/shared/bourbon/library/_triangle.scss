@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../validators/is-color";
+
 @charset "UTF-8";
 
 /// Generates a triangle pointing in a specified direction.
@@ -39,13 +42,13 @@
   $height,
   $color
 ) {
-  @if not index(
+  @if not list.index(
     "up" "up-right" "right" "down-right" "down" "down-left" "left" "up-left",
     $direction
   ) {
     @error "Direction must be `up`, `up-right`, `right`, `down-right`, " +
            "`down`, `down-left`, `left` or `up-left`.";
-  } @else if not _is-color($color) {
+  } @else if not is-color.is-color($color) {
     @error "`#{$color}` is not a valid color for the `$color` argument in " +
            "the `triangle` mixin.";
   } @else {

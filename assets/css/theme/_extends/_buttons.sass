@@ -1,11 +1,15 @@
+@use "sass:color"
+@use "../../shared/settings/colors"
+@use "../../shared/settings/fonts"
+
 %base-button-styles
   transition: all 250ms ease-in-out
-  font-family: $helvetica-neue
+  font-family: fonts.$helvetica-neue
   font-size: 14px
   padding: 9px 12px
   cursor: pointer
-  background-color: $gallery-gray
-  color: $dark-gray
+  background-color: colors.$gallery-gray
+  color: colors.$dark-gray
   border: 1px solid transparent
   text-transform: capitalize
 
@@ -14,15 +18,15 @@
   border-color: rgba(0, 0, 0, 0.1)
 
   &:hover
-    background-color: darken($gallery-gray, 15%)
+    background-color: color.adjust(colors.$gallery-gray, $lightness: -15%)
 
 %red-button
   @extend %base-button-styles
-  background-color: $ir-red
-  color: $white
+  background-color: colors.$ir-red
+  color: colors.$white
 
   &:hover
-    background-color: darken($ir-red, 15%)
+    background-color: color.adjust(colors.$ir-red, $lightness: -15%)
 
 %add-button
   &:before

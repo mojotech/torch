@@ -1,3 +1,7 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+@use "sass:string";
 @charset "UTF-8";
 
 /// Checks for a valid CSS length.
@@ -8,8 +12,8 @@
 ///
 /// @access private
 
-@function _is-length($value) {
-  @return type-of($value) != "null" and (str-slice($value + "", 1, 4) == "calc"
-       or index(auto inherit initial 0, $value)
-       or (type-of($value) == "number" and not(unitless($value))));
+@function is-length($value) {
+  @return meta.type-of($value) != "null" and (string.slice($value + "", 1, 4) == "calc"
+       or list.index(auto inherit initial 0, $value)
+       or (meta.type-of($value) == "number" and not(math.is-unitless($value))));
 }

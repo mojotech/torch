@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../validators/contains";
+
 @charset "UTF-8";
 
 /// Builds the `src` list for an `@font-face` declaration.
@@ -18,7 +21,7 @@
 ///
 /// @access private
 
-@function _font-source-declaration(
+@function font-source-declaration(
   $font-family,
   $file-path,
   $asset-pipeline,
@@ -35,14 +38,14 @@
   );
 
   @each $key, $values in $formats-map {
-    @if _contains($file-formats, $key) {
-      $file-path: nth($values, 1);
-      $font-format: nth($values, 2);
+    @if contains.contains($file-formats, $key) {
+      $file-path: list.nth($values, 1);
+      $font-format: list.nth($values, 2);
 
       @if $asset-pipeline == true {
-        $src: append($src, font-url($file-path) $font-format, comma);
+        $src: list.append($src, font-url($file-path) $font-format, comma);
       } @else {
-        $src: append($src, url($file-path) $font-format, comma);
+        $src: list.append($src, url($file-path) $font-format, comma);
       }
     }
   }

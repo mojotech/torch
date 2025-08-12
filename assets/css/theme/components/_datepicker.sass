@@ -1,18 +1,20 @@
+@use "../../shared/settings/colors"
+
 .torch-datepicker
   .is-today
     &:not(.is-selected)
       .pika-button
-        color: $ir-red
+        color: colors.$ir-red
 
   .pika-button
     &:hover
-      background: $ir-red
-      color: $white !important
+      background: colors.$ir-red
+      color: colors.$white !important
 
   .is-selected
     .pika-button
-      background: $ir-red
+      background: colors.$ir-red
       box-shadow: none
 
       &:hover
-        background: $ir-red
+        background: colors.$ir-red

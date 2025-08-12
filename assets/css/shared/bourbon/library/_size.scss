@@ -1,3 +1,5 @@
+@use "../validators/is-size";
+
 @charset "UTF-8";
 
 /// Sets the `width` and `height` of the element in one statement.
@@ -34,14 +36,14 @@
   $width,
   $height: $width
 ) {
-  @if _is-size($height) {
+  @if is-size.is-size($height) {
     height: $height;
   } @else {
     @error "`#{$height}` is not a valid length for the `$height` argument " +
            "in the `size` mixin.";
   }
 
-  @if _is-size($width) {
+  @if is-size.is-size($width) {
     width: $width;
   } @else {
     @error "`#{$width}` is not a valid length for the `$width` argument " +

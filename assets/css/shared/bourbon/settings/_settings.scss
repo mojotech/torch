@@ -1,3 +1,5 @@
+@use "../helpers/scales";
+
 @charset "UTF-8";
 
 /// Default global Bourbon settings. Values in this map are overwritten by any
@@ -27,12 +29,12 @@
 ///
 /// @access private
 
-$_bourbon-defaults: (
+$bourbon-defaults: (
   "contrast-switch-dark-color": #000,
   "contrast-switch-light-color": #fff,
   "global-font-file-formats": ("ttf", "woff2", "woff"),
   "modular-scale-base": 1em,
-  "modular-scale-ratio": $major-third,
+  "modular-scale-ratio": scales.$major-third,
   "rails-asset-pipeline": false,
 );
 

@@ -1,3 +1,7 @@
+@use "sass:color"
+@use "../../shared/settings/colors"
+@use "../../shared/settings/fonts"
+
 %text-input
   transition: all 350ms ease-in-out
   appearance: none
@@ -5,14 +9,14 @@
   background: none
   margin: 0
   padding: 10px
-  font-family: $helvetica-neue
+  font-family: fonts.$helvetica-neue
   font-size: 14px
-  color: $dark-gray
-  border: 1px solid darken($gallery-gray, 10%)
+  color: colors.$dark-gray
+  border: 1px solid color.adjust(colors.$gallery-gray, $lightness: -10%)
   display: block
-  background-color: $white
+  background-color: colors.$white
 
   &:focus,
   &:hover
-    border-color: $dark-gray
+    border-color: colors.$dark-gray
     border-width: 1px

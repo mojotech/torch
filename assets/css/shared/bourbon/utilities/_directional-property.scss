@@ -1,3 +1,7 @@
+@use "sass:list";
+@use "../validators/contains-falsy";
+@use "compact-shorthand";
+
 @charset "UTF-8";
 
 // scss-lint:disable SpaceAroundOperator
@@ -32,7 +36,7 @@
 ///
 /// @access private
 
-@mixin _directional-property(
+@mixin directional-property(
   $property,
   $suffix,
   $values
@@ -43,26 +47,26 @@
   $right:  $property + "-right"  + if($suffix, "-#{$suffix}", "");
   $all:    $property +             if($suffix, "-#{$suffix}", "");
 
-  $values: _compact-shorthand($values);
+  $values: compact-shorthand.compact-shorthand($values);
 
-  @if _contains-falsy($values) {
-    @if nth($values, 1) { #{$top}: nth($values, 1); }
+  @if contains-falsy.contains-falsy($values) {
+    @if list.nth($values, 1) { #{$top}: list.nth($values, 1); }
 
-    @if length($values) == 1 {
-      @if nth($values, 1) { #{$right}: nth($values, 1); }
+    @if list.length($values) == 1 {
+      @if list.nth($values, 1) { #{$right}: list.nth($values, 1); }
     } @else {
-      @if nth($values, 2) { #{$right}: nth($values, 2); }
+      @if list.nth($values, 2) { #{$right}: list.nth($values, 2); }
     }
 
-    @if length($values) == 2 {
-      @if nth($values, 1) { #{$bottom}: nth($values, 1); }
-      @if nth($values, 2) { #{$left}: nth($values, 2); }
-    } @else if length($values) == 3 {
-      @if nth($values, 3) { #{$bottom}: nth($values, 3); }
-      @if nth($values, 2) { #{$left}: nth($values, 2); }
-    } @else if length($values) == 4 {
-      @if nth($values, 3) { #{$bottom}: nth($values, 3); }
-      @if nth($values, 4) { #{$left}: nth($values, 4); }
+    @if list.length($values) == 2 {
+      @if list.nth($values, 1) { #{$bottom}: list.nth($values, 1); }
+      @if list.nth($values, 2) { #{$left}: list.nth($values, 2); }
+    } @else if list.length($values) == 3 {
+      @if list.nth($values, 3) { #{$bottom}: list.nth($values, 3); }
+      @if list.nth($values, 2) { #{$left}: list.nth($values, 2); }
+    } @else if list.length($values) == 4 {
+      @if list.nth($values, 3) { #{$bottom}: list.nth($values, 3); }
+      @if list.nth($values, 4) { #{$left}: list.nth($values, 4); }
     }
   } @else {
     #{$all}: $values;

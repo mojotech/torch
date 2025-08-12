@@ -1,3 +1,5 @@
+@use "../../shared/settings/colors"
+
 section#torch-pagination
   ul
     display: flex
@@ -6,18 +8,18 @@ section#torch-pagination
     a
       display: block
       padding: 10px 15px
-      color: $ir-red
+      color: colors.$ir-red
       text-decoration: none
-      background-color: $white
-      border: 1px solid $gallery-gray
+      background-color: colors.$white
+      border: 1px solid colors.$gallery-gray
       margin-left: -1px
 
       &:hover
-        background-color: $alabaster-gray
+        background-color: colors.$alabaster-gray
 
       &.active
-        background-color: $ir-red
-        color: $white
+        background-color: colors.$ir-red
+        color: colors.$white
 
     &:first-child
       a

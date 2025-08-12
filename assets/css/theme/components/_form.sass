@@ -1,11 +1,18 @@
+@use "../../shared/settings/colors"
+@use "../../shared/settings/fonts"
+@use "../_extends/text-input"
+@use "../_extends/select-input"
+@use "../_extends/buttons"
+
+
 form#torch-form
-  background-color: $white
+  background-color: colors.$white
   display: flex
   padding: 20px
 
   .torch-form-error
-    background-color: $orange
-    color: $white
+    background-color: colors.$orange
+    color: colors.$white
     margin-bottom: 20px
     padding: 5px
     text-align: center
@@ -21,8 +28,8 @@ form#torch-form
       align-items: center
       justify-content: flex-end
       font-size: 15px
-      font-family: $helvetica-neue
-      color: $dark-gray
+      font-family: fonts.$helvetica-neue
+      color: colors.$dark-gray
       flex: 1
       text-align: right
       margin-right: 20px
@@ -44,7 +51,7 @@ form#torch-form
       margin-left: calc(30% + 12px)
       width: 70%
       text-transform: capitalize
-      color: $orange
+      color: colors.$orange
       font-size: 14px
 
   .torch-form-group-input

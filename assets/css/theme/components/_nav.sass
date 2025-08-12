@@ -1,5 +1,9 @@
+@use "sass:color"
+@use "../../shared/settings/colors"
+@use "../../shared/settings/fonts"
+
 section#torch-nav
-  background-color: $alabaster-gray
+  background-color: colors.$alabaster-gray
 
   .torch-container
     display: flex
@@ -11,8 +15,8 @@ section#torch-nav
       display: flex
 
       h3
-        color: $ir-red
-        font-family: $helvetica-neue
+        color: colors.$ir-red
+        font-family: fonts.$helvetica-neue
         text-transform: uppercase
         font-size: 18px
         font-weight: bold
@@ -35,11 +39,11 @@ section#torch-nav
       font-size: 16px
       padding: 22px 10px 19px 10px
       border-bottom: 3px solid transparent
-      color: lighten($dark-gray, 25%)
+      color: color.adjust(colors.$dark-gray, $lightness: 25%)
 
       &:hover
-        color: $dark-gray
+        color: colors.$dark-gray
 
       &.active
-        border-color: $ir_red
-        color: $dark-gray
+        border-color: colors.$ir_red
+        color: colors.$dark-gray
