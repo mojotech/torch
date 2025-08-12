@@ -1,13 +1,13 @@
-name: Torch Main CI
+name: Torch v5 CI
 
 on:
   pull_request:
-    branches: [master, main, v6]
+    branches: [v5]
     types: [opened, edited, reopened, synchronize]
   push:
-    branches: [master, main, v6]
+    branches: [v5]
     tags:
-      - v[6-9].[0-9]+.[0-9]+
+      - v5.[0-9]+.[0-9]+
 
 jobs:
   mix_test:
@@ -18,26 +18,22 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - elixir: 1.14.x
+            otp: 24.x
+          - elixir: 1.14.x
+            otp: 25.x
+          - elixir: 1.15.x
+            otp: 24.x
           - elixir: 1.15.x
             otp: 25.x
           - elixir: 1.15.x
             otp: 26.x
           - elixir: 1.16.x
+            otp: 24.x
+          - elixir: 1.16.x
             otp: 25.x
           - elixir: 1.16.x
             otp: 26.x
-          - elixir: 1.17.x
-            otp: 25.x
-          - elixir: 1.17.x
-            otp: 26.x
-          - elixir: 1.17.x
-            otp: 27.x
-          - elixir: 1.18.x
-            otp: 25.x
-          - elixir: 1.18.x
-            otp: 26.x
-          - elixir: 1.18.x
-            otp: 27.x
 
     services:
       db:
@@ -65,7 +61,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "18"
           cache: "npm"
           cache-dependency-path: assets/package-lock.json
       - uses: erlef/setup-beam@v1
