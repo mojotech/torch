@@ -1,3 +1,4 @@
+@use "sass:meta";
 //Override as required.
 $_fg_small: 768 !default; // up to "tablet" size
 $_fg_medium: 1024 !default; // up to "desktop" size
@@ -14,7 +15,7 @@ $_fg_large: 1280 !default; // up to bigger desktop size
     @media only screen and (min-width: $_fg_large*1px) { @content; }
   }
 
-  @else if type-of($_fg_media) == number {
+  @else if meta.type-of($_fg_media) == number {
     @media only screen and (min-width: $_fg_media*1px) { @content; }
   }
 }

@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../validators/is-color";
+
 @charset "UTF-8";
 
 /// Mixes a color with white.
@@ -23,10 +26,10 @@
   $color,
   $percent
 ) {
-  @if not _is-color($color) {
+  @if not is-color.is-color($color) {
     @error "`#{$color}` is not a valid color for the `$color` argument in " +
            "the `tint` mixin.";
   } @else {
-    @return mix(#fff, $color, $percent);
+    @return color.mix(#fff, $color, $percent);
   }
 }

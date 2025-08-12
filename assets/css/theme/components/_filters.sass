@@ -1,5 +1,13 @@
+@use "sass:color"
+@use "../../shared/settings/colors"
+@use "../_extends/typography"
+@use "../_extends/label"
+@use "../_extends/select-input"
+@use "../_extends/text-input"
+@use "../_extends/buttons"
+
 section#torch-filters
-  background-color: $alabaster-gray
+  background-color: colors.$alabaster-gray
   padding: 20px
 
   h3
@@ -9,7 +17,7 @@ section#torch-filters
   hr
     appearance: none
     border: none
-    border-bottom: 1px solid darken($gallery-gray, 10%)
+    border-bottom: 1px solid color.adjust(colors.$gallery-gray, $lightness: -10%)
     margin: 20px 0 10px
 
   .field
@@ -47,4 +55,4 @@ section#torch-filters
 
   a
     margin-left: 20px
-    color: $ir-red
+    color: colors.$ir-red

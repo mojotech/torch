@@ -1,3 +1,4 @@
+@use "sass:meta";
 @charset "UTF-8";
 
 /// Checks for a valid CSS color.
@@ -8,6 +9,6 @@
 ///
 /// @access private
 
-@function _is-color($color) {
-  @return (type-of($color) == color) or ($color == "currentColor");
+@function is-color($color) {
+  @return (meta.type-of($color) == color) or ($color == "currentColor");
 }

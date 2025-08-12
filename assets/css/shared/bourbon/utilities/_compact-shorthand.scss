@@ -1,3 +1,4 @@
+@use "sass:list";
 @charset "UTF-8";
 
 // scss-lint:disable ElsePlacement
@@ -17,13 +18,13 @@
 ///
 /// @access private
 
-@function _compact-shorthand($values) {
+@function compact-shorthand($values) {
   $output: null;
 
-  $a: nth($values, 1);
-  $b: if(length($values) < 2, $a, nth($values, 2));
-  $c: if(length($values) < 3, $a, nth($values, 3));
-  $d: if(length($values) < 2, $a, nth($values, if(length($values) < 4, 2, 4)));
+  $a: list.nth($values, 1);
+  $b: if(list.length($values) < 2, $a, list.nth($values, 2));
+  $c: if(list.length($values) < 3, $a, list.nth($values, 3));
+  $d: if(list.length($values) < 2, $a, list.nth($values, if(list.length($values) < 4, 2, 4)));
 
   @if $a == 0 { $a: 0; }
   @if $b == 0 { $b: 0; }

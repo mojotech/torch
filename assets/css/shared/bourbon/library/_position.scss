@@ -1,3 +1,7 @@
+@use "sass:list";
+@use "../utilities/unpack-shorthand";
+@use "../validators/is-length";
+
 @charset "UTF-8";
 
 /// Provides a concise, one-line method for setting an element’s positioning
@@ -44,18 +48,18 @@
   $position,
   $box-edge-values
 ) {
-  $box-edge-values: _unpack-shorthand($box-edge-values);
+  $box-edge-values: unpack-shorthand.unpack-shorthand($box-edge-values);
   $offsets: (
-    top:    nth($box-edge-values, 1),
-    right:  nth($box-edge-values, 2),
-    bottom: nth($box-edge-values, 3),
-    left:   nth($box-edge-values, 4),
+    top:    list.nth($box-edge-values, 1),
+    right:  list.nth($box-edge-values, 2),
+    bottom: list.nth($box-edge-values, 3),
+    left:   list.nth($box-edge-values, 4),
   );
 
   position: $position;
 
   @each $offset, $value in $offsets {
-    @if _is-length($value) {
+    @if is-length.is-length($value) {
       #{$offset}: $value;
     }
   }

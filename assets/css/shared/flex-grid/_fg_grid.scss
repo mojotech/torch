@@ -1,3 +1,5 @@
+@use "sass:list";
+@use "sass:meta";
 // Global variables:
 // Unitless, interpreted as pixels
 $_fg_gutter: 24 !default; // gutter between columns. Set as desired.
@@ -6,10 +8,10 @@ $_fg_padding: 12 !default; // padding for column boxes. Set as desired, can over
 
 // *** Main mixin to create a per-row layout *** //
 @mixin _fg($colList, $gutter: $_fg_gutter, $padding: $_fg_padding) {
-  @if type-of($colList) == number { // call _fg_grid() directly
+  @if meta.type-of($colList) == number { // call _fg_grid() directly
     @include _fg_grid($colList, $gutter, $padding);
 
-  } @else if type-of($colList) == list and length($colList) > 1 {
+  } @else if meta.type-of($colList) == list and list.length($colList) > 1 {
 
     // Count how many columns there are altogether
     $columnCount: 0;
@@ -19,9 +21,9 @@ $_fg_padding: 12 !default; // padding for column boxes. Set as desired, can over
 
     @include _fg_grid($columnCount, $gutter, $padding);
 
-    @for $i from 1 through length($colList) { // set child items widths using nth:child()
-      $c: nth($colList, $i);
-      & > :nth-child(#{length($colList)}n+#{$i}) {
+    @for $i from 1 through list.length($colList) { // set child items widths using nth:child()
+      $c: list.nth($colList, $i);
+      & > :nth-child(#{list.length($colList)}n+#{$i}) {
         @include _fg_width($c/$columnCount, $gutter);
       }
     }

@@ -1,3 +1,5 @@
+@use "sass:list";
+@use "sass:meta";
 @charset "UTF-8";
 
 /// Checks if a list contains a value(s).
@@ -12,12 +14,12 @@
 ///
 /// @access private
 
-@function _contains(
+@function contains(
   $list,
   $values...
 ) {
   @each $value in $values {
-    @if type-of(index($list, $value)) != "number" {
+    @if meta.type-of(list.index($list, $value)) != "number" {
       @return false;
     }
   }

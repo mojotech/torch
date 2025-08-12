@@ -1,3 +1,5 @@
+@use "lightness";
+
 @charset "UTF-8";
 
 /// Programatically determines the contrast ratio between two colors.
@@ -19,9 +21,9 @@
 ///
 /// @access private
 
-@function _contrast-ratio($color-1, $color-2) {
-  $-local-lightness-1: _lightness($color-1) + 0.05;
-  $-local-lightness-2: _lightness($color-2) + 0.05;
+@function contrast-ratio($color-1, $color-2) {
+  $-local-lightness-1: lightness.lightness($color-1) + 0.05;
+  $-local-lightness-2: lightness.lightness($color-2) + 0.05;
 
   @if $-local-lightness-1 > $-local-lightness-2 {
     @return $-local-lightness-1 / $-local-lightness-2;

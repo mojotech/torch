@@ -1,25 +1,27 @@
+@use "../../shared/settings/colors"
+
 section#torch-flash-messages
   margin-bottom: 20px
 
   .torch-flash
     padding: 8px
     text-align: center
-    color: $white
+    color: colors.$white
 
     &.error
-      background-color: $orange
+      background-color: colors.$orange
 
     &.info
-      background-color: $blue
+      background-color: colors.$blue
 
     &.success
-      background-color: $green
+      background-color: colors.$green
 
     .torch-flash-close
       appearance: none
       background-color: inherit
-      border: 1px solid $white
-      color: $white
+      border: 1px solid colors.$white
+      color: colors.$white
       border-radius: 50%
       width: 22px
       height: 22px

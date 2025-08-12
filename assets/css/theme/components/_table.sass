@@ -1,33 +1,38 @@
+@use "sass:color"
+@use "../../shared/settings/colors"
+@use "../../shared/settings/fonts"
+@use "../_extends/buttons"
+
 section#torch-table
   overflow-x: auto
 
   .torch-no-data
     text-transform: capitalize
-    color: $dark-gray
+    color: colors.$dark-gray
 
   table
-    color: $dark-gray
+    color: colors.$dark-gray
     font-size: 14px
-    font-family: $helvetica-neue
+    font-family: fonts.$helvetica-neue
     width: 100%
-    background-color: $white
+    background-color: colors.$white
 
     th
-      border-top: 1px solid $gallery-gray
-      border-bottom: 1px solid $gallery-gray
-      background-color: $alabaster-gray
+      border-top: 1px solid colors.$gallery-gray
+      border-bottom: 1px solid colors.$gallery-gray
+      background-color: colors.$alabaster-gray
       padding: 0
-      color: $dark-gray
+      color: colors.$dark-gray
       vertical-align: middle
 
       &:hover
-        background-color: darken($alabaster-gray, 15%)
+        background-color: color.adjust(colors.$alabaster-gray, $lightness: -15%)
 
       &:first-child
-        border-left: 1px solid $gallery-gray
+        border-left: 1px solid colors.$gallery-gray
 
       &:last-child
-        border-right: 1px solid $gallery-gray
+        border-right: 1px solid colors.$gallery-gray
 
       .caret
         border-left: 5px solid transparent
@@ -45,35 +50,35 @@ section#torch-table
       span:not(.caret)
         position: relative
         text-decoration: none
-        color: $dark-gray
+        color: colors.$dark-gray
         padding: 12px 10px
         display: block
 
       a.active.desc
         .caret
-          border-top: 5px solid $dark-gray
+          border-top: 5px solid colors.$dark-gray
 
       a.active.asc
         .caret
-          border-bottom: 5px solid $dark-gray
+          border-bottom: 5px solid colors.$dark-gray
 
     td
       overflow: hidden
       text-overflow: ellipsis
-      border-top: 1px solid $gallery-gray
-      border-bottom: 1px solid $gallery-gray
+      border-top: 1px solid colors.$gallery-gray
+      border-bottom: 1px solid colors.$gallery-gray
       vertical-align: middle
       padding: 15px 10px
       max-width: 300px
 
       &:first-child
-        border-left: 1px solid $gallery-gray
+        border-left: 1px solid colors.$gallery-gray
 
       &:last-child
-        border-right: 1px solid $gallery-gray
+        border-right: 1px solid colors.$gallery-gray
 
       a
-        color: $ir-red
+        color: colors.$ir-red
         text-decoration: none
 
       img

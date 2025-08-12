@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../utilities/fetch-bourbon-setting";
+
 @charset "UTF-8";
 
 /// Increments up or down a defined scale and returns an adjusted value. This
@@ -69,11 +72,11 @@
 
 @function modular-scale(
   $increment,
-  $value: _fetch-bourbon-setting("modular-scale-base"),
-  $ratio: _fetch-bourbon-setting("modular-scale-ratio")
+  $value: fetch-bourbon-setting.fetch-bourbon-setting("modular-scale-base"),
+  $ratio: fetch-bourbon-setting.fetch-bourbon-setting("modular-scale-ratio")
 ) {
-  $v1: nth($value, 1);
-  $v2: nth($value, length($value));
+  $v1: list.nth($value, 1);
+  $v2: list.nth($value, list.length($value));
   $value: $v1;
 
   // scale $v2 to just above $v1
