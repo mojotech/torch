@@ -5,8 +5,10 @@
 
 # Torch
 
-> This version of Torch (5.x) only supports Phoenix 1.7 and above and is not fully backwards-compatible with
+> This version of Torch (6.x) only supports Phoenix 1.7+ and OTP 25+ and is not fully backwards-compatible with
 > previous versions of Torch.  See [UPGRADING](./UPGRADING.md) for more details.
+
+> See [v5.0](https://github.com/mojotech/torch/tree/v4) if you need support for Phoenix 1.7 and OTP 24
 
 > See [v4.0](https://github.com/mojotech/torch/tree/v4) if you need support for Phoenix 1.6
 
@@ -21,8 +23,8 @@ on the Phoenix HTML generator under the hood.
 ## Requirements
 
 * [Phoenix Framework 1.7+](https://hex.pm/packages/phoenix)
-* [Elixir 1.14+](https://elixir-lang.org/install.html)
-* [OTP 24+](https://www.erlang.org/downloads)
+* [Elixir 1.15+](https://elixir-lang.org/install.html)
+* [OTP 25+](https://www.erlang.org/downloads)
 
 ## Upgrading
 
@@ -37,7 +39,7 @@ To install Torch, perform the following steps:
 ```elixir
 def deps do
   [
-    {:torch, "~> 5.5"}
+    {:torch, "~> 6.0"}
   ]
 end
 ```
@@ -273,7 +275,7 @@ config :torch,
 
 ## Getting Started
 
-Torch currently uses Node 18 to build its assets.
+Torch currently uses Node 22 to build its assets.
 
 ### Building the Torch asset bundles
 
