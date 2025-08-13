@@ -19,4 +19,11 @@ else
             exit 1
         }
     }
+
+    cd "$TEST_ROOT/support/apps/phx1_8" && {
+        bin/test || {
+            echo 'Integration tests on regular Phoenix 1.8 project failed!'
+            exit 1
+        }
+    }
 fi
