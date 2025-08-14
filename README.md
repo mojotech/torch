@@ -60,8 +60,7 @@ plug(
 3. Configure Torch by adding the following to your `config.exs`.
 
 ```elixir
-config :torch,
-  otp_app: :my_app_name
+config :torch, otp_app: :my_app_name
 ```
 
 4. Run `mix torch.install`
