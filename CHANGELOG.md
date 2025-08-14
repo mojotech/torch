@@ -1,5 +1,22 @@
 # Changelog
 
+## [v6.0.0](https://github.com/mojotech/torch/tree/v6.0.0) (2025-08-14)
+
+[Full Changelog](https://github.com/mojotech/torch/compare/v5.6.0...v6.0.0)
+
+**Closed issues:**
+
+- Research & Prep Torch for Phoenix 1.8 release [\#522](https://github.com/mojotech/torch/issues/522)
+- Dependency on phoenix\_ecto [\#475](https://github.com/mojotech/torch/issues/475)
+
+**Merged pull requests:**
+
+- Torch v6 updates for Phoenix 1.8 release [\#528](https://github.com/mojotech/torch/pull/528) ([cpjolicoeur](https://github.com/cpjolicoeur))
+- Bump phoenix\_live\_view from 1.0.17 to 1.1.3 [\#527](https://github.com/mojotech/torch/pull/527) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump phoenix from 1.7.21 to 1.8.0 [\#526](https://github.com/mojotech/torch/pull/526) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 4 to 5 [\#525](https://github.com/mojotech/torch/pull/525) ([dependabot[bot]](https://github.com/apps/dependabot))
+- \[tests\] Basic unit test coverage for Torch.Component [\#510](https://github.com/mojotech/torch/pull/510) ([diogenes](https://github.com/diogenes))
+
 ## [v5.6.0](https://github.com/mojotech/torch/tree/v5.6.0) (2025-07-07)
 
 [Full Changelog](https://github.com/mojotech/torch/compare/v5.5.0...v5.6.0)
