@@ -46,6 +46,7 @@ defmodule Torch.MixProject do
       {:phoenix_live_view, "~> 1.1"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_html_helpers, "~> 1.0"},
+      {:phoenix_ecto, "~> 4.6"},
       {:lazy_html, ">= 0.0.0", only: :test},
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, "~> 3.0"},
