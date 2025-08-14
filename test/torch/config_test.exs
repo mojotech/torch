@@ -66,4 +66,3 @@ defmodule Torch.ConfigTest do
     end
   end
 end
-

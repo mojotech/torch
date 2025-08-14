@@ -77,7 +77,7 @@ defmodule Torch.ComponentTest do
 
       assert html =~ ~s(<span class="invalid-feedback">can&#39;t be blank</span>)
     end
-    
+
     test "renders a string input type" do
       html =
         render_component(fn assigns ->
@@ -89,7 +89,7 @@ defmodule Torch.ComponentTest do
       assert html =~ ~s(<input type="text" name="username" id="username" value="test_user")
       assert html =~ ~s(<label for="username">\n  Username\n</label>)
     end
-    
+
     test "renders a number input type" do
       html =
         render_component(fn assigns ->
@@ -101,7 +101,7 @@ defmodule Torch.ComponentTest do
       assert html =~ ~s(<input type="number" name="age" id="age" value="25")
       assert html =~ ~s(<label for="age">\n  Age\n</label>)
     end
-    
+
     test "renders a date input type" do
       html =
         render_component(fn assigns ->
@@ -113,7 +113,7 @@ defmodule Torch.ComponentTest do
       assert html =~ ~s(<input type="date" name="birthday" id="birthday" value="2023-01-01")
       assert html =~ ~s(<label for="birthday">\n  Birthday\n</label>)
     end
-    
+
     test "renders with custom id" do
       html =
         render_component(fn assigns ->
@@ -124,7 +124,7 @@ defmodule Torch.ComponentTest do
 
       assert html =~ ~s(<input type="text" name="username" id="custom-id" value="test_user")
     end
-    
+
     test "renders with form field" do
       form_data = %{
         "user" => %{
@@ -132,10 +132,10 @@ defmodule Torch.ComponentTest do
           "email" => "john@example.com"
         }
       }
-      
+
       form = Phoenix.Component.to_form(form_data, as: :user)
       field = Phoenix.HTML.FormField.to_form_field(form, :name)
-      
+
       html =
         render_component(
           fn assigns ->
@@ -151,17 +151,17 @@ defmodule Torch.ComponentTest do
       assert html =~ ~s(<input type="text" name="user[name]" id="user_name" value="John Doe")
       assert html =~ ~s(<label for="user_name">\n  Name\n</label>)
     end
-    
+
     test "renders with form field and multiple flag" do
       form_data = %{
         "user" => %{
           "roles" => ["admin", "editor"]
         }
       }
-      
+
       form = Phoenix.Component.to_form(form_data, as: :user)
       field = Phoenix.HTML.FormField.to_form_field(form, :roles)
-      
+
       html =
         render_component(
           fn assigns ->
@@ -225,7 +225,7 @@ defmodule Torch.ComponentTest do
       assert html =~ ~s(<p class="torch-flash info">Information message)
       assert html =~ ~s(<p class="torch-flash error">Error message)
     end
-    
+
     test "renders empty flash messages" do
       html =
         render_component(
@@ -256,7 +256,7 @@ defmodule Torch.ComponentTest do
 
       assert html =~ ~s(<p class="torch-flash info">This is a flash message.)
     end
-    
+
     test "renders a flash message with close button" do
       html =
         render_component(fn assigns ->
@@ -288,7 +288,7 @@ defmodule Torch.ComponentTest do
       translated = Component.translate_errors(errors, :username)
       assert translated == ["can't be blank"]
     end
-    
+
     test "returns empty list when field has no errors" do
       errors = [username: {"can't be blank", []}, email: {"is invalid", []}]
       translated = Component.translate_errors(errors, :password)
