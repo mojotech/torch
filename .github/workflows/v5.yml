@@ -58,7 +58,7 @@ jobs:
       ImageOS: ubuntu24 # run on ubuntu-20.04 (which supports Erlang/OTP 24.3-27)
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: "18"
