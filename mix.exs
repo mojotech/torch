@@ -50,7 +50,7 @@ defmodule Torch.MixProject do
       {:lazy_html, ">= 0.0.0", only: :test},
       {:gettext, "~> 0.16"},
       {:scrivener_ecto, "~> 3.0"},
-      {:filtrex, "~> 0.4.1"},
+      {:filtrex, "~> 0.5.0"},
       {:jason, "~> 1.2", only: [:dev, :test]},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       {:credo, "~> 1.1", only: [:dev, :test]},
